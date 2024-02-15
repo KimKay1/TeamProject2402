@@ -610,7 +610,7 @@ a:hover {
 }
 .bg-movie-pattern {
 /* Transparent background with icons */
-  background-image: url("../images/parts/movie-pattern.png");
+  background-image: url("../../images/parts/movie-pattern.png");
   background-repeat: repeat;
 }
 /* Text colors */
@@ -696,7 +696,7 @@ a:hover {
   max-width: 720px;
 }
 .section-head {
-  background-image: url("../images/svg/tape-pattern.svg");
+  background-image: url("../../images/svg/tape-pattern.svg");
   -webkit-background-size: 1.5rem auto;
   -moz-background-size: 1.5rem auto;
   background-size: 1.5rem auto;
@@ -1978,7 +1978,7 @@ textarea.form-control {
   align-items: stretch;
 }
 .tape-dots {
-  background-image: url("../images/parts/white-square.png");
+  background-image: url("../../images/parts/white-square.png");
   background-repeat: repeat-y;
   -webkit-background-size: 1em 1em;
   -moz-background-size: 1em 1em;
