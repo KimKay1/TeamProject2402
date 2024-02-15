@@ -51,7 +51,7 @@
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="homepage-1.html">Homepage 1</a>
+                                <a class="nav-link" href="homepage-1.jsp">Homepage 1</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="homepage-2.html">Homepage 2</a>
@@ -69,12 +69,12 @@
                                 <a class="nav-link" href="#" data-role="nav-toggler">Movies</a>
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                                 <ul class="collapse nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="movies-blocks.html">Blocks - No Sidebar</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="movies-blocks-sidebar-right.html">Blocks - Sidebar right</a>
-                                    </li>
+<%--                                    <li class="nav-item">--%>
+<%--                                        <a class="nav-link" href="movies-blocks.html">Blocks - No Sidebar</a>--%>
+<%--                                    </li>--%>
+<%--                                    <li class="nav-item">--%>
+<%--                                        <a class="nav-link" href="movies-blocks-sidebar-right.html">Blocks - Sidebar right</a>--%>
+<%--                                    </li>--%>
                                     <li class="nav-item">
                                         <a class="nav-link" href="movies-posters.html">Posters - No Sidebar</a>
                                     </li>
