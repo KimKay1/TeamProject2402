@@ -8,27 +8,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Memico - Cinema Bootstrap HTML5 Template</title>
     <!-- Bootstrap -->
-    <link href="./template/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../template/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Animate.css -->
-    <link href="./template/animate.css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="../template/animate.css/animate.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome iconic font -->
-    <link href="./template/fontawesome/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
+    <link href="../template/fontawesome/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
     <!-- Magnific Popup -->
-    <link href="./template/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+    <link href="../template/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
     <!-- Slick carousel -->
-    <link href="./template/slick/slick.css" rel="stylesheet" type="text/css" />
+    <link href="../template/slick/slick.css" rel="stylesheet" type="text/css" />
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Oswald:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
     <!-- Theme styles -->
-    <link href="./template/css/dot-icons.css" rel="stylesheet" type="text/css">
-    <link href="./template/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="../template/css/dot-icons.css" rel="stylesheet" type="text/css">
+    <link href="../template/css/theme.css" rel="stylesheet" type="text/css">
 </head>
 <body class="body">
 <header class="header header-horizontal header-view-pannel">
     <div class="container">
         <nav class="navbar">
-            <a class="navbar-brand" href="./">
+            <a class="navbar-brand" href="../WEB-INF">
                         <span class="logo-element">
                             <span class="logo-tape">
                                 <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -51,7 +51,7 @@
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="homepage-1.html">Homepage 1</a>
+                                <a class="nav-link" href="homepage-1.jsp">Homepage 1</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="homepage-2.html">Homepage 2</a>
@@ -69,12 +69,12 @@
                                 <a class="nav-link" href="#" data-role="nav-toggler">Movies</a>
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                                 <ul class="collapse nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="movies-blocks.html">Blocks - No Sidebar</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="movies-blocks-sidebar-right.html">Blocks - Sidebar right</a>
-                                    </li>
+<%--                                    <li class="nav-item">--%>
+<%--                                        <a class="nav-link" href="movies-blocks.html">Blocks - No Sidebar</a>--%>
+<%--                                    </li>--%>
+<%--                                    <li class="nav-item">--%>
+<%--                                        <a class="nav-link" href="movies-blocks-sidebar-right.html">Blocks - Sidebar right</a>--%>
+<%--                                    </li>--%>
                                     <li class="nav-item">
                                         <a class="nav-link" href="movies-posters.html">Posters - No Sidebar</a>
                                     </li>
@@ -152,11 +152,11 @@
     <div class="d-background bg-black-80"></div>
     <div class="top-block top-inner container">
         <div class="top-block-content">
-            <h1 class="section-title">Movies info</h1>
+            <h1 class="section-title">Article</h1>
             <div class="page-breadcrumbs">
                 <a class="content-link" href="#">Home</a>
                 <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
-                <a class="content-link" href="movies-blocks.html">Movies</a>
+                <span>News</span>
             </div>
         </div>
     </div>
@@ -164,76 +164,30 @@
 <div class="container">
     <div class="sidebar-container">
         <div class="content">
-            <section class="section-long">
+            <section class="section-long section-spaced">
                 <div class="section-line">
-                    <div class="movie-info-entity">
-                        <div class="entity-poster" data-role="hover-wrap">
-                            <div class="embed-responsive embed-responsive-poster">
-                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                    <article class="article-tape-entity">
+                        <div class="entity-preview">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                             </div>
-                            <div class="d-over bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                <div class="entity-play">
-                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                        <span class="icon-content"><i class="fas fa-play"></i></span>
-                                    </a>
+                            <div class="entity-date">
+                                <div class="tape-block tape-horizontal tape-single bg-theme text-white">
+                                    <div class="tape-dots"></div>
+                                    <div class="tape-content m-auto">20 jul 2019</div>
+                                    <div class="tape-dots"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="entity-content">
-                            <h2 class="entity-title">Blick</h2>
+                            <h2 class="entity-title">Creative life</h2>
                             <div class="entity-category">
-                                <a class="content-link" href="movies-blocks.html">comedy</a>,
-                                <a class="content-link" href="movies-blocks.html">detective</a>
+                                <a class="content-link" href="news-blocks-sidebar-right.html">comedy</a>,
+                                <a class="content-link" href="news-blocks-sidebar-right.html">detective</a>,
+                                <a class="content-link" href="news-blocks-sidebar-right.html">sci-fi</a>
                             </div>
-                            <div class="entity-info">
-                                <div class="info-lines">
-                                    <div class="info info-short">
-                                        <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                                        <span class="info-text">8,7</span>
-                                        <span class="info-rest">/10</span>
-                                    </div>
-                                    <div class="info info-short">
-                                        <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                                        <span class="info-text">130</span>
-                                        <span class="info-rest">&nbsp;min</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="entity-list">
-                                <li>
-                                    <span class="entity-list-title">Release:</span>July 21, 2014 (Dolby Theatre), August 1, 2014 (United States)</li>
-                                <li>
-                                    <span class="entity-list-title">Directed:</span>
-                                    <a class="content-link" href="#">Lindson Wardens</a>,
-                                    <a class="content-link" href="#">Anabelle One</a>
-                                </li>
-                                <li>
-                                    <span class="entity-list-title">Starring:</span>
-                                    <a class="content-link" href="#">Octopus Wardens</a>,
-                                    <a class="content-link" href="#">Quanta Wardens</a>,
-                                    <a class="content-link" href="#">Anabelle Two</a>,
-                                    <a class="content-link" href="#">Anabelle Three</a>
-                                </li>
-                                <li>
-                                    <span class="entity-list-title">Production company:</span>
-                                    <a class="content-link" href="#">Re-Production Bro.</a>,
-                                    <a class="content-link" href="#">Pentakid</a>
-                                </li>
-                                <li>
-                                    <span class="entity-list-title">Country:</span>
-                                    <a class="content-link" href="#">USA</a>,
-                                    <a class="content-link" href="#">India</a>
-                                </li>
-                                <li>
-                                    <span class="entity-list-title">Language:</span>english</li>
-                            </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="section-line">
-                    <div class="section-head">
-                        <h2 class="section-title text-uppercase">Synopsis</h2>
-                    </div>
+                    </article>
                     <div class="section-description">
                         <p class="lead">Lead text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                         <h6 class="text-dark">Why do we use it?</h6>
@@ -263,136 +217,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="section-line">
-                    <div class="section-head">
-                        <h2 class="section-title text-uppercase">Photos & videos</h2>
-                    </div>
-                    <div class="grid row">
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                <span class="icon-content"><i class="fas fa-search"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">Work hard image</h4>
-                                    <p class="entity-subtext">12 may 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="bg-theme-lighted d-over collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                                <span class="icon-content"><i class="fas fa-play"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">May video review</h4>
-                                    <p class="entity-subtext">11 may 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                <span class="icon-content"><i class="fas fa-search"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">Virtual image title</h4>
-                                    <p class="entity-subtext">31 february 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                <span class="icon-content"><i class="fas fa-search"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">Lost image title</h4>
-                                    <p class="entity-subtext">30 february 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                <span class="icon-content"><i class="fas fa-search"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">My image title</h4>
-                                    <p class="entity-subtext">21 january 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="bg-theme-lighted d-over collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                                <span class="icon-content"><i class="fas fa-play"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">Movie trailer</h4>
-                                    <p class="entity-subtext">12 january 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="section-bottom">
-                        <a class="btn btn-theme" href="gallery.html">View All</a>
                     </div>
                 </div>
                 <div class="section-line">
@@ -577,45 +401,45 @@
         <div class="sidebar section-long order-lg-last">
             <section class="section-sidebar">
                 <div class="section-head">
-                    <h2 class="section-title text-uppercase">Latest movies</h2>
+                    <h2 class="section-title text-uppercase">Latest articles</h2>
                 </div>
-                <div class="movie-short-line-entity">
-                    <a class="entity-preview" href="movie-info-sidebar-right.html">
+                <div class="article-short-line-entity">
+                    <a class="entity-preview" href="article-sidebar-right.html">
                                 <span class="embed-responsive embed-responsive-16by9">
-                                    <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
+                                    <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="movie-info-sidebar-right.html">Deadman skull</a>
+                            <a class="content-link" href="article-sidebar-right.html">Creative life</a>
                         </h4>
-                        <p class="entity-subtext">11 nov 2018</p>
+                        <p class="entity-subtext">20 jul 2019</p>
                     </div>
                 </div>
-                <div class="movie-short-line-entity">
-                    <a class="entity-preview" href="movie-info-sidebar-right.html">
+                <div class="article-short-line-entity">
+                    <a class="entity-preview" href="article-sidebar-right.html">
                                 <span class="embed-responsive embed-responsive-16by9">
-                                    <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
+                                    <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="movie-info-sidebar-right.html">Dream forest</a>
+                            <a class="content-link" href="article-sidebar-right.html">One step to the end</a>
                         </h4>
-                        <p class="entity-subtext">29 oct 2018</p>
+                        <p class="entity-subtext">15 jun 2019</p>
                     </div>
                 </div>
-                <div class="movie-short-line-entity">
-                    <a class="entity-preview" href="movie-info-sidebar-right.html">
+                <div class="article-short-line-entity">
+                    <a class="entity-preview" href="article-sidebar-right.html">
                                 <span class="embed-responsive embed-responsive-16by9">
-                                    <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
+                                    <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="movie-info-sidebar-right.html">Fall</a>
+                            <a class="content-link" href="article-sidebar-right.html">Here we go again</a>
                         </h4>
-                        <p class="entity-subtext">29 oct 2018</p>
+                        <p class="entity-subtext">24 may 2019</p>
                     </div>
                 </div>
             </section>
@@ -651,7 +475,7 @@
     <div class="footer-body container">
         <div class="row">
             <div class="col-sm-6 col-lg-3">
-                <a class="footer-logo" href="./">
+                <a class="footer-logo" href="../WEB-INF">
                             <span class="logo-element">
                                 <span class="logo-tape">
                                     <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -760,19 +584,19 @@
     </div>
 </footer>
 <!-- jQuery library -->
-<script src="./template/js/jquery-3.3.1.js"></script>
+<script src="../template/js/jquery-3.3.1.js"></script>
 <!-- Bootstrap -->
-<script src="./template/bootstrap/js/bootstrap.js"></script>
+<script src="../template/bootstrap/js/bootstrap.js"></script>
 <!-- Paralax.js -->
-<script src="./template/parallax.js/parallax.js"></script>
+<script src="../template/parallax.js/parallax.js"></script>
 <!-- Waypoints -->
-<script src="./template/waypoints/jquery.waypoints.min.js"></script>
+<script src="../template/waypoints/jquery.waypoints.min.js"></script>
 <!-- Slick carousel -->
-<script src="./template/slick/slick.min.js"></script>
+<script src="../template/slick/slick.min.js"></script>
 <!-- Magnific Popup -->
-<script src="./template/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="../template/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Inits product scripts -->
-<script src="./template/js/script.js"></script>
+<script src="../template/js/script.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ4Qy67ZAILavdLyYV2ZwlShd0VAqzRXA&callback=initMap"></script>
 <script async defer src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js"></script>
 </body>

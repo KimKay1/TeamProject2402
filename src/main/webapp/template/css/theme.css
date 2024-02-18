@@ -358,7 +358,7 @@ a:hover {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
@@ -416,7 +416,7 @@ a:hover {
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: box;
+    /*display: box;*/
     display: flex;
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
@@ -447,7 +447,7 @@ a:hover {
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: box;
+    /*display: box;*/
     display: flex;
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
@@ -478,7 +478,7 @@ a:hover {
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: box;
+    /*display: box;*/
     display: flex;
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
@@ -509,7 +509,7 @@ a:hover {
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: box;
+    /*display: box;*/
     display: flex;
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
@@ -546,31 +546,31 @@ a:hover {
 }
 /* Background colors and gradients */
 .bg-gradient-black {
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.8) 0%, #000 100%) !important;
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.8) 0%, #000 100%) !important;
-  background-image: -o-linear-gradient(top, rgba(0,0,0,0.8) 0%, #000 100%) !important;
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.8) 0%, #000 100%) !important;
+  background-image: -webkit-linear-gradient(to top, rgba(0,0,0,0.8) 0%, #000 100%) !important; /*css 수정*/
+  background-image: -moz-linear-gradient(to top, rgba(0,0,0,0.8) 0%, #000 100%) !important; /*css 수정*/
+  background-image: -o-linear-gradient(to top, rgba(0,0,0,0.8) 0%, #000 100%) !important; /*css 수정*/
+  background-image: -ms-linear-gradient(to top, rgba(0,0,0,0.8) 0%, #000 100%) !important; /*css 수정*/
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, #000 100%) !important;
 }
 .bg-gradient-black-reverse {
-  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.8) 0%, #000 100%) !important;
-  background-image: -moz-linear-gradient(bottom, rgba(0,0,0,0.8) 0%, #000 100%) !important;
-  background-image: -o-linear-gradient(bottom, rgba(0,0,0,0.8) 0%, #000 100%) !important;
-  background-image: -ms-linear-gradient(bottom, rgba(0,0,0,0.8) 0%, #000 100%) !important;
+  background-image: -webkit-linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, #000 100%) !important; /*css 수정*/
+  background-image: -moz-linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, #000 100%) !important; /*css 수정*/
+  background-image: -o-linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, #000 100%) !important; /*css 수정*/
+  background-image: -ms-linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, #000 100%) !important; /*css 수정*/
   background-image: linear-gradient(to top, rgba(0,0,0,0.8) 0%, #000 100%) !important;
 }
 .bg-gradient-black-bottom {
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important;
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important;
-  background-image: -o-linear-gradient(top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important;
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important;
+  background-image: -webkit-linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important; /*css 수정*/
+  background-image: -moz-linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important; /*css 수정*/
+  background-image: -o-linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important; /*css 수정*/
+  background-image: -ms-linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important; /*css 수정*/
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important;
 }
 .bg-highlight-bottom {
-  background-image: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important;
-  background-image: -moz-linear-gradient(top, transparent 0%, transparent 50%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important;
-  background-image: -o-linear-gradient(top, transparent 0%, transparent 50%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important;
-  background-image: -ms-linear-gradient(top, transparent 0%, transparent 50%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important;
+  background-image: -webkit-linear-gradient(to top, transparent 0%, transparent 50%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important; /*css 수정*/
+  background-image: -moz-linear-gradient(to top, transparent 0%, transparent 50%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important; /*css 수정*/
+  background-image: -o-linear-gradient(to top, transparent 0%, transparent 50%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important; /*css 수정*/
+  background-image: -ms-linear-gradient(to top, transparent 0%, transparent 50%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important; /*css 수정*/
   background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%) !important;
 }
 .bg-black-80 {
@@ -593,10 +593,10 @@ a:hover {
 }
 .bg-theme-blacked {
   background: rgba(255,138,0,0.7);
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.85), rgba(0,0,0,0.85)) !important;
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.85), rgba(0,0,0,0.85)) !important;
-  background-image: -o-linear-gradient(top, rgba(0,0,0,0.85), rgba(0,0,0,0.85)) !important;
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.85), rgba(0,0,0,0.85)) !important;
+  background-image: -webkit-linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.85)) !important; /*css 수정*/
+  background-image: -moz-linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.85)) !important; /*css 수정*/
+  background-image: -o-linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.85)) !important; /*css 수정*/
+  background-image: -ms-linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.85)) !important; /*css 수정*/
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.85)) !important;
 }
 .bg-theme-lighted {
@@ -610,7 +610,7 @@ a:hover {
 }
 .bg-movie-pattern {
 /* Transparent background with icons */
-  background-image: url("../../images/parts/movie-pattern.png");
+  background-image: url("../images/parts/movie-pattern.png");
   background-repeat: repeat;
 }
 /* Text colors */
@@ -678,7 +678,7 @@ a:hover {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   min-height: 3rem;
   -webkit-box-pack: center;
@@ -696,7 +696,7 @@ a:hover {
   max-width: 720px;
 }
 .section-head {
-  background-image: url("../../images/svg/tape-pattern.svg");
+  background-image: url("../images/svg/tape-pattern.svg");
   -webkit-background-size: 1.5rem auto;
   -moz-background-size: 1.5rem auto;
   background-size: 1.5rem auto;
@@ -866,7 +866,7 @@ textarea.form-control {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-direction: reverse;
   -moz-box-direction: reverse;
@@ -961,7 +961,7 @@ textarea.form-control {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -1051,10 +1051,12 @@ textarea.form-control {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
 }
-.input-view-flat .form-check-input:[type="radio"] ~ .form-check-icon,
-.input-view-flat .form-check-input:[type="radio"] ~ .form-check-icon:after {
-  border-radius: 50%;
-}
+
+/*css 오류*/
+/*.input-view-flat .form-check-input:[type="radio"] ~ .form-check-icon,*/
+/*.input-view-flat .form-check-input:[type="radio"] ~ .form-check-icon:after {*/
+/*  border-radius: 50%;*/
+/*}*/
 .input-view-flat .form-check-input:not([disabled]):not([readonly]):hover ~ .form-check-icon,
 .input-view-flat .form-check-input:not([disabled]):not([readonly]) ~ .form-check-icon:hover {
   background-color: #666;
@@ -1285,7 +1287,7 @@ textarea.form-control {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-lines: multiple;
   -moz-box-lines: multiple;
@@ -1313,7 +1315,7 @@ textarea.form-control {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   margin: 0 -0.5rem;
 }
@@ -1338,7 +1340,7 @@ textarea.form-control {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
 }
 .info-row .info-title {
@@ -1389,7 +1391,7 @@ textarea.form-control {
 }
 .logo-text > span {
   display: inline-block;
-  color: #fff;
+  color: black;
   width: 1.5349em;
   margin-right: 0.075em;
   text-align: center;
@@ -1429,7 +1431,7 @@ textarea.form-control {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   padding: 0;
   -webkit-box-align: center;
@@ -1516,7 +1518,7 @@ textarea.form-control {
     -moz-box-align: start;
     -o-box-align: start;
     -ms-flex-align: start;
-    -webkit-align-items: start;
+    -webkit-align-items: flex-start; /*오류 수정*/
     align-items: start;
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
@@ -1599,7 +1601,7 @@ textarea.form-control {
     display: -moz-box !important;
     display: -webkit-flex !important;
     display: -ms-flexbox !important;
-    display: box !important;
+    /*display: box !important;*/
     display: flex !important;
     -webkit-flex-basis: auto;
     flex-basis: auto;
@@ -1780,7 +1782,7 @@ textarea.form-control {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   padding: 0;
   -webkit-box-align: center;
@@ -1836,7 +1838,7 @@ textarea.form-control {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
@@ -1922,7 +1924,7 @@ textarea.form-control {
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: box;
+    /*display: box;*/
     display: flex;
     margin-left: -1rem;
     margin-right: -1rem;
@@ -1968,7 +1970,7 @@ textarea.form-control {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-align: stretch;
   -moz-box-align: stretch;
@@ -1978,7 +1980,7 @@ textarea.form-control {
   align-items: stretch;
 }
 .tape-dots {
-  background-image: url("../../images/parts/white-square.png");
+  background-image: url("../images/parts/white-square.png"); /*css 수정*/
   background-repeat: repeat-y;
   -webkit-background-size: 1em 1em;
   -moz-background-size: 1em 1em;
@@ -2092,7 +2094,7 @@ textarea.form-control {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-lines: multiple;
   -moz-box-lines: multiple;
@@ -2354,11 +2356,11 @@ a .action-icon-darken:focus {
     [19. Breadcrumbs]
 */
 .page-breadcrumbs {
-  display: -webkit-inline-box;
+  /*display: -webkit-inline-box;*/
   display: -moz-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
-  display: inline-box;
+  /*display: inline-box;*/
   display: inline-flex;
   -webkit-box-lines: multiple;
   -moz-box-lines: multiple;
@@ -2374,11 +2376,11 @@ a .action-icon-darken:focus {
     [20. Paginator]
 */
 .paginator {
-  display: -webkit-inline-box;
+  /*display: -webkit-inline-box;*/
   display: -moz-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
-  display: inline-box;
+  /*display: inline-box;*/
   display: inline-flex;
   -webkit-box-lines: multiple;
   -moz-box-lines: multiple;
@@ -2535,7 +2537,7 @@ a.paginator-item:hover {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   margin-left: -0.125rem;
   margin-right: -0.125rem;
@@ -2558,7 +2560,7 @@ a.paginator-item:hover {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
@@ -2627,7 +2629,7 @@ a.paginator-item:hover {
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: box;
+    /*display: box;*/
     display: flex;
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
@@ -2750,7 +2752,7 @@ a.paginator-item:hover {
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: box;
+    /*display: box;*/
     display: flex;
   }
   .movie-tape-playlist .slick-view-vertical .slick-track {
@@ -2817,7 +2819,7 @@ a.paginator-item:hover {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
@@ -2842,7 +2844,7 @@ a.paginator-item:hover {
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: box;
+    /*display: box;*/
     display: flex;
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
@@ -2933,7 +2935,7 @@ a.paginator-item:hover {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
@@ -2984,7 +2986,7 @@ a.paginator-item:hover {
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: box;
+    /*display: box;*/
     display: flex;
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
@@ -3106,7 +3108,7 @@ a.paginator-item:hover {
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: box;
+    /*display: box;*/
     display: flex;
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
@@ -3146,7 +3148,7 @@ a.paginator-item:hover {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
@@ -3242,7 +3244,7 @@ a.paginator-item:hover {
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: box;
+  /*display: box;*/
   display: flex;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;

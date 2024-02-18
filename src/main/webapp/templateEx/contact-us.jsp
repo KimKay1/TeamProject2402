@@ -8,27 +8,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>Memico - Cinema Bootstrap HTML5 Template</title>
   <!-- Bootstrap -->
-  <link href="./template/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link href="../template/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
   <!-- Animate.css -->
-  <link href="./template/animate.css/animate.css" rel="stylesheet" type="text/css" />
+  <link href="../template/animate.css/animate.css" rel="stylesheet" type="text/css" />
   <!-- Font Awesome iconic font -->
-  <link href="./template/fontawesome/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
+  <link href="../template/fontawesome/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
   <!-- Magnific Popup -->
-  <link href="./template/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+  <link href="../template/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
   <!-- Slick carousel -->
-  <link href="./template/slick/slick.css" rel="stylesheet" type="text/css" />
+  <link href="../template/slick/slick.css" rel="stylesheet" type="text/css" />
   <!-- Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Oswald:300,400,500,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
   <!-- Theme styles -->
-  <link href="./template/css/dot-icons.css" rel="stylesheet" type="text/css">
-  <link href="./template/css/theme.css" rel="stylesheet" type="text/css">
+  <link href="../template/css/dot-icons.css" rel="stylesheet" type="text/css">
+  <link href="../template/css/theme.css" rel="stylesheet" type="text/css">
 </head>
 <body class="body">
 <header class="header header-horizontal header-view-pannel">
   <div class="container">
     <nav class="navbar">
-      <a class="navbar-brand" href="./">
+      <a class="navbar-brand" href="..">
                         <span class="logo-element">
                             <span class="logo-tape">
                                 <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -152,11 +152,50 @@
   <div class="d-background bg-black-80"></div>
   <div class="top-block top-inner container">
     <div class="top-block-content">
-      <h1 class="section-title">Gallery</h1>
+      <h1 class="section-title">Contact us</h1>
       <div class="page-breadcrumbs">
         <a class="content-link" href="#">Home</a>
         <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
-        <span>Gallery</span>
+        <span>Contact us</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="gmap-with-map">
+    <div class="gmap" data-lat="-33.878897" data-lng="151.103737"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 ml-lg-auto">
+          <div class="gmap-form bg-white">
+            <h4 class="form-title text-uppercase">Contact
+              <span class="text-theme">us</span>
+            </h4>
+            <p class="form-text">We understand your requirement and provide quality works</p>
+            <form autocomplete="off">
+              <div class="row form-grid">
+                <div class="col-sm-6">
+                  <div class="input-view-flat input-group">
+                    <input class="form-control" name="name" type="text" placeholder="Name" />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="input-view-flat input-group">
+                    <input class="form-control" name="email" type="email" placeholder="Email" />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="input-view-flat input-group">
+                    <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="px-5 btn btn-theme" type="submit">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -164,171 +203,28 @@
 <section class="section-long">
   <div class="container">
     <div class="grid row">
-      <div class="col-sm-6 col-lg-4">
-        <div class="gallery-entity">
-          <div class="entity-preview" data-role="hover-wrap">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-            </div>
-            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-              <div class="entity-view-popup">
-                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                  <span class="icon-content"><i class="fas fa-search"></i></span>
-                </a>
-              </div>
-              <h4 class="entity-title">The image title</h4>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-6">
+        <h4 class="entity-title">Address</h4>
+        <p class="entity-text">Sidestate NSW 4132, Sidney, Australia
+          <br/> 2200-2214 S Washtenaw Ave, Chicago, USA</p>
       </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="gallery-entity">
-          <div class="entity-preview" data-role="hover-wrap">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-            </div>
-            <div class="bg-theme-lighted d-over collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-              <div class="entity-view-popup">
-                <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                  <span class="icon-content"><i class="fas fa-play"></i></span>
-                </a>
-              </div>
-              <h4 class="entity-title">The video title</h4>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-6">
+        <h4 class="entity-title">Phone</h4>
+        <p class="entity-text">(+88) 018 4113 6251, (+43) 018 4111 7255
+          <br/>(+50) 118 4341 5251, (+08) 123 567 7255</p>
       </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="gallery-entity">
-          <div class="entity-preview" data-role="hover-wrap">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-            </div>
-            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-              <div class="entity-view-popup">
-                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                  <span class="icon-content"><i class="fas fa-search"></i></span>
-                </a>
-              </div>
-              <h4 class="entity-title">The image title</h4>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-6">
+        <h4 class="entity-title">Email</h4>
+        <p class="entity-text">info@memico.net
+          <br/>service@memico.net</p>
       </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="gallery-entity">
-          <div class="entity-preview" data-role="hover-wrap">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-            </div>
-            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-              <div class="entity-view-popup">
-                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                  <span class="icon-content"><i class="fas fa-search"></i></span>
-                </a>
-              </div>
-              <h4 class="entity-title">The image title</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="gallery-entity">
-          <div class="entity-preview" data-role="hover-wrap">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-            </div>
-            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-              <div class="entity-view-popup">
-                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                  <span class="icon-content"><i class="fas fa-search"></i></span>
-                </a>
-              </div>
-              <h4 class="entity-title">The image title</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="gallery-entity">
-          <div class="entity-preview" data-role="hover-wrap">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-            </div>
-            <div class="bg-theme-lighted d-over collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-              <div class="entity-view-popup">
-                <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                  <span class="icon-content"><i class="fas fa-play"></i></span>
-                </a>
-              </div>
-              <h4 class="entity-title">The video title</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="gallery-entity">
-          <div class="entity-preview" data-role="hover-wrap">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-            </div>
-            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-              <div class="entity-view-popup">
-                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                  <span class="icon-content"><i class="fas fa-search"></i></span>
-                </a>
-              </div>
-              <h4 class="entity-title">The image title</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="gallery-entity">
-          <div class="entity-preview" data-role="hover-wrap">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-            </div>
-            <div class="bg-theme-lighted d-over collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-              <div class="entity-view-popup">
-                <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                  <span class="icon-content"><i class="fas fa-play"></i></span>
-                </a>
-              </div>
-              <h4 class="entity-title">The video title</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="gallery-entity">
-          <div class="entity-preview" data-role="hover-wrap">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-            </div>
-            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-              <div class="entity-view-popup">
-                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                  <span class="icon-content"><i class="fas fa-search"></i></span>
-                </a>
-              </div>
-              <h4 class="entity-title">The image title</h4>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-6">
+        <h4 class="entity-title">Fax</h4>
+        <p class="entity-text">(+88) 018 4113 6251, (+43) 018 4111 7255
+          <br/>(+50) 118 4341 5251, (+08) 123 567 7255</p>
       </div>
     </div>
-    <div class="section-bottom">
-      <div class="paginator">
-        <a class="paginator-item" href="#"><i class="fas fa-chevron-left"></i></a>
-        <a class="paginator-item" href="#">1</a>
-        <span class="active paginator-item">2</span>
-        <a class="paginator-item" href="#">3</a>
-        <span class="paginator-item">...</span>
-        <a class="paginator-item" href="#">10</a>
-        <a class="paginator-item" href="#"><i class="fas fa-chevron-right"></i></a>
-      </div>
-    </div>
+    <p class="text-muted mt-5">If you have any questions or suggestions, we are always happy to hear from you. Contact us convenient for you.</p>
   </div>
 </section>
 <a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
@@ -336,7 +232,7 @@
   <div class="footer-body container">
     <div class="row">
       <div class="col-sm-6 col-lg-3">
-        <a class="footer-logo" href="./">
+        <a class="footer-logo" href="..">
                             <span class="logo-element">
                                 <span class="logo-tape">
                                     <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -445,19 +341,19 @@
   </div>
 </footer>
 <!-- jQuery library -->
-<script src="./template/js/jquery-3.3.1.js"></script>
+<script src="../template/js/jquery-3.3.1.js"></script>
 <!-- Bootstrap -->
-<script src="./template/bootstrap/js/bootstrap.js"></script>
+<script src="../template/bootstrap/js/bootstrap.js"></script>
 <!-- Paralax.js -->
-<script src="./template/parallax.js/parallax.js"></script>
+<script src="../template/parallax.js/parallax.js"></script>
 <!-- Waypoints -->
-<script src="./template/waypoints/jquery.waypoints.min.js"></script>
+<script src="../template/waypoints/jquery.waypoints.min.js"></script>
 <!-- Slick carousel -->
-<script src="./template/slick/slick.min.js"></script>
+<script src="../template/slick/slick.min.js"></script>
 <!-- Magnific Popup -->
-<script src="./template/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="../template/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Inits product scripts -->
-<script src="./template/js/script.js"></script>
+<script src="../template/js/script.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ4Qy67ZAILavdLyYV2ZwlShd0VAqzRXA&callback=initMap"></script>
 <script async defer src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js"></script>
 </body>
