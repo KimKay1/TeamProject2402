@@ -96,7 +96,17 @@
                     </li>
                 </ul>
                 <div class="navbar-extra">
+                    <%
+                        if(session.getAttribute("UserId") == null){
+                    %>
                     <a class="btn-theme btn" href="temp/Login.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Login</a>
+                    <%
+                    } else {
+                    %>
+                    <a class="btn-theme btn" href="temp/Logout.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Logout</a>
+                    <%
+                        }
+                    %>
                 </div>
             </div>
         </nav>

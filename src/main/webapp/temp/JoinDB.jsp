@@ -32,7 +32,6 @@
 
         // 리다이렉트
         response.sendRedirect("./Login.jsp");
-//        response.sendRedirect("./Login2.jsp");
 
     %>
 
