@@ -78,6 +78,10 @@
 </head>
 <body>
 
+<span style="color: red; font-size: 1.2em">
+        <%= request.getAttribute("HelloMsg") == null ?"": request.getAttribute("HelloMsg")%>
+</span>
+
 <div id="loginpage1"> <!--class="form-control"는 부트스트랩 사용-->
   <form action="index.html" onsubmit="return userSubmit();"> <!--action="index.html" method="POST" 영역은 지움-->
     <input type="text" id="inputUsername1" class="form-control" placeholder="Username (admin)" required>

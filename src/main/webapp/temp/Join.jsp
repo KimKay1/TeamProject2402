@@ -70,6 +70,8 @@
 </head>
 <body>
 
+
+
 <div id="joinpage1"> <!-- class="form-control"는 부트스트랩 사용-->
     <form action="./JoinDB.jsp" onsubmit="return userSubmit();" method="POST">
         <input type="text" name="id" id="inputUserid1" class="form-control" placeholder="아이디" required>

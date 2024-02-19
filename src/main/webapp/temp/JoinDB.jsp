@@ -15,7 +15,7 @@
         String name = request.getParameter("name");
 
         //쿼리문 생성
-        String sql = "INSERT INTO scott.member_jsp (ID,PASS, NAME, REGIDATE) VALUES(?,?,?,sysdate)";
+        String sql = "INSERT INTO scott.member_teampro (ID,PASS, NAME, REGIDATE) VALUES(?,?,?,sysdate)";
         PreparedStatement psmt = jdbc.con.prepareStatement(sql);
 
         psmt.setString(1, id);
@@ -23,11 +23,14 @@
         psmt.setString(3, name);
 
         int intResult = psmt.executeUpdate();
-        out.println(intResult + "행이 입력되었습니다.");
 
         // 연결 종료
         jdbc.close();
+
+        // 리다이렉트
+        response.sendRedirect("./Login2.jsp");
+
     %>
-    <a href="../index.jsp">홈으로 돌아가기</a>
+
 </body>
 </html>
