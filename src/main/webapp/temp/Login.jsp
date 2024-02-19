@@ -75,13 +75,15 @@
 </head>
 <body>
 
-<span style="color: red; font-size: 1.2em">
+<div style="text-align: center">
+<span style="color: brown; font-size: 1.2em">
         <%= request.getAttribute("HelloMsg") == null ?"": request.getAttribute("HelloMsg")%>
 </span>
 
-<span style="color: red; font-size: 1.2em">
+<span style="color: brown; font-size: 1.2em">
         <%= request.getAttribute("LoginErrMsg") == null ?"": request.getAttribute("LoginErrMsg")%>
 </span>
+</div>
 
 <%
   if(session.getAttribute("UserId") == null){

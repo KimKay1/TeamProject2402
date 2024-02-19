@@ -27,8 +27,12 @@
         // 연결 종료
         jdbc.close();
 
+        request.setAttribute("HelloMsg", "회원가입이 완료되었습니다.");
+        request.getRequestDispatcher("Login.jsp").forward(request,response);
+
         // 리다이렉트
-        response.sendRedirect("./Login2.jsp");
+        response.sendRedirect("./Login.jsp");
+//        response.sendRedirect("./Login2.jsp");
 
     %>
 
