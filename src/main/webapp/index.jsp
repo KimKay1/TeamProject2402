@@ -78,7 +78,7 @@
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.jsp">Review</a>
+                                <a class="nav-link" href="../Review/ReviewList.do">Review</a>
                             </li>
                             <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
                                 <a class="nav-link" href="#" data-role="nav-toggler">User pages</a>
