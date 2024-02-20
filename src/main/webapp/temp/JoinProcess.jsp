@@ -1,4 +1,3 @@
-<%@ page import="com.common.JDBCConnect" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="com.membership.MemberDTO" %>
 <%@ page import="com.membership.MemberDAO" %>
@@ -10,7 +9,6 @@
 </head>
 <body>
     <%
-        JDBCConnect jdbc = new JDBCConnect();
 
         String id = request.getParameter("id");
         String pass = request.getParameter("pass");
@@ -18,28 +16,27 @@
 
         // 중복 아이디 검사
         MemberDAO dao = new MemberDAO();
-        MemberDTO memberDTO = dao.getMemberDTO(id, pass);
-        dao.close();
-        if(id.equals(memberDTO.getId())){ // 아이디 중복인 경우
+        MemberDTO dto = dao.getMemberDTO(id, pass);
+
+        if(id.equals(dto.getId())){ // 아이디 중복인 경우
 
             JSFunction.alertBack("중복된 아이디 입니다.", out);
+
+            dao.close();
 
 //            request.setAttribute("JoinerrMsg", "중복된 아이디 입니다.");
 //            request.getRequestDispatcher("Join.jsp").forward(request,response);
 
         } else { // 새로운 아이디인 경우 DB에 저장
 
-            String sql = "INSERT INTO haha.member_teampro (ID,PASS, NAME, REGIDATE) VALUES(?,?,?,sysdate)";
-            PreparedStatement psmt = jdbc.con.prepareStatement(sql);
-
-            psmt.setString(1, id);
-            psmt.setString(2, pass);
-            psmt.setString(3, name);
-
-            int intResult = psmt.executeUpdate();
+            dto = new MemberDTO();
+            dto.setId(id);
+            dto.setPass(pass);
+            dto.setName(name);
+            int iResult = dao.insertMember(dto);
 
             // 연결 종료
-            jdbc.close();
+            dao.close();
 
             request.setAttribute("HelloMsg", "회원가입이 완료되었습니다.");
             request.getRequestDispatcher("Login.jsp").forward(request, response);

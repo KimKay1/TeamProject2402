@@ -8,7 +8,6 @@ public class MemberDTO {
     private String pass;
     private String name;
     private Date regidate;
-    private String usernum;
 
     public MemberDTO() {
     }
@@ -43,13 +42,5 @@ public class MemberDTO {
 
     public void setRegidate(Date regidate) {
         this.regidate = regidate;
-    }
-
-    public String getUsernum() {
-        return usernum;
-    }
-
-    public void setUsernum(String usernum) {
-        this.usernum = usernum;
     }
 }
