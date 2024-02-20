@@ -23,13 +23,12 @@ public class MemberDAO extends DBConnPool {
             psmt.setString(2,upass);
             rs = psmt.executeQuery();
 
-            /*연결되는 페이지가 없어서 일단 삭제*/
-            /*연결되는 페이지가 없어서 일단 삭제*/
-            /*연결되는 페이지가 없어서 일단 삭제*/
-            /*연결되는 페이지가 없어서 일단 삭제*/
-            /*연결되는 페이지가 없어서 일단 삭제*/
-
-
+            while(rs.next()) {
+                dto.setId(rs.getString("id"));
+                dto.setPass(rs.getString("pass"));
+                dto.setName(rs.getString("name"));
+                dto.setRegidate(rs.getString("regidate"));
+            }
         }catch (Exception e){
             e.printStackTrace();
         }

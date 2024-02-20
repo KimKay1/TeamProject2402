@@ -45,16 +45,13 @@
   </style>
   <script>
 
-    //아이디, 비밀번호
-    const user1 = "admin";
-    const password1 = "pass";
-    function userSubmit() {
-      var wuser = document.getElementById("inputUsername1").value;
-      var wpassword = document.getElementById("inputPassword1").value;
-      if((user1==wuser) && password1==wpassword){
-        alert("로그인 되었습니다.");
-      } else {
-        alert("아이디 혹은 비밀번호를 확인해주세요.");
+    /*유효성 검사*/
+    function validateForm(form) {
+      if (!form.user_id.value) {
+        alert("아이디를 입력하세요");
+        return false;
+      } else if (!form.user_pwd.value) {
+        alert("패스워드를 입력하세요");
         return false;
       }
     }
@@ -78,14 +75,36 @@
 </head>
 <body>
 
-<span style="color: red; font-size: 1.2em">
+<div style="text-align: center">
+<span style="color: brown; font-size: 1.2em">
         <%= request.getAttribute("HelloMsg") == null ?"": request.getAttribute("HelloMsg")%>
 </span>
 
-<div id="loginpage1"> <!--class="form-control"는 부트스트랩 사용-->
-  <form action="index.html" onsubmit="return userSubmit();"> <!--action="index.html" method="POST" 영역은 지움-->
-    <input type="text" id="inputUsername1" class="form-control" placeholder="Username (admin)" required>
-    <input type="password" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password (pass)" required>
+<span style="color: brown; font-size: 1.2em">
+        <%= request.getAttribute("LoginErrMsg") == null ?"": request.getAttribute("LoginErrMsg")%>
+</span>
+</div>
+
+<%
+  if(session.getAttribute("UserId") == null){
+%>
+<script>
+  /*유효성 검사*/
+  function validateForm(form) {
+    if (!form.user_id.value) {
+      alert("아이디를 입력하세요");
+      return false;
+    } else if (!form.user_pwd.value) {
+      alert("패스워드를 입력하세요");
+      return false;
+    }
+  }
+</script>
+
+<div id="loginpage1">
+  <form action="LoginProcess.jsp" method="post" name="loginFrm" onsubmit="return validateForm(this)">
+    <input type="text" name="user_id" id="inputUsername1" class="form-control" placeholder="Username (admin)" required>
+    <input type="password" name="user_pwd" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password (pass)" required>
     <input type="submit" id="inputloginsubmit" class="form-control" value="로그인">
   </form>
 </div>
@@ -96,7 +115,11 @@
   |
   <input type="button" class="button_join" value="회원가입" onclick="join1()">
 </nav>
-
+<%
+} else {
+  response.sendRedirect("../index.jsp");
+  }
+%>
 
 </body>
 </html>
