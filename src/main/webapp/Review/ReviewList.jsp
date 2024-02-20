@@ -58,7 +58,7 @@
           </td>
             <%--제목--%>
           <td align="left">
-            <a href="../review_board/view.do?idx=${row.idx}">${row.title}</a>
+            <a href="../review/view.do?idx=${row.idx}">${row.title}</a>
           </td>
             <%-- 작성자 --%>
           <td>${row.id}</td>
@@ -75,10 +75,10 @@
 <table border="1" width="90%">
   <tr align="center">
     <td>
-      ${map.paingImg}
+      ${map.pageImg}
     </td>
     <td width="100">
-      <button type = "button" onclick="location.href='../review/write.do';">글쓰기</button>
+      <button type = "button" onclick="location.href='../Review/ReviewWrite.do';">글쓰기</button>
     </td>
   </tr>
 </table>

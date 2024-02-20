@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ReviewController extends HttpServlet {
+public class ReviewListController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,8 +39,9 @@ public class ReviewController extends HttpServlet {
 
         //전체 페이지 수 계산
         int pageSize = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
-        int blockPage = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
-        int totalPage = (int) Math.ceil((double) totalCount / pageSize);
+        int blockPage = Integer.parseInt(application.getInitParameter("PAGES_PER_BLOCK"));
+
+
 
         //현제 페이지 확인
         int pageNum = 1;
@@ -50,8 +51,8 @@ public class ReviewController extends HttpServlet {
         }
 
         //목록에 출력할 게시물 범위 계산
-        int start = (pageNum - 1) * pageSize + 1;
-        int end = pageNum * pageSize;
+        int start = (pageNum - 1) * pageSize + 1; // 첫 게시물 번호
+        int end = pageNum * pageSize;              // 마지막 게시물 번호
         map.put("start", start);
         map.put("end", end);
 
@@ -61,7 +62,7 @@ public class ReviewController extends HttpServlet {
         dao.close();
 
         // 뷰에 전달할 매개변수 추가
-        String pagingImg = BoardPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../ReView/reviewlist.do");
+        String pagingImg = BoardPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../Review/ReviewList.do");
         // 바로가기 영역 HTML
         map.put("pageImg", pagingImg);
         map.put("totalCount", totalCount);
