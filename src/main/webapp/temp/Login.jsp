@@ -55,16 +55,16 @@
 
   <script>
 
-    /*유효성 검사*/
-    function validateForm(form) {
-      if (!form.user_id.value) {
-        alert("아이디를 입력하세요");
-        return false;
-      } else if (!form.user_pwd.value) {
-        alert("패스워드를 입력하세요");
-        return false;
-      }
-    }
+    // /*유효성 검사*/
+    // function validateForm(form) {
+    //   if (!form.user_id.value) {
+    //     alert("아이디를 입력하세요");
+    //     return false;
+    //   } else if (!form.user_pwd.value) {
+    //     alert("패스워드를 입력하세요");
+    //     return false;
+    //   }
+    // }
 
     $(document).ready(function(){
       $(".hlogo").click(function(){
@@ -115,8 +115,8 @@
 
 <div id="loginpage1">
   <form action="LoginProcess.jsp" method="post" name="loginFrm" onsubmit="return validateForm(this)">
-    <input type="text" name="user_id" id="inputUsername1" class="form-control" placeholder="Username (admin)" required>
-    <input type="password" name="user_pwd" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password (pass)" required>
+    <input type="text" name="user_id" id="inputUsername1" class="form-control" placeholder="Username" value="<%=loginId%>" required>
+    <input type="password" name="user_pwd" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password" required>
     <input type="submit" id="inputloginsubmit" class="form-control" value="로그인">
     <div><input type="checkbox" name="save_check" value="Y" <%=cookieCheck%>>아이디 기억하기</div>
   </form>

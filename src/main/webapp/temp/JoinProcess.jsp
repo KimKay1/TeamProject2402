@@ -2,6 +2,7 @@
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="com.membership.MemberDTO" %>
 <%@ page import="com.membership.MemberDAO" %>
+<%@ page import="com.util.JSFunction" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,9 +20,12 @@
         MemberDAO dao = new MemberDAO();
         MemberDTO memberDTO = dao.getMemberDTO(id, pass);
         dao.close();
-        if(id.equals(memberDTO.getId())){
-            request.setAttribute("JoinerrMsg", "중복된 아이디 입니다.");
-            request.getRequestDispatcher("Join.jsp").forward(request,response);
+        if(id.equals(memberDTO.getId())){ // 아이디 중복인 경우
+
+            JSFunction.alertBack("중복된 아이디 입니다.", out);
+
+//            request.setAttribute("JoinerrMsg", "중복된 아이디 입니다.");
+//            request.getRequestDispatcher("Join.jsp").forward(request,response);
 
         } else { // 새로운 아이디인 경우 DB에 저장
 
