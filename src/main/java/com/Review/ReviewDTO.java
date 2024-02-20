@@ -3,9 +3,7 @@ package com.Review;
 import java.sql.Date;
 
 public class ReviewDTO {
-    public String getIdx() {
-        return idx;
-    }
+    public String getIdx() { return idx; }
 
     public void setIdx(String idx) {
         this.idx = idx;

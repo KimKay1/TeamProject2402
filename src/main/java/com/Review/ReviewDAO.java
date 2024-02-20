@@ -41,6 +41,7 @@ public class ReviewDAO extends DBConnPool { //커넥션 풀 상속
         String query = "SELECT * FROM ("
                 + " SELECT Tb.*, ROWNUM rNum FROM ("
                 + " SELECT * FROM haha.REVIEW_BOARD";
+
         if(map.get("searchWord") != null){
             query += " WHERE "  + map.get("searchField") + " "
                     +" LIKE '%" + map.get("searchWord") + "%'";
@@ -75,6 +76,27 @@ public class ReviewDAO extends DBConnPool { //커넥션 풀 상속
             System.out.println("selectList 오류발생");
         }
         return bbs;
+    }
+
+    public int insertWrite(ReviewDTO dto) {
+        int result = 0;
+        try {
+            String query = "INSERT INTO haha.REVIEW_BOARD ("
+                    + " idx, title, content, ID) "
+                    + " VALUES ( "
+                    + " haha.SEQ_REVIEW_LIST.NEXTVAL,?,?,?)";
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, dto.getTitle());
+            psmt.setString(2, dto.getContent());
+            psmt.setString(3, dto.getId());
+
+            result = psmt.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println("게시물 입력 중 예외 발생");
+            e.printStackTrace();
+        }
+        return result;
     }
 
 }
