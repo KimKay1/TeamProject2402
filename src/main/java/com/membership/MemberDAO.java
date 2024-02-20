@@ -56,7 +56,6 @@ public class MemberDAO extends DBConnPool {
         return result;
     }
 
-
     // 개인정보 불러오기
     public MemberDTO selectMyPage(String id){
         MemberDTO dto = new MemberDTO();
