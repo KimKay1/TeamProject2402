@@ -15,7 +15,7 @@ public class MemberDAO extends DBConnPool {
     public MemberDTO getMemberDTO(String uid, String upass){
         MemberDTO dto = new MemberDTO();
         /*컨트롤 쉬프트 유 - 대소문자 변환*/
-        String sql = "SELECT * FROM scott.member_teampro WHERE id = ? AND pass = ?";
+        String sql = "SELECT * FROM haha.member_teampro WHERE id = ? AND pass = ?";
 
         try {
             psmt = con.prepareStatement(sql);
@@ -27,12 +27,57 @@ public class MemberDAO extends DBConnPool {
                 dto.setId(rs.getString("id"));
                 dto.setPass(rs.getString("pass"));
                 dto.setName(rs.getString("name"));
-                dto.setRegidate(rs.getString("regidate"));
+                dto.setRegidate(rs.getDate("regidate"));
+                dto.setUsernum(rs.getString("usernum"));
             }
         }catch (Exception e){
             e.printStackTrace();
         }
 
         return dto;
+    }
+
+    // 개인정보 불러오기
+    public MemberDTO selectMyPage(String id){
+        MemberDTO dto = new MemberDTO();
+        try {
+            String query = "SELECT id, pass, name, regidate FROM haha.member_teampro WHERE id = ?";
+            psmt = con.prepareStatement(query);
+            psmt.setString(1,id);
+            rs = psmt.executeQuery();
+
+            if(rs.next()){
+                dto.setId(rs.getString("id"));
+                dto.setPass(rs.getString("pass"));
+                dto.setName(rs.getString("name"));
+                dto.setRegidate(rs.getDate("regidat"));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("selectMyPage 오류 발생");
+        }
+        return dto;
+    }
+
+    // 개인정보 수정
+    public int updateMyPage(MemberDTO dto){
+        int result = 0;
+
+        String query = "UPDATE haha.member_teampro"
+                + " SET pass = ? , name = ?"
+                + " WHERE id = ?";
+
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1,dto.getPass());
+            psmt.setString(2, dto.getName());
+
+            result = psmt.executeUpdate();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("updateMyPage 오류 발생");
+        }
+        return result;
     }
 }

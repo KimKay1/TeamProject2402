@@ -84,12 +84,28 @@
                                 <a class="nav-link" href="#" data-role="nav-toggler">User pages</a>
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                                 <ul class="collapse nav">
+                                    <%--로그인 상태일 때--%>
+                                    <%
+                                        if(session.getAttribute("UserId") != null){
+                                    %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="sign-in.html">Sign in</a>
+                                        <a class="nav-link" href="./temp/MyPage.jsp">My page</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="sign-up.html">Sign up</a>
+                                        <a class="nav-link" href="#">Ex</a>
                                     </li>
+                                    <%
+                                    } else {
+                                    %>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./temp/LoginPlz.jsp">My page</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./temp/LoginPlz.jsp">Ex</a>
+                                    </li>
+                                    <%
+                                        }
+                                    %>
                                 </ul>
                             </li>
                         </ul>

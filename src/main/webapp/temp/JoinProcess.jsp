@@ -29,7 +29,7 @@
 
         } else { // 새로운 아이디인 경우 DB에 저장
 
-            String sql = "INSERT INTO scott.member_teampro (ID,PASS, NAME, REGIDATE) VALUES(?,?,?,sysdate)";
+            String sql = "INSERT INTO haha.member_teampro (ID,PASS, NAME, REGIDATE) VALUES(?,?,?,sysdate)";
             PreparedStatement psmt = jdbc.con.prepareStatement(sql);
 
             psmt.setString(1, id);

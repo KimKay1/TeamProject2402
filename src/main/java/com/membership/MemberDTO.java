@@ -1,11 +1,14 @@
 package com.membership;
 
+import java.util.Date;
+
 public class MemberDTO {
 
     private String id;
     private String pass;
     private String name;
-    private String regidate;
+    private Date regidate;
+    private String usernum;
 
     public MemberDTO() {
     }
@@ -34,12 +37,19 @@ public class MemberDTO {
         this.name = name;
     }
 
-    public String getRegidate() {
+    public Date getRegidate() {
         return regidate;
     }
 
-    public void setRegidate(String regidate) {
+    public void setRegidate(Date regidate) {
         this.regidate = regidate;
     }
 
+    public String getUsernum() {
+        return usernum;
+    }
+
+    public void setUsernum(String usernum) {
+        this.usernum = usernum;
+    }
 }
