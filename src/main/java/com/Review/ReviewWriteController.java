@@ -2,12 +2,15 @@ package com.Review;
 
 import com.util.JSFunction;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+@WebServlet("/Review/ReviewWrite.do")
 public class ReviewWriteController extends HttpServlet {
 
     @Override
@@ -19,11 +22,19 @@ public class ReviewWriteController extends HttpServlet {
     @Override
     protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws SecurityException, IOException, ServletException {
 
+        HttpSession session = req.getSession();
+
         ReviewDTO dto = new ReviewDTO();
         dto.setIdx(req.getParameter("idx"));
         dto.setTitle(req.getParameter("title"));
         dto.setContent(req.getParameter("content"));
-        dto.setId(req.getParameter("id"));
+        dto.setId(session.getAttribute("UserId").toString());
+
+        System.out.println("입력 확인");
+        System.out.println("title : " + req.getParameter("title"));
+        System.out.println("content : " + req.getParameter("content"));
+        System.out.println("Userid : " + session.getAttribute("UserId"));
+
 
         // DAO를 통해 DB 저장
         ReviewDAO dao = new ReviewDAO();

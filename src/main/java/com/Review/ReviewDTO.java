@@ -1,5 +1,7 @@
 package com.Review;
 
+import jakarta.annotation.Nullable;
+
 import java.sql.Date;
 
 public class ReviewDTO {

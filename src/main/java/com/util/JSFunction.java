@@ -60,4 +60,5 @@ public class JSFunction {
         } catch (Exception e) {
         }
     }
+
 }

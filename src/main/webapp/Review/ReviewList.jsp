@@ -58,7 +58,7 @@
           </td>
             <%--제목--%>
           <td align="left">
-            <a href="../review/view.do?idx=${row.idx}">${row.title}</a>
+            <a href="../Review/ReviewView.do?idx=${row.idx}">${row.title}</a>
           </td>
             <%-- 작성자 --%>
           <td>${row.id}</td>

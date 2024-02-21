@@ -13,12 +13,12 @@ public class ReviewDAO extends DBConnPool { //커넥션 풀 상속
     public int selectCount(Map< String, Object > map) {
         int totalCount = 0;
 
-        String query = "select count(*) from HAHA.review_board";
+        String query = "select count(*) from scott.review_BOARD";
         if(map.get("searchWords") != null) {
             query += " WHERE "+ map.get("searchField") + " "
                     + " Like '%" + map.get("searchWords") + "%'";
         }
-        // SELECT COUNT(*) FROM haha.review_board_jsp
+        // SELECT COUNT(*) FROM scott.review_board_jsp
         // WHERE title '%검색어%';
 
         try {
@@ -40,7 +40,7 @@ public class ReviewDAO extends DBConnPool { //커넥션 풀 상속
         //쿼리문 작성
         String query = "SELECT * FROM ("
                 + " SELECT Tb.*, ROWNUM rNum FROM ("
-                + " SELECT * FROM haha.REVIEW_BOARD";
+                + " SELECT * FROM scott.review_BOARD";
 
         if(map.get("searchWord") != null){
             query += " WHERE "  + map.get("searchField") + " "
@@ -81,10 +81,10 @@ public class ReviewDAO extends DBConnPool { //커넥션 풀 상속
     public int insertWrite(ReviewDTO dto) {
         int result = 0;
         try {
-            String query = "INSERT INTO haha.REVIEW_BOARD ("
-                    + " idx, title, content, ID) "
+            String query = "INSERT INTO scott.review_BOARD ("
+                    + " idx, title, content, id, VISITCOUNT) "
                     + " VALUES ( "
-                    + " haha.SEQ_REVIEW_LIST.NEXTVAL,?,?,?)";
+                    + " SCOTT.SEQ_REVIEW_NUM.NEXTVAL,?,?,?, 0)";
             psmt = con.prepareStatement(query);
             psmt.setString(1, dto.getTitle());
             psmt.setString(2, dto.getContent());
@@ -97,6 +97,47 @@ public class ReviewDAO extends DBConnPool { //커넥션 풀 상속
             e.printStackTrace();
         }
         return result;
+    }
+
+    //파라메터 idx 값에 따라 게시물 가져오기
+    public ReviewDTO selectView(String idx) {
+        ReviewDTO dto = new ReviewDTO();
+
+        String query = "SELECT * FROM scott.review_BOARD WHERE idx=?";
+
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, idx);
+            rs = psmt.executeQuery();
+
+            if (rs.next()) {
+                dto.setIdx(rs.getString("idx"));
+                dto.setTitle(rs.getString("title"));
+                dto.setContent(rs.getString("content"));
+                dto.setPostdate(rs.getDate("postdate"));
+                dto.setVisitcount(rs.getInt("visitcount"));
+            }
+
+        } catch (Exception e) {
+            System.out.println("selectView 오류 발생");
+            e.printStackTrace();
+        }
+        return dto;
+    }
+
+    public void updateVisitCount (String idx) {
+        String query = "UPDATE scott.review_BOARD SET "
+                + " visitcount = visitcount + 1 "
+                + " WHERE idx = ? ";
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, idx);
+            psmt.executeQuery();
+
+        } catch (Exception e) {
+            System.out.println("updateVisitCount 오류 발생");
+            e.printStackTrace();
+        }
     }
 
 }

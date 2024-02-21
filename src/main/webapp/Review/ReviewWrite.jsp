@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java"
          pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ include file="ReviewLogin.jsp"%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -22,12 +23,9 @@
 </head>
 <body>
 <h2>파일 첨부형 게시판 - 글쓰기</h2>
-<form name="writeFrm" method="post" enctype="multipart/form-data" action="../Review/ReviewWrite.do" onsubmit="return validateForm(this)">
+<form name="writeFrm" method="post" enctype="application/x-www-form-urlencoded" action="../Review/ReviewWrite.do" onsubmit="return validateForm(this)">
+
     <table border="1" width="90%">
-        <tr>
-            <td>아이디</td>
-            <td>${dto.id}</td>
-        </tr>
         <tr>
             <td>제목</td>
             <td><input type="text" name="title" style="width: 90%"/></td>

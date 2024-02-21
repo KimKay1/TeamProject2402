@@ -22,3 +22,8 @@ CREATE SEQUENCE seq_teampro_num
     nomaxvalue -- 최대값 무한대
 	nocycle -- 순환 안함
 	nocache; -- 캐시 안함
+
+/*멤버 테이블 ID 컬럼에 기본키 추가*/
+ALTER TABLE MEMBER_TEAMPRO
+    ADD CONSTRAINT PK_MEMBER_TEAMPRO PRIMARY KEY (ID);
+
