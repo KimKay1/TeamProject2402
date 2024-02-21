@@ -88,8 +88,9 @@ public class MemberDAO extends DBConnPool {
 
         try {
             psmt = con.prepareStatement(query);
-            psmt.setString(1,dto.getPass());
+            psmt.setString(1, dto.getPass());
             psmt.setString(2, dto.getName());
+            psmt.setString(3, dto.getId());
 
             result = psmt.executeUpdate();
 

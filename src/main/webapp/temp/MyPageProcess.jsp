@@ -4,12 +4,14 @@
 <%@ include file="LoginPlz.jsp"%>
 
 <%
-    String MyId = request.getParameter("id");
-    String MyPass = request.getParameter("pass");
-    String MyName = request.getParameter("name");
+    String id = (String) session.getAttribute("UserId");
+    String pass = request.getParameter("pass");
+    String name = request.getParameter("name");
 
     MemberDTO dto = new MemberDTO();
-    dto.setName(MyName);
+    dto.setPass(pass);
+    dto.setName(name);
+    dto.setId(id);
 
     MemberDAO dao = new MemberDAO();
     int affected = dao.updateMyPage(dto);
@@ -17,7 +19,7 @@
     dao.close();
 
     if(affected == 1){   // 성공
-        response.sendRedirect("View.jsp?Id=" + dto.getId());
+        JSFunction.alertBack("수정 성공", out);
     }else { // 실패
         JSFunction.alertBack("수정 실패", out);
     }
