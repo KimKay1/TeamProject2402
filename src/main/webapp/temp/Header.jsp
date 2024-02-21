@@ -87,7 +87,7 @@
                                         if(session.getAttribute("UserId") != null){ //로그인 상태일때 마이페이지 진입 가능
                                     %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../temp/MyPage.jsp">My page</a>
+                                        <a class="nav-link" href="../member/MyPage.do">My page</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Ex</a>
@@ -113,7 +113,7 @@
                     <%
                         if(session.getAttribute("UserId") == null){
                     %>
-                    <a class="btn-theme btn" href="../temp/Login.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Login</a>
+                    <a class="btn-theme btn" href="../member/Login.do"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Login</a>
                     <%
                     } else {
                     %>

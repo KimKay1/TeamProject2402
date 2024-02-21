@@ -3,14 +3,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="./LoginPlz.jsp"%>
 
-<%
-    String id = (String) session.getAttribute("UserId");
+<%--<%--%>
+<%--    String id = (String) session.getAttribute("UserId");--%>
 
-    MemberDAO dao = new MemberDAO();
-    MemberDTO dto = dao.selectMyPage(id);
+<%--    MemberDAO dao = new MemberDAO();--%>
+<%--    MemberDTO dto = dao.selectMyPage(id);--%>
 
-    dao.close();
-%>
+<%--    dao.close();--%>
+<%--%>--%>
 
 <html>
 <head>
@@ -30,12 +30,12 @@
 <body>
 
 <jsp:include page="../temp/Header.jsp"></jsp:include>
-<form name="mypageFrm" method="post" action="MyPageProcess.jsp" onsubmit="return userSubmit();">
+<form name="mypageFrm" method="post" action="../member/MyPage.do" onsubmit="return userSubmit();">
 
     <table border="1" width="90%">
         <tr>
             <td>아이디</td>
-            <td><%=dto.getId()%></td>
+            <td>${id}</td>
         </tr>
         <tr>
             <td>비밀번호</td>
@@ -47,11 +47,11 @@
         </tr>
         <tr>
             <td>닉네임</td>
-            <td><input type="text" name="name" style="width: 90%" value="<%=dto.getName()%>" required/></td>
+            <td><input type="text" name="name" style="width: 90%" value="${name}" required/></td>
         </tr>
         <tr>
             <td>가입날짜</td>
-            <td><%=dto.getRegidate()%></td>
+            <td>${regidate}</td>
         </tr>
         <tr>
             <td></td>

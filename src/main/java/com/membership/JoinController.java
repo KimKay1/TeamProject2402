@@ -26,7 +26,7 @@ public class JoinController extends HttpServlet {
 
         // 중복 아이디 검사
         MemberDAO dao = new MemberDAO();
-        MemberDTO dto = dao.getMemberDTO(id, pass);
+        MemberDTO dto = dao.getMemberIdDTO(id);
 
         if(id.equals(dto.getId())){ // 아이디 중복인 경우
 
@@ -49,8 +49,8 @@ public class JoinController extends HttpServlet {
             req.setAttribute("HelloMsg", "회원가입이 완료되었습니다.");
             req.getRequestDispatcher("../temp/Login.jsp").forward(req, resp);
 
-            // 리다이렉트
-            resp.sendRedirect("../temp/Login.jsp");
+//            // 리다이렉트
+//            resp.sendRedirect("../temp/Login.jsp");
         }
 
 
