@@ -27,7 +27,7 @@
 <header class="header header-horizontal header-view-pannel">
     <div class="container">
         <nav class="navbar">
-            <a class="navbar-brand" href="./">
+            <a class="navbar-brand" href="">
                         <span class="logo-element">
                             <span class="logo-tape">
                                 <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -62,7 +62,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../templateEx/movie-info-sidebar-right.jsp">Movie info</a>
+                                <a class="nav-link" href="../movie-info-sidebar-right.jsp">Movie info</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../templateEx/gallery.jsp">Gallery</a>
@@ -77,14 +77,15 @@
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="../index.jsp">Review</a>
+                                <a class="nav-link" href="../Review/ReviewList.do">Review</a>
                             </li>
                             <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
                                 <a class="nav-link" href="#" data-role="nav-toggler">User pages</a>
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                                 <ul class="collapse nav">
+                                    <%--로그인 상태일 때--%>
                                     <%
-                                        if(session.getAttribute("UserId") != null){ //로그인 상태일때 마이페이지 진입 가능
+                                        if(session.getAttribute("UserId") != null){
                                     %>
                                     <li class="nav-item">
                                         <a class="nav-link" href="../member/MyPage.do">My page</a>
@@ -96,10 +97,10 @@
                                     } else {
                                     %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../temp/LoginPlz.jsp">My page</a>
+                                        <a class="nav-link" href="LoginPlz.jsp">My page</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../temp/LoginPlz.jsp">Ex</a>
+                                        <a class="nav-link" href="LoginPlz.jsp">Ex</a>
                                     </li>
                                     <%
                                         }
@@ -117,7 +118,7 @@
                     <%
                     } else {
                     %>
-                    <a class="btn-theme btn" href="../temp/Logout.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Logout</a>
+                    <a class="btn-theme btn" href="Logout.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Logout</a>
                     <%
                         }
                     %>

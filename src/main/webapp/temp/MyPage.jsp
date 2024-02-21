@@ -29,7 +29,8 @@
 </head>
 <body>
 
-<jsp:include page="../temp/Header.jsp"></jsp:include>
+<jsp:include page="Header.jsp"></jsp:include>
+
 <form name="mypageFrm" method="post" action="../member/MyPage.do" onsubmit="return userSubmit();">
 
     <table border="1" width="90%">

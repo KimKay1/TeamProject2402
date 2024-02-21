@@ -63,7 +63,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/movie-info-sidebar-right.jsp">Movie info</a>
+                                <a class="nav-link" href="movie-info-sidebar-right.jsp">Movie info</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="templateEx/gallery.jsp">Gallery</a>
@@ -153,7 +153,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Outsider</a>
+                                    <a class="content-link" href="movie-info-sidebar-right.jsp">Outsider</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">crime</a>,
@@ -189,7 +189,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Moonlight night</a>
+                                    <a class="content-link" href="movie-info-sidebar-right.jsp">Moonlight night</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">comedy</a>,
@@ -225,7 +225,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Say no</a>
+                                    <a class="content-link" href="movie-info-sidebar-right.jsp">Say no</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">sport</a>
@@ -260,7 +260,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Lonely rock</a>
+                                    <a class="content-link" href="movie-info-sidebar-right.jsp">Lonely rock</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">drama</a>,
@@ -296,7 +296,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Blick</a>
+                                    <a class="content-link" href="movie-info-sidebar-right.jsp">Blick</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">comedy</a>,
@@ -332,7 +332,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">The match</a>
+                                    <a class="content-link" href="movie-info-sidebar-right.jsp">The match</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">romance</a>,
@@ -368,7 +368,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">In to the deep</a>
+                                    <a class="content-link" href="movie-info-sidebar-right.jsp">In to the deep</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">historical</a>,
@@ -404,7 +404,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">New world</a>
+                                    <a class="content-link" href="movie-info-sidebar-right.jsp">New world</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">thriller</a>,
@@ -469,7 +469,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Outsider</a>
+                    <a class="content-link" href="movie-info-sidebar-right.jsp">Outsider</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link" href="movies-blocks.html">crime</a>,
@@ -508,7 +508,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Moonlight night</a>
+                    <a class="content-link" href="movie-info-sidebar-right.jsp">Moonlight night</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link" href="movies-blocks.html">comedy</a>,
@@ -547,7 +547,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Say no</a>
+                    <a class="content-link" href="movie-info-sidebar-right.jsp">Say no</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link" href="movies-blocks.html">sport</a>
@@ -585,7 +585,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Lonely rock</a>
+                    <a class="content-link" href="movie-info-sidebar-right.jsp">Lonely rock</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link" href="movies-blocks.html">drama</a>,
@@ -625,7 +625,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">New world</a>
+                    <a class="content-link" href="movie-info-sidebar-right.jsp">New world</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link" href="movies-blocks.html">thriller</a>,
@@ -676,7 +676,7 @@
                         </div>
                         <div class="entity-content">
                             <h4 class="entity-title">
-                                <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">One way road</a>
+                                <a class="content-link" href="movie-info-sidebar-right.jsp">One way road</a>
                             </h4>
                             <div class="entity-category">
                                 <a class="content-link" href="movies-blocks.html">sport</a>,
@@ -716,7 +716,7 @@
                         </div>
                         <div class="entity-content">
                             <h4 class="entity-title">
-                                <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Dance story</a>
+                                <a class="content-link" href="movie-info-sidebar-right.jsp">Dance story</a>
                             </h4>
                             <div class="entity-category">
                                 <a class="content-link" href="movies-blocks.html">drama</a>
@@ -755,7 +755,7 @@
                         </div>
                         <div class="entity-content">
                             <h4 class="entity-title">
-                                <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Cloud 10</a>
+                                <a class="content-link" href="movie-info-sidebar-right.jsp">Cloud 10</a>
                             </h4>
                             <div class="entity-category">
                                 <a class="content-link" href="movies-blocks.html">drama</a>,
