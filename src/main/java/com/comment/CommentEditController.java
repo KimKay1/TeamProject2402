@@ -15,7 +15,7 @@ public class CommentEditController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idx = req.getParameter("idx");
-        System.out.println(idx);
+        System.out.println("edit에서 idx::"+idx);
         CommentDAO dao = new CommentDAO();
         CommentDTO dto = dao.selectEditView(idx);
 
@@ -38,10 +38,11 @@ public class CommentEditController extends HttpServlet {
         String name = req.getParameter("name");
         String content = req.getParameter("content");
         String favor = req.getParameter("favor");
+        String pass = req.getParameter("pass");
 
-        HttpSession session = req.getSession();
-        String pass = (String)session.getAttribute("pass");
-        System.out.println("세션에서 받아온 pass : " + pass);
+//        HttpSession session = req.getSession();
+//        String pass = (String)session.getAttribute("pass");
+//        System.out.println("세션에서 받아온 pass : " + pass);
 
         CommentDTO dto = new CommentDTO();
         dto.setIdx(idx);
@@ -56,7 +57,7 @@ public class CommentEditController extends HttpServlet {
         dao.close();
 
         if (result == 1) {
-            session.removeAttribute("pass");
+//            session.removeAttribute("pass");
             resp.sendRedirect("../comment/view.do?idx=" + idx);
         } else {//글쓰기 실패
             JSFunction.alertLocation(resp, "비밀번호 검증을 다시 진행해주세요.", "../comment/view.do");

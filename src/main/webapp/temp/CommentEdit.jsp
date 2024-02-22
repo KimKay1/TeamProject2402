@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -38,10 +39,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="ml-sm-auto col-auto">
-                                                    <a class="content-link" href="../comment/pass.do?mode=edit&idx=${ dto.idx }">수정</a>
+                                                    <a class="content-link" href="../comment/pass.do?mode=edit&idx=${ dto.idx }"></a>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <a class="content-link" href="../comment/pass.do?mode=delete&idx=${ dto.idx }">삭제</a>
+                                                    <a class="content-link" href="../comment/pass.do?mode=delete&idx=${ dto.idx }"></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -54,20 +55,15 @@
                         <h2 class="section-title text-uppercase">Edit comment</h2>
                     </div>
                     <form action="../comment/edit.do" method="post" autocomplete="off">
+                        <input type="hidden" name="idx" value="${param.idx}">
+                        <input type="hidden" name="mode" value="${param.mode}">
+                        <input type="hidden" name="title" value="${dto.title}">
+                        <input type="hidden" name="category" value="${dto.category}">
+
                         <div class="row form-grid">
                             <div class="col-12 col-sm-6">
                                 <div class="input-view-flat input-group">
-                                    <input class="form-control" name="title" type="text" placeholder="영화제목" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="input-view-flat input-group">
-                                    <input class="form-control" name="category" type="text" placeholder="영화장르" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="input-view-flat input-group">
-                                    <input class="form-control" name="name" type="text" placeholder="Name" />
+                                    <input class="form-control" name="name" type="text" value="${dto.name}" />
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
@@ -77,7 +73,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="input-view-flat input-group">
-                                    <textarea class="form-control" name="content" placeholder="Add your comment"></textarea>
+                                    <textarea class="form-control" name="content" placeholder="Edit your comment"></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
