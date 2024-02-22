@@ -79,28 +79,35 @@
     <session-config>
         <session-timeout>20</session-timeout>   <!--분 단위로 설정-->
     </session-config>
-
-    <!-- 리뷰 게시판 서블릿 매핑입니다.-->
+    
     <servlet>
-        <servlet-name>ReviewList</servlet-name>
-        <servlet-class>com.Review.ReviewController</servlet-class>
+        <servlet-name>MovieController</servlet-name>
+        <servlet-class>com.movieController.MovieController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ReviewList</servlet-name>
-        <url-pattern>/Review/ReviewList.do</url-pattern>
+        <servlet-name>MovieController</servlet-name>
+        <url-pattern>/index.do</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ReviewWrite</servlet-name>
-        <servlet-class>com.Review.ReviewWriteController</servlet-class>
-        <multipart-config>
-            <max-file-size>1048576</max-file-size>
-            <max-request-size>10485760</max-request-size>
-        </multipart-config>
+        <servlet-name>RecentMovieController</servlet-name>
+        <servlet-class>com.movieController.RecentMovieController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ReviewWrite</servlet-name>
-        <url-pattern>/Review/ReviewWrite.do</url-pattern>
+        <servlet-name>RecentMovieController</servlet-name>
+        <url-pattern>/index2.do</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RandomMovieController</servlet-name>
+        <servlet-class>com.movieController.RandomMovieController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RandomMovieController</servlet-name>
+        <url-pattern>/index3.do</url-pattern>
+    </servlet-mapping>
+
+
+
 
 </web-app>
