@@ -1,3 +1,4 @@
+<%@ page import="com.util.CookieManager" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -41,20 +42,29 @@
       margin-right: auto;
       margin-top: 10px;
     }
-
   </style>
+
+  <%
+    // 아이디 저장
+    String loginId = CookieManager.readCookie(request, "loginId");
+    String cookieCheck = "";
+    if(!loginId.equals("")){
+      cookieCheck = "checked";
+    }
+  %>
+
   <script>
 
-    /*유효성 검사*/
-    function validateForm(form) {
-      if (!form.user_id.value) {
-        alert("아이디를 입력하세요");
-        return false;
-      } else if (!form.user_pwd.value) {
-        alert("패스워드를 입력하세요");
-        return false;
-      }
-    }
+    // /*유효성 검사*/
+    // function validateForm(form) {
+    //   if (!form.user_id.value) {
+    //     alert("아이디를 입력하세요");
+    //     return false;
+    //   } else if (!form.user_pwd.value) {
+    //     alert("패스워드를 입력하세요");
+    //     return false;
+    //   }
+    // }
 
     $(document).ready(function(){
       $(".hlogo").click(function(){
@@ -69,22 +79,24 @@
       location.href = "book_detail.html";
     }
 
-
   </script>
 
 </head>
 <body>
 
+<%--회원가입 성공--%>
 <div style="text-align: center">
 <span style="color: brown; font-size: 1.2em">
         <%= request.getAttribute("HelloMsg") == null ?"": request.getAttribute("HelloMsg")%>
 </span>
 
+<%--로그인 실패--%>
 <span style="color: brown; font-size: 1.2em">
         <%= request.getAttribute("LoginErrMsg") == null ?"": request.getAttribute("LoginErrMsg")%>
 </span>
 </div>
 
+<%--로그아웃 상태일때--%>
 <%
   if(session.getAttribute("UserId") == null){
 %>
@@ -103,9 +115,10 @@
 
 <div id="loginpage1">
   <form action="LoginProcess.jsp" method="post" name="loginFrm" onsubmit="return validateForm(this)">
-    <input type="text" name="user_id" id="inputUsername1" class="form-control" placeholder="Username (admin)" required>
-    <input type="password" name="user_pwd" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password (pass)" required>
+    <input type="text" name="user_id" id="inputUsername1" class="form-control" placeholder="Username" value="<%=loginId%>" required>
+    <input type="password" name="user_pwd" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password" required>
     <input type="submit" id="inputloginsubmit" class="form-control" value="로그인">
+    <div><input type="checkbox" name="save_check" value="Y" <%=cookieCheck%>>아이디 기억하기</div>
   </form>
 </div>
 <nav id="loginpage2">
@@ -116,7 +129,7 @@
   <input type="button" class="button_join" value="회원가입" onclick="join1()">
 </nav>
 <%
-} else {
+} else { //로그인 성공시
   response.sendRedirect("../index.jsp");
   }
 %>

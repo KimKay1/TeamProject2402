@@ -1,10 +1,8 @@
 package com.Review;
 
-import jakarta.annotation.Nullable;
-
 import java.sql.Date;
 
-public class ReviewDTO {
+public class R_DTO {
     public String getIdx() { return idx; }
 
     public void setIdx(String idx) {
@@ -51,6 +49,14 @@ public class ReviewDTO {
         this.visitcount = visitcount;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     // 멤버 변수 선언
     private String idx;
     private String id;
@@ -58,5 +64,8 @@ public class ReviewDTO {
     private String content;
     private java.sql.Date postdate;
     private int visitcount;
+
+    private String name;
+
 
 }

@@ -70,11 +70,12 @@
 </head>
 <body>
 
-<div style="text-align: center">
-<span style="color: brown; font-size: 1.2em">
-        <%= request.getAttribute("JoinerrMsg") == null ?"": request.getAttribute("JoinerrMsg")%>
-</span>
-</div>
+<%--회원가입 실패 // 아이디가 중복일 때--%>
+<%--<div style="text-align: center">--%>
+<%--<span style="color: brown; font-size: 1.2em">--%>
+<%--        <%= request.getAttribute("JoinerrMsg") == null ?"": request.getAttribute("JoinerrMsg")%>--%>
+<%--</span>--%>
+<%--</div>--%>
 
 <div id="joinpage1"> <!-- class="form-control"는 부트스트랩 사용-->
     <form action="JoinProcess.jsp" onsubmit="return userSubmit();" method="POST">

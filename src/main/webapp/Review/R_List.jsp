@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.Review.ReviewDTO" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ page import="com.Review.R_DTO" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java"
          pageEncoding="UTF-8" %>
 <html>
@@ -34,8 +35,9 @@
     <th width="10%">번호</th>
     <th width="*">제목</th>
     <th width="15%">작성자</th>
+    <th width="15%">이름</th>
     <th width="10%">조회수</th>
-    <th width="15%">작성일</th>
+    <th width="15%">작성시간</th>
   </tr>
 
   <%--게시물이 하나도 없을때 --%>
@@ -58,14 +60,16 @@
           </td>
             <%--제목--%>
           <td align="left">
-            <a href="../Review/ReviewView.do?idx=${row.idx}">${row.title}</a>
+            <a href="../R/R_View.do?idx=${row.idx}">${row.title}</a>
           </td>
             <%-- 작성자 --%>
           <td>${row.id}</td>
+            <%-- 이름 --%>
+          <td>${row.name}</td>
             <%--조회수--%>
           <td>${row.visitcount}</td>
-            <%--작성일--%>
-          <td>${row.postdate}</td>
+            <%--작성시간--%>
+          <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${row.postdate}" /></td>
         </tr>
       </c:forEach>
     </c:otherwise>
@@ -78,7 +82,7 @@
       ${map.pageImg}
     </td>
     <td width="100">
-      <button type = "button" onclick="location.href='../Review/ReviewWrite.do';">글쓰기</button>
+      <button type = "button" onclick="location.href='../R/R_Write.do';">글쓰기</button>
     </td>
   </tr>
 </table>
