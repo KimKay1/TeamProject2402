@@ -28,7 +28,7 @@
 <header class="header header-horizontal header-view-pannel">
     <div class="container">
         <nav class="navbar">
-            <a class="navbar-brand" href="./">
+            <a class="navbar-brand" href="./index.jsp">
                         <span class="logo-element">
                             <span class="logo-tape">
                                 <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -102,6 +102,7 @@
         </nav>
     </div>
 </header>
+
 <section class="after-head d-flex section-text-white position-relative">
     <div class="d-background" data-image-src="http://via.placeholder.com/1920x1080" data-parallax="scroll"></div>
     <div class="d-background bg-black-80"></div>
@@ -116,6 +117,7 @@
         </div>
     </div>
 </section>
+
 <div class="container">
     <div class="sidebar-container">
         <div class="content">
@@ -124,55 +126,48 @@
                     <div class="movie-info-entity">
                         <div class="entity-poster" data-role="hover-wrap">
                             <div class="embed-responsive embed-responsive-poster">
-                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                                <img class="embed-responsive-item" src="${dto.img}" alt="" />
                             </div>
                             <div class="d-over bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
                                 <div class="entity-play">
-                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle youtube" href="${dto.youtube}" data-magnific-popup="iframe">
                                         <span class="icon-content"><i class="fas fa-play"></i></span>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="entity-content">
-                            <h2 class="entity-title">Blick</h2>
+                            <h2 class="entity-title title">${dto.title}</h2>
                             <div class="entity-category">
-                                <a class="content-link" href="movies-blocks.html">comedy</a>,
-                                <a class="content-link" href="movies-blocks.html">detective</a>
+                                <a class="content-link category">${dto.category}</a>
                             </div>
                             <div class="entity-info">
                                 <div class="info-lines">
                                     <div class="info info-short">
                                         <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                                        <span class="info-text">8,7</span>
-                                        <span class="info-rest">/10</span>
+                                        <span class="info-text">${dto.visitcount}</span>
                                     </div>
                                     <div class="info info-short">
                                         <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                                        <span class="info-text">130</span>
+                                        <span class="info-text runningtime">${dto.runningtime}</span>
                                         <span class="info-rest">&nbsp;min</span>
                                     </div>
                                 </div>
                             </div>
                             <ul class="entity-list">
                                 <li>
-                                    <span class="entity-list-title">Release:</span>July 21, 2014 (Dolby Theatre), August 1, 2014 (United States)</li>
+                                    <span class="entity-list-title releasedate">Release:</span>${dto.releasedate}</li>
                                 <li>
                                     <span class="entity-list-title">Directed:</span>
-                                    <a class="content-link" href="#">Lindson Wardens</a>,
-                                    <a class="content-link" href="#">Anabelle One</a>
+                                    <a class="content-link" href="#">${dto.director}</a>
                                 </li>
                                 <li>
                                     <span class="entity-list-title">Starring:</span>
-                                    <a class="content-link" href="#">Octopus Wardens</a>,
-                                    <a class="content-link" href="#">Quanta Wardens</a>,
-                                    <a class="content-link" href="#">Anabelle Two</a>,
-                                    <a class="content-link" href="#">Anabelle Three</a>
+                                    <a class="content-link" href="#">${dto.actor}</a><br/>
                                 </li>
                                 <li>
                                     <span class="entity-list-title">Production company:</span>
-                                    <a class="content-link" href="#">Re-Production Bro.</a>,
-                                    <a class="content-link" href="#">Pentakid</a>
+                                    <a class="content-link" href="#">${dto.production}</a>
                                 </li>
                                 <li>
                                     <span class="entity-list-title">Country:</span>
@@ -190,12 +185,7 @@
                         <h2 class="section-title text-uppercase">Synopsis</h2>
                     </div>
                     <div class="section-description">
-                        <p class="lead">Lead text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <h6 class="text-dark">Why do we use it?</h6>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                        <h6 class="text-dark">Where does it come from?</h6>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-                        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                        <%=request.getAttribute("wrappedText")%>
                     </div>
                     <div class="section-bottom">
                         <div class="row">
@@ -529,6 +519,7 @@
                 </div>
             </section>
         </div>
+
         <div class="sidebar section-long order-lg-last">
             <section class="section-sidebar">
                 <div class="section-head">
@@ -606,7 +597,7 @@
     <div class="footer-body container">
         <div class="row">
             <div class="col-sm-6 col-lg-3">
-                <a class="footer-logo" href="..">
+                <a class="footer-logo" href="">
                             <span class="logo-element">
                                 <span class="logo-tape">
                                     <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -715,19 +706,19 @@
     </div>
 </footer>
 <!-- jQuery library -->
-<script src="../template/js/jquery-3.3.1.js"></script>
+<script src="template/js/jquery-3.3.1.js"></script>
 <!-- Bootstrap -->
-<script src="../template/bootstrap/js/bootstrap.js"></script>
+<script src="template/bootstrap/js/bootstrap.js"></script>
 <!-- Paralax.js -->
-<script src="../template/parallax.js/parallax.js"></script>
+<script src="template/parallax.js/parallax.js"></script>
 <!-- Waypoints -->
-<script src="../template/waypoints/jquery.waypoints.min.js"></script>
+<script src="template/waypoints/jquery.waypoints.min.js"></script>
 <!-- Slick carousel -->
-<script src="../template/slick/slick.min.js"></script>
+<script src="template/slick/slick.min.js"></script>
 <!-- Magnific Popup -->
-<script src="../template/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="template/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Inits product scripts -->
-<script src="../template/js/script.js"></script>
+<script src="template/js/script.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ4Qy67ZAILavdLyYV2ZwlShd0VAqzRXA&callback=initMap"></script>
 <script async defer src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js"></script>
 </body>

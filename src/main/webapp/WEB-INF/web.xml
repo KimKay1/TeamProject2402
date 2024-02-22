@@ -55,6 +55,34 @@
     <session-config>
         <session-timeout>20</session-timeout>   <!--분 단위로 설정-->
     </session-config>
+    
+    <servlet>
+        <servlet-name>MovieController</servlet-name>
+        <servlet-class>com.movieController.MovieController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MovieController</servlet-name>
+        <url-pattern>/index.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RecentMovieController</servlet-name>
+        <servlet-class>com.movieController.RecentMovieController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RecentMovieController</servlet-name>
+        <url-pattern>/index2.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RandomMovieController</servlet-name>
+        <servlet-class>com.movieController.RandomMovieController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RandomMovieController</servlet-name>
+        <url-pattern>/index3.do</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>
