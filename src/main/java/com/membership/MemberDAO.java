@@ -36,6 +36,29 @@ public class MemberDAO extends DBConnPool {
         return dto;
     }
 
+    // 중복 아이디 검사
+    public MemberDTO getMemberIdDTO(String id){
+        MemberDTO dto = new MemberDTO();
+        /*컨트롤 쉬프트 유 - 대소문자 변환*/
+        String sql = "SELECT * FROM scott.member_teampro WHERE id = ?";
+
+        try {
+            psmt = con.prepareStatement(sql);
+            psmt.setString(1,id);
+            rs = psmt.executeQuery();
+
+            while(rs.next()) {
+                dto.setId(rs.getString("id"));
+                dto.setPass(rs.getString("pass"));
+                dto.setName(rs.getString("name"));
+                dto.setRegidate(rs.getDate("regidate"));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return dto;
+    }
+
     // 회원가입
     public int insertMember(MemberDTO dto){
         int result = 0;

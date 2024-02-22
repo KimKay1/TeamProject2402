@@ -44,14 +44,14 @@
     }
   </style>
 
-  <%
-    // 아이디 저장
-    String loginId = CookieManager.readCookie(request, "loginId");
-    String cookieCheck = "";
-    if(!loginId.equals("")){
-      cookieCheck = "checked";
-    }
-  %>
+<%--  <%--%>
+<%--    // 아이디 저장--%>
+<%--    String loginId = CookieManager.readCookie(request, "loginId");--%>
+<%--    String cookieCheck = "";--%>
+<%--    if(!loginId.equals("")){--%>
+<%--      cookieCheck = "checked";--%>
+<%--    }--%>
+<%--  %>--%>
 
   <script>
 
@@ -73,7 +73,7 @@
     });
 
     function join1() {
-      location.href = "./Join.jsp";
+      location.href = "../member/join.do";
     }
     function backtohome1() {
       location.href = "book_detail.html";
@@ -87,19 +87,15 @@
 <%--회원가입 성공--%>
 <div style="text-align: center">
 <span style="color: brown; font-size: 1.2em">
-        <%= request.getAttribute("HelloMsg") == null ?"": request.getAttribute("HelloMsg")%>
+  ${HelloMsg}
 </span>
 
 <%--로그인 실패--%>
 <span style="color: brown; font-size: 1.2em">
-        <%= request.getAttribute("LoginErrMsg") == null ?"": request.getAttribute("LoginErrMsg")%>
+  ${LoginErrMsg}
 </span>
 </div>
 
-<%--로그아웃 상태일때--%>
-<%
-  if(session.getAttribute("UserId") == null){
-%>
 <script>
   /*유효성 검사*/
   function validateForm(form) {
@@ -114,11 +110,11 @@
 </script>
 
 <div id="loginpage1">
-  <form action="LoginProcess.jsp" method="post" name="loginFrm" onsubmit="return validateForm(this)">
-    <input type="text" name="user_id" id="inputUsername1" class="form-control" placeholder="Username" value="<%=loginId%>" required>
+  <form action="../member/Login.do" method="post" name="loginFrm" onsubmit="return validateForm(this)">
+    <input type="text" name="user_id" id="inputUsername1" class="form-control" placeholder="Username" value="${loginId}" required>
     <input type="password" name="user_pwd" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password" required>
     <input type="submit" id="inputloginsubmit" class="form-control" value="로그인">
-    <div><input type="checkbox" name="save_check" value="Y" <%=cookieCheck%>>아이디 기억하기</div>
+    <div><input type="checkbox" name="save_check" value="Y" ${cookieCheck}>아이디 기억하기</div>
   </form>
 </div>
 <nav id="loginpage2">
@@ -128,11 +124,6 @@
   |
   <input type="button" class="button_join" value="회원가입" onclick="join1()">
 </nav>
-<%
-} else { //로그인 성공시
-  response.sendRedirect("../index.jsp");
-  }
-%>
 
 </body>
 </html>
