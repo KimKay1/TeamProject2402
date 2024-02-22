@@ -1,8 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <body>
+
 <jsp:include page="./Header.jsp"></jsp:include>
 
 
@@ -13,59 +16,44 @@
             <section class="section-long">
                 <div class="section-line">
                     <div class="section-head">
-                        <h2 class="section-title text-uppercase">Comments</h2>
+                        <h2 class="section-title text-uppercase">Comment</h2>
                     </div>
-                    <c:choose>
-                        <c:when test="${empty boardList}"> <%--게시글이 없을때--%>
-                            <tr>
-                                <td colspan="6" align="center">
-                                    등록된 코멘트가 없습니다.
-                                </td>
-                            </tr>
-                        </c:when>
-                        <c:otherwise> <%--게시글이 있을 때--%>
-                            <c:forEach items="${boardList}" var="row" varStatus="loop">
-                            <div class="comment-entity">
-                                <div class="entity-inner">
-                                    <div class="entity-content">
-                                        <h4 class="entity-title">${row.name}</h4>
-                                        <p class="entity-subtext">${row.postdate}</p>
-                                        <p class="entity-text">${row.content}</p>
-                                    </div>
-                                    <div class="entity-extra">
-                                        <div class="grid-md row">
-                                            <div class="col-12 col-sm-auto">
-                                                <div class="entity-rating">
-                                                    <c:forEach begin="1" end="${(row.favor)}">
-                                                        <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                                    </c:forEach>
-                                                    <c:forEach begin="1" end="${10-(row.favor)}">
-                                                        <span class="entity-rating-icon"><i class="fas fa-star"></i></span>
-                                                    </c:forEach>
+                                <div class="comment-entity">
+                                    <div class="entity-inner">
+                                        <div class="entity-content">
+                                            <h4 class="entity-title">${dto.name}</h4>
+                                            <p class="entity-subtext">${dto.postdate}</p>
+                                            <p class="entity-text">${dto.content}</p>
+                                        </div>
+                                        <div class="entity-extra">
+                                            <div class="grid-md row">
+                                                <div class="col-12 col-sm-auto">
+                                                    <div class="entity-rating">
+                                                        <c:forEach begin="1" end="${(dto.favor)}">
+                                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
+                                                        </c:forEach>
+                                                        <c:forEach begin="1" end="${10-(dto.favor)}">
+                                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>
+                                                        </c:forEach>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="ml-sm-auto col-auto">
-                                                <a class="content-link" href="../comment/pass.do?mode=edit&idx=${ row.idx }">수정</a>
-                                            </div>
-                                            <div class="col-auto">
-                                                <a class="content-link" href="../comment/pass.do?mode=delete&idx=${ row.idx }">삭제</a>
+                                                <div class="ml-sm-auto col-auto">
+                                                    <a class="content-link" href="../comment/pass.do?mode=edit&idx=${ dto.idx }">수정</a>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="content-link" href="../comment/pass.do?mode=delete&idx=${ dto.idx }">삭제</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            </c:forEach>
-                        </c:otherwise>
-                    </c:choose>
                 </div>
-                <br>
-                <div align="center">${map.pagingImg}</div>
-                <br>
+
                 <div class="section-line">
                     <div class="section-head">
-                        <h2 class="section-title text-uppercase">Add comment</h2>
+                        <h2 class="section-title text-uppercase">Edit comment</h2>
                     </div>
-                    <form action="../comment/write.do" method="post" autocomplete="off">
+                    <form action="../comment/edit.do" method="post" autocomplete="off">
                         <div class="row form-grid">
                             <div class="col-12 col-sm-6">
                                 <div class="input-view-flat input-group">
@@ -161,6 +149,7 @@
     </div>
 </div>
 <a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
 
 </body>
 </html>

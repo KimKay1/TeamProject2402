@@ -1,7 +1,5 @@
 package com.comment;
 
-import com.membership.MemberDTO;
-import com.util.BoardPage;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -30,6 +28,9 @@ public class CommentViewController extends HttpServlet {
 //        String title = req.getParameter("title");
 
         CommentDTO dto = dao.selectView(title);
+
+        //별점 int값으로 받아오기
+        int favorNum = Integer.parseInt(dto.getFavor()) - 1;
 
         //뷰에 전달할 매개변수 저장용 맵 생성
         Map<String, Object> map = new HashMap<>();
@@ -72,20 +73,20 @@ public class CommentViewController extends HttpServlet {
         dao.close();
 
         //뷰에 전달할 매개변수 추가
-        String pagingImg = BoardPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../temp/CommentForm.jsp");
+        String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../comment/view.do");
         //바로가기 영역 HTML
-        map.put("pagingImg", pagingImg);
         map.put("totalCount", totalCount);
         map.put("pageSize", pageSize);
+        map.put("pagingImg", pagingImg);
         map.put("pageNum", pageNum);
-
-        //전달할 데이터를 req 영역에 저장하고 List.jsp 포워드
-        req.setAttribute("boardList", boardList);
-        req.setAttribute("map", map);
-
 
 //        /*줄바꿈 처리*/
 //        dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
+
+        //전달할 데이터를 req 영역에 저장하고 CommentForm.jsp 포워드
+        req.setAttribute("favorNum", favorNum);
+        req.setAttribute("boardList", boardList);
+        req.setAttribute("map", map);
 
         req.setAttribute("dto", dto);
         req.getRequestDispatcher("../temp/CommentForm.jsp").forward(req, resp);

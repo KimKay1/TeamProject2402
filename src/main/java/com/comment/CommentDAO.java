@@ -80,8 +80,6 @@ public class CommentDAO extends DBConnPool {
             psmt = con.prepareStatement(query);
             psmt.setString(1, map.get("start").toString());
             psmt.setString(2, map.get("end").toString());
-            System.out.println("start : " + map.get("start"));
-            System.out.println("end : " + map.get("end"));
 
             rs = psmt.executeQuery();
 
@@ -108,7 +106,7 @@ public class CommentDAO extends DBConnPool {
         return bbs;
     }
 
-    //코멘트 불러오기
+    //코멘트뷰에 코멘트 불러오기
     public CommentDTO selectView(String title){
         CommentDTO dto = new CommentDTO();
 
@@ -135,5 +133,97 @@ public class CommentDAO extends DBConnPool {
             System.out.println("comment selectView 오류 발생");
         }
         return dto;
+    }
+
+    //입력한 비밀번호가 지정한 idx 게시물의 비밀번호와 일치하는지 여부 확인
+    public boolean confirmPassword(String pass, String idx){
+        boolean isCorr = true;
+        String query = "SELECT COUNT(*) FROM scott.comment_teampro"
+                + " WHERE pass = ? AND idx = ? ";
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1,pass);
+            psmt.setString(2, idx);
+            rs = psmt.executeQuery();
+
+            rs.next();
+            if(rs.getInt(1) == 0){
+                isCorr = false;
+            }
+        }catch (Exception e){
+            isCorr = false;
+            System.out.println("comment confirmPassword 오류발생");
+            e.printStackTrace();
+        }
+        return isCorr;
+    }
+
+    //코멘트 수정뷰에 코멘트 불러오기
+    public CommentDTO selectEditView(String idx){
+        CommentDTO dto = new CommentDTO();
+
+        String query = "SELECT idx, name, content, postdate, favor, pass, title, category FROM scott.comment_teampro WHERE idx = ?";
+
+        try{
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, idx);
+            rs = psmt.executeQuery();
+
+            if(rs.next()){
+                dto.setIdx(rs.getString("idx"));
+                dto.setName(rs.getString("name"));
+                dto.setContent(rs.getString("content"));
+                dto.setPostdate(rs.getString("postdate"));
+                dto.setFavor(rs.getString("favor"));
+                dto.setPass(rs.getString("pass"));
+                dto.setTitle(rs.getString("title"));
+                dto.setCategory(rs.getString("category"));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("comment selectView 오류 발생");
+        }
+        return dto;
+    }
+
+    //코멘트 수정
+    public int updatePost(CommentDTO dto){
+        int result = 0;
+        String query = "UPDATE scott.comment_teampro"
+                + " SET name =?, content=?, favor=?"
+                + " WHERE idx=? AND pass=?";
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1,dto.getName());
+            psmt.setString(2,dto.getContent());
+            psmt.setString(3,dto.getFavor());
+            psmt.setString(4,dto.getIdx());
+            psmt.setString(5,dto.getPass());
+
+            result = psmt.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("updatePost 오류발생");
+        }
+        return result;
+    }
+
+    //코멘트 삭제
+    public int deletePost(String idx){
+        int result = 0;
+
+        String query = "DELETE FROM scott.comment_teampro WHERE idx = ?";
+
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1,idx);
+            result = psmt.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("comment deletePost 오류발생");
+        }
+
+        return result;
     }
 }

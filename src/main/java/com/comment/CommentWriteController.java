@@ -31,7 +31,8 @@ public class CommentWriteController extends HttpServlet {
         dao.close();
 
         if(result == 1){   // 성공
-            JSFunction.alertBack(resp,"글쓰기 성공");
+//            JSFunction.alertBack(resp,"글쓰기 성공");
+            req.getRequestDispatcher("../comment/view.do").forward(req, resp);
         }else { // 실패
             JSFunction.alertBack(resp,"글쓰기 실패");
         }
