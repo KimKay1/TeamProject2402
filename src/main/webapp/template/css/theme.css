@@ -655,6 +655,7 @@ a:hover {
 .section-long {
   margin-top: 6rem;
   margin-bottom: 6rem;
+  width: 800px;
 }
 .section-solid-long {
   padding-top: 6rem;

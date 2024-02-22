@@ -63,13 +63,10 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="movie-info-sidebar-right.jsp">Movie info</a>
+                                <a class="nav-link" href="templateEx/movie-info-sidebar-right.jsp">Movie info</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="templateEx/gallery.jsp">Gallery</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="templateEx/news-blocks-sidebar-right.jsp">News</a>
                             </li>
                         </ul>
                     </li>
@@ -153,7 +150,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="movie-info-sidebar-right.jsp">Outsider</a>
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Outsider</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">crime</a>,
@@ -189,7 +186,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="movie-info-sidebar-right.jsp">Moonlight night</a>
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Moonlight night</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">comedy</a>,
@@ -225,7 +222,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="movie-info-sidebar-right.jsp">Say no</a>
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Say no</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">sport</a>
@@ -260,7 +257,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="movie-info-sidebar-right.jsp">Lonely rock</a>
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Lonely rock</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">drama</a>,
@@ -296,7 +293,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="movie-info-sidebar-right.jsp">Blick</a>
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Blick</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">comedy</a>,
@@ -332,7 +329,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="movie-info-sidebar-right.jsp">The match</a>
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">The match</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">romance</a>,
@@ -368,7 +365,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="movie-info-sidebar-right.jsp">In to the deep</a>
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">In to the deep</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">historical</a>,
@@ -404,7 +401,7 @@
                                     </a>
                                 </div>
                                 <h4 class="entity-title">
-                                    <a class="content-link" href="movie-info-sidebar-right.jsp">New world</a>
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">New world</a>
                                 </h4>
                                 <div class="entity-category">
                                     <a class="content-link" href="movies-blocks.html">thriller</a>,
@@ -469,7 +466,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link" href="movie-info-sidebar-right.jsp">Outsider</a>
+                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Outsider</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link" href="movies-blocks.html">crime</a>,
@@ -508,7 +505,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link" href="movie-info-sidebar-right.jsp">Moonlight night</a>
+                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Moonlight night</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link" href="movies-blocks.html">comedy</a>,
@@ -547,7 +544,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link" href="movie-info-sidebar-right.jsp">Say no</a>
+                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Say no</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link" href="movies-blocks.html">sport</a>
@@ -585,7 +582,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link" href="movie-info-sidebar-right.jsp">Lonely rock</a>
+                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Lonely rock</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link" href="movies-blocks.html">drama</a>,
@@ -625,7 +622,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link" href="movie-info-sidebar-right.jsp">New world</a>
+                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">New world</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link" href="movies-blocks.html">thriller</a>,
@@ -676,7 +673,7 @@
                         </div>
                         <div class="entity-content">
                             <h4 class="entity-title">
-                                <a class="content-link" href="movie-info-sidebar-right.jsp">One way road</a>
+                                <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">One way road</a>
                             </h4>
                             <div class="entity-category">
                                 <a class="content-link" href="movies-blocks.html">sport</a>,
@@ -716,7 +713,7 @@
                         </div>
                         <div class="entity-content">
                             <h4 class="entity-title">
-                                <a class="content-link" href="movie-info-sidebar-right.jsp">Dance story</a>
+                                <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Dance story</a>
                             </h4>
                             <div class="entity-category">
                                 <a class="content-link" href="movies-blocks.html">drama</a>
@@ -755,7 +752,7 @@
                         </div>
                         <div class="entity-content">
                             <h4 class="entity-title">
-                                <a class="content-link" href="movie-info-sidebar-right.jsp">Cloud 10</a>
+                                <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Cloud 10</a>
                             </h4>
                             <div class="entity-category">
                                 <a class="content-link" href="movies-blocks.html">drama</a>,
@@ -802,12 +799,12 @@
 <section class="section-long">
     <div class="container">
         <div class="section-head">
-            <h2 class="section-title text-uppercase">Latest news</h2>
+            <h2 class="section-title text-uppercase">Latest Review</h2>
         </div>
         <div class="grid row">
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -824,7 +821,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">Creative life</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">Creative life</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">comedy</a>,
@@ -834,14 +831,14 @@
                         <p class="text-short entity-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur ultrices justo a pellentesque. Praesent venenatis dolor nec tempus lacinia. Donec ac condimentum dolor. Nullam sit amet nisl hendrerit, pharetra nulla convallis, malesuada diam. Donec ornare nisl eu lectus rhoncus, at malesuada metus rutrum. Aliquam a nisl vulputate, sodales ipsum aliquam, tempus purus. Suspendisse convallis, lectus nec vehicula sollicitudin, lorem sapien rhoncus dolor, vel lacinia urna velit ullamcorper nisi. Phasellus pellentesque, magna nec gravida feugiat, est magna suscipit ligula, vel porttitor nunc enim at nibh. Sed varius sit amet leo vitae consequat.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -858,7 +855,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">One step to the end</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">One step to the end</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">drama</a>,
@@ -867,14 +864,14 @@
                         <p class="text-short entity-text">Vivamus dolor ex, viverra ut facilisis et, euismod et quam. Aliquam sit amet mattis velit, ullamcorper venenatis magna. Aenean ac maximus magna. Proin pharetra venenatis tortor, ac suscipit est ultrices vitae. Mauris vulputate, nisl in lacinia dignissim, libero justo vehicula arcu, a porttitor quam erat ac dui. Suspendisse potenti. Maecenas sit amet interdum sem. Vestibulum sit amet volutpat mauris, ut gravida velit. Donec ultricies, eros ut finibus volutpat, enim ligula tempus enim, non bibendum libero tellus at velit. Aenean placerat egestas ullamcorper.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -891,7 +888,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">Here we go again</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">Here we go again</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">romance</a>,
@@ -900,14 +897,14 @@
                         <p class="text-short entity-text">In luctus ac nisi vel vulputate. Sed blandit augue ut ex eleifend, ac posuere dolor sollicitudin. Mauris tempus euismod mauris id semper. Vestibulum ut vulputate elit, id ultricies libero. Aenean laoreet mi augue, at iaculis nisi aliquam eu. Quisque nec ipsum vehicula diam egestas porttitor eu vitae ex. Curabitur auctor tortor elementum leo faucibus, sit amet imperdiet ante maximus. Nulla viverra tortor dignissim purus placerat dapibus nec ut orci. Quisque efficitur nulla quis pulvinar dapibus. Phasellus sodales tortor sit amet sagittis condimentum. Donec ac ultricies ex. In odio leo, rhoncus aliquam bibendum sit amet, varius sit amet nisl.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -924,7 +921,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">The one and the other</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">The one and the other</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">drama</a>,
@@ -934,14 +931,14 @@
                         <p class="text-short entity-text">Aenean molestie turpis eu aliquam bibendum. Nulla facilisi. Vestibulum quis risus in lorem suscipit tempor. Morbi consectetur enim vitae justo finibus consectetur. Mauris volutpat nunc dui, quis condimentum dolor efficitur et. Phasellus rhoncus porta nunc eu fermentum. Nullam vitae erat hendrerit, tempor arcu eget, eleifend tortor.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
         </div>
         <div class="section-bottom">
-            <a class="btn btn-theme" href="templateEx/news-blocks-sidebar-right.jsp">View All News</a>
+            <a class="btn btn-theme" href="templateEx/news-blocks-sidebar-right.jsp">View All Reviews</a>
         </div>
     </div>
 </section>

@@ -62,7 +62,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../movie-info-sidebar-right.jsp">Movie info</a>
+                                <a class="nav-link" href="../templateEx/movie-info-sidebar-right.jsp">Movie info</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../templateEx/gallery.jsp">Gallery</a>

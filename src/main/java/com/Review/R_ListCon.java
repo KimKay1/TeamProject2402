@@ -76,6 +76,6 @@ public class R_ListCon extends HttpServlet {
         req.setAttribute("boardList", boardList);
         req.setAttribute("map", map);
 
-        req.getRequestDispatcher("/Review/R_List.jsp").forward(req, resp);
+        req.getRequestDispatcher("/Review/Review_Main.jsp").forward(req, resp);
     }
 }

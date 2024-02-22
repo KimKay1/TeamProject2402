@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +36,7 @@
             <td>작성자</td> <td>${ dto.id }</td>
         </tr>
         <tr>
-            <td>작성일</td> <td>${ dto.postdate }</td>
+            <td>작성일</td> <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${dto.postdate}" /></td>
             <td>조회수</td> <td>${ dto.visitcount }</td>
         </tr>
         <tr>
