@@ -83,18 +83,34 @@
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.jsp">Review</a>
+                                <a class="nav-link" href="../R/R_List.do">Review</a>
                             </li>
                             <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
                                 <a class="nav-link" href="#" data-role="nav-toggler">User pages</a>
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                                 <ul class="collapse nav">
+                                    <%--로그인 상태일 때--%>
+                                    <%
+                                        if(session.getAttribute("UserId") != null){
+                                    %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="sign-in.html">Sign in</a>
+                                        <a class="nav-link" href="../member/MyPage.do">My page</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="sign-up.html">Sign up</a>
+                                        <a class="nav-link" href="#">Ex</a>
                                     </li>
+                                    <%
+                                    } else {
+                                    %>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./temp/LoginPlz.jsp">My page</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./temp/LoginPlz.jsp">Ex</a>
+                                    </li>
+                                    <%
+                                        }
+                                    %>
                                 </ul>
                             </li>
                         </ul>
@@ -104,7 +120,7 @@
                     <%
                         if(session.getAttribute("UserId") == null){
                     %>
-                    <a class="btn-theme btn" href="temp/Login.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Login</a>
+                    <a class="btn-theme btn" href="../member/Login.do"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Login</a>
                     <%
                     } else {
                     %>

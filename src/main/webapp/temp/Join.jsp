@@ -70,14 +70,9 @@
 </head>
 <body>
 
-<div style="text-align: center">
-<span style="color: brown; font-size: 1.2em">
-        <%= request.getAttribute("JoinerrMsg") == null ?"": request.getAttribute("JoinerrMsg")%>
-</span>
-</div>
 
 <div id="joinpage1"> <!-- class="form-control"는 부트스트랩 사용-->
-    <form action="JoinProcess.jsp" onsubmit="return userSubmit();" method="POST">
+    <form action="../member/join.do" onsubmit="return userSubmit();" method="POST">
         <input type="text" name="id" id="inputUserid1" class="form-control" placeholder="아이디" required>
         <input type="text" name="name" id="inputUsername1" class="form-control" placeholder="닉네임" required>
         <input type="password" name="pass" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="비밀번호" required>
@@ -96,8 +91,6 @@
         <input type="submit" id="inputloginsubmit" class="form-control" value="회원가입">
     </form>
 </div>
-
-
 
 </body>
 </html>

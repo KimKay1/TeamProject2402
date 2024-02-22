@@ -41,6 +41,20 @@
         <param-value>TIGER</param-value>
     </context-param>
 
+    <!--오라클 파라미터2 다른 계정입니다.-->
+    <context-param>
+        <param-name>OracleURL2</param-name>
+        <param-value>jdbc:oracle:thin:@10.100.203.73:1521:XE</param-value>
+    </context-param>
+    <context-param>
+        <param-name>OracleID2</param-name>
+        <param-value>haha</param-value>
+    </context-param>
+    <context-param>
+        <param-name>OraclePwd2</param-name>
+        <param-value>hoho</param-value>
+    </context-param>
+
     <!--페이징 설정-->
     <context-param>
         <param-name>POSTS_PER_PAGE</param-name>
@@ -82,6 +96,7 @@
         <servlet-name>RandomMovieController</servlet-name>
         <url-pattern>/index3.do</url-pattern>
     </servlet-mapping>
+
 
 
 
