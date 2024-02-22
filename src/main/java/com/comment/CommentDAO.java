@@ -20,7 +20,7 @@ public class CommentDAO extends DBConnPool {
             psmt.setString(5, dto.getTitle());
             psmt.setString(6, dto.getCategory());
 
-
+            result = psmt.executeUpdate();
 
         }catch (Exception e){
             e.printStackTrace();

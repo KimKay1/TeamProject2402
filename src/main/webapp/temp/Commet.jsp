@@ -131,7 +131,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="input-view-flat input-group">
-                                    <textarea class="form-control" name="content" placeholder="Add your review"></textarea>
+                                    <textarea class="form-control" name="content" placeholder="Add your comment"></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
