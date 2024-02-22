@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-<h2>리뷰 게시판</h2>
+<h2><a href="../R/R_List.do">리뷰 게시판</a> - 현재 페이지 : ${map.pageNum} (전체 : ${map.totalPage})</h2>
 <%--검색 폼--%>
 <form method="get">
   <table border="1" width="90%">
@@ -79,7 +79,7 @@
 <table border="1" width="90%">
   <tr align="center">
     <td>
-      ${map.pageImg}
+      ${map.pagingImg}
     </td>
     <td width="100">
       <button type = "button" onclick="location.href='../R/R_Write.do';">글쓰기</button>

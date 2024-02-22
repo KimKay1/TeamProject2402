@@ -5,6 +5,7 @@ import com.common.DBConnPool;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 public class R_DAO extends DBConnPool { //커넥션 풀 상속
     public R_DAO() { super(); }
@@ -36,7 +37,7 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
     // 검색 조건에 맞는 게시물 목록을 반환
     public List<R_DTO> selectListPage(Map<String,Object>map){
         //쿼리 결과를 담을 변수
-        List<R_DTO> bbs = new ArrayList<>();
+        List<R_DTO> board = new Vector<R_DTO>();
         //쿼리문 작성
         String query = "SELECT * FROM ("
                 + " SELECT Tb.*, ROWNUM rNum FROM ("
@@ -47,7 +48,7 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
             query += " WHERE "  + map.get("searchField") + " "
                     +" LIKE '%" + map.get("searchWord") + "%'";
         }
-        query += " ORDER BY idx DESC"
+        query += " ORDER BY TO_NUMBER(idx) DESC"
                 + " ) Tb"
                 + " )"
                 + " WHERE rNum BETWEEN ? AND?";
@@ -71,13 +72,13 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
                 dto.setVisitcount(rs.getInt("visitcount"));
                 dto.setName(rs.getString("name"));
 
-                bbs.add(dto);
+                board.add(dto);
             }
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("selectList 오류발생");
         }
-        return bbs;
+        return board;
     }
 
     public int insertWrite(R_DTO dto) {

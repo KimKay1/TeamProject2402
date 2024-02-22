@@ -22,7 +22,7 @@ public class R_ListCon extends HttpServlet {
         R_DAO dao = new R_DAO();
 
         // 뷰에 전달할 매개변수 저장용 맵 생성
-        Map<String, Object> map = new HashMap();
+        Map<String, Object> map = new HashMap<String, Object>();
 
         String searchField = req.getParameter("searchField");
         String searchWord = req.getParameter("searchWord");
@@ -42,7 +42,7 @@ public class R_ListCon extends HttpServlet {
         //전체 페이지 수 계산
         int pageSize = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
         int blockPage = Integer.parseInt(application.getInitParameter("PAGES_PER_BLOCK"));
-
+        int totalPage = (int) Math.ceil((double) totalCount / pageSize);
 
 
         //현제 페이지 확인
@@ -63,13 +63,14 @@ public class R_ListCon extends HttpServlet {
         // DB 연결 닫기
         dao.close();
 
-        // 뷰에 전달할 매개변수 추가
+        // 리스트에 전달할 매개변수 추가
         String pagingImg = BoardPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../R/R_List.do");
         // 바로가기 영역 HTML
-        map.put("pageImg", pagingImg);
+        map.put("pagingImg", pagingImg);
         map.put("totalCount", totalCount);
         map.put("pageSize", pageSize);
         map.put("pageNum", pageNum);
+        map.put("totalPage", totalPage);
 
         // 전달할 데이터를 request 영역에 저장 후 list.jsp로 포워드
         req.setAttribute("boardList", boardList);
