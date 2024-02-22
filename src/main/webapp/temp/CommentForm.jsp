@@ -1,108 +1,66 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <body>
 <jsp:include page="./Header.jsp"></jsp:include>
 
+
+
 <div class="container">
     <div class="sidebar-container">
         <div class="content">
             <section class="section-long">
-
-
                 <div class="section-line">
                     <div class="section-head">
                         <h2 class="section-title text-uppercase">Comments</h2>
                     </div>
-                    <div class="comment-entity">
-                        <div class="entity-inner">
-                            <div class="entity-content">
-                                <h4 class="entity-title">Lie Stone</h4>
-                                <p class="entity-subtext">07.08.2018, 14:33</p>
-                                <p class="entity-text">Comment example here. Nulla risus lacus, vehicula id mi vitae, auctor accumsan nulla. Sed a mi quam. In euismod urna ac massa adipiscing interdum.
-                                </p>
-                            </div>
-                            <div class="entity-extra">
-                                <div class="grid-md row">
-                                    <div class="col-12 col-sm-auto">
-                                        <div class="entity-rating">
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>
-                                        </div>
+                    <c:choose>
+                        <c:when test="${empty boardList}"> <%--게시글이 없을때--%>
+                            <tr>
+                                <td colspan="6" align="center">
+                                    등록된 코멘트가 없습니다.
+                                </td>
+                            </tr>
+                        </c:when>
+                        <c:otherwise> <%--게시글이 있을 때--%>
+                            <c:forEach items="${boardList}" var="row" varStatus="loop">
+                            <div class="comment-entity">
+                                <div class="entity-inner">
+                                    <div class="entity-content">
+                                        <h4 class="entity-title">${row.name}</h4>
+                                        <p class="entity-subtext">${row.postdate}</p>
+                                        <p class="entity-text">${row.content}</p>
                                     </div>
-                                    <div class="ml-sm-auto col-auto">
-                                        <a class="content-link" href="#"><i class="fas fa-reply"></i>&nbsp;&nbsp;reply</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="content-link" href="#"><i class="fas fa-quote-left"></i>&nbsp;&nbsp;quote</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-entity">
-                            <div class="entity-inner">
-                                <div class="entity-content">
-                                    <h4 class="entity-title">Gabriel Norris</h4>
-                                    <p class="entity-subtext">09.08.2018, 11:33</p>
-                                    <p class="entity-text">Comment example here. Nulla risus lacus, vehicula id mi vitae, auctor accumsan nulla. Sed a mi quam. In euismod urna ac massa adipiscing interdum.
-                                    </p>
-                                </div>
-                                <div class="entity-extra">
-                                    <div class="grid-md row">
-                                        <div class="ml-sm-auto col-auto">
-                                            <a class="content-link" href="#"><i class="fas fa-reply"></i>&nbsp;&nbsp;reply</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="content-link" href="#"><i class="fas fa-quote-left"></i>&nbsp;&nbsp;quote</a>
+                                    <div class="entity-extra">
+                                        <div class="grid-md row">
+                                            <div class="col-12 col-sm-auto">
+                                                <div class="entity-rating">
+                                                    <c:forEach begin="1" end="${(row.favor)}">
+                                                        <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
+                                                    </c:forEach>
+                                                    <c:forEach begin="1" end="${10-(row.favor)}">
+                                                        <span class="entity-rating-icon"><i class="fas fa-star"></i></span>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                            <div class="ml-sm-auto col-auto">
+                                                <a class="content-link" href="../comment/pass.do?mode=edit&idx=${ row.idx }">수정</a>
+                                            </div>
+                                            <div class="col-auto">
+                                                <a class="content-link" href="../comment/pass.do?mode=delete&idx=${ row.idx }">삭제</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="comment-entity">
-                        <div class="entity-inner">
-                            <div class="entity-content">
-                                <h4 class="entity-title">Keith Earlee</h4>
-                                <p class="entity-subtext">11.05.2018, 07:23</p>
-                                <p class="entity-text">Comment example here. Nulla risus lacus, vehicula id mi vitae, auctor accumsan nulla. Sed a mi quam. In euismod urna ac massa adipiscing interdum.
-                                </p>
-                            </div>
-                            <div class="entity-extra">
-                                <div class="grid-md row">
-                                    <div class="col-12 col-sm-auto">
-                                        <div class="entity-rating">
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>
-                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="ml-sm-auto col-auto">
-                                        <a class="content-link" href="#"><i class="fas fa-reply"></i>&nbsp;&nbsp;reply</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="content-link" href="#"><i class="fas fa-quote-left"></i>&nbsp;&nbsp;quote</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
+                <br>
+                <div align="center">${map.pagingImg}</div>
+                <br>
                 <div class="section-line">
                     <div class="section-head">
                         <h2 class="section-title text-uppercase">Add comment</h2>
@@ -131,7 +89,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="input-view-flat input-group">
-                                    <textarea class="form-control" name="content" placeholder="Add your review"></textarea>
+                                    <textarea class="form-control" name="content" placeholder="Add your comment"></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
