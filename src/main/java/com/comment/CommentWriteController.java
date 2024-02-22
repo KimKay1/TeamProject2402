@@ -20,7 +20,6 @@ public class CommentWriteController extends HttpServlet {
         CommentDTO dto = new CommentDTO();
         dto.setName(req.getParameter("name"));
         dto.setContent(req.getParameter("content"));
-        dto.setPostdate(req.getParameter("postdate"));
         dto.setFavor(req.getParameter("favor"));
         dto.setPass(req.getParameter("pass"));
         dto.setTitle(req.getParameter("title"));
