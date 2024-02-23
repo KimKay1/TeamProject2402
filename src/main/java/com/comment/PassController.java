@@ -27,7 +27,6 @@ public class PassController extends HttpServlet {
         String mode = req.getParameter("mode");
         String pass = req.getParameter("pass");
 
-        System.out.println("파라미터 확인 " + idx + " :: " + mode + "::" + pass);
         //비밀번호 확인
         CommentDAO dao = new CommentDAO();
         boolean confirmed = dao.confirmPassword(pass,idx);
@@ -48,7 +47,6 @@ public class PassController extends HttpServlet {
             } else if (mode.equals("delete")){
                 //mode = delete
                 String num = req.getParameter("num");
-                System.out.println("num :: "+ num);
                 dao = new CommentDAO();
                 dto = dao.selectView(idx);
                 int result = dao.deletePost(idx);
