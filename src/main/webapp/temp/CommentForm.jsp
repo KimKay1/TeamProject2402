@@ -3,14 +3,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-<jsp:include page="./Header.jsp"></jsp:include>
 
+<%--<jsp:include page="./Header.jsp"></jsp:include>--%>
 
-
-<div class="container">
-    <div class="sidebar-container">
-        <div class="content">
-            <section class="section-long">
+<%--<div class="container">--%>
+<%--    <div class="sidebar-container">--%>
+<%--        <div class="content">--%>
+<%--            <section class="section-long">--%>
                 <div class="section-line">
                     <div class="section-head">
                         <h2 class="section-title text-uppercase">Comments</h2>
@@ -67,16 +66,9 @@
                     </div>
                     <form action="../comment/write.do" method="post" autocomplete="off">
                         <div class="row form-grid">
-                            <div class="col-12 col-sm-6">
-                                <div class="input-view-flat input-group">
-                                    <input class="form-control" name="title" type="text" placeholder="영화제목" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="input-view-flat input-group">
-                                    <input class="form-control" name="category" type="text" placeholder="영화장르" />
-                                </div>
-                            </div>
+                            <input type="hidden" name="num" value="${dto.num}">
+                            <input type="hidden" name="title" value="${dto.title}">
+                            <input type="hidden" name="category" value="${dto.category}">
                             <div class="col-12 col-sm-6">
                                 <div class="input-view-flat input-group">
                                     <input class="form-control" name="name" type="text" placeholder="Name" />
@@ -155,12 +147,12 @@
                         </div>
                     </form>
                 </div>
-            </section>
-        </div>
+<%--            </section>--%>
+<%--        </div>--%>
 
-    </div>
-</div>
-<a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+<%--    </div>--%>
+<%--</div>--%>
+<%--<a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>--%>
 
 </body>
 </html>
