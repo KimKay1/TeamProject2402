@@ -231,3 +231,12 @@ CREATE TABLE "SCOTT"."REVIEW_BOARD"
             PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
             BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
     TABLESPACE "USERS";
+
+/*리뷰 보드에 쓸 시퀀스 생성*/
+CREATE SEQUENCE seq_review_num
+    INCREMENT BY 1 -- 1씩증가
+    START WITH 1 -- 1부터 시작
+    MINVALUE 1 -- 최소값 1
+    nomaxvalue -- 최대값 무한대
+    nocycle -- 순환 안함
+    nocache; -- 캐시 안함
