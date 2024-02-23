@@ -1,8 +1,3 @@
-<%@ page import="com.movieInfo.MovieInfoDAO" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.movieInfo.MovieInfoDTO" %>
-<%@ page import="java.sql.*" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -33,7 +28,7 @@
 <header class="header header-horizontal header-view-pannel">
     <div class="container">
         <nav class="navbar">
-            <a class="navbar-brand" href="./index.jsp">
+            <a class="navbar-brand" href="./">
                         <span class="logo-element">
                             <span class="logo-tape">
                                 <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -68,13 +63,10 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="movieView.jsp">Movie info</a>
+                                <a class="nav-link" href="templateEx/movie-info-sidebar-right.jsp">Movie info</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="templateEx/gallery.jsp">Gallery</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="templateEx/news-blocks-sidebar-right.jsp">News</a>
                             </li>
                         </ul>
                     </li>
@@ -138,149 +130,316 @@
     <div class="d-background bg-theme-blacked"></div>
     <div class="mt-auto container position-relative">
         <div class="top-block-head text-uppercase">
-            <h2 class="display-4">Hot
-                <span class="text-theme">Movies</span>
+            <h2 class="display-4">Now
+                <span class="text-theme">in cinema</span>
             </h2>
         </div>
-        <%--  핫 무비 컨테이너  --%>
         <div class="top-block-footer">
             <div class="slick-spaced slick-carousel" data-slick-view="navigation responsive-4">
-                <div class="slick-slides" id="slides">
-                        <%--    핫 무비 영화 개별1   --%>
-                        <div class="slick-slide">
-                            <article class="poster-entity" data-role="hover-wrap">
-                                <div class="embed-responsive embed-responsive-poster">
-                                    <img class="embed-responsive-item movieimg" src="http://via.placeholder.com/340x510" alt="" />
+                <div class="slick-slides">
+                    <div class="slick-slide">
+                        <article class="poster-entity" data-role="hover-wrap">
+                            <div class="embed-responsive embed-responsive-poster">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                            <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
+                            <div class="d-over bg-highlight-bottom">
+                                <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
                                 </div>
-                                <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
-                                <div class="d-over bg-highlight-bottom">
-                                    <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <a class="action-icon-theme action-icon-bordered rounded-circle youtube" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                            <span class="icon-content"><i class="fas fa-play"></i></span>
-                                        </a>
-                                    </div>
-                                    <h4 class="entity-title">
-                                        <a class="content-link movietitle" href="movieView.jsp"></a>
-                                    </h4>
-                                    <div class="entity-category">
-                                        <a class="content-link moviecategory" href="movies-blocks.html"></a>
-                                    </div>
-                                    <div class="entity-info">
-                                        <div class="info-lines">
-                                            <div class="info info-short">
-                                                <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                                                <span class="info-text mvisitcount">8,1</span>
-                                            </div>
-                                            <div class="info info-short">
-                                                <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                                                <span class="info-text movierunningtime"></span>
-                                            </div>
+                                <h4 class="entity-title">
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Outsider</a>
+                                </h4>
+                                <div class="entity-category">
+                                    <a class="content-link" href="movies-blocks.html">crime</a>,
+                                    <a class="content-link" href="movies-blocks.html">comedy</a>
+                                </div>
+                                <div class="entity-info">
+                                    <div class="info-lines">
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
+                                            <span class="info-text">8,1</span>
+                                            <span class="info-rest">/10</span>
+                                        </div>
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                            <span class="info-text">125</span>
+                                            <span class="info-rest">&nbsp;min</span>
                                         </div>
                                     </div>
                                 </div>
-                            </article>
-                        </div>
-                        <div class="slick-slide">
-                            <article class="poster-entity" data-role="hover-wrap">
-                                <div class="embed-responsive embed-responsive-poster">
-                                    <img class="embed-responsive-item movieimg" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slick-slide">
+                        <article class="poster-entity" data-role="hover-wrap">
+                            <div class="embed-responsive embed-responsive-poster">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                            <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
+                            <div class="d-over bg-highlight-bottom">
+                                <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
                                 </div>
-                                <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
-                                <div class="d-over bg-highlight-bottom">
-                                    <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <a class="action-icon-theme action-icon-bordered rounded-circle youtube" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                            <span class="icon-content"><i class="fas fa-play"></i></span>
-                                        </a>
-                                    </div>
-                                    <h4 class="entity-title">
-                                        <a class="content-link movietitle"></a>
-                                    </h4>
-                                    <div class="entity-category">
-                                        <a class="content-link moviecategory" href="movies-blocks.html"></a>
-                                    </div>
-                                    <div class="entity-info">
-                                        <div class="info-lines">
-                                            <div class="info info-short">
-                                                <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                                                <span class="info-text mvisitcount">8,1</span>
-                                            </div>
-                                            <div class="info info-short">
-                                                <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                                                <span class="info-text movierunningtime"></span>
-
-                                            </div>
+                                <h4 class="entity-title">
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Moonlight night</a>
+                                </h4>
+                                <div class="entity-category">
+                                    <a class="content-link" href="movies-blocks.html">comedy</a>,
+                                    <a class="content-link" href="movies-blocks.html">horror</a>
+                                </div>
+                                <div class="entity-info">
+                                    <div class="info-lines">
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
+                                            <span class="info-text">6,8</span>
+                                            <span class="info-rest">/10</span>
+                                        </div>
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                            <span class="info-text">95</span>
+                                            <span class="info-rest">&nbsp;min</span>
                                         </div>
                                     </div>
                                 </div>
-                            </article>
-                        </div>
-                        <div class="slick-slide">
-                            <article class="poster-entity" data-role="hover-wrap">
-                                <div class="embed-responsive embed-responsive-poster">
-                                    <img class="embed-responsive-item movieimg" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slick-slide">
+                        <article class="poster-entity" data-role="hover-wrap">
+                            <div class="embed-responsive embed-responsive-poster">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                            <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
+                            <div class="d-over bg-highlight-bottom">
+                                <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
                                 </div>
-                                <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
-                                <div class="d-over bg-highlight-bottom">
-                                    <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <a class="action-icon-theme action-icon-bordered rounded-circle youtube" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                            <span class="icon-content"><i class="fas fa-play"></i></span>
-                                        </a>
-                                    </div>
-                                    <h4 class="entity-title">
-                                        <a class="content-link movietitle" href="movieView.jsp"></a>
-                                    </h4>
-                                    <div class="entity-category">
-                                        <a class="content-link moviecategory" href="movies-blocks.html"></a>
-                                    </div>
-                                    <div class="entity-info">
-                                        <div class="info-lines">
-                                            <div class="info info-short">
-                                                <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                                                <span class="info-text mvisitcount">8,1</span>
-                                            </div>
-                                            <div class="info info-short">
-                                                <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                                                <span class="info-text movierunningtime"></span>
-
-                                            </div>
+                                <h4 class="entity-title">
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Say no</a>
+                                </h4>
+                                <div class="entity-category">
+                                    <a class="content-link" href="movies-blocks.html">sport</a>
+                                </div>
+                                <div class="entity-info">
+                                    <div class="info-lines">
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
+                                            <span class="info-text">7,4</span>
+                                            <span class="info-rest">/10</span>
+                                        </div>
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                            <span class="info-text">105</span>
+                                            <span class="info-rest">&nbsp;min</span>
                                         </div>
                                     </div>
                                 </div>
-                            </article>
-                        </div>
-                        <div class="slick-slide">
-                            <article class="poster-entity" data-role="hover-wrap">
-                                <div class="embed-responsive embed-responsive-poster">
-                                    <img class="embed-responsive-item movieimg" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slick-slide">
+                        <article class="poster-entity" data-role="hover-wrap">
+                            <div class="embed-responsive embed-responsive-poster">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                            <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
+                            <div class="d-over bg-highlight-bottom">
+                                <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
                                 </div>
-                                <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
-                                <div class="d-over bg-highlight-bottom">
-                                    <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <a class="action-icon-theme action-icon-bordered rounded-circle youtube" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                            <span class="icon-content"><i class="fas fa-play"></i></span>
-                                        </a>
-                                    </div>
-                                    <h4 class="entity-title">
-                                        <a class="content-link movietitle" href="movieView.jsp"></a>
-                                    </h4>
-                                    <div class="entity-category">
-                                        <a class="content-link moviecategory" href="movies-blocks.html"></a>
-                                    </div>
-                                    <div class="entity-info">
-                                        <div class="info-lines">
-                                            <div class="info info-short">
-                                                <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                                                <span class="info-text mvisitcount">8,1</span>
-                                            </div>
-                                            <div class="info info-short">
-                                                <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                                                <span class="info-text movierunningtime"></span>
-                                            </div>
+                                <h4 class="entity-title">
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Lonely rock</a>
+                                </h4>
+                                <div class="entity-category">
+                                    <a class="content-link" href="movies-blocks.html">drama</a>,
+                                    <a class="content-link" href="movies-blocks.html">historical</a>
+                                </div>
+                                <div class="entity-info">
+                                    <div class="info-lines">
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
+                                            <span class="info-text">7,1</span>
+                                            <span class="info-rest">/10</span>
+                                        </div>
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                            <span class="info-text">113</span>
+                                            <span class="info-rest">&nbsp;min</span>
                                         </div>
                                     </div>
                                 </div>
-                            </article>
-                        </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slick-slide">
+                        <article class="poster-entity" data-role="hover-wrap">
+                            <div class="embed-responsive embed-responsive-poster">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                            <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
+                            <div class="d-over bg-highlight-bottom">
+                                <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
+                                </div>
+                                <h4 class="entity-title">
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Blick</a>
+                                </h4>
+                                <div class="entity-category">
+                                    <a class="content-link" href="movies-blocks.html">comedy</a>,
+                                    <a class="content-link" href="movies-blocks.html">detective</a>
+                                </div>
+                                <div class="entity-info">
+                                    <div class="info-lines">
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
+                                            <span class="info-text">8,7</span>
+                                            <span class="info-rest">/10</span>
+                                        </div>
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                            <span class="info-text">130</span>
+                                            <span class="info-rest">&nbsp;min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slick-slide">
+                        <article class="poster-entity" data-role="hover-wrap">
+                            <div class="embed-responsive embed-responsive-poster">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                            <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
+                            <div class="d-over bg-highlight-bottom">
+                                <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
+                                </div>
+                                <h4 class="entity-title">
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">The match</a>
+                                </h4>
+                                <div class="entity-category">
+                                    <a class="content-link" href="movies-blocks.html">romance</a>,
+                                    <a class="content-link" href="movies-blocks.html">historical</a>
+                                </div>
+                                <div class="entity-info">
+                                    <div class="info-lines">
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
+                                            <span class="info-text">8,1</span>
+                                            <span class="info-rest">/10</span>
+                                        </div>
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                            <span class="info-text">90</span>
+                                            <span class="info-rest">&nbsp;min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slick-slide">
+                        <article class="poster-entity" data-role="hover-wrap">
+                            <div class="embed-responsive embed-responsive-poster">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                            <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
+                            <div class="d-over bg-highlight-bottom">
+                                <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
+                                </div>
+                                <h4 class="entity-title">
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">In to the deep</a>
+                                </h4>
+                                <div class="entity-category">
+                                    <a class="content-link" href="movies-blocks.html">historical</a>,
+                                    <a class="content-link" href="movies-blocks.html">adventure</a>
+                                </div>
+                                <div class="entity-info">
+                                    <div class="info-lines">
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
+                                            <span class="info-text">9,8</span>
+                                            <span class="info-rest">/10</span>
+                                        </div>
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                            <span class="info-text">169</span>
+                                            <span class="info-rest">&nbsp;min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slick-slide">
+                        <article class="poster-entity" data-role="hover-wrap">
+                            <div class="embed-responsive embed-responsive-poster">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                            <div class="d-background bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show"></div>
+                            <div class="d-over bg-highlight-bottom">
+                                <div class="collapse animated faster entity-play" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
+                                </div>
+                                <h4 class="entity-title">
+                                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">New world</a>
+                                </h4>
+                                <div class="entity-category">
+                                    <a class="content-link" href="movies-blocks.html">thriller</a>,
+                                    <a class="content-link" href="movies-blocks.html">horror</a>
+                                </div>
+                                <div class="entity-info">
+                                    <div class="info-lines">
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
+                                            <span class="info-text">9,1</span>
+                                            <span class="info-rest">/10</span>
+                                        </div>
+                                        <div class="info info-short">
+                                            <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                            <span class="info-text">125</span>
+                                            <span class="info-rest">&nbsp;min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="slick-arrows">
+                    <div class="slick-arrow-prev">
+                                <span class="th-dots th-arrow-left th-dots-animated">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                    </div>
+                    <div class="slick-arrow-next">
+                                <span class="th-dots th-arrow-right th-dots-animated">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -289,16 +448,17 @@
 <section class="section-long">
     <div class="container">
         <div class="section-head">
-            <h2 class="section-title text-uppercase">Recent Movie</h2>
+            <h2 class="section-title text-uppercase">Now in play</h2>
+            <p class="section-text">Dates: 13 - 15 february 2019</p>
         </div>
         <article class="movie-line-entity">
             <div class="entity-poster" data-role="hover-wrap">
                 <div class="embed-responsive embed-responsive-poster">
-                    <img class="embed-responsive-item recentImg" src="http://via.placeholder.com/340x510" alt="" />
+                    <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
                 </div>
                 <div class="d-over bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
                     <div class="entity-play">
-                        <a class="action-icon-theme action-icon-bordered rounded-circle recentyou" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                        <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
                             <span class="icon-content"><i class="fas fa-play"></i></span>
                         </a>
                     </div>
@@ -306,36 +466,38 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link recentTi" href="movieView.jsp">Outsider</a>
+                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Outsider</a>
                 </h4>
                 <div class="entity-category">
-                    <a class="content-link recentCa" href="movies-blocks.html">crime</a>
+                    <a class="content-link" href="movies-blocks.html">crime</a>,
+                    <a class="content-link" href="movies-blocks.html">comedy</a>
                 </div>
                 <div class="entity-info">
                     <div class="info-lines">
                         <div class="info info-short">
                             <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                            <span class="info-text rvisitcount">8,1</span>
+                            <span class="info-text">8,1</span>
+                            <span class="info-rest">/10</span>
                         </div>
                         <div class="info info-short">
                             <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                            <span class="info-text recentRun">125</span>
+                            <span class="info-text">125</span>
                             <span class="info-rest">&nbsp;min</span>
                         </div>
                     </div>
                 </div>
-                <p class="text-short entity-text recentSum">Aenean molestie turpis eu aliquam bibendum. Nulla facilisi. Vestibulum quis risus in lorem suscipit tempor. Morbi consectetur enim vitae justo finibus consectetur. Mauris volutpat nunc dui, quis condimentum dolor efficitur et. Phasellus rhoncus porta nunc eu fermentum. Nullam vitae erat hendrerit, tempor arcu eget, eleifend tortor.
+                <p class="text-short entity-text">Aenean molestie turpis eu aliquam bibendum. Nulla facilisi. Vestibulum quis risus in lorem suscipit tempor. Morbi consectetur enim vitae justo finibus consectetur. Mauris volutpat nunc dui, quis condimentum dolor efficitur et. Phasellus rhoncus porta nunc eu fermentum. Nullam vitae erat hendrerit, tempor arcu eget, eleifend tortor.
                 </p>
             </div>
         </article>
         <article class="movie-line-entity">
             <div class="entity-poster" data-role="hover-wrap">
                 <div class="embed-responsive embed-responsive-poster">
-                    <img class="embed-responsive-item recentImg" src="http://via.placeholder.com/340x510" alt="" />
+                    <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
                 </div>
                 <div class="d-over bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
                     <div class="entity-play">
-                        <a class="action-icon-theme action-icon-bordered rounded-circle youtube" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                        <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
                             <span class="icon-content"><i class="fas fa-play"></i></span>
                         </a>
                     </div>
@@ -343,36 +505,38 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link recentTi" href="movieView.jsp">Moonlight night</a>
+                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Moonlight night</a>
                 </h4>
                 <div class="entity-category">
-                    <a class="content-link recentCa" href="movies-blocks.html">comedy</a>
+                    <a class="content-link" href="movies-blocks.html">comedy</a>,
+                    <a class="content-link" href="movies-blocks.html">horror</a>
                 </div>
                 <div class="entity-info">
                     <div class="info-lines">
                         <div class="info info-short">
                             <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                            <span class="info-text rvisitcount">6,8</span>
+                            <span class="info-text">6,8</span>
+                            <span class="info-rest">/10</span>
                         </div>
                         <div class="info info-short">
                             <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                            <span class="info-text recentRun">95</span>
+                            <span class="info-text">95</span>
                             <span class="info-rest">&nbsp;min</span>
                         </div>
                     </div>
                 </div>
-                <p class="text-short entity-text recentSum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur ultrices justo a pellentesque. Praesent venenatis dolor nec tempus lacinia. Donec ac condimentum dolor. Nullam sit amet nisl hendrerit, pharetra nulla convallis, malesuada diam. Donec ornare nisl eu lectus rhoncus, at malesuada metus rutrum. Aliquam a nisl vulputate, sodales ipsum aliquam, tempus purus. Suspendisse convallis, lectus nec vehicula sollicitudin, lorem sapien rhoncus dolor, vel lacinia urna velit ullamcorper nisi. Phasellus pellentesque, magna nec gravida feugiat, est magna suscipit ligula, vel porttitor nunc enim at nibh. Sed varius sit amet leo vitae consequat.
+                <p class="text-short entity-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur ultrices justo a pellentesque. Praesent venenatis dolor nec tempus lacinia. Donec ac condimentum dolor. Nullam sit amet nisl hendrerit, pharetra nulla convallis, malesuada diam. Donec ornare nisl eu lectus rhoncus, at malesuada metus rutrum. Aliquam a nisl vulputate, sodales ipsum aliquam, tempus purus. Suspendisse convallis, lectus nec vehicula sollicitudin, lorem sapien rhoncus dolor, vel lacinia urna velit ullamcorper nisi. Phasellus pellentesque, magna nec gravida feugiat, est magna suscipit ligula, vel porttitor nunc enim at nibh. Sed varius sit amet leo vitae consequat.
                 </p>
             </div>
         </article>
         <article class="movie-line-entity">
             <div class="entity-poster" data-role="hover-wrap">
                 <div class="embed-responsive embed-responsive-poster">
-                    <img class="embed-responsive-item recentImg" src="http://via.placeholder.com/340x510" alt="" />
+                    <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
                 </div>
                 <div class="d-over bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
                     <div class="entity-play">
-                        <a class="action-icon-theme action-icon-bordered rounded-circle recentyou" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                        <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
                             <span class="icon-content"><i class="fas fa-play"></i></span>
                         </a>
                     </div>
@@ -380,36 +544,37 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link recentTi" href="movieView.jsp">Say no</a>
+                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Say no</a>
                 </h4>
                 <div class="entity-category">
-                    <a class="content-link recentCa" href="movies-blocks.html">sport</a>
+                    <a class="content-link" href="movies-blocks.html">sport</a>
                 </div>
                 <div class="entity-info">
                     <div class="info-lines">
                         <div class="info info-short">
                             <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                            <span class="info-text rvisitcount">7,4</span>
+                            <span class="info-text">7,4</span>
+                            <span class="info-rest">/10</span>
                         </div>
                         <div class="info info-short">
                             <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                            <span class="info-text recentRun">105</span>
+                            <span class="info-text">105</span>
                             <span class="info-rest">&nbsp;min</span>
                         </div>
                     </div>
                 </div>
-                <p class="text-short entity-text recentSum">Vivamus dolor ex, viverra ut facilisis et, euismod et quam. Aliquam sit amet mattis velit, ullamcorper venenatis magna. Aenean ac maximus magna. Proin pharetra venenatis tortor, ac suscipit est ultrices vitae. Mauris vulputate, nisl in lacinia dignissim, libero justo vehicula arcu, a porttitor quam erat ac dui. Suspendisse potenti. Maecenas sit amet interdum sem. Vestibulum sit amet volutpat mauris, ut gravida velit. Donec ultricies, eros ut finibus volutpat, enim ligula tempus enim, non bibendum libero tellus at velit. Aenean placerat egestas ullamcorper.
+                <p class="text-short entity-text">Vivamus dolor ex, viverra ut facilisis et, euismod et quam. Aliquam sit amet mattis velit, ullamcorper venenatis magna. Aenean ac maximus magna. Proin pharetra venenatis tortor, ac suscipit est ultrices vitae. Mauris vulputate, nisl in lacinia dignissim, libero justo vehicula arcu, a porttitor quam erat ac dui. Suspendisse potenti. Maecenas sit amet interdum sem. Vestibulum sit amet volutpat mauris, ut gravida velit. Donec ultricies, eros ut finibus volutpat, enim ligula tempus enim, non bibendum libero tellus at velit. Aenean placerat egestas ullamcorper.
                 </p>
             </div>
         </article>
         <article class="movie-line-entity">
             <div class="entity-poster" data-role="hover-wrap">
                 <div class="embed-responsive embed-responsive-poster">
-                    <img class="embed-responsive-item recentImg" src="http://via.placeholder.com/340x510" alt="" />
+                    <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
                 </div>
                 <div class="d-over bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
                     <div class="entity-play">
-                        <a class="action-icon-theme action-icon-bordered rounded-circle recentyou" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                        <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
                             <span class="icon-content"><i class="fas fa-play"></i></span>
                         </a>
                     </div>
@@ -417,25 +582,27 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link recentTi" href="movieView.jsp">Lonely rock</a>
+                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Lonely rock</a>
                 </h4>
                 <div class="entity-category">
-                    <a class="content-link recentCa" href="movies-blocks.html">drama</a>
+                    <a class="content-link" href="movies-blocks.html">drama</a>,
+                    <a class="content-link" href="movies-blocks.html">historical</a>
                 </div>
                 <div class="entity-info">
                     <div class="info-lines">
                         <div class="info info-short">
                             <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                            <span class="info-text rvisitcount">7,1</span>
+                            <span class="info-text">7,1</span>
+                            <span class="info-rest">/10</span>
                         </div>
                         <div class="info info-short">
                             <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                            <span class="info-text recentRun">113</span>
+                            <span class="info-text">113</span>
                             <span class="info-rest">&nbsp;min</span>
                         </div>
                     </div>
                 </div>
-                <p class="text-short entity-text recentSum">In luctus ac nisi vel vulputate. Sed blandit augue ut ex eleifend, ac posuere dolor sollicitudin. Mauris tempus euismod mauris id semper. Vestibulum ut vulputate elit, id ultricies libero. Aenean laoreet mi augue, at iaculis nisi aliquam eu. Quisque nec ipsum vehicula diam egestas porttitor eu vitae ex. Curabitur auctor tortor elementum leo faucibus, sit amet imperdiet ante maximus. Nulla viverra tortor dignissim purus placerat dapibus nec ut orci. Quisque efficitur nulla quis pulvinar dapibus. Phasellus sodales tortor sit amet sagittis condimentum. Donec ac ultricies ex. In odio leo, rhoncus aliquam bibendum sit amet, varius sit amet nisl.
+                <p class="text-short entity-text">In luctus ac nisi vel vulputate. Sed blandit augue ut ex eleifend, ac posuere dolor sollicitudin. Mauris tempus euismod mauris id semper. Vestibulum ut vulputate elit, id ultricies libero. Aenean laoreet mi augue, at iaculis nisi aliquam eu. Quisque nec ipsum vehicula diam egestas porttitor eu vitae ex. Curabitur auctor tortor elementum leo faucibus, sit amet imperdiet ante maximus. Nulla viverra tortor dignissim purus placerat dapibus nec ut orci. Quisque efficitur nulla quis pulvinar dapibus. Phasellus sodales tortor sit amet sagittis condimentum. Donec ac ultricies ex. In odio leo, rhoncus aliquam bibendum sit amet, varius sit amet nisl.
                 </p>
             </div>
         </article>
@@ -443,11 +610,11 @@
         <article class="movie-line-entity">
             <div class="entity-poster" data-role="hover-wrap">
                 <div class="embed-responsive embed-responsive-poster">
-                    <img class="embed-responsive-item recentImg" src="http://via.placeholder.com/340x510" alt="" />
+                    <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
                 </div>
                 <div class="d-over bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
                     <div class="entity-play">
-                        <a class="action-icon-theme action-icon-bordered rounded-circle recentyou" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                        <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
                             <span class="icon-content"><i class="fas fa-play"></i></span>
                         </a>
                     </div>
@@ -455,25 +622,27 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link recentTi" href="movieView.jsp">New world</a>
+                    <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">New world</a>
                 </h4>
                 <div class="entity-category">
-                    <a class="content-link recentCa" href="movies-blocks.html">thriller</a>
+                    <a class="content-link" href="movies-blocks.html">thriller</a>,
+                    <a class="content-link" href="movies-blocks.html">horror</a>
                 </div>
                 <div class="entity-info">
                     <div class="info-lines">
                         <div class="info info-short">
                             <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
-                            <span class="info-text rvisitcount">9,1</span>
+                            <span class="info-text">9,1</span>
+                            <span class="info-rest">/10</span>
                         </div>
                         <div class="info info-short">
                             <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                            <span class="info-text recentRun">125</span>
+                            <span class="info-text">125</span>
                             <span class="info-rest">&nbsp;min</span>
                         </div>
                     </div>
                 </div>
-                <p class="text-short entity-text recentSum">Vivamus dolor ex, viverra ut facilisis et, euismod et quam. Aliquam sit amet mattis velit, ullamcorper venenatis magna. Aenean ac maximus magna. Proin pharetra venenatis tortor, ac suscipit est ultrices vitae. Mauris vulputate, nisl in lacinia dignissim, libero justo vehicula arcu, a porttitor quam erat ac dui. Suspendisse potenti. Maecenas sit amet interdum sem. Vestibulum sit amet volutpat mauris, ut gravida velit. Donec ultricies, eros ut finibus volutpat, enim ligula tempus enim, non bibendum libero tellus at velit. Aenean placerat egestas ullamcorper.
+                <p class="text-short entity-text">Vivamus dolor ex, viverra ut facilisis et, euismod et quam. Aliquam sit amet mattis velit, ullamcorper venenatis magna. Aenean ac maximus magna. Proin pharetra venenatis tortor, ac suscipit est ultrices vitae. Mauris vulputate, nisl in lacinia dignissim, libero justo vehicula arcu, a porttitor quam erat ac dui. Suspendisse potenti. Maecenas sit amet interdum sem. Vestibulum sit amet volutpat mauris, ut gravida velit. Donec ultricies, eros ut finibus volutpat, enim ligula tempus enim, non bibendum libero tellus at velit. Aenean placerat egestas ullamcorper.
                 </p>
             </div>
         </article>
@@ -484,7 +653,7 @@
     <div class="d-background bg-gradient-black"></div>
     <div class="container position-relative">
         <div class="section-head">
-            <h2 class="section-title text-uppercase">Recommend Movie</h2>
+            <h2 class="section-title text-uppercase">Comming Soon</h2>
         </div>
         <div class="slick-spaced slick-carousel" data-slick-view="navigation single">
             <div class="slick-slides">
@@ -492,11 +661,11 @@
                     <article class="movie-line-entity">
                         <div class="entity-preview">
                             <div class="embed-responsive embed-responsive-16by9">
-                                <img class="embed-responsive-item randomImg" src="http://via.placeholder.com/1920x1080" alt="" />
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
                             </div>
                             <div class="d-over">
                                 <div class="entity-play">
-                                    <a class="action-icon-theme action-icon-bordered rounded-circle randomyou" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
                                         <span class="icon-content"><i class="fas fa-play"></i></span>
                                     </a>
                                 </div>
@@ -504,43 +673,138 @@
                         </div>
                         <div class="entity-content">
                             <h4 class="entity-title">
-                                <a class="content-link randomTi" href="movieView.jsp">One way road</a>
+                                <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">One way road</a>
                             </h4>
                             <div class="entity-category">
-                                <a class="content-link randomCa" href="movies-blocks.html">sport</a>
+                                <a class="content-link" href="movies-blocks.html">sport</a>,
+                                <a class="content-link" href="movies-blocks.html">musical</a>
                             </div>
                             <div class="entity-info">
                                 <div class="info-lines">
                                     <div class="info info-short">
                                         <span class="text-theme info-icon"><i class="fas fa-calendar-alt"></i></span>
-                                        <span class="info-text randomdate">18 jul 2020</span>
+                                        <span class="info-text">18 jul 2020</span>
                                     </div>
                                     <div class="info info-short">
                                         <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
-                                        <span class="info-text randomRun">130</span>
+                                        <span class="info-text">130</span>
                                         <span class="info-rest">&nbsp;min</span>
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-short entity-text randomSum">In luctus ac nisi vel vulputate. Sed blandit augue ut ex eleifend, ac posuere dolor sollicitudin. Mauris tempus euismod mauris id semper. Vestibulum ut vulputate elit, id ultricies libero. Aenean laoreet mi augue, at iaculis nisi aliquam eu. Quisque nec ipsum vehicula diam egestas porttitor eu vitae ex. Curabitur auctor tortor elementum leo faucibus, sit amet imperdiet ante maximus. Nulla viverra tortor dignissim purus placerat dapibus nec ut orci. Quisque efficitur nulla quis pulvinar dapibus. Phasellus sodales tortor sit amet sagittis condimentum. Donec ac ultricies ex. In odio leo, rhoncus aliquam bibendum sit amet, varius sit amet nisl.
+                            <p class="text-short entity-text">In luctus ac nisi vel vulputate. Sed blandit augue ut ex eleifend, ac posuere dolor sollicitudin. Mauris tempus euismod mauris id semper. Vestibulum ut vulputate elit, id ultricies libero. Aenean laoreet mi augue, at iaculis nisi aliquam eu. Quisque nec ipsum vehicula diam egestas porttitor eu vitae ex. Curabitur auctor tortor elementum leo faucibus, sit amet imperdiet ante maximus. Nulla viverra tortor dignissim purus placerat dapibus nec ut orci. Quisque efficitur nulla quis pulvinar dapibus. Phasellus sodales tortor sit amet sagittis condimentum. Donec ac ultricies ex. In odio leo, rhoncus aliquam bibendum sit amet, varius sit amet nisl.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <div class="slick-slide">
+                    <article class="movie-line-entity">
+                        <div class="entity-preview">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
+                            </div>
+                            <div class="d-over">
+                                <div class="entity-play">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="entity-content">
+                            <h4 class="entity-title">
+                                <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Dance story</a>
+                            </h4>
+                            <div class="entity-category">
+                                <a class="content-link" href="movies-blocks.html">drama</a>
+                            </div>
+                            <div class="entity-info">
+                                <div class="info-lines">
+                                    <div class="info info-short">
+                                        <span class="text-theme info-icon"><i class="fas fa-calendar-alt"></i></span>
+                                        <span class="info-text">14 jul 2020</span>
+                                    </div>
+                                    <div class="info info-short">
+                                        <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                        <span class="info-text">140</span>
+                                        <span class="info-rest">&nbsp;min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-short entity-text">In luctus ac nisi vel vulputate. Sed blandit augue ut ex eleifend, ac posuere dolor sollicitudin. Mauris tempus euismod mauris id semper. Vestibulum ut vulputate elit, id ultricies libero. Aenean laoreet mi augue, at iaculis nisi aliquam eu. Quisque nec ipsum vehicula diam egestas porttitor eu vitae ex. Curabitur auctor tortor elementum leo faucibus, sit amet imperdiet ante maximus. Nulla viverra tortor dignissim purus placerat dapibus nec ut orci. Quisque efficitur nulla quis pulvinar dapibus. Phasellus sodales tortor sit amet sagittis condimentum. Donec ac ultricies ex. In odio leo, rhoncus aliquam bibendum sit amet, varius sit amet nisl.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <div class="slick-slide">
+                    <article class="movie-line-entity">
+                        <div class="entity-preview">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
+                            </div>
+                            <div class="d-over">
+                                <div class="entity-play">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="entity-content">
+                            <h4 class="entity-title">
+                                <a class="content-link" href="templateEx/movie-info-sidebar-right.jsp">Cloud 10</a>
+                            </h4>
+                            <div class="entity-category">
+                                <a class="content-link" href="movies-blocks.html">drama</a>,
+                                <a class="content-link" href="movies-blocks.html">superhero</a>
+                            </div>
+                            <div class="entity-info">
+                                <div class="info-lines">
+                                    <div class="info info-short">
+                                        <span class="text-theme info-icon"><i class="fas fa-calendar-alt"></i></span>
+                                        <span class="info-text">19 oct 2020</span>
+                                    </div>
+                                    <div class="info info-short">
+                                        <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                        <span class="info-text">110</span>
+                                        <span class="info-rest">&nbsp;min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-short entity-text">Vivamus dolor ex, viverra ut facilisis et, euismod et quam. Aliquam sit amet mattis velit, ullamcorper venenatis magna. Aenean ac maximus magna. Proin pharetra venenatis tortor, ac suscipit est ultrices vitae. Mauris vulputate, nisl in lacinia dignissim, libero justo vehicula arcu, a porttitor quam erat ac dui. Suspendisse potenti. Maecenas sit amet interdum sem. Vestibulum sit amet volutpat mauris, ut gravida velit. Donec ultricies, eros ut finibus volutpat, enim ligula tempus enim, non bibendum libero tellus at velit. Aenean placerat egestas ullamcorper.
                             </p>
                         </div>
                     </article>
                 </div>
             </div>
+            <div class="slick-arrows">
+                <div class="slick-arrow-prev">
+                            <span class="th-dots th-arrow-left th-dots-animated">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                </div>
+                <div class="slick-arrow-next">
+                            <span class="th-dots th-arrow-right th-dots-animated">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-
 <section class="section-long">
     <div class="container">
         <div class="section-head">
-            <h2 class="section-title text-uppercase">Latest news</h2>
+            <h2 class="section-title text-uppercase">Latest Review</h2>
         </div>
         <div class="grid row">
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -557,7 +821,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">Creative life</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">Creative life</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">comedy</a>,
@@ -567,14 +831,14 @@
                         <p class="text-short entity-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur ultrices justo a pellentesque. Praesent venenatis dolor nec tempus lacinia. Donec ac condimentum dolor. Nullam sit amet nisl hendrerit, pharetra nulla convallis, malesuada diam. Donec ornare nisl eu lectus rhoncus, at malesuada metus rutrum. Aliquam a nisl vulputate, sodales ipsum aliquam, tempus purus. Suspendisse convallis, lectus nec vehicula sollicitudin, lorem sapien rhoncus dolor, vel lacinia urna velit ullamcorper nisi. Phasellus pellentesque, magna nec gravida feugiat, est magna suscipit ligula, vel porttitor nunc enim at nibh. Sed varius sit amet leo vitae consequat.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -591,7 +855,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">One step to the end</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">One step to the end</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">drama</a>,
@@ -600,14 +864,14 @@
                         <p class="text-short entity-text">Vivamus dolor ex, viverra ut facilisis et, euismod et quam. Aliquam sit amet mattis velit, ullamcorper venenatis magna. Aenean ac maximus magna. Proin pharetra venenatis tortor, ac suscipit est ultrices vitae. Mauris vulputate, nisl in lacinia dignissim, libero justo vehicula arcu, a porttitor quam erat ac dui. Suspendisse potenti. Maecenas sit amet interdum sem. Vestibulum sit amet volutpat mauris, ut gravida velit. Donec ultricies, eros ut finibus volutpat, enim ligula tempus enim, non bibendum libero tellus at velit. Aenean placerat egestas ullamcorper.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -624,7 +888,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">Here we go again</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">Here we go again</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">romance</a>,
@@ -633,14 +897,14 @@
                         <p class="text-short entity-text">In luctus ac nisi vel vulputate. Sed blandit augue ut ex eleifend, ac posuere dolor sollicitudin. Mauris tempus euismod mauris id semper. Vestibulum ut vulputate elit, id ultricies libero. Aenean laoreet mi augue, at iaculis nisi aliquam eu. Quisque nec ipsum vehicula diam egestas porttitor eu vitae ex. Curabitur auctor tortor elementum leo faucibus, sit amet imperdiet ante maximus. Nulla viverra tortor dignissim purus placerat dapibus nec ut orci. Quisque efficitur nulla quis pulvinar dapibus. Phasellus sodales tortor sit amet sagittis condimentum. Donec ac ultricies ex. In odio leo, rhoncus aliquam bibendum sit amet, varius sit amet nisl.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -657,7 +921,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">The one and the other</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">The one and the other</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">drama</a>,
@@ -667,14 +931,14 @@
                         <p class="text-short entity-text">Aenean molestie turpis eu aliquam bibendum. Nulla facilisi. Vestibulum quis risus in lorem suscipit tempor. Morbi consectetur enim vitae justo finibus consectetur. Mauris volutpat nunc dui, quis condimentum dolor efficitur et. Phasellus rhoncus porta nunc eu fermentum. Nullam vitae erat hendrerit, tempor arcu eget, eleifend tortor.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
         </div>
         <div class="section-bottom">
-            <a class="btn btn-theme" href="templateEx/news-blocks-sidebar-right.jsp">View All News</a>
+            <a class="btn btn-theme" href="templateEx/news-blocks-sidebar-right.jsp">View All Reviews</a>
         </div>
     </div>
 </section>
@@ -806,7 +1070,6 @@
 <script src="./template/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Inits product scripts -->
 <script src="./template/js/script.js"></script>
-<script src="js/index.js" type="text/javascript"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ4Qy67ZAILavdLyYV2ZwlShd0VAqzRXA&callback=initMap"></script>
 <script async defer src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js"></script>
 </body>
