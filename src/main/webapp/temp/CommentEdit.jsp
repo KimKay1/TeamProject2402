@@ -55,6 +55,7 @@
                         <h2 class="section-title text-uppercase">Edit comment</h2>
                     </div>
                     <form action="../comment/edit.do" method="post" autocomplete="off">
+                        <input type="hidden" name="num" value="${param.num}">
                         <input type="hidden" name="idx" value="${param.idx}">
                         <input type="hidden" name="mode" value="${param.mode}">
                         <input type="hidden" name="title" value="${dto.title}">

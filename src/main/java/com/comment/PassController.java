@@ -47,10 +47,12 @@ public class PassController extends HttpServlet {
 
             } else if (mode.equals("delete")){
                 //mode = delete
+                String num = req.getParameter("num");
+                System.out.println("num :: "+ num);
                 dao = new CommentDAO();
                 dto = dao.selectView(idx);
                 int result = dao.deletePost(idx);
-                JSFunction.alertLocation(resp,"삭제되었습니다.","../comment/view.do");
+                JSFunction.alertLocation(resp,"삭제되었습니다.", "../movieView.do?num="+num);
             }
         }else {//비밀번호 검증 실패
             JSFunction.alertBack(resp, "비밀번호 검증 실패");

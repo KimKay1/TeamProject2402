@@ -15,6 +15,7 @@
 <body>
 <h2>비밀번호 검증</h2>
 <form name="writeFrm" method="post" action="../comment/pass.do" onsubmit="return validateForm(this);">
+    <input type="hidden" name="num" value="${param.num}">
     <input type="hidden" name="idx" value="${param.idx}">
     <input type="hidden" name="mode" value="${param.mode}">
     <table border="1" width="90%">
