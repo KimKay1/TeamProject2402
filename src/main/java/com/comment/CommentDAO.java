@@ -182,7 +182,7 @@ public class CommentDAO extends DBConnPool {
 
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("comment selectView 오류 발생");
+            System.out.println("comment selectEditView 오류 발생");
         }
         return dto;
     }

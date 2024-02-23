@@ -26,25 +26,29 @@ public class PassController extends HttpServlet {
         String idx = req.getParameter("idx");
         String mode = req.getParameter("mode");
         String pass = req.getParameter("pass");
+
         System.out.println("파라미터 확인 " + idx + " :: " + mode + "::" + pass);
         //비밀번호 확인
         CommentDAO dao = new CommentDAO();
         boolean confirmed = dao.confirmPassword(pass,idx);
+        CommentDTO dto = dao.selectEditView(idx);
         dao.close();
 
         if(confirmed){//비밀번호 검증 성공
             //mode = edit
             if(mode.equals("edit")){
+
                 HttpSession session = req.getSession();
                 session.setAttribute("pass", pass);
+                req.setAttribute("dto", dto);
                 req.setAttribute("idx", idx);
-                req.getRequestDispatcher("../comment/edit.do").forward(req, resp);
+                req.getRequestDispatcher("../temp/CommentEdit.jsp").forward(req, resp);
 //                resp.sendRedirect("../comment/edit.do");
 
             } else if (mode.equals("delete")){
                 //mode = delete
                 dao = new CommentDAO();
-                CommentDTO dto = dao.selectView(idx);
+                dto = dao.selectView(idx);
                 int result = dao.deletePost(idx);
                 JSFunction.alertLocation(resp,"삭제되었습니다.","../comment/view.do");
             }

@@ -45,7 +45,7 @@
                                                 </div>
                                             </div>
                                             <div class="ml-sm-auto col-auto">
-                                                <a class="content-link" href="../comment/pass.do?mode=edit&idx=${ row.idx }">수정</a>
+                                                <a class="content-link" href="../comment/edit.do?mode=edit&idx=${ row.idx }">수정</a>
                                             </div>
                                             <div class="col-auto">
                                                 <a class="content-link" href="../comment/pass.do?mode=delete&idx=${ row.idx }">삭제</a>
