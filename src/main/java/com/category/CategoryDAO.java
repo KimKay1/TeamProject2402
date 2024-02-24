@@ -60,19 +60,7 @@ public class CategoryDAO extends DBConnPool {
         List<CategoryDTO> bbs = new ArrayList<CategoryDTO>();
 
         // 쿼리문 작성
-        String query = "SELECT * FROM ("
-                + " SELECT Tb.*, ROWNUM rNUM FROM ("
-                + " SELECT * FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num";
-
-        if(map.get("searchWord") != null){
-            query += " WHERE " + map.get("searchField") + " "
-                    + " LIKE '%" + map.get("searchWord") + "%'";
-        }
-
-        query += " ORDER BY idx DESC"
-                + " ) Tb"
-                + " )"
-                + " WHERE rNUM BETWEEN ? AND ?";
+        String query = "SELECT ROWNUM, MD.img, MI.title, MI.num FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE ROWNUM BETWEEN ? AND ?";
 
         try {
             psmt = con.prepareStatement(query);
@@ -84,14 +72,17 @@ public class CategoryDAO extends DBConnPool {
             while (rs.next()){
                 //한 row의 내용을 DTO에 저장
                 CategoryDTO dto = new CategoryDTO();
+                dto.setNum(rs.getString("num"));
                 dto.setTitle(rs.getString("title"));
+                dto.setImg(rs.getString("img"));
 
                 bbs.add(dto);
             }
 
+
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("comment selectList 오류 발생");
+            System.out.println("category selectList 오류 발생");
         }
 
         return bbs;

@@ -134,7 +134,7 @@
                     <div class="gallery-entity">
                         <div class="entity-preview" data-role="hover-wrap">
                             <div class="embed-responsive embed-responsive-16by9">
-                                <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="${dto.img}" />
+                                <img class="embed-responsive-item" src="${row.img}" alt="" />
                             </div>
                             <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
                                 <div class="entity-view-popup">
@@ -142,7 +142,7 @@
                                         <span class="icon-content"><i class="fas fa-search"></i></span>
                                     </a>
                                 </div>
-                                <h4 class="entity-title">${title}</h4>
+                                <h4 class="entity-title">${row.title}</h4>
                             </div>
                         </div>
                     </div>

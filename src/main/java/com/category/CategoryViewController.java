@@ -16,7 +16,7 @@ import java.util.Map;
 @WebServlet("/category/view.do")
 public class CategoryViewController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
         CategoryDAO dao = new CategoryDAO();
@@ -74,7 +74,7 @@ public class CategoryViewController extends HttpServlet {
 //        /*줄바꿈 처리*/
 //        dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
 
-        //전달할 데이터를 req 영역에 저장하고 CommentForm.jsp 포워드
+        //전달할 데이터를 req 영역에 저장하고 포워드
         req.setAttribute("boardList", boardList);
         req.setAttribute("map", map);
 

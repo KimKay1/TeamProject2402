@@ -54,28 +54,28 @@
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="./temp/CategoryList.jsp">Action</a>
+                                <a class="nav-link" href="../category/view.do?category=액션">Action</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/gallery.jsp">Animation</a>
+                                <a class="nav-link" href="../category/view.do?category=애니메이션">Animation</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/gallery.jsp">Comedy</a>
+                                <a class="nav-link" href="../category/view.do?category=코미디">Comedy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/gallery.jsp">Crime</a>
+                                <a class="nav-link" href="../category/view.do?category=범죄">Crime</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/gallery.jsp">Drama</a>
+                                <a class="nav-link" href="../category/view.do?category=드라마">Drama</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/gallery.jsp">Fantasy</a>
+                                <a class="nav-link" href="../category/view.do?category=판타지">Fantasy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/gallery.jsp">Thriller</a>
+                                <a class="nav-link" href="../category/view.do?category=스릴러">Thriller</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/gallery.jsp">Romance</a>
+                                <a class="nav-link" href="../category/view.do?category=로맨스">Romance</a>
                             </li>
                         </ul>
                     </li>
