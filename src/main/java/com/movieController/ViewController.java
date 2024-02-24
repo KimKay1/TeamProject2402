@@ -92,7 +92,7 @@ public class ViewController extends HttpServlet {
         dao.close();
 
         //뷰에 전달할 매개변수 추가
-        String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../comment/view.do");
+        String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "/movieView.do");
         //바로가기 영역 HTML
         map.put("totalCount", totalCount);
         map.put("pageSize", pageSize);

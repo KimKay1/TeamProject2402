@@ -8,7 +8,7 @@
 <jsp:include page="./Header.jsp"></jsp:include>
 
 <section class="after-head d-flex section-text-white position-relative">
-    <div class="d-background" data-image-src="http://via.placeholder.com/1920x1080" data-parallax="scroll"></div>
+    <div class="d-background" data-image-src="" data-parallax="scroll"></div>
     <div class="d-background bg-black-80"></div>
     <div class="top-block top-inner container">
         <div class="top-block-content">

@@ -27,7 +27,7 @@
             <td colspan="2" align="center">
                 <button type="submit">검증</button>
                 <button type="reset">RESET</button>
-                <button type="button" onclick="location.href='../comment/view.do';">목록</button>
+                <button type="button" onclick="location.href='/movieView.do';">목록</button>
             </td>
         </tr>
     </table>
