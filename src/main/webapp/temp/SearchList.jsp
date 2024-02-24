@@ -26,7 +26,7 @@
                 <c:when test="${empty dto.title}"> <%--게시글이 없을때--%>
                     <tr>
                         <td colspan="6" align="center">
-                            검색하신 영화 제목이 없습니다.
+                            검색하신 영화가 없습니다.
                         </td>
                     </tr>
                 </c:when>

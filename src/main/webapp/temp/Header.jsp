@@ -110,10 +110,10 @@
                                     } else {
                                     %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./temp/LoginPlz.jsp">My page</a>
+                                        <a class="nav-link" href="../temp/LoginPlz.jsp">My page</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./temp/LoginPlz.jsp">Ex</a>
+                                        <a class="nav-link" href="../temp/LoginPlz.jsp">Ex</a>
                                     </li>
                                     <%
                                         }
@@ -137,7 +137,7 @@
                     <%
                     } else {
                     %>
-                    <a class="btn-theme btn" href="temp/Logout.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Logout</a>
+                    <a class="btn-theme btn" href="../temp/Logout.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Logout</a>
                     <%
                         }
                     %>
