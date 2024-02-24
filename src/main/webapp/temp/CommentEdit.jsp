@@ -147,6 +147,6 @@
 </div>
 <a class="scroll-top disabled"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
 
-<jsp:include page="../Footer.jsp"></jsp:include>
+<jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>

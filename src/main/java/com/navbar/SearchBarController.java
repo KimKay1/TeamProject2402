@@ -16,6 +16,7 @@ public class SearchBarController extends HttpServlet {
         String title = req.getParameter("title");
         CategoryDAO dao = new CategoryDAO();
         CategoryDTO dto = dao.searchList(title);
+        dao.close();
         req.setAttribute("dto", dto);
         req.getRequestDispatcher("../temp/SearchList.jsp").forward(req, resp);
     }

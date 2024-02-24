@@ -960,6 +960,6 @@
 
 <a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
 
-<jsp:include page="./Footer.jsp"></jsp:include>
+<jsp:include page="temp/Footer.jsp"></jsp:include>
 </body>
 </html>
