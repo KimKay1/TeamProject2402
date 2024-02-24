@@ -13,10 +13,11 @@ public class SearchBarController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String title = req.getParameter("title");
+        String search = req.getParameter("search");
         CategoryDAO dao = new CategoryDAO();
-        CategoryDTO dto = dao.searchList(title);
+        CategoryDTO dto = dao.searchList(search);
         dao.close();
+        req.setAttribute("search", search);
         req.setAttribute("dto", dto);
         req.getRequestDispatcher("../temp/SearchList.jsp").forward(req, resp);
     }

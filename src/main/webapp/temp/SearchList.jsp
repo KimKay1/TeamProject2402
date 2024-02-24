@@ -12,7 +12,7 @@
     <div class="d-background bg-black-80"></div>
     <div class="top-block top-inner container">
         <div class="top-block-content">
-            <h1 class="section-title">${dto.title}</h1>
+            <h1 class="section-title">검색어 : ${search}</h1>
             <div class="page-breadcrumbs">
                 <a class="content-link" href="../index.jsp">Home</a>
             </div>

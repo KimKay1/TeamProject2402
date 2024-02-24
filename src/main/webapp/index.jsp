@@ -119,7 +119,7 @@
                 </ul>
                 <div class="navbar-extra">
                     <form class="d-flex" role="search" action="/navbar/search.do" method="get">
-                        <input name="title" class="form-control me-2" type="search" placeholder="Title Search" aria-label="Search">
+                        <input name="search" class="form-control me-2" type="search" placeholder="Title / Director Search" aria-label="Search">
                         <button type="submit" class="btn btn-theme">Search</button>
                     </form>
                 </div>

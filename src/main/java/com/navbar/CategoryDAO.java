@@ -87,10 +87,11 @@ public class CategoryDAO extends DBConnPool {
         return bbs;
     }
 
-    //  검색(title) 게시물 불러오기
-    public CategoryDTO searchList(String title) {
+    //  검색(title or category or director) 게시물 불러오기
+    public CategoryDTO searchList(String search) {
         CategoryDTO dto = new CategoryDTO();
-        String query = "SELECT  MI.num, MI.title, MD.img, MI.category FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE MI.title LIKE '%" + title + "%'";
+        String query = "SELECT  MI.num, MI.title, MD.img, MI.category FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE MI.title LIKE '%"
+                        + search + "%' OR MI.director LIKE '%" + search + "%'";
 
         try {
             psmt = con.prepareStatement(query);
