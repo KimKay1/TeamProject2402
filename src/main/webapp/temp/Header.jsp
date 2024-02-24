@@ -27,7 +27,7 @@
 <header class="header header-horizontal header-view-pannel">
     <div class="container">
         <nav class="navbar">
-            <a class="navbar-brand" href="./">
+            <a class="navbar-brand" href="../index.jsp">
                         <span class="logo-element">
                             <span class="logo-tape">
                                 <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -49,14 +49,14 @@
                         <a class="nav-link" href="../index.jsp">Homepage</a>
                     </li>
                     <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                        <a class="nav-link" href="#" data-role="nav-toggler">MOVIE</a>
+                        <a class="nav-link" data-role="nav-toggler">MOVIE</a>
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="../category/view.do?category=액션">Action</a>
+                                <a class="nav-link" href="/category/view.do?category=액션">Action</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../category/view.do?category=애니메이션">Animation</a>
+                                <a class="nav-link" href="/category/view.do?category=애니메이션">Animation</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/category/view.do?category=코미디">Comedy</a>
@@ -71,7 +71,7 @@
                                 <a class="nav-link" href="/category/view.do?category=판타지">Fantasy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/category/view.do?category=액션">스릴러</a>
+                                <a class="nav-link" href="/category/view.do?category=스릴러">Thriller</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/category/view.do?category=로맨스">Romance</a>
@@ -82,7 +82,7 @@
                         <a class="nav-link" href="../R/R_List.do">Review</a>
                     </li>
                     <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                        <a class="nav-link" href="#">MYPAGE</a>
+                        <a class="nav-link" >MYPAGE</a>
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item nav-item-arrow-down nav-hover-show-sub">

@@ -28,7 +28,7 @@
 <header class="header header-horizontal header-view-pannel">
     <div class="container">
         <nav class="navbar">
-            <a class="navbar-brand" href="./">
+            <a class="navbar-brand" href="./index.jsp">
                         <span class="logo-element">
                             <span class="logo-tape">
                                 <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -50,7 +50,7 @@
                         <a class="nav-link" href="index.jsp">Homepage</a>
                     </li>
                     <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                        <a class="nav-link" href="#" data-role="nav-toggler">MOVIE</a>
+                        <a class="nav-link" data-role="nav-toggler">MOVIE</a>
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item">
@@ -83,11 +83,11 @@
                         <a class="nav-link" href="../R/R_List.do">Review</a>
                     </li>
                     <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                        <a class="nav-link" href="#">MYPAGE</a>
+                        <a class="nav-link" >MYPAGE</a>
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                                <a class="nav-link" href="#" data-role="nav-toggler">User pages</a>
+                                <a class="nav-link" data-role="nav-toggler">User pages</a>
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                                 <ul class="collapse nav">
                                     <%--로그인 상태일 때--%>
@@ -955,3 +955,5 @@
 <a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
 
 <jsp:include page="./Footer.jsp"></jsp:include>
+</body>
+</html>

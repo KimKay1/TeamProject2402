@@ -31,39 +31,54 @@
 
 <jsp:include page="Header.jsp"></jsp:include>
 
-<form name="mypageFrm" method="post" action="../member/MyPage.do" onsubmit="return userSubmit();">
+<section class="after-head d-flex section-text-white position-relative">
+    <div class="d-background" data-image-src="" data-parallax="scroll"></div>
+    <div class="d-background bg-black-80"></div>
+    <div class="top-block top-inner container">
+        <div class="top-block-content">
+            <h1 class="section-title">My Page</h1>
+            <div class="page-breadcrumbs">
+                <a class="content-link" href="../index.jsp">Home</a>
+                <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
+                <span>My page</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <table border="1" width="90%">
-        <tr>
-            <td>아이디</td>
-            <td>${id}</td>
-        </tr>
-        <tr>
-            <td>비밀번호</td>
-            <td><input type="password" name="pass" id="inputPassword1" style="width: 90%" placeholder="비밀번호를 입력해주세요" required/></td>
-        </tr>
-        <tr>
-            <td>비밀번호 확인</td>
-            <td><input type="password" id="inputPassword2" style="width: 90%" placeholder="비밀번호를 다시 입력해주세요" required/></td>
-        </tr>
-        <tr>
-            <td>닉네임</td>
-            <td><input type="text" name="name" style="width: 90%" value="${name}" required/></td>
-        </tr>
-        <tr>
-            <td>가입날짜</td>
-            <td>${regidate}</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <button type="reset">다시 입력</button>
-                <button type="submit">수정 완료</button>
-            </td>
-        </tr>
-    </table>
-
+<form style="width: 70%; margin: 0 auto; padding: 70px 50px 70px 50px;" name="mypageFrm" method="post" action="../member/MyPage.do" onsubmit="return userSubmit();">
+    <fieldset disabled>
+        <div class="mb-3">
+            <label  class="form-label">아이디</label>
+            <input type="text" class="form-control" placeholder="Disabled input" value="${id}">
+        </div>
+    </fieldset>
+    <div class="mb-3">
+        <label for="inputPassword1" class="form-label">비밀번호</label>
+        <input type="password" class="form-control" id="inputPassword1" name="pass" placeholder="비밀번호를 입력해주세요." required>
+    </div>
+    <div class="mb-3">
+        <label for="inputPassword2" class="form-label">비밀번호 확인</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="비밀번호를 다시 입력해주세요." required>
+    </div>
+    <div class="mb-3">
+        <label for="myPageName" class="form-label">닉네임</label>
+        <input type="text" class="form-control" id="myPageName" name="name" value="${name}" required>
+    </div>
+    <fieldset disabled>
+        <div class="mb-3">
+            <label class="form-label">가입 날짜</label>
+            <input type="text" class="form-control" value="${regidate}">
+        </div>
+    </fieldset>
+    <div class="section-bottom">
+        <button class="btn btn-theme" type="reset">다시 입력</button>
+        <button class="btn btn-theme" type="submit">수정 완료</button>
+    </div>
 </form>
+
+
+<jsp:include page="../Footer.jsp"></jsp:include>
 
 </body>
 </html>
