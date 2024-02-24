@@ -53,30 +53,39 @@
                         <a class="nav-link" href="#" data-role="nav-toggler">MOVIE</a>
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
-                            <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                                <a class="nav-link" href="#" data-role="nav-toggler">Movies</a>
-                                <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
-                                <ul class="collapse nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="templateEx/movies-list.jsp">List - No Sidebar</a>
-                                    </li>
-                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./temp/CategoryList.jsp">Action</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/movie-info-sidebar-right.jsp">Movie info</a>
+                                <a class="nav-link" href="templateEx/gallery.jsp">Animation</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/gallery.jsp">Gallery</a>
+                                <a class="nav-link" href="templateEx/gallery.jsp">Comedy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="templateEx/gallery.jsp">Crime</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="templateEx/gallery.jsp">Drama</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="templateEx/gallery.jsp">Fantasy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="templateEx/gallery.jsp">Thriller</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="templateEx/gallery.jsp">Romance</a>
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../R/R_List.do">Review</a>
+                    </li>
                     <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                        <a class="nav-link" href="#">REVIEW</a>
+                        <a class="nav-link" href="#">MYPAGE</a>
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../R/R_List.do">Review</a>
-                            </li>
                             <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
                                 <a class="nav-link" href="#" data-role="nav-toggler">User pages</a>
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
