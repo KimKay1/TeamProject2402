@@ -1,5 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
+<%-- footer 복사/붙여넣기
+
+    <jsp:include page="./Footer.jsp"></jsp:include>
+
+--%>
+
 <body>
 <footer class="section-text-white footer footer-links bg-darken">
     <div class="footer-body container">

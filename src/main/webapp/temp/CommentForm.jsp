@@ -47,7 +47,7 @@
                                                 <a class="content-link" href="../comment/edit.do?mode=edit&num=${dto.num}&idx=${ row.idx }">수정</a>
                                             </div>
                                             <div class="col-auto">
-                                                <a class="content-link" href="../comment/pass.do?mode=delete&num=${dto.num}&idx=${ row.idx }">삭제</a>
+                                                <a class="content-link" href="../comment/delete.do?mode=delete&num=${dto.num}&idx=${ row.idx }">삭제</a>
                                             </div>
                                         </div>
                                     </div>
@@ -57,9 +57,14 @@
                         </c:otherwise>
                     </c:choose>
                 </div>
-                <br>
-                <div align="center">${map.pagingImg}</div>
-                <br>
+
+                <div class="section-bottom">
+                    <div class="paginator">
+                        <div class="paginator-item">${map.pagingImg}</div>
+                    </div>
+                </div>
+                <br/>
+
                 <div class="section-line">
                     <div class="section-head">
                         <h2 class="section-title text-uppercase">Add comment</h2>

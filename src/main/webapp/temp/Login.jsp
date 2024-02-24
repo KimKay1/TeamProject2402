@@ -11,9 +11,7 @@
   <script src="include/jquery-3.7.1.min.js"></script>
 
   <style>
-    body {
-      background-color: silver;
-    }
+
     [id^="input"] {
       margin-top: 10px;
       padding: 5px;
@@ -30,7 +28,6 @@
     [class^="button"] {
       border: none;
       font-size: small;
-      background-color: silver;
     }
 
     .hlogo {
@@ -44,27 +41,8 @@
     }
   </style>
 
-<%--  <%--%>
-<%--    // 아이디 저장--%>
-<%--    String loginId = CookieManager.readCookie(request, "loginId");--%>
-<%--    String cookieCheck = "";--%>
-<%--    if(!loginId.equals("")){--%>
-<%--      cookieCheck = "checked";--%>
-<%--    }--%>
-<%--  %>--%>
 
   <script>
-
-    // /*유효성 검사*/
-    // function validateForm(form) {
-    //   if (!form.user_id.value) {
-    //     alert("아이디를 입력하세요");
-    //     return false;
-    //   } else if (!form.user_pwd.value) {
-    //     alert("패스워드를 입력하세요");
-    //     return false;
-    //   }
-    // }
 
     $(document).ready(function(){
       $(".hlogo").click(function(){
@@ -83,18 +61,22 @@
 
 </head>
 <body>
+<jsp:include page="../temp/Header.jsp"></jsp:include>
 
-<%--회원가입 성공--%>
-<div style="text-align: center">
-<span style="color: brown; font-size: 1.2em">
-  ${HelloMsg}
-</span>
-
-<%--로그인 실패--%>
-<span style="color: brown; font-size: 1.2em">
-  ${LoginErrMsg}
-</span>
-</div>
+<section class="after-head d-flex section-text-white position-relative">
+  <div class="d-background" data-image-src="" data-parallax="scroll"></div>
+  <div class="d-background bg-black-80"></div>
+  <div class="top-block top-inner container">
+    <div class="top-block-content">
+      <h1 class="section-title">Login</h1>
+      <div class="page-breadcrumbs">
+        <a class="content-link" href="../index.jsp">Home</a>
+        <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
+        <span>Login</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
   /*유효성 검사*/
@@ -108,22 +90,40 @@
     }
   }
 </script>
+<section style="margin:50px 200px 50px 200px;">
+    <%--회원가입 성공--%>
+    <div style="text-align: center">
+    <span style="color: brown; font-size: 1.2em">
+      ${HelloMsg}
+    </span>
 
-<div id="loginpage1">
-  <form action="../member/Login.do" method="post" name="loginFrm" onsubmit="return validateForm(this)">
-    <input type="text" name="user_id" id="inputUsername1" class="form-control" placeholder="Username" value="${loginId}" required>
-    <input type="password" name="user_pwd" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password" required>
-    <input type="submit" id="inputloginsubmit" class="form-control" value="로그인">
-    <div><input type="checkbox" name="save_check" value="Y" ${cookieCheck}>아이디 기억하기</div>
-  </form>
-</div>
-<nav id="loginpage2">
-  <input type="button" class="button_id" value="아이디 찾기" onclick="backtohome1()">
-  |
-  <input type="button" class="button_passward" value="비밀번호 찾기" onclick="backtohome1()">
-  |
-  <input type="button" class="button_join" value="회원가입" onclick="join1()">
-</nav>
+      <%--로그인 실패--%>
+      <span style="color: brown; font-size: 1.2em">
+        ${LoginErrMsg}
+      </span>
+    </div>
+
+    <div id="loginpage1">
+      <form action="../member/Login.do" method="post" name="loginFrm" onsubmit="return validateForm(this)">
+        <input type="text" name="user_id" id="inputUsername1" class="form-control" placeholder="Username" value="${loginId}" required>
+        <input type="password" name="user_pwd" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password" required>
+        <div style="padding-top: 15px;">
+          <label for="checkidbox">
+            <input class="form-check-input" type="checkbox" name="save_check" value="Y" ${cookieCheck} id="checkidbox">
+            아이디 기억하기
+          </label>
+        </div>
+        <input type="submit" id="inputloginsubmit" class="form-control" style="background-color: #adb5bd; color: white;" value="로그인">
+      </form>
+    </div>
+    <nav id="loginpage2">
+      <div class="section-bottom">
+        <button class="btn btn-theme" type="button" onclick="join1()">회원가입</button>
+      </div>
+    </nav>
+</section>
+
+<jsp:include page="../Footer.jsp"></jsp:include>
 
 </body>
 </html>
