@@ -59,12 +59,13 @@ public class CategoryViewController extends HttpServlet {
         map.put("end", end);
 
         //게시물 목록 가져오기
-        List<CategoryDTO> boardList = dao.selectListPage(map);
+        List<CategoryDTO> boardList = dao.selectListPage(map, category);
+
 
         dao.close();
 
         //뷰에 전달할 매개변수 추가
-        String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../category/view.do");
+        String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../category/view.do?category="+category);
         //바로가기 영역 HTML
         map.put("totalCount", totalCount);
         map.put("pageSize", pageSize);

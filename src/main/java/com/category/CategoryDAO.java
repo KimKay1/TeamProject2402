@@ -15,7 +15,7 @@ public class CategoryDAO extends DBConnPool {
     // 카테고리별 게시물 불러오기
     public CategoryDTO selectCategory(String category) {
         CategoryDTO dto = new CategoryDTO();
-        String query = "SELECT  MI.num, MI.title, MD.img FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE MI.category = ?";
+        String query = "SELECT  MI.num, MI.title, MD.img, MI.category FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE MI.category = ?";
 
         try {
             psmt = con.prepareStatement(query);
@@ -25,6 +25,7 @@ public class CategoryDAO extends DBConnPool {
                 dto.setNum(rs.getString("num"));
                 dto.setTitle(rs.getString("title"));
                 dto.setImg(rs.getString("img"));
+                dto.setCategory(rs.getString("category"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,17 +56,18 @@ public class CategoryDAO extends DBConnPool {
     }
 
     //검색 조건에 맞는 게시물 목록 반환
-    public List<CategoryDTO> selectListPage(Map<String, Object>map){
+    public List<CategoryDTO> selectListPage(Map<String, Object>map, String category){
         //쿼리 결과를 담을 변수
         List<CategoryDTO> bbs = new ArrayList<CategoryDTO>();
 
         // 쿼리문 작성
-        String query = "SELECT ROWNUM, MD.img, MI.title, MI.num FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE ROWNUM BETWEEN ? AND ?";
+        String query = "SELECT ROWNUM, MD.img, MI.title, MI.num FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE category = ? AND (ROWNUM BETWEEN ? AND ?)";
 
         try {
             psmt = con.prepareStatement(query);
-            psmt.setString(1, map.get("start").toString());
-            psmt.setString(2, map.get("end").toString());
+            psmt.setString(1, category);
+            psmt.setString(2, map.get("start").toString());
+            psmt.setString(3, map.get("end").toString());
 
             rs = psmt.executeQuery();
 
