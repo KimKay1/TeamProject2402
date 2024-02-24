@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -109,9 +110,9 @@
         <div class="top-block-content">
             <h1 class="section-title">Gallery</h1>
             <div class="page-breadcrumbs">
-                <a class="content-link" href="#">Home</a>
+                <a class="content-link" href="../index.jsp">Home</a>
                 <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
-                <span>Gallery</span>
+                <span>${dto.category}</span>
             </div>
         </div>
     </div>
@@ -119,169 +120,41 @@
 <section class="section-long" style="margin: auto; padding: 30px 30px 30px 30px; width: 80%;">
     <div class="container">
         <div class="grid row">
-            <div class="col-sm-6 col-lg-4">
-                <div class="gallery-entity">
-                    <div class="entity-preview" data-role="hover-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                        </div>
-                        <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                            <div class="entity-view-popup">
-                                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                    <span class="icon-content"><i class="fas fa-search"></i></span>
-                                </a>
+        <c:choose>
+            <c:when test="${empty boardList}"> <%--게시글이 없을때--%>
+                <tr>
+                    <td colspan="6" align="center">
+                        coming soon...
+                    </td>
+                </tr>
+            </c:when>
+            <c:otherwise> <%--게시글이 있을 때--%>
+                <c:forEach items="${boardList}" var="row" varStatus="loop">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="gallery-entity">
+                        <div class="entity-preview" data-role="hover-wrap">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="${dto.img}" />
                             </div>
-                            <h4 class="entity-title">The image title</h4>
+                            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                <div class="entity-view-popup">
+                                    <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
+                                        <span class="icon-content"><i class="fas fa-search"></i></span>
+                                    </a>
+                                </div>
+                                <h4 class="entity-title">${title}</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="gallery-entity">
-                    <div class="entity-preview" data-role="hover-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                        </div>
-                        <div class="bg-theme-lighted d-over collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                            <div class="entity-view-popup">
-                                <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                    <span class="icon-content"><i class="fas fa-play"></i></span>
-                                </a>
-                            </div>
-                            <h4 class="entity-title">The video title</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="gallery-entity">
-                    <div class="entity-preview" data-role="hover-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                        </div>
-                        <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                            <div class="entity-view-popup">
-                                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                    <span class="icon-content"><i class="fas fa-search"></i></span>
-                                </a>
-                            </div>
-                            <h4 class="entity-title">The image title</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="gallery-entity">
-                    <div class="entity-preview" data-role="hover-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                        </div>
-                        <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                            <div class="entity-view-popup">
-                                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                    <span class="icon-content"><i class="fas fa-search"></i></span>
-                                </a>
-                            </div>
-                            <h4 class="entity-title">The image title</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="gallery-entity">
-                    <div class="entity-preview" data-role="hover-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                        </div>
-                        <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                            <div class="entity-view-popup">
-                                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                    <span class="icon-content"><i class="fas fa-search"></i></span>
-                                </a>
-                            </div>
-                            <h4 class="entity-title">The image title</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="gallery-entity">
-                    <div class="entity-preview" data-role="hover-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                        </div>
-                        <div class="bg-theme-lighted d-over collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                            <div class="entity-view-popup">
-                                <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                    <span class="icon-content"><i class="fas fa-play"></i></span>
-                                </a>
-                            </div>
-                            <h4 class="entity-title">The video title</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="gallery-entity">
-                    <div class="entity-preview" data-role="hover-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                        </div>
-                        <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                            <div class="entity-view-popup">
-                                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                    <span class="icon-content"><i class="fas fa-search"></i></span>
-                                </a>
-                            </div>
-                            <h4 class="entity-title">The image title</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="gallery-entity">
-                    <div class="entity-preview" data-role="hover-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                        </div>
-                        <div class="bg-theme-lighted d-over collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                            <div class="entity-view-popup">
-                                <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                    <span class="icon-content"><i class="fas fa-play"></i></span>
-                                </a>
-                            </div>
-                            <h4 class="entity-title">The video title</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="gallery-entity">
-                    <div class="entity-preview" data-role="hover-wrap">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                        </div>
-                        <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                            <div class="entity-view-popup">
-                                <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                    <span class="icon-content"><i class="fas fa-search"></i></span>
-                                </a>
-                            </div>
-                            <h4 class="entity-title">The image title</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
+
         </div>
         <div class="section-bottom">
             <div class="paginator">
-                <a class="paginator-item" href="#"><i class="fas fa-chevron-left"></i></a>
-                <a class="paginator-item" href="#">1</a>
-                <span class="active paginator-item">2</span>
-                <a class="paginator-item" href="#">3</a>
-                <span class="paginator-item">...</span>
-                <a class="paginator-item" href="#">10</a>
-                <a class="paginator-item" href="#"><i class="fas fa-chevron-right"></i></a>
+                <div class="paginator-item">${map.pagingImg}</div>
             </div>
         </div>
     </div>
