@@ -63,7 +63,7 @@ public class MemberDAO extends DBConnPool {
 
     // 회원가입
     public int insertMember(MemberDTO dto, String agree){
-        int result = 0;
+        int result1 = 0;
         int result2 = 0;
 
         try{
@@ -73,7 +73,7 @@ public class MemberDAO extends DBConnPool {
             psmt.setString(2,dto.getPass());
             psmt.setString(3,dto.getName());
 
-            result = psmt.executeUpdate();
+            result1 = psmt.executeUpdate();
 
             if(agree.equals("Y")){
                 String query2 = "INSERT INTO scott.memberplus_teampro (ID, AGREE) VALUES(?,?)";
@@ -93,14 +93,14 @@ public class MemberDAO extends DBConnPool {
             e.printStackTrace();
             System.out.println("insertMember 오류 발생");
         }
-        return result + result2;
+        return result1 + result2;
     }
 
     // 개인정보 불러오기
     public MemberDTO selectMyPage(String id){
         MemberDTO dto = new MemberDTO();
         try {
-            String query = "SELECT id, pass, name, regidate FROM scott.member_teampro WHERE id = ?";
+            String query = "SELECT M.id, M.pass, M.name, M.regidate, MP.agree, MP.genre FROM scott.member_teampro M INNER JOIN scott.memberplus_teampro MP ON M.id = MP.id WHERE M.id = ?";
             psmt = con.prepareStatement(query);
             psmt.setString(1,id);
             rs = psmt.executeQuery();
@@ -110,6 +110,8 @@ public class MemberDAO extends DBConnPool {
                 dto.setPass(rs.getString("pass"));
                 dto.setName(rs.getString("name"));
                 dto.setRegidate(rs.getDate("regidate"));
+                dto.setAgree(rs.getString("agree"));
+                dto.setGenre(rs.getString("genre"));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -139,34 +141,37 @@ public class MemberDAO extends DBConnPool {
         return dto;
     }
 
-    //개인정보 장르 갯수
-    public int selectGenreCount(Map<String, Object> map){
-        int totalCount = 0;
-
-        String query = "SELECT COUNT(*) FROM scott.memberplus_teampro";
-        if(map.get("searchWord") != null){
-            query += " WHERE " + map.get("searchField") + " "
-                    + " LIKE '%" + map.get("searchWord") + "%'";
-        }
-        try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(query);
-            rs.next();
-            totalCount = rs.getInt(1);
-        }catch (Exception e){
-            e.printStackTrace();
-            System.out.println("selectGenreCount 오류 발생");
-        }
-        return totalCount;
-    }
+//    //개인정보 장르 갯수
+//    public int selectGenreCount(Map<String, Object> map){
+//        int totalCount = 0;
+//
+//        String query = "SELECT COUNT(*) FROM scott.memberplus_teampro";
+//        if(map.get("searchWord") != null){
+//            query += " WHERE " + map.get("searchField") + " "
+//                    + " LIKE '%" + map.get("searchWord") + "%'";
+//        }
+//        try {
+//            stmt = con.createStatement();
+//            rs = stmt.executeQuery(query);
+//            rs.next();
+//            totalCount = rs.getInt(1);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            System.out.println("selectGenreCount 오류 발생");
+//        }
+//        return totalCount;
+//    }
 
     // 개인정보 수정
     public int updateMyPage(MemberDTO dto){
-        int result = 0;
+        int result1 = 0;
+        int result2 = 0;
 
         String query = "UPDATE scott.member_teampro"
                 + " SET name = ?"
                 + " WHERE id = ? AND pass = ?";
+
+        String query2 = "UPDATE scott.memberplus_teampro SET agree = ?, genre = ? WHERE id = ?";
 
         try {
             psmt = con.prepareStatement(query);
@@ -174,13 +179,20 @@ public class MemberDAO extends DBConnPool {
             psmt.setString(2, dto.getId());
             psmt.setString(3, dto.getPass());
 
-            result = psmt.executeUpdate();
+            result1 = psmt.executeUpdate();
+
+            psmt = con.prepareStatement(query2);
+            psmt.setString(1, dto.getAgree());
+            psmt.setString(2, dto.getGenre());
+            psmt.setString(3, dto.getId());
+
+            result2 = psmt.executeUpdate();
 
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("updateMyPage 오류 발생");
         }
-        return result;
+        return result1 + result2;
     }
 
     //비밀번호 수정

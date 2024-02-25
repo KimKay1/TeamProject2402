@@ -55,54 +55,63 @@
             <input type="text" class="form-control" value="${regidate}">
         </div>
     </fieldset>
-    <div class="mb-3" style="padding-left: 5px;">
+    <div class="mb-3">
         <label  class="form-label">선호장르</label><br/>
         <div class="col-12 col-sm-6">
             <label class="labelex1" for="check1">
-                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="액션" id="check1" name="genre">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="액션" id="check1" name="genre" ${genreMap.get("액션")}>
                 액션
             </label>
         </div>
         <div class="col-12 col-sm-6">
             <label class="labelex1" for="check2">
-                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="애니메이션" id="check2" name="genre">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="애니메이션" id="check2" name="genre" ${genreMap.get("애니메이션")}>
                 애니메이션
             </label>
         </div>
         <div class="col-12 col-sm-6">
-            <label class="labelex1" for="check2">
-                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="코미디" id="check3" name="genre">
+            <label class="labelex1" for="check3">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="코미디" id="check3" name="genre" ${genreMap.get("코미디")}>
                 코미디
             </label>
         </div>
         <div class="col-12 col-sm-6">
-            <label class="labelex1" for="check2">
-                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="범죄" id="check4" name="genre">
+            <label class="labelex1" for="check4">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="범죄" id="check4" name="genre" ${genreMap.get("범죄")}>
                 범죄
             </label>
         </div>
         <div class="col-12 col-sm-6">
-            <label class="labelex1" for="check2">
-                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="드라마" id="check5" name="genre">
+            <label class="labelex1" for="check5">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="드라마" id="check5" name="genre" ${genreMap.get("드라마")}>
                 드라마
             </label>
         </div>
         <div class="col-12 col-sm-6">
-            <label class="labelex1" for="check2">
-                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="판타지" id="check6" name="genre">
+            <label class="labelex1" for="check6">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="판타지" id="check6" name="genre" ${genreMap.get("판타지")}>
                 판타지
             </label>
         </div>
         <div class="col-12 col-sm-6">
-            <label class="labelex1" for="check2">
-                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="스릴러" id="check7" name="genre">
+            <label class="labelex1" for="check7">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="스릴러" id="check7" name="genre" ${genreMap.get("스릴러")}>
                 스릴러
             </label>
         </div>
         <div class="col-12 col-sm-6">
-            <label class="labelex1" for="check2">
-                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="로맨스" id="check8" name="genre">
+            <label class="labelex1" for="check8">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="로맨스" id="check8" name="genre" ${genreMap.get("로맨스")}>
                 로맨스
+            </label>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">마케팅 수신동의</label><br/>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check9">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="Y" id="check9" name="agree" ${checkbox2}>
+                동의
             </label>
         </div>
     </div>
