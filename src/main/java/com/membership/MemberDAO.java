@@ -17,6 +17,8 @@ public class MemberDAO extends DBConnPool {
         /*컨트롤 쉬프트 유 - 대소문자 변환*/
         String sql = "SELECT * FROM scott.member_teampro WHERE id = ? AND pass = ?";
 
+        System.out.println(uid + " / " + upass);
+
         try {
             psmt = con.prepareStatement(sql);
             psmt.setString(1,uid);
@@ -30,6 +32,7 @@ public class MemberDAO extends DBConnPool {
                 dto.setRegidate(rs.getDate("regidate"));
             }
         }catch (Exception e){
+            System.out.println("exception!!!!!!!");
             e.printStackTrace();
         }
 

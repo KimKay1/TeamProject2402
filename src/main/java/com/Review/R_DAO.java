@@ -86,13 +86,14 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
         int result = 0;
         try {
             String query = "INSERT INTO scott.review_BOARD ("
-                    + " idx, title, content, id, VISITCOUNT) "
+                    + " idx, title, content, id, VISITCOUNT, movie_num) "
                     + " VALUES ( "
-                    + " SCOTT.SEQ_REVIEW_NUM.NEXTVAL,?,?,?, 0)";
+                    + " SCOTT.SEQ_REVIEW_NUM.NEXTVAL,?,?,?, 0, ?)";
             psmt = con.prepareStatement(query);
             psmt.setString(1, dto.getTitle());
             psmt.setString(2, dto.getContent());
             psmt.setString(3, dto.getId());
+            psmt.setString(4, dto.getMovieNum());
 
             result = psmt.executeUpdate();
 
