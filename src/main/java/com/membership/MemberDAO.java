@@ -106,20 +106,42 @@ public class MemberDAO extends DBConnPool {
         int result = 0;
 
         String query = "UPDATE scott.member_teampro"
-                + " SET pass = ? , name = ?"
-                + " WHERE id = ?";
+                + " SET name = ?"
+                + " WHERE id = ? AND pass = ?";
 
         try {
             psmt = con.prepareStatement(query);
-            psmt.setString(1, dto.getPass());
-            psmt.setString(2, dto.getName());
-            psmt.setString(3, dto.getId());
+            psmt.setString(1, dto.getName());
+            psmt.setString(2, dto.getId());
+            psmt.setString(3, dto.getPass());
 
             result = psmt.executeUpdate();
 
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("updateMyPage 오류 발생");
+        }
+        return result;
+    }
+
+    //비밀번호 수정
+    public int updatePass(MemberDTO dto){
+        int result = 0;
+
+        String query = "UPDATE scott.member_teampro"
+                + " SET pass = ?"
+                + " WHERE id = ?";
+
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, dto.getPass());
+            psmt.setString(2, dto.getId());
+
+            result = psmt.executeUpdate();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("updatePass 오류 발생");
         }
         return result;
     }
