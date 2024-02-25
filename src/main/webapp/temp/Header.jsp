@@ -1,6 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
+
+<%-- body 부분에 header 복사/붙여넣기
+
+    <jsp:include page="../temp/Header.jsp"></jsp:include>
+
+--%>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -27,7 +34,7 @@
 <header class="header header-horizontal header-view-pannel">
     <div class="container">
         <nav class="navbar">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="../index.jsp">
                         <span class="logo-element">
                             <span class="logo-tape">
                                 <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -49,36 +56,39 @@
                         <a class="nav-link" href="../index.jsp">Homepage</a>
                     </li>
                     <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                        <a class="nav-link" href="#" data-role="nav-toggler">MOVIE</a>
+                        <a class="nav-link" data-role="nav-toggler">MOVIE</a>
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
-                            <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                                <a class="nav-link" href="#" data-role="nav-toggler">Movies</a>
-                                <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
-                                <ul class="collapse nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../movies-list.jsp">List - No Sidebar</a>
-                                    </li>
-                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/category/view.do?category=액션">Action</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../movie-info-sidebar-right.jsp">Movie info</a>
+                                <a class="nav-link" href="/category/view.do?category=애니메이션">Animation</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../gallery.jsp">Gallery</a>
+                                <a class="nav-link" href="/category/view.do?category=코미디">Comedy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../templateEx/news-blocks-sidebar-right.jsp">News</a>
+                                <a class="nav-link" href="/category/view.do?category=범죄">Crime</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/category/view.do?category=드라마">Drama</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/category/view.do?category=판타지">Fantasy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/category/view.do?category=스릴러">Thriller</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/category/view.do?category=로맨스">Romance</a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                        <a class="nav-link" href="#">REVIEW</a>
+                        <a class="nav-link" >MYPAGE</a>
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../Review/ReviewList.do">Review</a>
-                            </li>
                             <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
                                 <a class="nav-link" href="#" data-role="nav-toggler">User pages</a>
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
@@ -97,10 +107,10 @@
                                     } else {
                                     %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="LoginPlz.jsp">My page</a>
+                                        <a class="nav-link" href="../temp/LoginPlz.jsp">My page</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="LoginPlz.jsp">Ex</a>
+                                        <a class="nav-link" href="../temp/LoginPlz.jsp">Ex</a>
                                     </li>
                                     <%
                                         }
@@ -111,6 +121,12 @@
                     </li>
                 </ul>
                 <div class="navbar-extra">
+                    <form class="d-flex" role="search" action="/navbar/search.do" method="get">
+                        <input name="search" class="form-control me-2" type="search" placeholder="Title / Director Search" aria-label="Search">
+                        <button type="submit" class="btn btn-theme">Search</button>
+                    </form>
+                </div>
+                <div class="navbar-extra">
                     <%
                         if(session.getAttribute("UserId") == null){
                     %>
@@ -118,7 +134,7 @@
                     <%
                     } else {
                     %>
-                    <a class="btn-theme btn" href="Logout.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Logout</a>
+                    <a class="btn-theme btn" href="../temp/Logout.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Logout</a>
                     <%
                         }
                     %>

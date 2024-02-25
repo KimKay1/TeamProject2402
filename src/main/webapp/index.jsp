@@ -55,26 +55,32 @@
                         <a class="nav-link" href="index.jsp">Homepage</a>
                     </li>
                     <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                        <a class="nav-link" href="#" data-role="nav-toggler">MOVIE</a>
+                        <a class="nav-link" data-role="nav-toggler">MOVIE</a>
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
-                            <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                                <a class="nav-link" href="#" data-role="nav-toggler">Movies</a>
-                                <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
-                                <ul class="collapse nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="movies-list.jsp">List - No Sidebar</a>
-                                    </li>
-                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../category/view.do?category=액션">Action</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="movieView.jsp">Movie info</a>
+                                <a class="nav-link" href="../category/view.do?category=애니메이션">Animation</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="gallery.jsp">Gallery</a>
+                                <a class="nav-link" href="../category/view.do?category=코미디">Comedy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/news-blocks-sidebar-right.jsp">News</a>
+                                <a class="nav-link" href="../category/view.do?category=범죄">Crime</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../category/view.do?category=드라마">Drama</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../category/view.do?category=판타지">Fantasy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../category/view.do?category=스릴러">Thriller</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../category/view.do?category=로맨스">Romance</a>
                             </li>
                         </ul>
                     </li>
@@ -86,7 +92,7 @@
                                 <a class="nav-link" href="../R/R_List.do">Review</a>
                             </li>
                             <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
-                                <a class="nav-link" href="#" data-role="nav-toggler">User pages</a>
+                                <a class="nav-link" data-role="nav-toggler">User pages</a>
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                                 <ul class="collapse nav">
                                     <%--로그인 상태일 때--%>
@@ -116,6 +122,12 @@
                         </ul>
                     </li>
                 </ul>
+                <div class="navbar-extra">
+                    <form class="d-flex" role="search" action="/navbar/search.do" method="get">
+                        <input name="search" class="form-control me-2" type="search" placeholder="Title / Director Search" aria-label="Search">
+                        <button type="submit" class="btn btn-theme">Search</button>
+                    </form>
+                </div>
                 <div class="navbar-extra">
                     <%
                         if(session.getAttribute("UserId") == null){
@@ -535,12 +547,12 @@
 <section class="section-long">
     <div class="container">
         <div class="section-head">
-            <h2 class="section-title text-uppercase">Latest news</h2>
+            <h2 class="section-title text-uppercase">Latest Review</h2>
         </div>
         <div class="grid row">
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -557,7 +569,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">Creative life</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">Creative life</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">comedy</a>,
@@ -567,14 +579,14 @@
                         <p class="text-short entity-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur ultrices justo a pellentesque. Praesent venenatis dolor nec tempus lacinia. Donec ac condimentum dolor. Nullam sit amet nisl hendrerit, pharetra nulla convallis, malesuada diam. Donec ornare nisl eu lectus rhoncus, at malesuada metus rutrum. Aliquam a nisl vulputate, sodales ipsum aliquam, tempus purus. Suspendisse convallis, lectus nec vehicula sollicitudin, lorem sapien rhoncus dolor, vel lacinia urna velit ullamcorper nisi. Phasellus pellentesque, magna nec gravida feugiat, est magna suscipit ligula, vel porttitor nunc enim at nibh. Sed varius sit amet leo vitae consequat.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -591,7 +603,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">One step to the end</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">One step to the end</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">drama</a>,
@@ -600,14 +612,14 @@
                         <p class="text-short entity-text">Vivamus dolor ex, viverra ut facilisis et, euismod et quam. Aliquam sit amet mattis velit, ullamcorper venenatis magna. Aenean ac maximus magna. Proin pharetra venenatis tortor, ac suscipit est ultrices vitae. Mauris vulputate, nisl in lacinia dignissim, libero justo vehicula arcu, a porttitor quam erat ac dui. Suspendisse potenti. Maecenas sit amet interdum sem. Vestibulum sit amet volutpat mauris, ut gravida velit. Donec ultricies, eros ut finibus volutpat, enim ligula tempus enim, non bibendum libero tellus at velit. Aenean placerat egestas ullamcorper.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -624,7 +636,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">Here we go again</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">Here we go again</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">romance</a>,
@@ -633,14 +645,14 @@
                         <p class="text-short entity-text">In luctus ac nisi vel vulputate. Sed blandit augue ut ex eleifend, ac posuere dolor sollicitudin. Mauris tempus euismod mauris id semper. Vestibulum ut vulputate elit, id ultricies libero. Aenean laoreet mi augue, at iaculis nisi aliquam eu. Quisque nec ipsum vehicula diam egestas porttitor eu vitae ex. Curabitur auctor tortor elementum leo faucibus, sit amet imperdiet ante maximus. Nulla viverra tortor dignissim purus placerat dapibus nec ut orci. Quisque efficitur nulla quis pulvinar dapibus. Phasellus sodales tortor sit amet sagittis condimentum. Donec ac ultricies ex. In odio leo, rhoncus aliquam bibendum sit amet, varius sit amet nisl.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
             <div class="col-md-6">
                 <article class="article-tape-entity">
-                    <a class="entity-preview" href="templateEx/article-sidebar-right.jsp" data-role="hover-wrap">
+                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
                                 <span class="embed-responsive embed-responsive-16by9">
                                     <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
                                 </span>
@@ -657,7 +669,7 @@
                     </a>
                     <div class="entity-content">
                         <h4 class="entity-title">
-                            <a class="content-link" href="templateEx/article-sidebar-right.jsp">The one and the other</a>
+                            <a class="content-link" href="article-sidebar-right.jsp">The one and the other</a>
                         </h4>
                         <div class="entity-category">
                             <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">drama</a>,
@@ -667,147 +679,20 @@
                         <p class="text-short entity-text">Aenean molestie turpis eu aliquam bibendum. Nulla facilisi. Vestibulum quis risus in lorem suscipit tempor. Morbi consectetur enim vitae justo finibus consectetur. Mauris volutpat nunc dui, quis condimentum dolor efficitur et. Phasellus rhoncus porta nunc eu fermentum. Nullam vitae erat hendrerit, tempor arcu eget, eleifend tortor.
                         </p>
                         <div class="entity-actions">
-                            <a class="text-uppercase" href="templateEx/article-sidebar-right.jsp">Read More</a>
+                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
                         </div>
                     </div>
                 </article>
             </div>
         </div>
         <div class="section-bottom">
-            <a class="btn btn-theme" href="templateEx/news-blocks-sidebar-right.jsp">View All News</a>
+            <a class="btn btn-theme" href="templateEx/news-blocks-sidebar-right.jsp">View All Reviews</a>
         </div>
     </div>
 </section>
 
 <a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
-<footer class="section-text-white footer footer-links bg-darken">
-    <div class="footer-body container">
-        <div class="row">
-            <div class="col-sm-6 col-lg-3">
-                <a class="footer-logo" href="./">
-                            <span class="logo-element">
-                                <span class="logo-tape">
-                                    <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
-                                </span>
-                                <span class="logo-text text-uppercase">
-                                    <span>jsp</span>Team</span>
-                            </span>
-                </a>
-                <div class="footer-content">
-                    <p class="footer-text">Sidestate NSW 4132,
-                        <br/>Australia</p>
-                    <p class="footer-text">Call us:&nbsp;&nbsp;(555) 555-0312</p>
-                </div>
-            </div>
-<%--            <div class="col-sm-6 col-lg-3">--%>
-<%--                <h5 class="footer-title text-uppercase">Movies</h5>--%>
-<%--                <ul class="list-unstyled list-wide footer-content">--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">All Movies</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Upcoming movies</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Top 100 movies</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Blockbasters</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">British movies</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Summer movies collection</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Movie trailers</a>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-<%--            </div>--%>
-<%--            <div class="col-sm-6 col-lg-3">--%>
-<%--                <h5 class="footer-title text-uppercase">Information</h5>--%>
-<%--                <ul class="list-unstyled list-wide footer-content">--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Schedule</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">News</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Contact us</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Community</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Blog</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Events</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a class="content-link" href="#">Help center</a>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-<%--            </div>--%>
-            <div class="col-sm-6 col-lg-3">
-                <h5 class="footer-title text-uppercase">Follow</h5>
-                <ul class="list-wide footer-content list-inline">
-                    <li class="list-inline-item">
-                        <a class="content-link" href="#"><i class="fab fa-slack-hash"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="content-link" href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="content-link" href="#"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="content-link" href="#"><i class="fab fa-dribbble"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="content-link" href="#"><i class="fab fa-google-plus-g"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="content-link" href="#"><i class="fab fa-instagram"></i></a>
-                    </li>
-                </ul>
-<%--                <h5 class="footer-title text-uppercase">Subscribe</h5>--%>
-<%--                <div class="footer-content">--%>
-<%--                    <p class="footer-text">Get latest movie news right away with our subscription</p>--%>
-<%--                    <form class="footer-form" autocomplete="off">--%>
-<%--                        <div class="input-group">--%>
-<%--                            <input class="form-control" name="email" type="email" placeholder="Your email" />--%>
-<%--                            <div class="input-group-append">--%>
-<%--                                <button class="btn btn-theme" type="submit"><i class="fas fa-angle-right"></i></button>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </form>--%>
-<%--                </div>--%>
-            </div>
-        </div>
-    </div>
-    <div class="footer-copy">
-        <div class="container">Copyright 2019 &copy; AmigosThemes. All rights reserved.</div>
-    </div>
-</footer>
-<!-- jQuery library -->
-<script src="./template/js/jquery-3.3.1.js"></script>
-<!-- Bootstrap -->
-<script src="./template/bootstrap/js/bootstrap.js"></script>
-<!-- Paralax.js -->
-<script src="./template/parallax.js/parallax.js"></script>
-<!-- Waypoints -->
-<script src="./template/waypoints/jquery.waypoints.min.js"></script>
-<!-- Slick carousel -->
-<script src="./template/slick/slick.min.js"></script>
-<!-- Magnific Popup -->
-<script src="./template/magnific-popup/jquery.magnific-popup.min.js"></script>
-<!-- Inits product scripts -->
-<script src="./template/js/script.js"></script>
-<script src="js/index.js" type="text/javascript"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ4Qy67ZAILavdLyYV2ZwlShd0VAqzRXA&callback=initMap"></script>
-<script async defer src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js"></script>
+
+<jsp:include page="temp/Footer.jsp"></jsp:include>
 </body>
 </html>

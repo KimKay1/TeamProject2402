@@ -16,11 +16,12 @@ public class CommentWriteController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+
+        String num = req.getParameter("num");
         //폼 값 DTO에 저장
         CommentDTO dto = new CommentDTO();
         dto.setName(req.getParameter("name"));
         dto.setContent(req.getParameter("content"));
-        dto.setPostdate(req.getParameter("postdate"));
         dto.setFavor(req.getParameter("favor"));
         dto.setPass(req.getParameter("pass"));
         dto.setTitle(req.getParameter("title"));
@@ -32,7 +33,7 @@ public class CommentWriteController extends HttpServlet {
         dao.close();
 
         if(result == 1){   // 성공
-            JSFunction.alertBack(resp,"글쓰기 성공");
+            resp.sendRedirect("../movieView.do?num="+ num);
         }else { // 실패
             JSFunction.alertBack(resp,"글쓰기 실패");
         }

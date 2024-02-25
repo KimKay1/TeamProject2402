@@ -27,8 +27,16 @@
 
     <table border="1" width="90%">
         <tr>
+            <td>영화 선택</td>
+            <td><%--선택 폼으로 DB에 있는 영화 중 하나 선택--%></td>
+        </tr>
+        <tr>
             <td>제목</td>
             <td><input type="text" name="title" style="width: 90%"/></td>
+        </tr>
+        <tr>
+            <td>영화 섬네일</td>
+            <td><%--선택한 영화의 이미지를 DB에서 불러와야함--%></td>
         </tr>
         <tr>
             <td>내용</td>

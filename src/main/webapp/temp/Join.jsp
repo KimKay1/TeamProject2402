@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="include/jquery-3.7.1.min.js"></script>
 
     <style>
@@ -70,27 +68,45 @@
 </head>
 <body>
 
+<jsp:include page="../temp/Header.jsp"></jsp:include>
 
-<div id="joinpage1"> <!-- class="form-control"는 부트스트랩 사용-->
-    <form action="../member/join.do" onsubmit="return userSubmit();" method="POST">
-        <input type="text" name="id" id="inputUserid1" class="form-control" placeholder="아이디" required>
-        <input type="text" name="name" id="inputUsername1" class="form-control" placeholder="닉네임" required>
-        <input type="password" name="pass" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="비밀번호" required>
-        <input type="password" id="inputPassword2" class="form-control" aria-describedby="passwordHelpBlock" placeholder="비밀번호 확인" required>
-        <div id="joincheck">
-            <label class="labelex1" for="check1">
-                <input class="form-check-input" type="checkbox" value="" id="check1" required>
-                이용약관 동의(필수)
-            </label>
-            <br>
-            <label class="labelex1" for="check2">
-                <input class="form-check-input" type="checkbox" value="" id="check2">
-                마케팅 동의(선택)
-            </label>
+<section class="after-head d-flex section-text-white position-relative">
+    <div class="d-background" data-image-src="" data-parallax="scroll"></div>
+    <div class="d-background bg-black-80"></div>
+    <div class="top-block top-inner container">
+        <div class="top-block-content">
+            <h1 class="section-title">Join</h1>
+            <div class="page-breadcrumbs">
+                <a class="content-link" href="../index.jsp">Home</a>
+                <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
+                <span>Join</span>
+            </div>
         </div>
-        <input type="submit" id="inputloginsubmit" class="form-control" value="회원가입">
-    </form>
-</div>
+    </div>
+</section>
+<section style="margin:50px 200px 50px 200px;">
+    <div id="joinpage1"> <!-- class="form-control"는 부트스트랩 사용-->
+        <form action="../member/join.do" onsubmit="return userSubmit();" method="POST">
+            <input type="text" name="id" id="inputUserid1" class="form-control" placeholder="아이디" required>
+            <input type="text" name="name" id="inputUsername1" class="form-control" placeholder="닉네임" required>
+            <input type="password" name="pass" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="비밀번호" required>
+            <input type="password" id="inputPassword2" class="form-control" aria-describedby="passwordHelpBlock" placeholder="비밀번호 확인" required>
+            <div id="joincheck">
+                <label class="labelex1" for="check1">
+                    <input class="form-check-input" type="checkbox" value="" id="check1" required>
+                    이용약관 동의(필수)
+                </label>
+                &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="labelex1" for="check2">
+                    <input class="form-check-input" type="checkbox" value="" id="check2">
+                    마케팅 동의(선택)
+                </label>
+            </div>
+            <input type="submit" id="inputloginsubmit" class="form-control" style="background-color: #adb5bd; color: white;" value="회원가입">
+        </form>
+    </div>
+</section>
+<jsp:include page="Footer.jsp"></jsp:include>
 
 </body>
 </html>
