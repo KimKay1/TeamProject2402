@@ -70,6 +70,7 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("UserId", memberDTO.getId());
             session.setAttribute("UserName", memberDTO.getName());
+            session.setAttribute("UserPass", memberDTO.getPass());
 
             response.sendRedirect("../index.jsp");
         } else {

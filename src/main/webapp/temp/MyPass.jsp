@@ -2,10 +2,11 @@
 <%@ page import="com.membership.MemberDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="./LoginPlz.jsp"%>
+
+
 <html>
 <head>
     <title>마이페이지</title>
-    <link type="text/css" rel="stylesheet" href="/template/css/header.css"/>
     <script src="include/jquery-3.7.1.min.js"></script>
     <script>
         function userSubmit() {
@@ -38,7 +39,7 @@
     </div>
 </section>
 
-<form style="width: 300px; display: block; margin-left: auto; margin-right: auto; padding-top: 70px; padding-bottom: 70px;" name="mypageFrm" method="post" action="../member/MyPage.do?mode=edit" onsubmit="return userSubmit();">
+<form style="width: 300px; display: block; margin-left: auto; margin-right: auto; padding-top: 70px; padding-bottom: 70px;" name="mypageFrm" method="post" action="../member/MyPage.do?mode=change" onsubmit="return userSubmit();">
     <fieldset disabled>
         <div class="mb-3">
             <label  class="form-label">아이디</label>
@@ -46,18 +47,16 @@
         </div>
     </fieldset>
     <div class="mb-3">
-        <label for="myPageName" class="form-label">닉네임</label>
-        <input type="text" class="form-control" id="myPageName" name="name" value="${name}" required>
+        <label for="inputPassword1" class="form-label">기존 비밀번호</label>
+        <input type="password" class="form-control" id="inputPassword0" name="pass" placeholder="기존 비밀번호를 입력해주세요." required>
     </div>
-    <fieldset disabled>
-        <div class="mb-3">
-            <label class="form-label">가입 날짜</label>
-            <input type="text" class="form-control" value="${regidate}">
-        </div>
-    </fieldset>
     <div class="mb-3">
         <label for="inputPassword1" class="form-label">비밀번호</label>
-        <input type="password" class="form-control" id="inputPassword1" name="pass" placeholder="수정을 원하시면 비밀번호를 입력하세요" required>
+        <input type="password" class="form-control" id="inputPassword1" name="afterpass" placeholder="비밀번호를 입력해주세요." required>
+    </div>
+    <div class="mb-3">
+        <label for="inputPassword2" class="form-label">비밀번호 확인</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="비밀번호를 다시 입력해주세요." required>
     </div>
     <div class="section-bottom">
         <button class="btn btn-theme" type="reset">다시 입력</button>
