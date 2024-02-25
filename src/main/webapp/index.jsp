@@ -63,7 +63,7 @@
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                                 <ul class="collapse nav">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="templateEx/movies-list.jsp">List - No Sidebar</a>
+                                        <a class="nav-link" href="movies-list.jsp">List - No Sidebar</a>
                                     </li>
                                 </ul>
                             </li>
@@ -71,7 +71,7 @@
                                 <a class="nav-link" href="movieView.jsp">Movie info</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="templateEx/gallery.jsp">Gallery</a>
+                                <a class="nav-link" href="gallery.jsp">Gallery</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="templateEx/news-blocks-sidebar-right.jsp">News</a>

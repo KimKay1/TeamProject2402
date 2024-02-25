@@ -28,7 +28,7 @@
 <header class="header header-horizontal header-view-pannel">
   <div class="container">
     <nav class="navbar">
-      <a class="navbar-brand" href="./">
+      <a class="navbar-brand" href="templateEx">
                         <span class="logo-element">
                             <span class="logo-tape">
                                 <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -58,7 +58,7 @@
                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                 <ul class="collapse nav">
                   <li class="nav-item">
-                    <a class="nav-link" href="templateEx/movies-list.jsp">List - No Sidebar</a>
+                    <a class="nav-link" href="/movies-list.jsp">List - No Sidebar</a>
                   </li>
                 </ul>
               </li>
@@ -66,7 +66,7 @@
                 <a class="nav-link" href="templateEx/movie-info-sidebar-right.jsp">Movie info</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="templateEx/gallery.jsp">Gallery</a>
+                <a class="nav-link" href="gallery.jsp">Gallery</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="templateEx/news-blocks-sidebar-right.jsp">News</a>
@@ -774,7 +774,7 @@
   <div class="footer-body container">
     <div class="row">
       <div class="col-sm-6 col-lg-3">
-        <a class="footer-logo" href="..">
+        <a class="footer-logo" href="">
                             <span class="logo-element">
                                 <span class="logo-tape">
                                     <span class="svg-content svg-fill-theme" data-svg="./images/svg/logo-part.svg"></span>
@@ -883,19 +883,19 @@
   </div>
 </footer>
 <!-- jQuery library -->
-<script src="../template/js/jquery-3.3.1.js"></script>
+<script src="template/js/jquery-3.3.1.js"></script>
 <!-- Bootstrap -->
-<script src="../template/bootstrap/js/bootstrap.js"></script>
+<script src="template/bootstrap/js/bootstrap.js"></script>
 <!-- Paralax.js -->
-<script src="../template/parallax.js/parallax.js"></script>
+<script src="template/parallax.js/parallax.js"></script>
 <!-- Waypoints -->
-<script src="../template/waypoints/jquery.waypoints.min.js"></script>
+<script src="template/waypoints/jquery.waypoints.min.js"></script>
 <!-- Slick carousel -->
-<script src="../template/slick/slick.min.js"></script>
+<script src="template/slick/slick.min.js"></script>
 <!-- Magnific Popup -->
-<script src="../template/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="template/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Inits product scripts -->
-<script src="../template/js/script.js"></script>
+<script src="template/js/script.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ4Qy67ZAILavdLyYV2ZwlShd0VAqzRXA&callback=initMap"></script>
 <script async defer src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js"></script>
 </body>
