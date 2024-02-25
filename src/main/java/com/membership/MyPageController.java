@@ -48,8 +48,8 @@ public class MyPageController extends HttpServlet {
             while (st.hasMoreTokens()) {
                 genres.add(st.nextToken());
             }
-            String checkbox = null;
             for (int i = 0; i < genres.size(); i++) {
+                String checkbox = null;
                 String gmStr = genres.get(i);
                 if (!gmStr.equals("")) {  // 값이 있으면 checked
                     checkbox = "checked";
@@ -58,7 +58,6 @@ public class MyPageController extends HttpServlet {
             }
         }
 
-        System.out.println(agree);
         //마케팅 불러오기
         String checkbox2 = null;
         if(agree != null){
@@ -111,6 +110,7 @@ public class MyPageController extends HttpServlet {
         //비밀번호 확인
         MemberDAO dao = new MemberDAO();
         MemberDTO memberDTO = dao.getMemberDTO(id, pass);
+        dao.close();
 
         if (mode.equals("change")) {
 
@@ -119,6 +119,7 @@ public class MyPageController extends HttpServlet {
                 pass = request.getParameter("afterpass");
 
                 MemberDTO dto = new MemberDTO();
+                dao = new MemberDAO();
                 dto.setPass(pass);
                 dto.setId(id);
 
@@ -132,7 +133,6 @@ public class MyPageController extends HttpServlet {
                     JSFunction.alertBack(response, "수정 실패");
                 }
             }else { // 비밀번호 검증 실패
-                dao.close();
                 JSFunction.alertBack(response, "기존 패스워드를 확인하세요");
             }
 
@@ -161,7 +161,6 @@ public class MyPageController extends HttpServlet {
                 }
 
             } else { // 비밀번호 확인 실패
-                dao.close();
                 JSFunction.alertBack(response, "패스워드를 확인하세요");
             }
         }
