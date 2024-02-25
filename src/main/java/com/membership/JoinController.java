@@ -23,6 +23,12 @@ public class JoinController extends HttpServlet {
         String id = req.getParameter("id");
         String pass = req.getParameter("pass");
         String name = req.getParameter("name");
+        String agree = req.getParameter("agree");
+        if(agree == null){
+            agree = "N";
+        }else {
+            agree = "Y";
+        }
 
         // 중복 아이디 검사
         MemberDAO dao = new MemberDAO();
@@ -41,7 +47,7 @@ public class JoinController extends HttpServlet {
             dto.setId(id);
             dto.setPass(pass);
             dto.setName(name);
-            int iResult = dao.insertMember(dto);
+            int iResult = dao.insertMember(dto, agree);
 
             // 연결 종료
             dao.close();

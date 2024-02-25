@@ -93,12 +93,12 @@
             <input type="password" id="inputPassword2" class="form-control" aria-describedby="passwordHelpBlock" placeholder="비밀번호 확인" required>
             <div id="joincheck">
                 <label class="labelex1" for="check1">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="" id="check1" required>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="Y" id="check1" required>
                     이용약관 동의(필수)
                 </label>
                 <br/>
                 <label class="labelex1" for="check2">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="" id="check2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="Y" id="check2" name="agree">
                     마케팅 동의(선택)
                 </label>
             </div>

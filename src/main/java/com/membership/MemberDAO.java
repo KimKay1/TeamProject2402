@@ -2,6 +2,8 @@ package com.membership;
 
 import com.common.DBConnPool;
 
+import java.util.Map;
+
 public class MemberDAO extends DBConnPool {
     // 설정한 데이터베이스로의 연결이 완료된 MemberDAO 객체를 생성
 
@@ -60,8 +62,9 @@ public class MemberDAO extends DBConnPool {
     }
 
     // 회원가입
-    public int insertMember(MemberDTO dto){
+    public int insertMember(MemberDTO dto, String agree){
         int result = 0;
+        int result2 = 0;
 
         try{
             String query = "INSERT INTO scott.member_teampro (ID,PASS, NAME, REGIDATE) VALUES(?,?,?,sysdate)";
@@ -72,11 +75,25 @@ public class MemberDAO extends DBConnPool {
 
             result = psmt.executeUpdate();
 
+            if(agree.equals("Y")){
+                String query2 = "INSERT INTO scott.memberplus_teampro (ID, AGREE) VALUES(?,?)";
+                psmt = con.prepareStatement(query2);
+                psmt.setString(1, dto.getId());
+                psmt.setString(2, agree);
+                result2 = psmt.executeUpdate();
+            } else {
+                String query2 = "INSERT INTO scott.memberplus_teampro (ID, AGREE) VALUES(?,?)";
+                psmt = con.prepareStatement(query2);
+                psmt.setString(1, dto.getId());
+                psmt.setString(2, agree);
+                result2 = psmt.executeUpdate();
+            }
+
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("insertMember 오류 발생");
         }
-        return result;
+        return result + result2;
     }
 
     // 개인정보 불러오기
@@ -99,6 +116,48 @@ public class MemberDAO extends DBConnPool {
             System.out.println("selectMyPage 오류 발생");
         }
         return dto;
+    }
+
+    // 개인정보(선택) 불러오기
+    public MemberDTO selectMyPagePlus(String id){
+        MemberDTO dto = new MemberDTO();
+        try {
+            String query = "SELECT id, agree, genre FROM scott.memberplus_teampro WHERE id = ?";
+            psmt = con.prepareStatement(query);
+            psmt.setString(1,id);
+            rs = psmt.executeQuery();
+
+            if(rs.next()){
+                dto.setId(rs.getString("id"));
+                dto.setPass(rs.getString("agree"));
+                dto.setName(rs.getString("genre"));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("selectMyPagePlus 오류 발생");
+        }
+        return dto;
+    }
+
+    //개인정보 장르 갯수
+    public int selectGenreCount(Map<String, Object> map){
+        int totalCount = 0;
+
+        String query = "SELECT COUNT(*) FROM scott.memberplus_teampro";
+        if(map.get("searchWord") != null){
+            query += " WHERE " + map.get("searchField") + " "
+                    + " LIKE '%" + map.get("searchWord") + "%'";
+        }
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+            rs.next();
+            totalCount = rs.getInt(1);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("selectGenreCount 오류 발생");
+        }
+        return totalCount;
     }
 
     // 개인정보 수정

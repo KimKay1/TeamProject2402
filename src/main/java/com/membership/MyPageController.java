@@ -12,6 +12,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @WebServlet("/member/MyPage.do")
 public class MyPageController extends HttpServlet {
@@ -48,6 +50,22 @@ public class MyPageController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //선호 장르 받아오기
+        String searchField = "genre";
+        String[] searchWord = request.getParameterValues("genre");
+        String wordStr = "";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("searchField", searchField);
+        for(int i=0; i<searchWord.length; i++){
+            wordStr += searchWord[i] + " ";
+        }
+        System.out.println(wordStr);
+        //선호 장르 맵에 넣기
+        //선호 장르 카운트
+        //선호장르 마이페이지 뷰에 보이기(doGet 수정)
+
+
 
         String mode = request.getParameter("mode");
         HttpSession session = request.getSession();

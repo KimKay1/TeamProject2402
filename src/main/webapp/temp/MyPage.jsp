@@ -41,6 +41,57 @@
             <input type="text" class="form-control" value="${regidate}">
         </div>
     </fieldset>
+    <div class="mb-3" style="padding-left: 5px;">
+        <label  class="form-label">선호장르</label><br/>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check1">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="액션" id="check1" name="genre">
+                액션
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check2">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="애니메이션" id="check2" name="genre">
+                애니메이션
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check2">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="코미디" id="check3" name="genre">
+                코미디
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check2">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="범죄" id="check4" name="genre">
+                범죄
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check2">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="드라마" id="check5" name="genre">
+                드라마
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check2">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="판타지" id="check6" name="genre">
+                판타지
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check2">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="스릴러" id="check7" name="genre">
+                스릴러
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check2">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="로맨스" id="check8" name="genre">
+                로맨스
+            </label>
+        </div>
+    </div>
     <div class="mb-3">
         <label for="inputPassword1" class="form-label">비밀번호</label>
         <input type="password" class="form-control" id="inputPassword1" name="pass" placeholder="수정을 원하시면 비밀번호를 입력하세요" required>
