@@ -11,6 +11,7 @@ index.init = function (){
             console.log("성공");
             console.log(data);
             var jsonData = JSON.parse(data);
+            console.log(jsonData)
             jsonData.forEach(function (item,index){
                 $('.movietitle').eq(index).text(item.title);
                 $('.movietitle').eq(index).attr("href", "/movieView.do?num=" + item.num);
@@ -55,7 +56,6 @@ index.init = function (){
                 let timestamp = (item.releasedate);
                 let date = new Date(timestamp).toDateString();
                 $('.randomdate').eq(index).text(date);
-                console.log(date);
                 $('.randomRun').eq(index).text(item.runningtime);
                 $('.randomSum').eq(index).text(item.summary);
                 $('.randomImg').eq(index).attr('src',item.img);

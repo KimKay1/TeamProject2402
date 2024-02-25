@@ -219,7 +219,6 @@
                                             <div class="info info-short">
                                                 <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
                                                 <span class="info-text movierunningtime"></span>
-
                                             </div>
                                         </div>
                                     </div>
