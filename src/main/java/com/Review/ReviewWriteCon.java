@@ -20,7 +20,6 @@ public class ReviewWriteCon extends HttpServlet {
         /*req.setAttribute(session.getA);*/
 
         HttpSession session = req.getSession();
-        String UserId = session.getAttribute("UserId").toString();
 
         R_DTO dto = new R_DTO();
         dto.setIdx(req.getParameter("idx"));

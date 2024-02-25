@@ -25,6 +25,7 @@
     <!-- Theme styles -->
     <link href="/template/css/dot-icons.css" rel="stylesheet" type="text/css">
     <link href="/template/css/theme.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="/template/css/header.css"/>
 
     <script>
         function deletePost() {
@@ -283,6 +284,6 @@
 </form>
 
 
-<jsp:include page="Footer.jsp"></jsp:include>
+<jsp:include page="/temp/Footer.jsp"></jsp:include>
 </body>
 </html>

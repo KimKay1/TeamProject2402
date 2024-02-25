@@ -25,6 +25,7 @@
     <!-- Theme styles -->
     <link href="/template/css/dot-icons.css" rel="stylesheet" type="text/css">
     <link href="/template/css/theme.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="/template/css/header.css"/>
 </head>
 <body class="body">
 <jsp:include page="/temp/Header.jsp"></jsp:include>
@@ -34,7 +35,7 @@
     <div class="d-background bg-black-80"></div>
     <div class="top-block top-inner container">
         <div class="top-block-content">
-            <h1 class="section-title">Article</h1>
+            <h1 class="section-title">Review</h1>
             <div class="page-breadcrumbs">
                 <a class="content-link" href="#">Home</a>
                 <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
@@ -45,6 +46,7 @@
         </div>
     </div>
 </section>
+
 <div class="container">
     <div class="sidebar-container">
         <div class="content">
@@ -57,14 +59,14 @@
                             <input type="text" class="form-control" id="myPageName" name="name" value="${name}" required>
                         </div>--%>
 
-                    <form action="/R/R_Write.do" method="post">
+                    <form action="../R/R_Write.do" method="post">
                         <div class="mb-3">
                             <label class="form-label">영화</label>
-                            <select name="movieNum" class="form-control">
-                                <c:forEach items="${listMovieInfo}" var="row" varStatus="loop">
-                                    <option value="${row.num}">${row.title}</option>
-                                </c:forEach>
-                            </select>
+                                <select name="movieNum" class="form-control">
+                                    <c:forEach items="${listMovieInfo}" var="row" varStatus="loop">
+                                        <option value="${row.num}">${row.title}</option>
+                                    </c:forEach>
+                                </select>
                         </div>
 
                         <div class="mb-3">
@@ -89,7 +91,6 @@
 </div>
 <a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
 
-
-<jsp:include page="../Footer.jsp"></jsp:include>
+<jsp:include page="temp/Footer.jsp"></jsp:include>
 </body>
 </html>
