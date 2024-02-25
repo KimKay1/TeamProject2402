@@ -39,7 +39,7 @@
     </div>
 </section>
 
-<form style="width: 70%; margin: 0 auto; padding: 70px 50px 70px 50px;" name="mypageFrm" method="post" action="../member/MyPage.do" onsubmit="return userSubmit();">
+<form style="width: 300px; display: block; margin-left: auto; margin-right: auto; padding-top: 70px; padding-bottom: 70px;" name="mypageFrm" method="post" action="../member/MyPage.do" onsubmit="return userSubmit();">
     <fieldset disabled>
         <div class="mb-3">
             <label  class="form-label">아이디</label>
