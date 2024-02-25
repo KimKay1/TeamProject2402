@@ -1746,6 +1746,7 @@ textarea.form-control {
     margin-left: auto;
   }
 }
+
 @media (min-width: 992px) {
   .header-view-pannel + .after-head .top-block,
   .header-view-pannel + .after-head .top-central {
