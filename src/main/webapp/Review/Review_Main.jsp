@@ -437,7 +437,7 @@
     </div>
 </footer>
 <!-- jQuery library -->
-<script src="../template/js/jquery-3.3.1.js"></script>
+<script src="../js/jquery-3.3.1.js"></script>
 <!-- Bootstrap -->
 <script src="../template/bootstrap/js/bootstrap.js"></script>
 <!-- Paralax.js -->
@@ -449,7 +449,7 @@
 <!-- Magnific Popup -->
 <script src="../template/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Inits product scripts -->
-<script src="../template/js/script.js"></script>
+<script src="../js/script.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ4Qy67ZAILavdLyYV2ZwlShd0VAqzRXA&callback=initMap"></script>
 <script async defer src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js"></script>
 </body>

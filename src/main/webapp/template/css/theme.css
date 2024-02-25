@@ -708,7 +708,7 @@ a:hover {
   font-family: 'Oswald';
   line-height: 1.2;
   font-weight: 500;
-  font-size: 2.25rem;
+  font-size: 3rem;
   color: #333;
 }
 .section-main-text {
@@ -1420,7 +1420,7 @@ textarea.form-control {
   padding-top: 4.5rem;
 }
 .header-horizontal .navbar {
-  height: 4.5rem;
+  height: 4rem;
   position: relative;
   padding: 0;
 }
@@ -1443,7 +1443,7 @@ textarea.form-control {
   align-items: center;
   -webkit-flex-shrink: 0;
   flex-shrink: 0;
-  margin: 1rem 1.25rem 1rem 0;
+  margin: 0rem 1.25rem 0rem 0;
 }
 .header-horizontal .navbar-brand img {
   -webkit-box-flex: 1;
@@ -1622,7 +1622,7 @@ textarea.form-control {
     align-items: center;
   }
   .header-horizontal .navbar-nav > .nav-item {
-    margin: 0 0.75rem;
+    padding: 0 0.75rem;
   }
   .header-horizontal .nav {
     position: absolute;
@@ -1753,7 +1753,7 @@ textarea.form-control {
     padding-top: 6rem;
   }
   .header-view-pannel .navbar {
-    height: 6rem;
+    height: 4rem;
   }
   .header-view-pannel .navbar-brand {
     font-size: 3rem;
@@ -1761,7 +1761,7 @@ textarea.form-control {
     margin-right: 2rem;
   }
   .header-view-pannel .navbar-nav > .nav-item {
-    margin: 0 1.25rem;
+    padding: 0 3rem;
   }
 }
 @media (min-width: 1200px) {
@@ -1866,14 +1866,14 @@ textarea.form-control {
   font-family: 'Oswald';
 }
 .top-block-content {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 .top-block-content .page-breadcrumbs {
   margin-top: 0.75rem;
 }
 .top-block-footer {
-  padding-bottom: 6rem;
+  padding-bottom: 3rem;
 }
 /*------------------------------------------------------------------
     [13. Scroll top]

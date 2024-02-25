@@ -17,11 +17,10 @@ public class MovieInfoDAO extends DBConnPool {
 
         String query = "SELECT * FROM("
                         + " SELECT Tb.*, ROWNUM rNUM FROM ("
-                        + " SELECT mt.num , mt.title, mt.category, mt.runningtime, mt2.img,mt2.youtube, mt2.visitcount FROM SCOTT.MOVIEINFO_TEAMPRO mt"
-                        + " INNER JOIN SCOTT.MOVIEDETAIL_TEAMPRO mt2 "
-                        + " ON mt.num = mt2.num";
+                        + " SELECT mt.num , mt.title, mt.category, mt.runningtime, mt.img,mt.youtube, mt.visitcount FROM SCOTT.MOVIEINFO_TEAMPRO mt";
 
-        query += " ORDER BY mt2.visitcount DESC"
+
+        query += " ORDER BY mt.visitcount DESC"
                 + " ) Tb"
                 + " )"
                 + " WHERE rNUM <= 4";
@@ -58,9 +57,7 @@ public class MovieInfoDAO extends DBConnPool {
 
         String query = "SELECT * FROM ("
                         + " SELECT Tb.*, ROWNUM rNUM FROM ("
-                        + " SELECT mt.num , mt.title, mt.category, mt.runningtime, mt2.summary, mt2.img, mt2.youtube, mt2.visitcount FROM SCOTT.MOVIEINFO_TEAMPRO mt"
-                        + " INNER JOIN SCOTT.MOVIEDETAIL_TEAMPRO mt2 "
-                        + " ON mt.num = mt2.num";
+                        + " SELECT mt.num , mt.title, mt.category, mt.runningtime, mt.summary, mt.img, mt.youtube, mt.visitcount FROM SCOTT.MOVIEINFO_TEAMPRO mt";
 
         query += " ORDER BY mt.num DESC"
                 + " ) Tb"
@@ -98,9 +95,7 @@ public class MovieInfoDAO extends DBConnPool {
 
         String query = "SELECT * FROM ("
                 + " SELECT Tb.*, ROWNUM rNUM FROM ("
-                + " SELECT mt.num , mt.title, mt.category, mt.releasedate, mt.runningtime, mt2.summary, mt2.img, mt2.youtube FROM SCOTT.MOVIEINFO_TEAMPRO mt"
-                + " INNER JOIN SCOTT.MOVIEDETAIL_TEAMPRO mt2 "
-                + " ON mt.num = mt2.num";
+                + " SELECT mt.num , mt.title, mt.category, mt.releasedate, mt.runningtime, mt.summary, mt.img, mt.youtube FROM SCOTT.MOVIEINFO_TEAMPRO mt";
 
         query += " ORDER BY DBMS_RANDOM.VALUE"
                 + " ) Tb"
@@ -136,9 +131,7 @@ public class MovieInfoDAO extends DBConnPool {
     public MovieInfoDTO selectView(String num) {
         MovieInfoDTO detail = new MovieInfoDTO();
 
-        String query = "SELECT * FROM SCOTT.MOVIEINFO_TEAMPRO mt"
-                        + " INNER JOIN SCOTT.MOVIEDETAIL_TEAMPRO mt2 "
-                        + " ON mt.num = mt2.num";
+        String query = "SELECT * FROM SCOTT.MOVIEINFO_TEAMPRO mt";
 
         query += " WHERE mt.num = ?";
 
@@ -168,7 +161,6 @@ public class MovieInfoDAO extends DBConnPool {
 
         return detail;
     }
-
 
     //조회수 증가 메서드
     public void updateVisitCount(String num) {

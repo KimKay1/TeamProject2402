@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <script src="include/jquery-3.7.1.min.js"></script>
-
+    <link type="text/css" rel="stylesheet" href="/template/css/header.css"/>
     <style>
         body {
             background-color: silver;

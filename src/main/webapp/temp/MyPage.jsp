@@ -2,11 +2,10 @@
 <%@ page import="com.membership.MemberDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="./LoginPlz.jsp"%>
-
-
 <html>
 <head>
     <title>마이페이지</title>
+    <link type="text/css" rel="stylesheet" href="/template/css/header.css"/>
     <script src="include/jquery-3.7.1.min.js"></script>
     <script>
         function userSubmit() {

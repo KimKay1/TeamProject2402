@@ -58,7 +58,7 @@ public class CategoryDAO extends DBConnPool {
         List<CategoryDTO> bbs = new ArrayList<CategoryDTO>();
 
         // 쿼리문 작성
-        String query = "SELECT ROWNUM, MD.img, MI.title, MI.num FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE category = ? AND (ROWNUM BETWEEN ? AND ?)";
+        String query = "SELECT ROWNUM, MI.img, MI.title, MI.num FROM scott.movieinfo_teampro MI WHERE category = ? AND (ROWNUM BETWEEN ? AND ?)";
 
         try {
             psmt = con.prepareStatement(query);
@@ -90,7 +90,7 @@ public class CategoryDAO extends DBConnPool {
     //  검색(title or category or director) 게시물 불러오기
     public CategoryDTO searchList(String search) {
         CategoryDTO dto = new CategoryDTO();
-        String query = "SELECT  MI.num, MI.title, MD.img, MI.category FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE MI.title LIKE '%"
+        String query = "SELECT  MI.num, MI.title, MI.img, MI.category FROM scott.movieinfo_teampro MI WHERE MI.title LIKE '%"
                         + search + "%' OR MI.director LIKE '%" + search + "%'";
 
         try {

@@ -1,0 +1,27 @@
+.header_h {
+    display:flex;
+    padding-top:3em;
+    padding-bottom:1em;
+}
+
+.header_h .d-flex, .loginbtn, .logoutbtn {
+    margin-top:20px;
+}
+
+.header_h .form-control {
+    width:500px;
+}
+
+.navbardiv {
+    width:100%;
+    border-top:1px solid #aaaaaa;
+}
+
+.navbar {
+    margin:0 auto;
+    width:360px;
+}
+
+
+
+
