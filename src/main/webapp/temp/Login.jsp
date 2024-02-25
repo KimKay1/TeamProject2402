@@ -102,7 +102,7 @@
     </div>
 
     <div id="loginpage1">
-      <form action="../member/Login.do" method="post" name="loginFrm" onsubmit="return validateForm(this)">
+      <form action="../member/Login.do" method="post" name="loginFrm" onsubmit="return validateForm(this)" style="width: 300px; display: block; margin-left: auto; margin-right: auto;">
         <input type="text" name="user_id" id="inputUsername1" class="form-control" placeholder="Username" value="${loginId}" required>
         <input type="password" name="user_pwd" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password" required>
         <div style="padding-top: 15px;">

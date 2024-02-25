@@ -85,20 +85,20 @@
     </div>
 </section>
 <section style="margin:50px 200px 50px 200px;">
-    <div id="joinpage1"> <!-- class="form-control"는 부트스트랩 사용-->
-        <form action="../member/join.do" onsubmit="return userSubmit();" method="POST">
+    <div id="joinpage1">
+        <form action="../member/join.do" onsubmit="return userSubmit();" method="POST" style="width: 300px; display: block; margin-left: auto; margin-right: auto;">
             <input type="text" name="id" id="inputUserid1" class="form-control" placeholder="아이디" required>
             <input type="text" name="name" id="inputUsername1" class="form-control" placeholder="닉네임" required>
             <input type="password" name="pass" id="inputPassword1" class="form-control" aria-describedby="passwordHelpBlock" placeholder="비밀번호" required>
             <input type="password" id="inputPassword2" class="form-control" aria-describedby="passwordHelpBlock" placeholder="비밀번호 확인" required>
             <div id="joincheck">
                 <label class="labelex1" for="check1">
-                    <input class="form-check-input" type="checkbox" value="" id="check1" required>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="" id="check1" required>
                     이용약관 동의(필수)
                 </label>
-                &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br/>
                 <label class="labelex1" for="check2">
-                    <input class="form-check-input" type="checkbox" value="" id="check2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="" id="check2">
                     마케팅 동의(선택)
                 </label>
             </div>
