@@ -1,9 +1,6 @@
-package com.category;
+package com.navbar;
 
-import com.comment.CommentDTO;
 import com.common.DBConnPool;
-import com.movieInfo.MovieInfoDAO;
-import com.movieInfo.MovieInfoDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +12,7 @@ public class CategoryDAO extends DBConnPool {
     // 카테고리별 게시물 불러오기
     public CategoryDTO selectCategory(String category) {
         CategoryDTO dto = new CategoryDTO();
-        String query = "SELECT  MI.num, MI.title, MD.img, MI.category FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE MI.category = ?";
+        String query = "SELECT  num, title, img, category FROM scott.movieinfo_teampro WHERE category = ?";
 
         try {
             psmt = con.prepareStatement(query);
@@ -55,13 +52,13 @@ public class CategoryDAO extends DBConnPool {
         return totalCount;
     }
 
-    //검색 조건에 맞는 게시물 목록 반환
+    //카테고리 조건에 맞는 게시물 목록 반환
     public List<CategoryDTO> selectListPage(Map<String, Object>map, String category){
         //쿼리 결과를 담을 변수
         List<CategoryDTO> bbs = new ArrayList<CategoryDTO>();
 
         // 쿼리문 작성
-        String query = "SELECT ROWNUM, MD.img, MI.title, MI.num FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE category = ? AND (ROWNUM BETWEEN ? AND ?)";
+        String query = "SELECT ROWNUM, MI.img, MI.title, MI.num FROM scott.movieinfo_teampro MI WHERE category = ? AND (ROWNUM BETWEEN ? AND ?)";
 
         try {
             psmt = con.prepareStatement(query);
@@ -89,4 +86,28 @@ public class CategoryDAO extends DBConnPool {
 
         return bbs;
     }
+
+    //  검색(title or category or director) 게시물 불러오기
+    public CategoryDTO searchList(String search) {
+        CategoryDTO dto = new CategoryDTO();
+        String query = "SELECT  MI.num, MI.title, MI.img, MI.category FROM scott.movieinfo_teampro MI WHERE MI.title LIKE '%"
+                        + search + "%' OR MI.director LIKE '%" + search + "%'";
+
+        try {
+            psmt = con.prepareStatement(query);
+//            psmt.setString(1, title);
+            rs = psmt.executeQuery();
+            if(rs.next()){
+                dto.setNum(rs.getString("num"));
+                dto.setTitle(rs.getString("title"));
+                dto.setImg(rs.getString("img"));
+                dto.setCategory(rs.getString("category"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("searchBar 오류 발생");
+        }
+        return dto;
+    }
+
 }

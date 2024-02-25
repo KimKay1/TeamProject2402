@@ -15,8 +15,16 @@ public class PassController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.setAttribute("mode", req.getParameter("mode"));
-        req.getRequestDispatcher("../temp/Pass.jsp").forward(req,resp);
+        String mode = req.getParameter("mode");
+
+        req.setAttribute("mode", mode);
+        if(mode.equals("delete")){
+            req.getRequestDispatcher("../temp/CommentDelete.jsp").forward(req,resp);
+        } else if(mode.equals("edit")){
+            req.getRequestDispatcher("../temp/CommentEdit.jsp").forward(req, resp);
+        } else {
+            JSFunction.alertBack(resp, "잘못된 경로입니다.");
+        }
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -50,6 +58,7 @@ public class PassController extends HttpServlet {
                 dao = new CommentDAO();
                 dto = dao.selectView(idx);
                 int result = dao.deletePost(idx);
+                dao.close();
                 JSFunction.alertLocation(resp,"삭제되었습니다.", "../movieView.do?num="+num);
             }
         }else {//비밀번호 검증 실패

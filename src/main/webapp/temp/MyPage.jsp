@@ -2,18 +2,10 @@
 <%@ page import="com.membership.MemberDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="./LoginPlz.jsp"%>
-
-<%--<%--%>
-<%--    String id = (String) session.getAttribute("UserId");--%>
-
-<%--    MemberDAO dao = new MemberDAO();--%>
-<%--    MemberDTO dto = dao.selectMyPage(id);--%>
-
-<%--    dao.close();--%>
-<%--%>--%>
-
 <html>
 <head>
+    <title>마이페이지</title>
+    <link type="text/css" rel="stylesheet" href="/template/css/header.css"/>
     <script src="include/jquery-3.7.1.min.js"></script>
     <script>
         function userSubmit() {
@@ -46,21 +38,13 @@
     </div>
 </section>
 
-<form style="width: 70%; margin: 0 auto; padding: 70px 50px 70px 50px;" name="mypageFrm" method="post" action="../member/MyPage.do" onsubmit="return userSubmit();">
+<form style="width: 300px; display: block; margin-left: auto; margin-right: auto; padding-top: 70px; padding-bottom: 70px;" name="mypageFrm" method="post" action="../member/MyPage.do?mode=edit" onsubmit="return userSubmit();">
     <fieldset disabled>
         <div class="mb-3">
             <label  class="form-label">아이디</label>
             <input type="text" class="form-control" placeholder="Disabled input" value="${id}">
         </div>
     </fieldset>
-    <div class="mb-3">
-        <label for="inputPassword1" class="form-label">비밀번호</label>
-        <input type="password" class="form-control" id="inputPassword1" name="pass" placeholder="비밀번호를 입력해주세요." required>
-    </div>
-    <div class="mb-3">
-        <label for="inputPassword2" class="form-label">비밀번호 확인</label>
-        <input type="password" class="form-control" id="inputPassword2" placeholder="비밀번호를 다시 입력해주세요." required>
-    </div>
     <div class="mb-3">
         <label for="myPageName" class="form-label">닉네임</label>
         <input type="text" class="form-control" id="myPageName" name="name" value="${name}" required>
@@ -71,6 +55,70 @@
             <input type="text" class="form-control" value="${regidate}">
         </div>
     </fieldset>
+    <div class="mb-3">
+        <label  class="form-label">선호장르</label><br/>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check1">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="액션" id="check1" name="genre" ${genreMap.get("액션")}>
+                액션
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check2">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="애니메이션" id="check2" name="genre" ${genreMap.get("애니메이션")}>
+                애니메이션
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check3">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="코미디" id="check3" name="genre" ${genreMap.get("코미디")}>
+                코미디
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check4">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="범죄" id="check4" name="genre" ${genreMap.get("범죄")}>
+                범죄
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check5">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="드라마" id="check5" name="genre" ${genreMap.get("드라마")}>
+                드라마
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check6">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="판타지" id="check6" name="genre" ${genreMap.get("판타지")}>
+                판타지
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check7">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="스릴러" id="check7" name="genre" ${genreMap.get("스릴러")}>
+                스릴러
+            </label>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check8">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="로맨스" id="check8" name="genre" ${genreMap.get("로맨스")}>
+                로맨스
+            </label>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">마케팅 수신동의</label><br/>
+        <div class="col-12 col-sm-6">
+            <label class="labelex1" for="check9">
+                &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="checkbox" value="Y" id="check9" name="agree" ${checkbox2}>
+                동의
+            </label>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="inputPassword1" class="form-label">비밀번호</label>
+        <input type="password" class="form-control" id="inputPassword1" name="pass" placeholder="수정을 원하시면 비밀번호를 입력하세요" required>
+    </div>
     <div class="section-bottom">
         <button class="btn btn-theme" type="reset">다시 입력</button>
         <button class="btn btn-theme" type="submit">수정 완료</button>
@@ -78,7 +126,7 @@
 </form>
 
 
-<jsp:include page="../Footer.jsp"></jsp:include>
+<jsp:include page="Footer.jsp"></jsp:include>
 
 </body>
 </html>

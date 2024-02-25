@@ -1,6 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
+
+<%-- body 부분에 header 복사/붙여넣기
+
+    <jsp:include page="../temp/Header.jsp"></jsp:include>
+
+--%>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,7 +33,7 @@
 <body class="body">
 <header class="header header-horizontal header-view-pannel">
     <div class="container">
-        <nav class="navbar">
+        <div class="header_h">
             <a class="navbar-brand" href="../index.jsp">
                         <span class="logo-element">
                             <span class="logo-tape">
@@ -36,12 +43,35 @@
                                 <span>jsp</span>Team</span>
                         </span>
             </a>
+            <div class="navbar-extra">
+                <form class="d-flex" role="search" action="/navbar/search.do" method="get">
+                    <input name="search" class="form-control me-2" type="search" placeholder="Title / Director Search" aria-label="Search">
+                    <button type="submit" class="btn btn-theme">Search</button>
+                </form>
+            </div>
+            <div class="navbar-extra">
+                <%
+                    if(session.getAttribute("UserId") == null){
+                %>
+                <a class="btn-theme btn loginbtn" href="../member/Login.do"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Login</a>
+                <%
+                } else {
+                %>
+                <a class="btn-theme btn logoutbtn" href="../temp/Logout.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Logout</a>
+                <%
+                    }
+                %>
+            </div>
+        </div>
+        </div>
+    <div class="navbardiv">
+        <nav class="navbar">
             <button class="navbar-toggler" type="button">
-                        <span class="th-dots-active-close th-dots th-bars">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
+                            <span class="th-dots-active-close th-dots th-bars">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
             </button>
             <div class="navbar-collapse">
                 <ul class="navbar-nav">
@@ -89,24 +119,20 @@
                                 <a class="nav-link" href="#" data-role="nav-toggler">User pages</a>
                                 <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                                 <ul class="collapse nav">
-                                    <%--로그인 상태일 때--%>
                                     <%
                                         if(session.getAttribute("UserId") != null){
                                     %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../member/MyPage.do">My page</a>
+                                        <a class="nav-link" href="../member/MyPage.do?mode=edit">My page</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Ex</a>
+                                        <a class="nav-link" href="../member/MyPage.do?mode=change">Change Password</a>
                                     </li>
                                     <%
                                     } else {
                                     %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./temp/LoginPlz.jsp">My page</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./temp/LoginPlz.jsp">Ex</a>
+                                        <a class="nav-link" href="../temp/LoginPlz.jsp">My page</a>
                                     </li>
                                     <%
                                         }
@@ -116,19 +142,6 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="navbar-extra">
-                    <%
-                        if(session.getAttribute("UserId") == null){
-                    %>
-                    <a class="btn-theme btn" href="../member/Login.do"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Login</a>
-                    <%
-                    } else {
-                    %>
-                    <a class="btn-theme btn" href="temp/Logout.jsp"><i class="fas fa-ticket-alt"></i>&nbsp;&nbsp;Logout</a>
-                    <%
-                        }
-                    %>
-                </div>
             </div>
         </nav>
     </div>

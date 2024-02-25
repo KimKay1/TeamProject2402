@@ -1,4 +1,4 @@
-package com.category;
+package com.navbar;
 
 import com.comment.CommentPage;
 import jakarta.servlet.ServletContext;
