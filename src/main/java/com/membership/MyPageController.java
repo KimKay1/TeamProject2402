@@ -96,6 +96,7 @@ public class MyPageController extends HttpServlet {
                     JSFunction.alertBack(response, "수정 실패");
                 }
             }else { // 비밀번호 검증 실패
+                dao.close();
                 JSFunction.alertBack(response, "기존 패스워드를 확인하세요");
             }
 
@@ -122,6 +123,7 @@ public class MyPageController extends HttpServlet {
                 }
 
             } else { // 비밀번호 확인 실패
+                dao.close();
                 JSFunction.alertBack(response, "패스워드를 확인하세요");
             }
         }

@@ -12,7 +12,7 @@ public class CategoryDAO extends DBConnPool {
     // 카테고리별 게시물 불러오기
     public CategoryDTO selectCategory(String category) {
         CategoryDTO dto = new CategoryDTO();
-        String query = "SELECT  MI.num, MI.title, MD.img, MI.category FROM scott.movieinfo_teampro MI INNER JOIN scott.moviedetail_teampro MD ON MI.num = MD.num WHERE MI.category = ?";
+        String query = "SELECT  num, title, img, category FROM scott.movieinfo_teampro WHERE category = ?";
 
         try {
             psmt = con.prepareStatement(query);
