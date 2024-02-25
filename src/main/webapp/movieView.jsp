@@ -1,3 +1,6 @@
+<%@ page import="org.apache.catalina.util.URLEncoder" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -23,22 +26,16 @@
     <!-- Theme styles -->
     <link href="./template/css/dot-icons.css" rel="stylesheet" type="text/css">
     <link href="./template/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="template/css/header.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
 <jsp:include page="./temp/Header.jsp"></jsp:include>
-
 <section class="after-head d-flex section-text-white position-relative">
     <div class="d-background" data-image-src="" data-parallax="scroll"></div>
     <div class="d-background bg-black-80"></div>
     <div class="top-block top-inner container">
         <div class="top-block-content">
             <h1 class="section-title">Movies info</h1>
-            <div class="page-breadcrumbs">
-                <a class="content-link" href="#">Home</a>
-                <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
-                <a class="content-link" href="movies-blocks.html">Movies</a>
-            </div>
         </div>
     </div>
 </section>
@@ -261,9 +258,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="section-bottom">
-                        <a class="btn btn-theme" href="gallery.html">View All</a>
-                    </div>
                 </div>
                 <div class="section-line">
 
@@ -450,7 +444,7 @@
         <div class="sidebar section-long order-lg-last">
             <section class="section-sidebar">
                 <div class="section-head">
-                    <h2 class="section-title text-uppercase">Latest movies</h2>
+                    <h2 class="section-title text-uppercase">Recently viewed movies</h2>
                 </div>
                 <div class="movie-short-line-entity">
                     <a class="entity-preview" href="movie-info-sidebar-right.html">

@@ -3,6 +3,10 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link type="text/css" rel="stylesheet" href="/template/css/header.css"/>
+    <link type="text/css" rel="stylesheet" href="/template/css/categoryView.css"/>
+</head>
 <body>
 
 <jsp:include page="./Header.jsp"></jsp:include>
@@ -34,7 +38,7 @@
                 </c:when>
                 <c:otherwise> <%--게시글이 있을 때--%>
                     <c:forEach items="${boardList}" var="row" varStatus="loop">
-                        <div class="col-sm-6 col-lg-4">
+                        <div class="col-sm-3 col-lg-3">
                             <div class="gallery-entity">
                                 <div class="entity-preview" data-role="hover-wrap">
                                     <div class="embed-responsive embed-responsive-16by9">
@@ -46,8 +50,12 @@
                                                 <span class="icon-content"><i class="fas fa-search"></i></span>
                                             </a>
                                         </div>
-                                        <h4 class="entity-title">${row.title}</h4>
                                     </div>
+                                </div>
+                                <div class="boardtitle">
+                                    <a href="/movieView.do?num=${row.num}">
+                                        <h4 class="entity-title boardtitle">${row.title}</h4>
+                                    </a>
                                 </div>
                             </div>
                         </div>
