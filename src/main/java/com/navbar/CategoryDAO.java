@@ -58,8 +58,8 @@ public class CategoryDAO extends DBConnPool {
 
         String query = "SELECT COUNT(*) FROM scott.movieinfo_teampro";
         if (map.get("searchWord") != null) {
-            query += " WHERE " + map.get("searchField1") + "OR" + map.get("searchField2") + " "
-                    + " LIKE '%" + map.get("searchWord") + "%'";
+            query += " WHERE " + map.get("searchField1") +
+                     " LIKE '%" + map.get("searchWord") + "%' OR " + map.get("searchField2") + " LIKE '% + map.get(searchWord) + %'";
         }
         try {
             stmt = con.createStatement();
@@ -74,18 +74,29 @@ public class CategoryDAO extends DBConnPool {
     }
 
     //카테고리 조건에 맞는 게시물 목록 반환
-    public List<CategoryDTO> selectListPage(Map<String, Object>map, String category){
+    public List<CategoryDTO> selectListPage(Map<String, Object>map){
         //쿼리 결과를 담을 변수
         List<CategoryDTO> bbs = new ArrayList<CategoryDTO>();
 
         // 쿼리문 작성
-        String query = "SELECT ROWNUM, MI.img, MI.title, MI.num FROM scott.movieinfo_teampro MI WHERE category = ? AND (ROWNUM BETWEEN ? AND ?)";
+        String query = "SELECT num, title, img FROM ("
+                + " SELECT Tb.*, ROWNUM rNUM FROM ("
+                + " SELECT * FROM scott.movieinfo_teampro";
+
+        if(map.get("searchWord") != null){
+            query += " WHERE " + map.get("searchField") + " "
+                    + " = '" + map.get("searchWord") + "'" ;
+        }
+
+        query += " ORDER BY releasedate DESC"
+                + " ) Tb"
+                + " )"
+                + " WHERE rNUM BETWEEN ? AND ?";
 
         try {
             psmt = con.prepareStatement(query);
-            psmt.setString(1, category);
-            psmt.setString(2, map.get("start").toString());
-            psmt.setString(3, map.get("end").toString());
+            psmt.setString(1, map.get("start").toString());
+            psmt.setString(2, map.get("end").toString());
 
             rs = psmt.executeQuery();
 
@@ -103,6 +114,54 @@ public class CategoryDAO extends DBConnPool {
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("category selectList 오류 발생");
+        }
+
+        return bbs;
+    }
+
+    //검색창 조건에 맞는 게시물 목록 반환
+    public List<CategoryDTO> searchListPage(Map<String, Object>map){
+        //쿼리 결과를 담을 변수
+        List<CategoryDTO> bbs = new ArrayList<CategoryDTO>();
+
+        // 쿼리문 작성
+        String query = "SELECT num, title, img, category, director FROM ("
+                + " SELECT Tb.*, ROWNUM rNUM FROM ("
+                + " SELECT * FROM scott.movieinfo_teampro";
+
+        if(map.get("searchWord") != null){
+            query += " WHERE " + map.get("searchField1") +
+                    " LIKE '%" + map.get("searchWord") + "%' OR " + map.get("searchField2") + " LIKE '% + map.get(searchWord) + %'";
+        }
+
+        query += " ORDER BY releasedate DESC"
+                + " ) Tb"
+                + " )"
+                + " WHERE rNUM BETWEEN ? AND ?";
+
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, map.get("start").toString());
+            psmt.setString(2, map.get("end").toString());
+
+            rs = psmt.executeQuery();
+
+            while (rs.next()){
+                //한 row의 내용을 DTO에 저장
+                CategoryDTO dto = new CategoryDTO();
+                dto.setNum(rs.getString("num"));
+                dto.setTitle(rs.getString("title"));
+                dto.setImg(rs.getString("img"));
+                dto.setCategory(rs.getString("category"));
+                dto.setDirector(rs.getString("director"));
+
+                bbs.add(dto);
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("searchListPage 오류 발생");
         }
 
         return bbs;

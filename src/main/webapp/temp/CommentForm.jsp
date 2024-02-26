@@ -3,6 +3,24 @@
 <!DOCTYPE html>
 <html>
 <body>
+<script>
+    /*유효성 검사*/
+    function validateForm(form) {
+        if (!form.name.value) {
+            alert("닉네임을 입력하세요");
+            return false;
+        } else if (!form.pass.value) {
+            alert("패스워드를 입력하세요");
+            return false;
+        } else if (!form.content.value){
+            alert("내용을 입력하세요");
+            return false;
+        } else if (!form.favor.value) {
+            alert("별점을 선택하세요");
+            return false;
+        }
+     }
+</script>
 
 <%--<jsp:include page="./Header.jsp"></jsp:include>--%>
 
@@ -69,7 +87,7 @@
                     <div class="section-head">
                         <h2 class="section-title text-uppercase">Add comment</h2>
                     </div>
-                    <form action="../comment/write.do" method="post" autocomplete="off">
+                    <form action="../comment/write.do" method="post" autocomplete="off" onsubmit="return validateForm(this)">
                         <div class="row form-grid">
                             <input type="hidden" name="num" value="${dto.num}">
                             <input type="hidden" name="title" value="${dto.title}">
