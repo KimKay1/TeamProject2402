@@ -96,7 +96,7 @@
                         <div>
                             <c:if test="${not empty dto.ofile and isImage eq true}">
                                 <br>
-                                <img src="../img/Uploads/${dto.sfile}" style="max-width: 100%;"/>
+                                <img src="../img/Uploads/${dto.sfile}" style="max-width: 50%;"/>
                             </c:if>
                         </div>
                         <p>${dto.content}</p>
@@ -104,10 +104,10 @@
 
                     <c:if test="${ not empty dto.ofile }">
                         <div>
-                            <label class="form-label">첨부 파일 다운로드</label>
+                            <label class="entity-links-title">첨부 파일 다운로드</label>
                                 ${ dto.ofile }
-                            <a href="../Review_Down.do?ofile=${ dto.ofile }&sfile=${ dto.sfile }&idx=${ dto.idx }">
-                                [다운로드]
+                            <a href="../Review_Down.do?ofile=${ dto.ofile }&sfile=${ dto.sfile }&idx=${ dto.idx }" class="content-link">
+                                다운로드
                             </a>
                         </div>
                     </c:if>

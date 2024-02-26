@@ -1,5 +1,6 @@
 package com.Review;
 
+import com.review_fileupload.FileUtil;
 import com.util.JSFunction;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -24,53 +25,92 @@ public class Review_Edit_Con extends HttpServlet {
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
         String idx = req.getParameter("idx");
-        HttpSession session = req.getSession();
-        String userId = (String) session.getAttribute("UserId");
-
-        if (userId == null) {
-            resp.sendRedirect("/Review/Review_Login.jsp");
-        } else {
-            R_DTO dto = new R_DTO();
-            dto.setIdx(req.getParameter("idx"));
-            dto.setTitle(req.getParameter("title"));
-            dto.setContent(req.getParameter("content"));
-            dto.setId("userId");
-            R_MovieInfoDAO listMovieInfoDAO = new R_MovieInfoDAO();
-            List<R_MovieInfoDTO> listMovieInfo = listMovieInfoDAO.selectListMovieTitle();
-
-            req.setAttribute("listMovieInfo", listMovieInfo);
-        }
-
         R_DAO dao = new R_DAO();
-        R_DTO dto2 = dao.selectView(idx);
-        req.setAttribute("dto", dto2);
+        R_DTO dto = dao.selectView(idx);
+        HttpSession session = req.getSession();
+        String sessionId = (String) session.getAttribute("UserId");
+        /*if(!sessionId.equals(dto.getId())){
+            JSFunction.alertBack(resp, "작성자 본인만 수정할 수 있습니다.");
+            return;
+        }*/
 
+        System.out.println("idx ::: " + idx);
+        System.out.println("sessionId ::: " + sessionId);
+
+        R_MovieInfoDAO listMovieInfoDAO = new R_MovieInfoDAO();
+        List<R_MovieInfoDTO> listMovieInfo = listMovieInfoDAO.selectListMovieTitle();
+
+        dao.close();
+
+        req.setAttribute("dto", dto);
+        req.setAttribute("listMovieInfo", listMovieInfo);
         req.getRequestDispatcher("/Review/Review_Edit.jsp").forward(req, resp);
 
     }
     @Override
     protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        // 경로 확인
+        String sDir = getServletContext().getRealPath("/img/Uploads");
 
+        // 파일 업로드
+        String oFileName = "";
+        try {
+            oFileName = FileUtil.uploadFile(req, sDir);
+        } catch (Exception e) {
+            JSFunction.alertBack(resp, "파일 업로드 오류입니다.");
+            e.printStackTrace();
+            return;
+        }
+
+        //수정 내용 매개변수에서 얻어오기
         HttpSession session = req.getSession();
-        String idx = req.getParameter("idx");
 
+        String idx = req.getParameter("idx");
+        String sessionId = (String) session.getAttribute("UserId");
+        String name = req.getParameter("name");
+        String title = req.getParameter("title");
+        String content = req.getParameter("content");
+        String prevOfile = req.getParameter("prevOfile");
+        String prevSfile = req.getParameter("prevSfile");
+
+        System.out.println("세션아이디 ::: " + sessionId);
+
+
+        // // 파일업로드 외 처리 DTO에 저장
         R_DTO dto = new R_DTO();
         dto.setIdx(idx);
-        dto.setTitle(req.getParameter("title"));
-        dto.setContent(req.getParameter("content"));
-        dto.setId(session.getAttribute("UserId").toString());
+        dto.setId(sessionId);
+        dto.setName(name);
+        dto.setTitle(title);
+        dto.setContent(content);
 
 
-        // DAO를 통해 DB 저장
+        // 원본 파일명과 저장된 파일 이름 설정
+        if (oFileName != "" && oFileName != null) { // 신규로 파일 등록한 경우
+            String sFileName = FileUtil.renameFile(sDir, oFileName);
+
+            dto.setOfile(oFileName);
+            dto.setSfile(sFileName);
+
+            //기존 파일 삭제
+            FileUtil.deleteFile(req, "/img/Uploads", prevSfile);
+        } else { // 첨부 파일이 없으면 기존 파일 유지
+            dto.setOfile(prevOfile);
+            dto.setSfile(prevSfile);
+        }
+
+        System.out.println();
+
+        // DAO를 통해 DB에 수정 내용 저장
         R_DAO dao = new R_DAO();
         int result = dao.updatePost(dto);
         dao.close();
 
-        // 글쓰기 성공
+        // 수정 성공
         if (result == 1) {
-            resp.sendRedirect("../Review_Main.do");
+            resp.sendRedirect("../Review_View.do?idx=" + dto.getIdx());
         }
-        // 글쓰기 실패
+        // 수정 실패
         else {
             JSFunction.alertLocation(resp, "수정에 실패했습니다.", "../Review_Main.do");
         }

@@ -189,6 +189,7 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
 
             System.out.println("dto.getTitle() :::" + dto.getTitle());
             System.out.println("dto.getContent() :::" + dto.getContent());
+            System.out.println("dto.getId() :::" + dto.getId());
             System.out.println("dto.getIdx() :::" + dto.getIdx());
 
             // 쿼리문 실행
