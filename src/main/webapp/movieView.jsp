@@ -144,11 +144,13 @@
                     <div class="grid row">
                         <c:choose>
                             <c:when test="${empty favorList}">
-                                <tr>
-                                    <td colspan="6" align="center">
-                                        추천작이 없습니다.
-                                    </td>
-                                </tr>
+                                <div STYLE="padding-left: 17px">
+                                    <tr>
+                                        <td colspan="6" align="center" >
+                                                 추천작이 없습니다.
+                                        </td>
+                                    </tr>
+                                </div>
                             </c:when>
                             <c:otherwise>
                                 <c:forEach items="${favorList}" var="row" begin="0" end="${favorListNum}">
