@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MovieInfoDAO2 extends DBConnPool {
+public class R_MovieInfoDAO extends DBConnPool {
 
-    public MovieInfoDAO2() {
+    public R_MovieInfoDAO() {
         super();
     }
 
-    public List<MovieInfoDTO2> selectListMovieTitle() {
-        List<MovieInfoDTO2> movie = new ArrayList<>();
+    public List<R_MovieInfoDTO> selectListMovieTitle() {
+        List<R_MovieInfoDTO> movie = new ArrayList<>();
 
         String query = " SELECT *" +
                 " FROM scott.MOVIEINFO_TEAMPRO" +
@@ -24,7 +24,7 @@ public class MovieInfoDAO2 extends DBConnPool {
             rs = stmt.executeQuery(query);
 
             while(rs.next()) {
-                MovieInfoDTO2 dto = new MovieInfoDTO2();
+                R_MovieInfoDTO dto = new R_MovieInfoDTO();
 
                 dto.setNum(rs.getInt("num"));
                 dto.setTitle(rs.getString("title"));
@@ -41,7 +41,7 @@ public class MovieInfoDAO2 extends DBConnPool {
         return movie;
     }
 
-    public MovieInfoDTO2 selectMovieInfo(int num) {
+    public R_MovieInfoDTO selectMovieInfo(int num) {
         System.out.println("selectMovieInfo IN!!!");
 
         String query = "  SELECT MT.NUM, MT.TITLE AS MT_TITLE, mt.director, mt.category, RB.MOVIE_NUM, RB.TITLE AS RB_TITLE, rb.content, RB.ID " +
@@ -49,7 +49,7 @@ public class MovieInfoDAO2 extends DBConnPool {
                 " WHERE MT.NUM = RB.MOVIE_NUM " +
                 "    AND RB.IDX = '" + num + "'";
 
-        MovieInfoDTO2 dto = new MovieInfoDTO2();
+        R_MovieInfoDTO dto = new R_MovieInfoDTO();
 
         try {
             stmt = con.createStatement();
@@ -75,8 +75,27 @@ public class MovieInfoDAO2 extends DBConnPool {
         return dto;
     }
 
-    public List<MovieInfoDTO2> selectMovie() {
-        List<MovieInfoDTO2> movie = new ArrayList<>();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public List<R_MovieInfoDTO> selectMovie() {
+        List<R_MovieInfoDTO> movie = new ArrayList<>();
 
         String query = "SELECT * FROM("
                         + " SELECT Tb.*, ROWNUM rNUM FROM ("
@@ -96,7 +115,7 @@ public class MovieInfoDAO2 extends DBConnPool {
             rs = stmt.executeQuery(query);
 
             while(rs.next()) {
-                MovieInfoDTO2 dto = new MovieInfoDTO2();
+                R_MovieInfoDTO dto = new R_MovieInfoDTO();
 
                 dto.setNum(rs.getInt("num"));
                 dto.setTitle(rs.getString("title"));
@@ -116,8 +135,8 @@ public class MovieInfoDAO2 extends DBConnPool {
         return movie;
     }
 
-    public List<MovieInfoDTO2> recentMovie() {
-        List<MovieInfoDTO2> movie = new ArrayList<>();
+    public List<R_MovieInfoDTO> recentMovie() {
+        List<R_MovieInfoDTO> movie = new ArrayList<>();
 
         String query = "SELECT * FROM ("
                         + " SELECT Tb.*, ROWNUM rNUM FROM ("
@@ -135,7 +154,7 @@ public class MovieInfoDAO2 extends DBConnPool {
             rs = stmt.executeQuery(query);
 
             while(rs.next()) {
-                MovieInfoDTO2 dto = new MovieInfoDTO2();
+                R_MovieInfoDTO dto = new R_MovieInfoDTO();
 
                 dto.setNum(rs.getInt("num"));
                 dto.setTitle(rs.getString("title"));
@@ -156,8 +175,8 @@ public class MovieInfoDAO2 extends DBConnPool {
         return movie;
     }
 
-    public List<MovieInfoDTO2> randomMovie() {
-        List<MovieInfoDTO2> movie = new ArrayList<>();
+    public List<R_MovieInfoDTO> randomMovie() {
+        List<R_MovieInfoDTO> movie = new ArrayList<>();
 
         String query = "SELECT * FROM ("
                 + " SELECT Tb.*, ROWNUM rNUM FROM ("
@@ -175,7 +194,7 @@ public class MovieInfoDAO2 extends DBConnPool {
             rs = stmt.executeQuery(query);
 
             while(rs.next()) {
-                MovieInfoDTO2 dto = new MovieInfoDTO2();
+                R_MovieInfoDTO dto = new R_MovieInfoDTO();
 
                 dto.setNum(rs.getInt("num"));
                 dto.setTitle(rs.getString("title"));
@@ -196,8 +215,8 @@ public class MovieInfoDAO2 extends DBConnPool {
         return movie;
     }
 
-    public MovieInfoDTO2 selectView(String num) {
-        MovieInfoDTO2 detail = new MovieInfoDTO2();
+    public R_MovieInfoDTO selectView(String num) {
+        R_MovieInfoDTO detail = new R_MovieInfoDTO();
 
         String query = "SELECT * FROM SCOTT.MOVIEINFO_TEAMPRO mt"
                         + " INNER JOIN SCOTT.MOVIEDETAIL_TEAMPRO mt2 "
