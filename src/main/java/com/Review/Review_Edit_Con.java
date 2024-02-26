@@ -50,7 +50,7 @@ public class Review_Edit_Con extends HttpServlet {
     @Override
     protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         // 경로 확인
-        String sDir = getServletContext().getRealPath("/img/Uploads");
+        String sDir = getServletContext().getRealPath("/Uploads");
 
         // 파일 업로드
         String oFileName = "";
@@ -93,7 +93,7 @@ public class Review_Edit_Con extends HttpServlet {
             dto.setSfile(sFileName);
 
             //기존 파일 삭제
-            FileUtil.deleteFile(req, "/img/Uploads", prevSfile);
+            FileUtil.deleteFile(req, "/Uploads", prevSfile);
         } else { // 첨부 파일이 없으면 기존 파일 유지
             dto.setOfile(prevOfile);
             dto.setSfile(prevSfile);

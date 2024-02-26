@@ -16,7 +16,7 @@ public class Review_Down_Con extends HttpServlet {
         String sfile = req.getParameter("sfile");
         String idx = req.getParameter("idx");
 
-        FileUtil.download(req, resp, "/img/Uploads", sfile, ofile);
+        FileUtil.download(req, resp, "/Uploads", sfile, ofile);
 
         R_DAO dao = new R_DAO();
         dao.close();

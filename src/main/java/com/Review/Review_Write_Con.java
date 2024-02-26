@@ -36,7 +36,7 @@ public class Review_Write_Con extends HttpServlet {
 
         // 1. 파일 업로드 처리
         // 업로드 디렉토리의 물리적 경로 확인
-        String sDir = getServletContext().getRealPath("/img/Uploads");
+        String sDir = getServletContext().getRealPath("/Uploads");
 
         // 파일 업로드
         String oFileName = "";

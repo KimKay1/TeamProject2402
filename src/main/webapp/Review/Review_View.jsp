@@ -96,7 +96,7 @@
                         <div>
                             <c:if test="${not empty dto.ofile and isImage eq true}">
                                 <br>
-                                <img src="../img/Uploads/${dto.sfile}" style="max-width: 50%;"/>
+                                <img src="../Uploads/${dto.sfile}" style="max-width: 50%;"/>
                             </c:if>
                         </div>
                         <p>${dto.content}</p>
