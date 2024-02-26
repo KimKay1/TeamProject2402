@@ -120,6 +120,57 @@ public class CommentDAO extends DBConnPool {
         return bbs;
     }
 
+    //코멘트뷰 목록 반환
+    //검색 조건에 맞는 게시물 목록 반환
+    public List<CommentDTO> selectMyListPage(Map<String, Object>map){
+        //쿼리 결과를 담을 변수
+        List<CommentDTO> bbs = new ArrayList<CommentDTO>();
+
+        // 쿼리문 작성
+        String query = "SELECT * FROM ("
+                + " SELECT Tb.*, ROWNUM rNUM FROM ("
+                + " SELECT * FROM scott.comment_teampro";
+
+        if(map.get("searchWord") != null){
+            query += " WHERE " + map.get("searchField") + " "
+                    + " = '" + map.get("searchWord") + "'" ;
+        }
+
+        query += " ORDER BY idx DESC"
+                + " ) Tb"
+                + " )"
+                + " WHERE rNUM BETWEEN ? AND ?";
+
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, map.get("start").toString());
+            psmt.setString(2, map.get("end").toString());
+
+            rs = psmt.executeQuery();
+
+            while (rs.next()){
+                //한 row의 내용을 DTO에 저장
+                CommentDTO dto = new CommentDTO();
+                dto.setIdx(rs.getString("idx"));
+                dto.setName(rs.getString("name"));
+                dto.setContent(rs.getString("content"));
+                dto.setPostdate(rs.getString("postdate"));
+                dto.setFavor(rs.getString("favor"));
+                dto.setPass(rs.getString("pass"));
+                dto.setTitle(rs.getString("title"));
+                dto.setCategory(rs.getString("category"));
+
+                bbs.add(dto);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("comment selectList 오류 발생");
+        }
+
+        return bbs;
+    }
+
     //코멘트뷰에 코멘트 불러오기
     public CommentDTO selectView(String title){
         CommentDTO dto = new CommentDTO();

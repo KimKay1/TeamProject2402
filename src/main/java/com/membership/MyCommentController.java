@@ -70,7 +70,7 @@ public class MyCommentController extends HttpServlet {
         map.put("end", end);
 
         //게시물 목록 가져오기
-        List<CommentDTO> boardList = dao.selectListPage(map);
+        List<CommentDTO> boardList = dao.selectMyListPage(map);
 
         dao.close();
 

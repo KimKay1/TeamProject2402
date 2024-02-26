@@ -7,7 +7,22 @@
 </head>
 <body>
     <jsp:include page="../temp/Header.jsp"></jsp:include>
-    <div class="section-line">
+    <section class="after-head d-flex section-text-white position-relative">
+        <div class="d-background" data-image-src="" data-parallax="scroll"></div>
+        <div class="d-background bg-black-80"></div>
+        <div class="top-block top-inner container">
+            <div class="top-block-content">
+                <h1 class="section-title">My Comment</h1>
+                <div class="page-breadcrumbs">
+                    <a class="content-link" href="../index.jsp">Home</a>
+                    <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
+                    <span>My Comment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-line" style="margin: auto; padding: 30px 30px 30px 30px; width: 80%;">
         <div class="section-head">
             <h2 class="section-title text-uppercase">Comments</h2>
         </div>
@@ -41,10 +56,7 @@
                                         </div>
                                     </div>
                                     <div class="ml-sm-auto col-auto">
-                                        <a class="content-link" href="../comment/edit.do?mode=edit&num=${dto.num}&idx=${ row.idx }">수정</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="content-link" href="../comment/delete.do?mode=delete&num=${dto.num}&idx=${ row.idx }">삭제</a>
+                                        <a class="content-link">${row.title}</a>
                                     </div>
                                 </div>
                             </div>
@@ -60,6 +72,8 @@
             <div class="paginator-item">${map.pagingImg}</div>
         </div>
     </div>
+
+
     <jsp:include page="../temp/Footer.jsp"></jsp:include>
 
 </body>
