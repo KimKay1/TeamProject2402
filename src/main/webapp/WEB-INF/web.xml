@@ -78,7 +78,7 @@
     <!--카테고리 페이징 설정-->
     <context-param>
         <param-name>CATEGORY_PER_PAGE</param-name>
-        <param-value>9</param-value>
+        <param-value>8</param-value>
     </context-param>
     <context-param>
         <param-name>CATEGORY_PER_BLOCK</param-name>
