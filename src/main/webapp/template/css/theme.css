@@ -743,6 +743,7 @@ a:hover {
   margin-top: 3rem;
   text-align: center;
   line-height: 1.2;
+  padding: 50px;
 }
 .section-bottom .btn {
   min-width: 8rem;

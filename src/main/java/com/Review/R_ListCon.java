@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class R_ListCon extends HttpServlet {
         ServletContext application = getServletContext();
 
         //전체 페이지 수 계산
-        int pageSize = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
+        int pageSize = 9;
         int blockPage = Integer.parseInt(application.getInitParameter("PAGES_PER_BLOCK"));
         int totalPage = (int) Math.ceil((double) totalCount / pageSize);
 
@@ -60,6 +61,7 @@ public class R_ListCon extends HttpServlet {
 
         /* 페이징 처리 end */
         List<R_DTO> boardList = dao.selectListPage(map);
+
         // DB 연결 닫기
         dao.close();
 

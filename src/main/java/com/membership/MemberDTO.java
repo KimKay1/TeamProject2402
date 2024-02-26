@@ -8,6 +8,8 @@ public class MemberDTO {
     private String pass;
     private String name;
     private Date regidate;
+    private String agree;
+    private String genre;
 
     public MemberDTO() {
     }
@@ -42,5 +44,21 @@ public class MemberDTO {
 
     public void setRegidate(Date regidate) {
         this.regidate = regidate;
+    }
+
+    public String getAgree() {
+        return agree;
+    }
+
+    public void setAgree(String agree) {
+        this.agree = agree;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }

@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-<h2><a href="../R/R_List.do">리뷰 게시판</a> - 현재 페이지 : ${map.pageNum} (전체 : ${map.totalPage})</h2>
+<h2><a href="../R/R_List.do">리뷰 게시판</a> - 현재 페이지 : ${map.pageNum} (전체 : ${map.totalPage}) (총 게시물 : ${map.totalcount})</h2>
   <%--검색 폼--%>
   <form method="get">
     <table border="1" width="90%">
@@ -93,3 +93,4 @@
   </table>
 </body>
 </html>
+

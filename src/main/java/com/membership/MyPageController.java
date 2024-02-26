@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.Date;
+import java.util.*;
 
 @WebServlet("/member/MyPage.do")
 public class MyPageController extends HttpServlet {
@@ -27,8 +27,45 @@ public class MyPageController extends HttpServlet {
         String pass = null;
         String name = dto.getName();
         Date regidate = dto.getRegidate();
-
+        String agree = dto.getAgree();
+        String genre = dto.getGenre();
         dao.close();
+
+        HashMap<String, String> genreMap = new HashMap<>();
+        genreMap.put("액션", null);
+        genreMap.put("애니메이션", null);
+        genreMap.put("코미디", null);
+        genreMap.put("범죄", null);
+        genreMap.put("드라마", null);
+        genreMap.put("판타지", null);
+        genreMap.put("스릴러", null);
+        genreMap.put("로맨스", null);
+
+        if(genre != null) {
+            //선호도 컷팅
+            StringTokenizer st = new StringTokenizer(genre, " ");
+            ArrayList<String> genres = new ArrayList<>();
+            while (st.hasMoreTokens()) {
+                genres.add(st.nextToken());
+            }
+            for (int i = 0; i < genres.size(); i++) {
+                String checkbox = null;
+                String gmStr = genres.get(i);
+                if (!gmStr.equals("")) {  // 값이 있으면 checked
+                    checkbox = "checked";
+                    genreMap.put(gmStr, checkbox);
+                }
+            }
+        }
+
+        //마케팅 불러오기
+        String checkbox2 = null;
+        if(agree != null){
+            if(agree.equals("Y")){
+                checkbox2 = "checked";
+            }
+        }
+
 
         if (mode.equals("change")) {
             request.setAttribute("id", id);
@@ -36,7 +73,8 @@ public class MyPageController extends HttpServlet {
             request.getRequestDispatcher("../temp/MyPass.jsp").forward(request, response);
 
         } else {
-
+            request.setAttribute("genreMap", genreMap);
+            request.setAttribute("checkbox2", checkbox2);
             request.setAttribute("id", id);
             request.setAttribute("pass", pass);
             request.setAttribute("name", name);
@@ -48,6 +86,21 @@ public class MyPageController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String agree = request.getParameter("agree");
+        if(agree == null){
+            agree = "N";
+        }else {
+            agree = "Y";
+        }
+        //선호 장르 받아오기
+        String[] genreWord = request.getParameterValues("genre");
+        String genre = "";
+        if(genreWord != null) {
+            //DB에 넣을 선호 데이터
+            for (int i = 0; i < genreWord.length; i++) {
+                genre += genreWord[i] + " ";
+            }
+        }
 
         String mode = request.getParameter("mode");
         HttpSession session = request.getSession();
@@ -57,6 +110,7 @@ public class MyPageController extends HttpServlet {
         //비밀번호 확인
         MemberDAO dao = new MemberDAO();
         MemberDTO memberDTO = dao.getMemberDTO(id, pass);
+        dao.close();
 
         if (mode.equals("change")) {
 
@@ -65,6 +119,7 @@ public class MyPageController extends HttpServlet {
                 pass = request.getParameter("afterpass");
 
                 MemberDTO dto = new MemberDTO();
+                dao = new MemberDAO();
                 dto.setPass(pass);
                 dto.setId(id);
 
@@ -92,12 +147,14 @@ public class MyPageController extends HttpServlet {
                 dto.setPass(pass);
                 dto.setName(name);
                 dto.setId(id);
+                dto.setAgree(agree);
+                dto.setGenre(genre);
 
                 dao = new MemberDAO();
                 int affected = dao.updateMyPage(dto);
                 dao.close();
 
-                if (affected == 1) {   // 성공
+                if (affected == 2) {   // 성공
                     JSFunction.alertBack(response, "수정 성공");
                 } else { // 실패
                     JSFunction.alertBack(response, "수정 실패");

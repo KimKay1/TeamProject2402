@@ -58,6 +58,7 @@ public class PassController extends HttpServlet {
                 dao = new CommentDAO();
                 dto = dao.selectView(idx);
                 int result = dao.deletePost(idx);
+                dao.close();
                 JSFunction.alertLocation(resp,"삭제되었습니다.", "../movieView.do?num="+num);
             }
         }else {//비밀번호 검증 실패

@@ -64,8 +64,17 @@ public class R_DTO {
     private String content;
     private java.sql.Date postdate;
     private int visitcount;
-
     private String name;
+
+    public String getMovieNum() {
+        return movieNum;
+    }
+
+    public void setMovieNum(String movieNum) {
+        this.movieNum = movieNum;
+    }
+
+    private String movieNum;
 
 
 }
