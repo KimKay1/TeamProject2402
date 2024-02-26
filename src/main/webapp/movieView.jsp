@@ -270,11 +270,11 @@
 <%--                    </li>--%>
 <%--                </ul>--%>
 <%--            </section>--%>
-            <section class="section-sidebar">
-                <a class="d-block" href="#">
-                    <img class="w-100" src="http://via.placeholder.com/350x197" alt="" />
-                </a>
-            </section>
+<%--            <section class="section-sidebar">--%>
+<%--                <a class="d-block" href="#">--%>
+<%--                    <img class="w-100" src="http://via.placeholder.com/350x197" alt="" />--%>
+<%--                </a>--%>
+<%--            </section>--%>
         </div>
     </div>
 </div>

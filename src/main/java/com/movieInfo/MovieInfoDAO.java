@@ -96,7 +96,7 @@ public class MovieInfoDAO extends DBConnPool {
 
         String query = "SELECT * FROM ("
                 + " SELECT Tb.*, ROWNUM rNUM FROM ("
-                + " SELECT mt.num , mt.title, mt.category, mt.releasedate, mt.runningtime, mt.summary, mt.img, mt.youtube FROM SCOTT.MOVIEINFO_TEAMPRO mt";
+                + " SELECT mt.num , mt.title, mt.category, mt.releasedate, mt.runningtime, mt.summary, mt.img2, mt.youtube FROM SCOTT.MOVIEINFO_TEAMPRO mt";
 
         query += " ORDER BY DBMS_RANDOM.VALUE"
                 + " ) Tb"
@@ -116,7 +116,7 @@ public class MovieInfoDAO extends DBConnPool {
                 dto.setRunningtime(rs.getString("runningtime"));
                 dto.setReleasedate(rs.getDate("releasedate"));
                 dto.setSummary(rs.getString("summary"));
-                dto.setImg(rs.getString("img"));
+                dto.setImg2(rs.getString("img2"));
                 dto.setYoutube(rs.getString("youtube"));
 
                 movie.add(dto);

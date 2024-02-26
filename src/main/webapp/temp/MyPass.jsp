@@ -20,6 +20,16 @@
             } else {}
         }
     </script>
+    <style>
+        .section-bottom {
+            width:300px;
+            display: flex;
+            justify-content: center;
+        }
+        .btn:first-child {
+            margin-right:10px;
+        }
+    </style>
 </head>
 <body>
 

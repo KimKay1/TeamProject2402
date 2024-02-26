@@ -14,9 +14,10 @@ public class MovieInfoDTO {
     private int visitcount;
     private String director;
     private String production;
-
     private String img;
+    private String img2;
     private String youtube;
+
     public int getNum() {
         return num;
     }
@@ -87,6 +88,15 @@ public class MovieInfoDTO {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+
+    public String getImg2() {
+        return img2;
+    }
+
+    public void setImg2(String img2) {
+        this.img2 = img2;
     }
 
     public String getYoutube() {

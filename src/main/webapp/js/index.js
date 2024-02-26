@@ -47,7 +47,7 @@ index.init = function (){
     $.get("/index3.do")
         .done(function (data3){
             console.log("성공");
-            // console.log(data3);
+            console.log(data3);
             var jsonData = JSON.parse(data3);
             jsonData.forEach(function (item,index){
                 $('.randomTi').eq(index).text(item.title);
@@ -58,7 +58,7 @@ index.init = function (){
                 $('.randomdate').eq(index).text(date);
                 $('.randomRun').eq(index).text(item.runningtime);
                 $('.randomSum').eq(index).text(item.summary);
-                $('.randomImg').eq(index).attr('src',item.img);
+                $('.randomImg').eq(index).attr('src',item.img2);
                 $('.randomyou').eq(index).attr('href',item.youtube);
             });
         }).fail(function (){
