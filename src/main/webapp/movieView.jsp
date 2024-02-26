@@ -143,139 +143,37 @@
                     </div>
                     <div class="grid row">
                         <c:choose>
-                            <c:when test="${favorListNum eq null}">
+                            <c:when test="${empty favorList}">
                                 <tr>
                                     <td colspan="6" align="center">
                                         추천작이 없습니다.
                                     </td>
                                 </tr>
                             </c:when>
-                            <c:when test="${favorListNum eq 1}">
+                            <c:otherwise>
+                                <c:forEach items="${favorList}" var="row" begin="0" end="${favorListNum}">
                                 <div class="col-sm-6 col-xl-4">
                                     <div class="gallery-card-entity">
                                         <div class="entity-preview" data-role="hover-wrap">
                                             <div class="embed-responsive embed-responsive-16by9">
-                                                <img class="embed-responsive-item" src="${favorList.get(2)}" alt="" />
+                                                <img class="embed-responsive-item" src="${row.img}" alt="" />
                                             </div>
                                             <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
                                                 <div class="entity-view-popup">
-                                                    <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
+                                                    <a class="content-link action-icon-bordered rounded-circle" href="/movieView.do?num=${row.num}">
                                                         <span class="icon-content"><i class="fas fa-search"></i></span>
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="entity-content">
-                                            <h4 class="entity-title">${favorList.get(0)}</h4>
-                                            <p class="entity-subtext">별점 : ${favorList.get(1)}</p>
+                                            <h4 class="entity-title">${row.title}</h4>
+                                            <p class="entity-subtext">별점 : ${row.favor}</p>
                                         </div>
                                     </div>
                                 </div>
-                            </c:when>
-                            <c:when test="${favorListNum eq 2}">
-                                <div class="col-sm-6 col-xl-4">
-                                    <div class="gallery-card-entity">
-                                        <div class="entity-preview" data-role="hover-wrap">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <img class="embed-responsive-item" src="${favorList.get(2)}" alt="" />
-                                            </div>
-                                            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                                <div class="entity-view-popup">
-                                                    <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                        <span class="icon-content"><i class="fas fa-search"></i></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="entity-content">
-                                            <h4 class="entity-title">${favorList.get(0)}</h4>
-                                            <p class="entity-subtext">별점 : ${favorList.get(1)}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-xl-4">
-                                    <div class="gallery-card-entity">
-                                        <div class="entity-preview" data-role="hover-wrap">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <img class="embed-responsive-item" src="${favorList.get(5)}" alt="" />
-                                            </div>
-                                            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                                <div class="entity-view-popup">
-                                                    <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                        <span class="icon-content"><i class="fas fa-search"></i></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="entity-content">
-                                            <h4 class="entity-title">${favorList.get(3)}</h4>
-                                            <p class="entity-subtext">별점 : ${favorList.get(4)}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:when>
-                            <c:when test="${favorListNum eq 3}">
-                                <div class="col-sm-6 col-xl-4">
-                                    <div class="gallery-card-entity">
-                                        <div class="entity-preview" data-role="hover-wrap">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <img class="embed-responsive-item" src="${favorList.get(2)}" alt="" />
-                                            </div>
-                                            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                                <div class="entity-view-popup">
-                                                    <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                        <span class="icon-content"><i class="fas fa-search"></i></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="entity-content">
-                                            <h4 class="entity-title">${favorList.get(0)}</h4>
-                                            <p class="entity-subtext">별점 : ${favorList.get(1)}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-xl-4">
-                                    <div class="gallery-card-entity">
-                                        <div class="entity-preview" data-role="hover-wrap">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <img class="embed-responsive-item" src="${favorList.get(5)}" alt="" />
-                                            </div>
-                                            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                                <div class="entity-view-popup">
-                                                    <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                        <span class="icon-content"><i class="fas fa-search"></i></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="entity-content">
-                                            <h4 class="entity-title">${favorList.get(3)}</h4>
-                                            <p class="entity-subtext">별점 : ${favorList.get(4)}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-xl-4">
-                                    <div class="gallery-card-entity">
-                                        <div class="entity-preview" data-role="hover-wrap">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <img class="embed-responsive-item" src="${favorList.get(8)}" alt="" />
-                                            </div>
-                                            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                                <div class="entity-view-popup">
-                                                    <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                        <span class="icon-content"><i class="fas fa-search"></i></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="entity-content">
-                                            <h4 class="entity-title">${favorList.get(6)}</h4>
-                                            <p class="entity-subtext">별점 : ${favorList.get(7)}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:when>
+                                </c:forEach>
+                            </c:otherwise>
                         </c:choose>
 <%--                        <div class="col-sm-6 col-xl-4">--%>
 <%--                            <div class="gallery-card-entity">--%>

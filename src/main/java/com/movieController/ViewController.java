@@ -6,6 +6,8 @@ import com.comment.CommentPage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.movieInfo.MovieInfoDAO;
 import com.movieInfo.MovieInfoDTO;
+import com.recommend.RecommendDAO;
+import com.recommend.RecommendDTO;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -116,22 +118,16 @@ public class ViewController extends HttpServlet {
 
         /*별점 recommend 시작*/
         //이름:별점순(ORDER BY) top3반환   WHERE 장르
-        CommentDAO dao3 = new CommentDAO();
-        List<String> favorList = dao3.selectFavor(dto.getCategory());
-        System.out.println(dto.getCategory());
-        System.out.println(favorList.size());
+        RecommendDAO dao3 = new RecommendDAO();
+        List<RecommendDTO> favorList = dao3.selectList(dto.getCategory());
         dao3.close();
         //top3 갯수 구하기
         int favorListNum = 0;
         if(favorList != null){
-            if(favorList.size()==3){
-                favorListNum = 1;
-            } else if(favorList.size()==6){
-                favorListNum = 2;
-            } else if(favorList.size()>=9){
-                favorListNum = 3;
+            if(favorList.size()<3){
+                favorListNum = favorList.size() -1;
             } else {
-                System.out.println("별점 top3 데이터 잘못가져옴");
+                favorListNum = 2;
             }
         }
 
