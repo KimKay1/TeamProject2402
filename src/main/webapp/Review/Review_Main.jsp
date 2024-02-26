@@ -38,7 +38,7 @@
         <div class="top-block-content">
             <h1 class="section-title">Review</h1>
             <div class="page-breadcrumbs">
-                <a class="content-link" href="../R/R_List.do.jsp">Home</a>
+                <a class="content-link" href="../R/Review_Main.do.jsp">Home</a>
                 <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
                 <span>Reviews</span>
             </div>
@@ -49,9 +49,9 @@
 <div class="container">
     <div class="sidebar-container">
         <div class="content">
-            <section class="section-long">
-                <div class="section-body" style="height: 800px;">
-                    <h2><a href="../R/R_List.do">리뷰 게시판</a> - 현재 페이지 : ${map.pageNum} (전체 : ${map.totalPage}) (총 게시물 : ${map.totalCount})</h2>
+            <section class="section-long" style="margin-top: 3rem;">
+                <div class="section-body" style="height: 1300px; text-align: center;">
+                    <h2><a href="../R/Review_Main.do">리뷰 게시판</a> - 현재 페이지 : ${map.pageNum} (전체 : ${map.totalPage}) (총 게시물 : ${map.totalCount})</h2>
 
                     <%--게시물이 하나도 없을때 --%>
                     <c:choose>
@@ -86,42 +86,26 @@
                                 <h4 class="entity-title">
                                     <a class="content-link">${row.title}</a>
                                 </h4>
-                               <%-- <div class="entity-category">
-                                    <a class="content-link" href="news-blocks-sidebar-right.html">comedy</a>,
-                                    <a class="content-link" href="news-blocks-sidebar-right.html">detective</a>,
-                                    <a class="content-link" href="news-blocks-sidebar-right.html">sci-fi</a>
-                                </div>--%>
                                 <p class="text-short entity-text">${row.content}</p>
                                 <div class="entity-actions">
-                                    <a class="text-uppercase" href="../R/R_View.do?idx=${row.idx}">더 읽기</a>
+                                    <a class="text-uppercase" href="../R/Review_View.do?idx=${row.idx}">더 읽기</a>
                                 </div>
                             </div>
                         </article>
                     </c:forEach>
-
                 </div>
             </section>
 
-            <div class="section-bottom" style="padding: 0px 105px 30px 105px;">
-                <div class="paginator" >
-
+            <div class="section-bottom" style="padding: 0px 105px 70px 105px;">
+                <div class="paginator">
                         ${map.pagingImg}
-
-                    <%--<a class="paginator-item" href="#"><i class="fas fa-chevron-left"></i></a>
-                    <a class="paginator-item" href="#">1</a>
-                    <span class="active paginator-item">2</span>
-                    <a class="paginator-item" href="#">3</a>
-                    <span class="paginator-item">...</span>
-                    <a class="paginator-item" href="#">10</a>
-                    <a class="paginator-item" href="#"><i class="fas fa-chevron-right"></i></a>--%>
                 </div>
-
-                <button style="float:right; " class="btn-theme btn" type="button" onclick="location.href='../R/R_Write.do';">글쓰기</button>
+                <button style="float:right; " class="btn-theme btn" type="button" onclick="location.href='../R/Review_Write.do';">글쓰기</button>
             </div>
         </div>
-
     </div>
 </div>
+
 <a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
 
 <jsp:include page="/temp/Footer.jsp"></jsp:include>

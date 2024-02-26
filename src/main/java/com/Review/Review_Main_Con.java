@@ -9,13 +9,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/R/R_List.do")
-public class R_ListCon extends HttpServlet {
+@WebServlet("/R/Review_Main.do")
+public class Review_Main_Con extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -66,7 +65,7 @@ public class R_ListCon extends HttpServlet {
         dao.close();
 
         // 리스트에 전달할 매개변수 추가
-        String pagingImg = BoardPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../R/R_List.do");
+        String pagingImg = BoardPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../R/Review_Main.do");
         // 바로가기 영역 HTML
         map.put("pagingImg", pagingImg);
         map.put("totalCount", totalCount);

@@ -2,7 +2,6 @@ package com.Review;
 
 import com.common.DBConnPool;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -169,13 +168,18 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
     public int updatePost(R_DTO dto) {
         int result = 0;
         try {
-            String query = "UPDATE scott.REVIEW_BOARD"
-                    + " SET title=?, content=? "
-                    + " WHERE idx=? ";
+            String query = "UPDATE scott.review_board "
+                    + " SET title=?, content=?, id=? "
+                    + " WHERE IDX=? ";
             psmt = con.prepareStatement(query);
             psmt.setString(1, dto.getTitle());
             psmt.setString(2, dto.getContent());
-            psmt.setString(3, dto.getIdx());
+            psmt.setString(3, dto.getId());
+            psmt.setString(4, dto.getIdx());
+
+            System.out.println("dto.getTitle() :::" + dto.getTitle());
+            System.out.println("dto.getContent() :::" + dto.getContent());
+            System.out.println("dto.getIdx() :::" + dto.getIdx());
 
             // 쿼리문 실행
             result = psmt.executeUpdate();
