@@ -2,11 +2,15 @@ package com.comment;
 
 import com.common.DBConnPool;
 import com.membership.MemberDTO;
+import com.movieInfo.MovieInfoDTO;
+import com.navbar.CategoryDTO;
 import jakarta.servlet.http.HttpSession;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static javax.swing.UIManager.getInt;
 
 public class CommentDAO extends DBConnPool {
     public CommentDAO() { super(); }
@@ -121,7 +125,6 @@ public class CommentDAO extends DBConnPool {
     }
 
     //코멘트뷰 목록 반환
-    //검색 조건에 맞는 게시물 목록 반환
     public List<CommentDTO> selectMyListPage(Map<String, Object>map){
         //쿼리 결과를 담을 변수
         List<CommentDTO> bbs = new ArrayList<CommentDTO>();
@@ -170,6 +173,37 @@ public class CommentDAO extends DBConnPool {
 
         return bbs;
     }
+
+    //별점 갯수, top3 목록 반환
+    //카테고리 조건에 맞는 게시물 목록 반환
+    public List<String> selectFavor(String category){
+        //쿼리 결과를 담을 변수
+        List<String> bbs = new ArrayList<String>();
+
+        // 쿼리문 작성
+        String query = "SELECT CT.title, AVG(CT.favor) AS favor, MT.img FROM scott.comment_teampro CT INNER JOIN scott.movieinfo_teampro MT ON CT.title = MT.title WHERE CT.category = ? OR (ROWNUM BETWEEN 1 AND 3) GROUP BY CT.title, MT.img ORDER BY AVG(CT.favor) DESC";
+
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, category);
+            rs = psmt.executeQuery();
+
+            if(rs != null) {
+                while (rs.next()) {
+                    //한 row의 내용을 리스트에 저장
+                    bbs.add(rs.getString("title"));
+                    bbs.add(rs.getString("favor"));
+                    bbs.add(rs.getString("img"));
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("selectFavor 오류 발생");
+        }
+        return bbs;
+    }
+
+
 
     //코멘트뷰에 코멘트 불러오기
     public CommentDTO selectView(String title){

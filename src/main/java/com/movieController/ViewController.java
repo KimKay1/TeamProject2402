@@ -90,7 +90,7 @@ public class ViewController extends HttpServlet {
         //게시물 목록 가져오기
         List<CommentDTO> boardList = dao2.selectListPage(map);
 
-        dao.close();
+        dao2.close();
 
         //뷰에 전달할 매개변수 추가
         String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "/movieView.do");
@@ -113,6 +113,33 @@ public class ViewController extends HttpServlet {
 //        req.getRequestDispatcher("../temp/CommentForm.jsp").forward(req, resp);
 
         /*코멘트 뷰 끝*/
+
+        /*별점 recommend 시작*/
+        //이름:별점순(ORDER BY) top3반환   WHERE 장르
+        CommentDAO dao3 = new CommentDAO();
+        List<String> favorList = dao3.selectFavor(dto.getCategory());
+        System.out.println(dto.getCategory());
+        System.out.println(favorList.size());
+        dao3.close();
+        //top3 갯수 구하기
+        int favorListNum = 0;
+        if(favorList != null){
+            if(favorList.size()==3){
+                favorListNum = 1;
+            } else if(favorList.size()==6){
+                favorListNum = 2;
+            } else if(favorList.size()>=9){
+                favorListNum = 3;
+            } else {
+                System.out.println("별점 top3 데이터 잘못가져옴");
+            }
+        }
+
+        //top3 저장
+        req.setAttribute("favorList",favorList);
+        req.setAttribute("favorListNum", favorListNum);
+
+        /*별점 recommend 끝*/
 
         req.setAttribute("dto",dto);
         req.setAttribute("wrappedText",wrappedText);
