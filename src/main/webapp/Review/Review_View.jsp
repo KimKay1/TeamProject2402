@@ -28,23 +28,12 @@
     <link type="text/css" rel="stylesheet" href="/template/css/header.css"/>
 
     <script>
-        function editPost() {
-            var confirmed = confirm("정말로 수정하시겠습니까?");
-            if(confirmed){
-                var form = document.writeFrm;
-                form.method = "get";
-                form.action = "/R/Review_Edit.do?idx=${param.idx}";
-                form.submit();
-            }
-        }
-    </script>
-    <script>
         function deletePost() {
             var confirmed = confirm("정말로 삭제하시겠습니까?");
             if(confirmed){
                 var form = document.writeFrm;
                 form.method = "post";
-                form.action = "/R/Review_Delete.do?idx=${param.idx}";
+                form.action = "/Review_Delete.do?idx=${dto.idx}";
                 form.submit();
             }
         }
@@ -80,12 +69,12 @@
                     <article class="article-tape-entity">
                         <div class="entity-preview">
                             <div class="embed-responsive embed-responsive-16by9">
-                                <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
+                                <img class="embed-responsive-item2" src="${dto.img}" alt="" />
                             </div>
                             <div class="entity-date">
                                 <div class="tape-block tape-horizontal tape-single bg-theme text-white">
                                     <div class="tape-dots"></div>
-                                    <div class="tape-content m-auto">20 jul 2019</div>
+                                    <div class="tape-content m-auto">${dto.postdate}</div>
                                     <div class="tape-dots"></div>
                                 </div>
                             </div>
@@ -93,26 +82,43 @@
                         <div class="entity-content">
                             <h1 class="entity-title">${dto.title}</h1>
 
-                            <div class="entity-category">
-                                <a style="text-decoration: none;">작성자 : </a><a class="content-link" >${dto.id}</a>
-                            </div>
+                            <a class="entity-category">
+                                <a style="text-decoration: none;">작성자 : </a><a class="content-link" >${dto.name}</a>
+                            </a>
 
-                            <h2 class="entity-title">${movieInfo.title}</h2>
+                            <h2 class="entity-title">${dto.mtTitle}</h2>
                             <div class="entity-category">
-                                <a class="content-link" >${movieInfo.category}</a>
+                                <a class="content-link" >${dto.category}</a>
                             </div>
                         </div>
                     </article>
                     <div class="section-description">
+                        <div>
+                            <c:if test="${not empty dto.ofile and isImage eq true}">
+                                <br>
+                                <img src="../img/Uploads/${dto.sfile}" style="max-width: 100%;"/>
+                            </c:if>
+                        </div>
                         <p>${dto.content}</p>
                     </div>
+
+                    <c:if test="${ not empty dto.ofile }">
+                        <div>
+                            <label class="form-label">첨부 파일 다운로드</label>
+                                ${ dto.ofile }
+                            <a href="../Review_Down.do?ofile=${ dto.ofile }&sfile=${ dto.sfile }&idx=${ dto.idx }">
+                                [다운로드]
+                            </a>
+                        </div>
+                    </c:if>
+
                 </div>
 
                 <div class="section-bottom" style="padding: 0px 0px 20px 0px;">
-                    <button style="float: left;" class="btn-theme btn" type="button" onclick="location.href='../R/Review_Main.do';">목록 돌아가기</button>
+                    <button style="float: left;" class="btn-theme btn" type="button" onclick="location.href='/Review_Main.do';">목록 돌아가기</button>
                     <c:if test="${sessionScope.UserId == dto.id}">
                         <button style="float:right; " class="btn-theme btn" type="button" onclick="deletePost();">삭제하기</button>
-                        <button style="float:right; margin-right: 30px; " class="btn-theme btn" type="button" onclick="editPost();">수정하기</button>
+                        <button style="float:right; margin-right: 30px; " class="btn-theme btn" type="button" onclick="location.href='/Review_Edit.do?idx=${dto.idx}';">수정하기</button>
                     </c:if>
                 </div>
             </section>

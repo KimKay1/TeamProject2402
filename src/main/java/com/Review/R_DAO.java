@@ -14,12 +14,6 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
         int totalCount = 0;
 
         String query = "select count(*) from scott.review_BOARD";
-        if(map.get("searchWords") != null) {
-            query += " WHERE "+ map.get("searchField") + " "
-                    + " Like '%" + map.get("searchWords") + "%'";
-        }
-        // SELECT COUNT(*) FROM scott.review_board_jsp
-        // WHERE title '%검색어%';
 
         try {
             stmt = con.createStatement();
@@ -34,7 +28,7 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
     }
 
     // 검색 조건에 맞는 게시물 목록을 반환
-    public List<R_DTO> selectListPage(Map<String,Object>map){
+    public List<R_DTO> selectListPage(Map<String,Object> map){
         //쿼리 결과를 담을 변수
         List<R_DTO> board = new Vector<R_DTO>();
         //쿼리문 작성
@@ -43,10 +37,6 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
                 + " SELECT * FROM scott.review_BOARD"
                 + " JOIN SCOTT.MEMBER_TEAMPRO ON SCOTT.REVIEW_BOARD.ID = SCOTT.MEMBER_TEAMPRO.ID";
 
-        if(map.get("searchWord") != null){
-            query += " WHERE "  + map.get("searchField") + " "
-                    +" LIKE '%" + map.get("searchWord") + "%'";
-        }
         query += " ORDER BY TO_NUMBER(idx) DESC"
                 + " ) Tb"
                 + " )"
@@ -81,19 +71,20 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
     }
 
     public int insertWrite(R_DTO dto) {
-
         int result = 0;
         try {
             String query = "INSERT INTO scott.review_BOARD ("
-                    + " idx, title, content, id, VISITCOUNT, movie_num) "
+                    + " idx, title, content, id, VISITCOUNT, movie_num, ofile, sfile) "
                     + " VALUES ( "
-                    + " SCOTT.SEQ_REVIEW_NUM.NEXTVAL,?,?,?, 0, ?)";
+                    + " SCOTT.SEQ_REVIEW_NUM.NEXTVAL,?,?,?,0,?,?,?)";
+
             psmt = con.prepareStatement(query);
             psmt.setString(1, dto.getTitle());
             psmt.setString(2, dto.getContent());
             psmt.setString(3, dto.getId());
             psmt.setString(4, dto.getMovieNum());
-
+            psmt.setString(5, dto.getOfile());
+            psmt.setString(6, dto.getSfile());
             result = psmt.executeUpdate();
 
         } catch (Exception e) {
@@ -107,9 +98,20 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
     public R_DTO selectView(String idx) {
         R_DTO dto = new R_DTO();
 
-        String query = "SELECT * FROM scott.review_BOARD " +
+        /*String query = "SELECT * FROM scott.review_BOARD " +
                 "JOIN SCOTT.MEMBER_TEAMPRO ON SCOTT.REVIEW_BOARD.ID = SCOTT.MEMBER_TEAMPRO.ID " +
-                "WHERE idx=?";
+                "JOIN SCOTT.MOVIEINFO_TEAMPRO ON SCOTT.REVIEW_BOARD.MOVIE_NUM = SCOTT.MOVIEINFO_TEAMPRO.NUM " +
+                "WHERE idx=?";*/
+
+        String query = "SELECT RE.IDX, RE.TITLE, RE.CONTENT, RE.ID, RE.POSTDATE, RE.VISITCOUNT, RE.MOVIE_NUM, RE.OFILE, RE.SFILE, " +
+                "            MEM.ID, MEM.PASS, MEM.NAME, MEM.REGIDATE, " +
+                "            MI.NUM, MI.TITLE MT_TITLE, MI.DIRECTOR, MI.ACTOR, MI.CATEGORY, MI.IMG " +
+                " FROM scott.review_BOARD RE" +
+                "        JOIN SCOTT.MEMBER_TEAMPRO MEM" +
+                "            ON RE.ID = MEM.ID " +
+                "        JOIN SCOTT.MOVIEINFO_TEAMPRO MI" +
+                "            ON RE.MOVIE_NUM = MI.NUM " +
+                "    WHERE RE.idx=?";
 
         try {
             psmt = con.prepareStatement(query);
@@ -119,11 +121,19 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
             if (rs.next()) {
                 dto.setIdx(rs.getString("idx"));
                 dto.setTitle(rs.getString("title"));
+                dto.setMtTitle(rs.getString("mt_title"));
                 dto.setId(rs.getString("id"));
                 dto.setContent(rs.getString("content"));
                 dto.setPostdate(rs.getDate("postdate"));
                 dto.setVisitcount(rs.getInt("visitcount"));
                 dto.setName(rs.getString("name"));
+                dto.setCategory(rs.getString("category"));
+                dto.setOfile(rs.getString("ofile"));
+                dto.setSfile(rs.getString("sfile"));
+                dto.setImg(rs.getString("img"));
+
+                System.out.println("rs.getString(\"title\") ::: "+rs.getString("title"));
+                System.out.println("rs.getString(\"mt_title\") ::: "+rs.getString("mt_title"));
             }
 
         } catch (Exception e) {

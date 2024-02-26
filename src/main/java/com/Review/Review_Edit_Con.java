@@ -2,6 +2,7 @@ package com.Review;
 
 import com.util.JSFunction;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,7 +12,11 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/R/Review_Edit.do")
+@WebServlet("/Review_Edit.do")
+@MultipartConfig(
+        maxFileSize = 1024 * 1024 * 1,
+        maxRequestSize = 1024 * 1024 * 10
+)
 public class Review_Edit_Con extends HttpServlet {
     private static final long seiralVersionUID = 1L;
 
@@ -19,7 +24,6 @@ public class Review_Edit_Con extends HttpServlet {
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
         String idx = req.getParameter("idx");
-
         HttpSession session = req.getSession();
         String userId = (String) session.getAttribute("UserId");
 
@@ -31,8 +35,8 @@ public class Review_Edit_Con extends HttpServlet {
             dto.setTitle(req.getParameter("title"));
             dto.setContent(req.getParameter("content"));
             dto.setId("userId");
-            MovieInfoDAO2 listMovieInfoDAO = new MovieInfoDAO2();
-            List<MovieInfoDTO2> listMovieInfo = listMovieInfoDAO.selectListMovieTitle();
+            R_MovieInfoDAO listMovieInfoDAO = new R_MovieInfoDAO();
+            List<R_MovieInfoDTO> listMovieInfo = listMovieInfoDAO.selectListMovieTitle();
 
             req.setAttribute("listMovieInfo", listMovieInfo);
         }
@@ -64,11 +68,11 @@ public class Review_Edit_Con extends HttpServlet {
 
         // 글쓰기 성공
         if (result == 1) {
-            resp.sendRedirect("../R/Review_Main.do");
+            resp.sendRedirect("../Review_Main.do");
         }
         // 글쓰기 실패
         else {
-            JSFunction.alertLocation(resp, "수정에 실패했습니다.", "../R/Review_Main.do");
+            JSFunction.alertLocation(resp, "수정에 실패했습니다.", "../Review_Main.do");
         }
     }
 }

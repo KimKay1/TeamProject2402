@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/R/Review_Delete.do")
+@WebServlet("/Review_Delete.do")
 public class Review_Del_Con extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,7 +31,7 @@ public class Review_Del_Con extends HttpServlet {
         System.out.println("result : " + result);
 
         if (result == 1) {
-            JSFunction.alertLocation(resp, "삭제되었습니다.", "../R/Review_Main.do");
+            JSFunction.alertLocation(resp, "삭제되었습니다.", "../Review_Main.do");
         } else {
             JSFunction.alertBack(resp, "삭제에 실패했습니다.");
         }

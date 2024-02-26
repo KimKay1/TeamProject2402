@@ -112,7 +112,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../R/Review_Main.do">Review</a>
+                        <a class="nav-link" href="../Review_Main.do">Review</a>
                     </li>
                     <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
                         <a class="nav-link" >MYPAGE</a>

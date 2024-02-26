@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
-<%@ page import="com.Review.R_DTO" %>
 
 <!DOCTYPE html>
 <html>
@@ -38,7 +37,7 @@
         <div class="top-block-content">
             <h1 class="section-title">Review</h1>
             <div class="page-breadcrumbs">
-                <a class="content-link" href="../R/Review_Main.do.jsp">Home</a>
+                <a class="content-link" href="/Review_Main.do.jsp">Home</a>
                 <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
                 <span>Reviews</span>
             </div>
@@ -51,7 +50,7 @@
         <div class="content">
             <section class="section-long" style="margin-top: 3rem;">
                 <div class="section-body" style="height: 1300px; text-align: center;">
-                    <h2><a href="../R/Review_Main.do">리뷰 게시판</a> - 현재 페이지 : ${map.pageNum} (전체 : ${map.totalPage}) (총 게시물 : ${map.totalCount})</h2>
+                    <h2><a href="../Review_Main.do">리뷰 게시판</a> - 현재 페이지 : ${map.pageNum} (전체 : ${map.totalPage}) (총 게시물 : ${map.totalCount})</h2>
 
                     <%--게시물이 하나도 없을때 --%>
                     <c:choose>
@@ -88,7 +87,7 @@
                                 </h4>
                                 <p class="text-short entity-text">${row.content}</p>
                                 <div class="entity-actions">
-                                    <a class="text-uppercase" href="../R/Review_View.do?idx=${row.idx}">더 읽기</a>
+                                    <a class="text-uppercase" href="/Review_View.do?idx=${row.idx}">더 읽기</a>
                                 </div>
                             </div>
                         </article>
@@ -100,7 +99,7 @@
                 <div class="paginator">
                         ${map.pagingImg}
                 </div>
-                <button style="float:right; " class="btn-theme btn" type="button" onclick="location.href='../R/Review_Write.do';">글쓰기</button>
+                <button style="float:right; " class="btn-theme btn" type="button" onclick="location.href='../Review_Write.do';">글쓰기</button>
             </div>
         </div>
     </div>

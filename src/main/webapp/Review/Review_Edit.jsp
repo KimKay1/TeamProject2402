@@ -51,7 +51,7 @@
         <div class="content">
             <section class="section-long section-spaced">
                 <div class="section-line">
-                    <form action="../R/Review_Edit.do" method="post" enctype="application/x-www-form-urlencoded">
+                    <form action="../Review_Edit.do" method="post" enctype="application/x-www-form-urlencoded">
                         <div class="mb-3">
                             <input type="hidden" name="idx" value="${dto.idx}"/>
                                 <label class="form-label">영화</label>
