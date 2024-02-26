@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java"
          pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ include file="R_Login.jsp"%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -39,7 +38,7 @@
             <td colspan="2" align="center">
                 <button type="submit">작성 완료</button>
                 <button type="reset">다시 입력</button>
-                <button type="button" onclick="location.href='../R/R_List.do';">목록 바로가기</button>
+                <button type="button" onclick="location.href='../R/Review_Main.do';">목록 바로가기</button>
             </td>
         </tr>
     </table>

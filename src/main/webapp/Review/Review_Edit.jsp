@@ -51,24 +51,25 @@
         <div class="content">
             <section class="section-long section-spaced">
                 <div class="section-line">
-                    <form action="../R/Review_Write.do" method="post">
+                    <form action="../R/Review_Edit.do" method="post" enctype="application/x-www-form-urlencoded">
                         <div class="mb-3">
-                            <label class="form-label">영화</label>
-                                <select name="movieNum" class="form-control">
-                                    <c:forEach items="${listMovieInfo}" var="row" varStatus="loop">
-                                        <option value="${row.num}">${row.title}</option>
-                                    </c:forEach>
-                                </select>
+                            <input type="hidden" name="idx" value="${dto.idx}"/>
+                                <label class="form-label">영화</label>
+                                    <select name="movieNum" class="form-control">
+                                        <c:forEach items="${listMovieInfo}" var="row" varStatus="loop">
+                                            <option value="${row.num}">${row.title}</option>
+                                        </c:forEach>
+                                    </select>
                         </div>
 
                         <div class="mb-3">
-                            <label  class="form-label" style="">제목</label>
-                            <input type="text" class="form-control" name="title" >
+                            <label class="form-label" style="">제목</label>
+                            <input type="text" class="form-control" name="title" value="${dto.title}" />
                         </div>
 
                         <div class="mb-3">
-                            <label  class="form-label">리뷰 작성</label>
-                            <textarea class="form-control" name="content" style="height: 30rem"></textarea>
+                            <label  class="form-label">리뷰 수정</label>
+                            <textarea class="form-control" name="content" style="height: 30rem">${dto.content}</textarea>
                         </div>
 
                         <div class="section-bottom">

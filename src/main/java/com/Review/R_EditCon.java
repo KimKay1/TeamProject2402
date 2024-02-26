@@ -37,7 +37,7 @@ public class R_EditCon extends HttpServlet {
 
         // 성공, 실패
         if (result == 1) { // 수정 성공
-            resp.sendRedirect("../R/R_View.do?idx=" + idx);
+            resp.sendRedirect("../R/Review_View.do?idx=" + idx);
         } else { // 수정 실패
             JSFunction.alertLocation(resp, "수정에 실패했습니다.", "../R/R_Edit.do?idx=" + idx);
         }
