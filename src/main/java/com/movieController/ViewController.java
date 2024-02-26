@@ -26,6 +26,7 @@ public class ViewController extends HttpServlet {
         // 게시물 불러오기
         MovieInfoDAO dao = new MovieInfoDAO();
         String num = req.getParameter("num");
+        dao.updateVisitCount(num);
         MovieInfoDTO dto = dao.selectView(num);
 
         String title = dto.getTitle(); /*코멘트 뷰를 위한 파라미터*/

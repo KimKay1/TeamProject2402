@@ -164,7 +164,7 @@ public class MovieInfoDAO extends DBConnPool {
 
     //조회수 증가 메서드
     public void updateVisitCount(String num) {
-        String query = "UPDATE MOVIEINFO_TEAMPRO SET "
+        String query = "UPDATE scott.MOVIEINFO_TEAMPRO SET "
                 + " visitcount = visitcount + 1 "
                 + " WHERE num = ?";
 
