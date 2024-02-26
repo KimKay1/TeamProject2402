@@ -14,7 +14,7 @@
         [id^="input"], #joincheck {
             margin-top: 10px;
             padding: 5px;
-            width: 300px;
+            width: 650px;
             display: block;
             margin-left: auto;
             margin-right: auto;

@@ -5,7 +5,7 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="/template/css/header.css"/>
-    <link type="text/css" rel="stylesheet" href="/template/css/categoryView.css"/>
+    <link type="text/css" rel="stylesheet" href="/template/css/movieList.css"/>
 </head>
 <body>
 

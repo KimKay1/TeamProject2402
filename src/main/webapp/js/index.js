@@ -9,7 +9,7 @@ index.init = function (){
     $.get("/index.do")
         .done(function (data){
             console.log("성공");
-            console.log(data);
+            //console.log(data);
             var jsonData = JSON.parse(data);
             console.log(jsonData)
             jsonData.forEach(function (item,index){
@@ -27,7 +27,7 @@ index.init = function (){
     $.get("/index2.do")
         .done(function (data2){
             console.log("성공");
-            console.log(data2);
+            // console.log(data2);
             var jsonData = JSON.parse(data2);
             jsonData.forEach(function (item,index){
                 $('.recentTi').eq(index).text(item.title);
@@ -47,7 +47,7 @@ index.init = function (){
     $.get("/index3.do")
         .done(function (data3){
             console.log("성공");
-            console.log(data3);
+            // console.log(data3);
             var jsonData = JSON.parse(data3);
             jsonData.forEach(function (item,index){
                 $('.randomTi').eq(index).text(item.title);
