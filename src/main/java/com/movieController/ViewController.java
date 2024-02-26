@@ -6,15 +6,14 @@ import com.comment.CommentPage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.movieInfo.MovieInfoDAO;
 import com.movieInfo.MovieInfoDTO;
+import com.util.CookieManager;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +38,6 @@ public class ViewController extends HttpServlet {
         }
 
         String wrappedText = result.toString();
-        dao.close();
 
 
         /*코멘트 뷰 시작*/
@@ -90,7 +88,6 @@ public class ViewController extends HttpServlet {
         //게시물 목록 가져오기
         List<CommentDTO> boardList = dao2.selectListPage(map);
 
-        dao.close();
 
         //뷰에 전달할 매개변수 추가
         String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "/movieView.do");

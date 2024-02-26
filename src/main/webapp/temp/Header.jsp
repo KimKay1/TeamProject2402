@@ -31,6 +31,7 @@
     <!-- Theme styles -->
     <link href="../template/css/dot-icons.css" rel="stylesheet" type="text/css">
     <link href="../template/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="../template/css/header.css" rel="stylesheet" type="text/css">
 </head>
 <body class="body">
 <header class="header header-horizontal header-view-pannel">
@@ -46,7 +47,7 @@
                         </span>
             </a>
             <div class="navbar-extra">
-                <form class="d-flex" role="search" action="/navbar/search.do" method="get">
+                <form class="d-flex searchfield" role="search" action="/navbar/search.do" method="get">
                     <input name="search" class="form-control me-2" type="search" placeholder="Title / Director Search" aria-label="Search">
                     <button type="submit" class="btn btn-theme">Search</button>
                 </form>

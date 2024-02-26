@@ -1,6 +1,7 @@
 package com.movieInfo;
 
 import com.common.DBConnPool;
+import jakarta.servlet.http.Cookie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,7 +125,6 @@ public class MovieInfoDAO extends DBConnPool {
             e.printStackTrace();
             System.out.println("랜덤 무비 조회 중 오류 발생");
         }
-
         return movie;
     }
 
@@ -160,6 +160,30 @@ public class MovieInfoDAO extends DBConnPool {
         }
 
         return detail;
+    }
+
+    public MovieInfoDTO viewedMovies(String num) {
+        MovieInfoDTO viewed = new MovieInfoDTO();
+
+        String query = "SELECT num, title, runningtime, img FROM SCOTT.MOVIEINFO_TEAMPRO"
+                        + " WHERE num = ?";
+
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1,num);
+            rs = psmt.executeQuery();
+
+            while(rs.next()) {
+                viewed.setNum(rs.getInt("num"));
+                viewed.setTitle(rs.getString("title"));
+                viewed.setRunningtime(rs.getString("runningtime"));
+                viewed.setImg(rs.getString("img"));
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+            System.out.println("무비 번호 출력 중 오류 발생");
+        }
+        return viewed;
     }
 
     //조회수 증가 메서드

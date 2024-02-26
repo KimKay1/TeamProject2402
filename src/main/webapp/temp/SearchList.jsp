@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link type="text/css" rel="stylesheet" href="/template/css/movieList.css"/>
+</head>
 <body>
 
 <jsp:include page="./Header.jsp"></jsp:include>
@@ -31,7 +34,7 @@
                     </tr>
                 </c:when>
                 <c:otherwise> <%--게시글이 있을 때--%>
-                    <div class="col-sm-6 col-lg-4">
+                    <div class="col-sm-3 col-lg-3">
                         <div class="gallery-entity">
                             <div class="entity-preview" data-role="hover-wrap">
                                 <div class="embed-responsive embed-responsive-16by9">
@@ -43,8 +46,12 @@
                                             <span class="icon-content"><i class="fas fa-search"></i></span>
                                         </a>
                                     </div>
-                                    <h4 class="entity-title">${dto.title}</h4>
                                 </div>
+                            </div>
+                            <div class="boardtitle">
+                                <a href="/movieView.do?num=${dto.num}">
+                                    <h4 class="entity-title boardtitle">${dto.title}</h4>
+                                </a>
                             </div>
                         </div>
                     </div>

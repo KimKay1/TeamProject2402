@@ -4,10 +4,6 @@
     padding-bottom:1em;
 }
 
-.header_h .d-flex, .loginbtn, .logoutbtn {
-    margin-top:20px;
-}
-
 .header_h .form-control {
     width:500px;
 }
@@ -21,6 +17,7 @@
     margin:0 auto;
     width:500px;
 }
+
 
 
 
