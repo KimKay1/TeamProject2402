@@ -65,7 +65,7 @@
         <param-value>5</param-value>
     </context-param>
 
-    <!--코멘트 페이징 설정-->
+    <!--영화/코멘트 페이징 설정-->
     <context-param>
         <param-name>COMMENTS_PER_PAGE</param-name>
         <param-value>3</param-value>
@@ -73,6 +73,16 @@
     <context-param>
         <param-name>COMMENTS_PER_BLOCK</param-name>
         <param-value>5</param-value>
+    </context-param>
+
+    <!--마이페이지/코멘트 페이징 설정-->
+    <context-param>
+        <param-name>MYCOMMENTS_PER_PAGE</param-name>
+        <param-value>5</param-value>
+    </context-param>
+    <context-param>
+        <param-name>MYCOMMENTS_PER_BLOCK</param-name>
+        <param-value>10</param-value>
     </context-param>
 
     <!--카테고리 페이징 설정-->

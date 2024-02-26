@@ -78,7 +78,6 @@ public class CategoryViewController extends HttpServlet {
         //전달할 데이터를 req 영역에 저장하고 포워드
         req.setAttribute("boardList", boardList);
         req.setAttribute("map", map);
-
         req.setAttribute("dto", dto);
         req.getRequestDispatcher("../temp/CategoryList.jsp").forward(req, resp);
 

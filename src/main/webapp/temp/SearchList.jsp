@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link type="text/css" rel="stylesheet" href="/template/css/categoryView.css"/>
+</head>
 <body>
 
 <jsp:include page="./Header.jsp"></jsp:include>
@@ -23,7 +26,7 @@
     <div class="container">
         <div class="grid row">
             <c:choose>
-                <c:when test="${empty dto.title}"> <%--게시글이 없을때--%>
+                <c:when test="${empty boardList}"> <%--게시글이 없을때--%>
                     <tr>
                         <td colspan="6" align="center">
                             검색하신 영화가 없습니다.
@@ -31,25 +34,36 @@
                     </tr>
                 </c:when>
                 <c:otherwise> <%--게시글이 있을 때--%>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="gallery-entity">
-                            <div class="entity-preview" data-role="hover-wrap">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <img class="embed-responsive-item" src="${dto.img}" alt="" />
-                                </div>
-                                <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                    <div class="entity-view-popup">
-                                        <a class="content-link action-icon-bordered rounded-circle" href="/movieView.do?num=${dto.num}">
-                                            <span class="icon-content"><i class="fas fa-search"></i></span>
-                                        </a>
+                    <c:forEach items="${boardList}" var="row" varStatus="loop">
+                        <div class="col-sm-3 col-lg-3">
+                            <div class="gallery-entity">
+                                <div class="entity-preview" data-role="hover-wrap">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <img class="embed-responsive-item" src="${row.img}" alt="" />
                                     </div>
-                                    <h4 class="entity-title">${dto.title}</h4>
+                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                        <div class="entity-view-popup">
+                                            <a class="content-link action-icon-bordered rounded-circle" href="/movieView.do?num=${row.num}">
+                                                <span class="icon-content"><i class="fas fa-search"></i></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="boardtitle">
+                                    <a href="/movieView.do?num=${row.num}">
+                                        <h4 class="entity-title boardtitle">${row.title} : ${row.director}</h4>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </c:forEach>
                 </c:otherwise>
             </c:choose>
+        </div>
+        <div class="section-bottom">
+            <div class="paginator">
+                <div class="paginator-item">${map.pagingImg}</div>
+            </div>
         </div>
     </div>
 </section>

@@ -31,6 +31,7 @@
     <!-- Theme styles -->
     <link href="../template/css/dot-icons.css" rel="stylesheet" type="text/css">
     <link href="../template/css/theme.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="../template/css/header.css"/>
 </head>
 <body class="body">
 <header class="header header-horizontal header-view-pannel">
@@ -141,6 +142,21 @@
                                     %>
                                 </ul>
                             </li>
+                            <%
+                                if(session.getAttribute("UserId") != null){
+                            %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../member/MyComment.do">My comment</a>
+                            </li>
+                            <%
+                            } else {
+                            %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../temp/LoginPlz.jsp">My comment</a>
+                            </li>
+                            <%
+                                }
+                            %>
                         </ul>
                     </li>
                 </ul>
