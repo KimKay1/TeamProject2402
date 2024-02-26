@@ -5,13 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/R/R_View.do")
-public class R_ViewCon extends HttpServlet {
+@WebServlet("/R/Review_View.do")
+public class Review_View_Con extends HttpServlet {
 
     /*@Override
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -65,11 +63,11 @@ public class R_ViewCon extends HttpServlet {
 
         MovieInfoDAO2 movieInfoDAO = new MovieInfoDAO2();
 
-
         // 조회수 1++
         dao.updateVisitCount(idx);
 
         R_DTO dto = dao.selectView(idx);
+
         MovieInfoDTO2 movieInfo = movieInfoDAO.selectMovieInfo(Integer.parseInt(req.getParameter("idx")));
 
         dao.close();
@@ -78,13 +76,8 @@ public class R_ViewCon extends HttpServlet {
         dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
 
         //게시물(dto) 저장 후 뷰로 포워드
-        req.setAttribute("dto", movieInfo);
-        req.setAttribute("dto2", dto);
+        req.setAttribute("movieInfo", movieInfo);
+        req.setAttribute("dto", dto);
         req.getRequestDispatcher("/Review/Review_View.jsp").forward(req, resp);
-
-
-
-
     }
-
 }

@@ -1,7 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.movieInfo.MovieInfoDAO" %>
 <%@ page import="com.movieInfo.MovieInfoDTO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="org.apache.catalina.util.URLEncoder" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,161 +136,61 @@
                         </div>
                     </div>
                 </div>
-                <div class="section-line">
-                    <div class="section-head">
-                        <h2 class="section-title text-uppercase">Photos & videos</h2>
-                    </div>
-                    <div class="grid row">
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                <span class="icon-content"><i class="fas fa-search"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">Work hard image</h4>
-                                    <p class="entity-subtext">12 may 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="bg-theme-lighted d-over collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                                <span class="icon-content"><i class="fas fa-play"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">May video review</h4>
-                                    <p class="entity-subtext">11 may 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                <span class="icon-content"><i class="fas fa-search"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">Virtual image title</h4>
-                                    <p class="entity-subtext">31 february 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                <span class="icon-content"><i class="fas fa-search"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">Lost image title</h4>
-                                    <p class="entity-subtext">30 february 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">
-                                                <span class="icon-content"><i class="fas fa-search"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">My image title</h4>
-                                    <p class="entity-subtext">21 january 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xl-4">
-                            <div class="gallery-card-entity">
-                                <div class="entity-preview" data-role="hover-wrap">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />
-                                    </div>
-                                    <div class="bg-theme-lighted d-over collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                        <div class="entity-view-popup">
-                                            <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
-                                                <span class="icon-content"><i class="fas fa-play"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="entity-content">
-                                    <h4 class="entity-title">Movie trailer</h4>
-                                    <p class="entity-subtext">12 january 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section-line">
+
 
                     <jsp:include page="./temp/CommentForm.jsp"></jsp:include>
-<%--                    <div class="section-head">--%>
-<%--                        <h2 class="section-title text-uppercase">Comments</h2>--%>
-<%--                    </div>--%>
-<%--                    <div class="comment-entity">--%>
-<%--                        <div class="entity-inner">--%>
-<%--                            <div class="entity-content">--%>
-<%--                                <h4 class="entity-title">Lie Stone</h4>--%>
-<%--                                <p class="entity-subtext">07.08.2018, 14:33</p>--%>
-<%--                                <p class="entity-text">Comment example here. Nulla risus lacus, vehicula id mi vitae, auctor accumsan nulla. Sed a mi quam. In euismod urna ac massa adipiscing interdum.--%>
-<%--                                </p>--%>
-<%--                            </div>--%>
-<%--                            <div class="entity-extra">--%>
-<%--                                <div class="grid-md row">--%>
-<%--                                    <div class="col-12 col-sm-auto">--%>
-<%--                                        <div class="entity-rating">--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>--%>
+
+                <div class="section-line">
+                    <div class="section-head">
+                        <h2 class="section-title text-uppercase">Recommend</h2>
+                    </div>
+                    <div class="grid row">
+                        <c:choose>
+                            <c:when test="${empty favorList}">
+                                <div STYLE="padding-left: 17px">
+                                    <tr>
+                                        <td colspan="6" align="center" >
+                                                 추천작이 없습니다.
+                                        </td>
+                                    </tr>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach items="${favorList}" var="row" begin="0" end="${favorListNum}">
+                                <div class="col-sm-6 col-xl-4">
+                                    <div class="gallery-card-entity">
+                                        <div class="entity-preview" data-role="hover-wrap">
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <img class="embed-responsive-item" src="${row.img}" alt="" />
+                                            </div>
+                                            <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                                <div class="entity-view-popup">
+                                                    <a class="content-link action-icon-bordered rounded-circle" href="/movieView.do?num=${row.num}">
+                                                        <span class="icon-content"><i class="fas fa-search"></i></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="entity-content">
+                                            <h4 class="entity-title">${row.title}</h4>
+                                            <p class="entity-subtext">별점 : ${row.favor}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+<%--                        <div class="col-sm-6 col-xl-4">--%>
+<%--                            <div class="gallery-card-entity">--%>
+<%--                                <div class="entity-preview" data-role="hover-wrap">--%>
+<%--                                    <div class="embed-responsive embed-responsive-16by9">--%>
+<%--                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />--%>
+<%--                                    </div>--%>
+<%--                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">--%>
+<%--                                        <div class="entity-view-popup">--%>
+<%--                                            <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">--%>
+<%--                                                <span class="icon-content"><i class="fas fa-search"></i></span>--%>
+<%--                                            </a>--%>
 <%--                                        </div>--%>
 <%--                                    </div>--%>
 <%--                                    <div class="ml-sm-auto col-auto">--%>
@@ -295,148 +200,35 @@
 <%--                                        <a class="content-link" href="#"><i class="fas fa-quote-left"></i>&nbsp;&nbsp;quote</a>--%>
 <%--                                    </div>--%>
 <%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="comment-entity">--%>
-<%--                            <div class="entity-inner">--%>
 <%--                                <div class="entity-content">--%>
-<%--                                    <h4 class="entity-title">Gabriel Norris</h4>--%>
-<%--                                    <p class="entity-subtext">09.08.2018, 11:33</p>--%>
-<%--                                    <p class="entity-text">Comment example here. Nulla risus lacus, vehicula id mi vitae, auctor accumsan nulla. Sed a mi quam. In euismod urna ac massa adipiscing interdum.--%>
-<%--                                    </p>--%>
-<%--                                </div>--%>
-<%--                                <div class="entity-extra">--%>
-<%--                                    <div class="grid-md row">--%>
-<%--                                        <div class="ml-sm-auto col-auto">--%>
-<%--                                            <a class="content-link" href="#"><i class="fas fa-reply"></i>&nbsp;&nbsp;reply</a>--%>
-<%--                                        </div>--%>
-<%--                                        <div class="col-auto">--%>
-<%--                                            <a class="content-link" href="#"><i class="fas fa-quote-left"></i>&nbsp;&nbsp;quote</a>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
+<%--                                    <h4 class="entity-title">Work hard image</h4>--%>
+<%--                                    <p class="entity-subtext">별점 : </p>--%>
 <%--                                </div>--%>
 <%--                            </div>--%>
 <%--                        </div>--%>
-<%--                    </div>--%>
-<%--                    <div class="comment-entity">--%>
-<%--                        <div class="entity-inner">--%>
-<%--                            <div class="entity-content">--%>
-<%--                                <h4 class="entity-title">Keith Earlee</h4>--%>
-<%--                                <p class="entity-subtext">11.05.2018, 07:23</p>--%>
-<%--                                <p class="entity-text">Comment example here. Nulla risus lacus, vehicula id mi vitae, auctor accumsan nulla. Sed a mi quam. In euismod urna ac massa adipiscing interdum.--%>
-<%--                                </p>--%>
-<%--                            </div>--%>
-<%--                            <div class="entity-extra">--%>
-<%--                                <div class="grid-md row">--%>
-<%--                                    <div class="col-12 col-sm-auto">--%>
-<%--                                        <div class="entity-rating">--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon text-theme"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="entity-rating-icon"><i class="fas fa-star"></i></span>--%>
+<%--                        <div class="col-sm-6 col-xl-4">--%>
+<%--                            <div class="gallery-card-entity">--%>
+<%--                                <div class="entity-preview" data-role="hover-wrap">--%>
+<%--                                    <div class="embed-responsive embed-responsive-16by9">--%>
+<%--                                        <img class="embed-responsive-item" src="http://via.placeholder.com/1920x1080" alt="" />--%>
+<%--                                    </div>--%>
+<%--                                    <div class="d-over bg-black-40 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">--%>
+<%--                                        <div class="entity-view-popup">--%>
+<%--                                            <a class="content-link action-icon-bordered rounded-circle" href="http://via.placeholder.com/1920x1080" data-magnific-popup="image">--%>
+<%--                                                <span class="icon-content"><i class="fas fa-search"></i></span>--%>
+<%--                                            </a>--%>
 <%--                                        </div>--%>
 <%--                                    </div>--%>
-<%--                                    <div class="ml-sm-auto col-auto">--%>
-<%--                                        <a class="content-link" href="#"><i class="fas fa-reply"></i>&nbsp;&nbsp;reply</a>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="col-auto">--%>
-<%--                                        <a class="content-link" href="#"><i class="fas fa-quote-left"></i>&nbsp;&nbsp;quote</a>--%>
-<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                                <div class="entity-content">--%>
+<%--                                    <h4 class="entity-title">Virtual image title</h4>--%>
+<%--                                    <p class="entity-subtext">별점 : </p>--%>
 <%--                                </div>--%>
 <%--                            </div>--%>
 <%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="section-line">--%>
-<%--                    <div class="section-head">--%>
-<%--                        <h2 class="section-title text-uppercase">Add comment</h2>--%>
-<%--                    </div>--%>
-<%--                    <form autocomplete="off">--%>
-<%--                        <div class="row form-grid">--%>
-<%--                            <div class="col-12 col-sm-6">--%>
-<%--                                <div class="input-view-flat input-group">--%>
-<%--                                    <input class="form-control" name="name" type="text" placeholder="Name" />--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                            <div class="col-12 col-sm-6">--%>
-<%--                                <div class="input-view-flat input-group">--%>
-<%--                                    <input class="form-control" name="email" type="email" placeholder="Email" />--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                            <div class="col-12">--%>
-<%--                                <div class="input-view-flat input-group">--%>
-<%--                                    <textarea class="form-control" name="review" placeholder="Add your review"></textarea>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                            <div class="col-12">--%>
-<%--                                <div class="rating-line">--%>
-<%--                                    <label>Rating:</label>--%>
-<%--                                    <div class="form-rating" name="rating">--%>
-<%--                                        <input type="radio" id="rating-10" name="rating" value="10" />--%>
-<%--                                        <label for="rating-10">--%>
-<%--                                            <span class="rating-active-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="rating-icon"><i class="far fa-star"></i></span>--%>
-<%--                                        </label>--%>
-<%--                                        <input type="radio" id="rating-9" name="rating" value="9" />--%>
-<%--                                        <label for="rating-9">--%>
-<%--                                            <span class="rating-active-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="rating-icon"><i class="far fa-star"></i></span>--%>
-<%--                                        </label>--%>
-<%--                                        <input type="radio" id="rating-8" name="rating" value="8" />--%>
-<%--                                        <label for="rating-8">--%>
-<%--                                            <span class="rating-active-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="rating-icon"><i class="far fa-star"></i></span>--%>
-<%--                                        </label>--%>
-<%--                                        <input type="radio" id="rating-7" name="rating" value="7" />--%>
-<%--                                        <label for="rating-7">--%>
-<%--                                            <span class="rating-active-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="rating-icon"><i class="far fa-star"></i></span>--%>
-<%--                                        </label>--%>
-<%--                                        <input type="radio" id="rating-6" name="rating" value="6" />--%>
-<%--                                        <label for="rating-6">--%>
-<%--                                            <span class="rating-active-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="rating-icon"><i class="far fa-star"></i></span>--%>
-<%--                                        </label>--%>
-<%--                                        <input type="radio" id="rating-5" name="rating" value="5" />--%>
-<%--                                        <label for="rating-5">--%>
-<%--                                            <span class="rating-active-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="rating-icon"><i class="far fa-star"></i></span>--%>
-<%--                                        </label>--%>
-<%--                                        <input type="radio" id="rating-4" name="rating" value="4" />--%>
-<%--                                        <label for="rating-4">--%>
-<%--                                            <span class="rating-active-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="rating-icon"><i class="far fa-star"></i></span>--%>
-<%--                                        </label>--%>
-<%--                                        <input type="radio" id="rating-3" name="rating" value="3" />--%>
-<%--                                        <label for="rating-3">--%>
-<%--                                            <span class="rating-active-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="rating-icon"><i class="far fa-star"></i></span>--%>
-<%--                                        </label>--%>
-<%--                                        <input type="radio" id="rating-2" name="rating" value="2" />--%>
-<%--                                        <label for="rating-2">--%>
-<%--                                            <span class="rating-active-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="rating-icon"><i class="far fa-star"></i></span>--%>
-<%--                                        </label>--%>
-<%--                                        <input type="radio" id="rating-1" name="rating" value="1" />--%>
-<%--                                        <label for="rating-1">--%>
-<%--                                            <span class="rating-active-icon"><i class="fas fa-star"></i></span>--%>
-<%--                                            <span class="rating-icon"><i class="far fa-star"></i></span>--%>
-<%--                                        </label>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                            <div class="col-12">--%>
-<%--                                <button class="px-5 btn btn-theme" type="submit">Send</button>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </form>--%>
-<%--                </div>--%>
+                    </div>
+                </div>
+
             </section>
         </div>
             <div class="sidebar section-long order-lg-last">

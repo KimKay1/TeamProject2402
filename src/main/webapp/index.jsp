@@ -577,7 +577,7 @@
             </div>
         </div>
         <div class="section-bottom">
-            <a class="btn btn-theme" href="templateEx/news-blocks-sidebar-right.jsp">View All Reviews</a>
+            <a class="btn btn-theme" href="/R/Review_Main.do">View All Reviews</a>
         </div>
     </div>
 </section>

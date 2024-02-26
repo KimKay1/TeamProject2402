@@ -6,6 +6,8 @@ import com.comment.CommentPage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.movieInfo.MovieInfoDAO;
 import com.movieInfo.MovieInfoDTO;
+import com.recommend.RecommendDAO;
+import com.recommend.RecommendDTO;
 import com.util.CookieManager;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -88,6 +90,7 @@ public class ViewController extends HttpServlet {
         //게시물 목록 가져오기
         List<CommentDTO> boardList = dao2.selectListPage(map);
 
+        dao2.close();
 
         //뷰에 전달할 매개변수 추가
         String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "/movieView.do");
@@ -98,7 +101,9 @@ public class ViewController extends HttpServlet {
         map.put("pageNum", pageNum);
 
 //        /*줄바꿈 처리*/
-//        dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
+        if(dto2.getContent() != null) {
+            dto2.setContent(dto2.getContent().replaceAll("\r\n", "<br/>"));
+        }
 
         //전달할 데이터를 req 영역에 저장하고 CommentForm.jsp 포워드
         req.setAttribute("favorNum", favorNum);
@@ -108,6 +113,27 @@ public class ViewController extends HttpServlet {
 //        req.getRequestDispatcher("../temp/CommentForm.jsp").forward(req, resp);
 
         /*코멘트 뷰 끝*/
+
+        /*별점 recommend 시작*/
+        //이름:별점순(ORDER BY) top3반환   WHERE 장르
+        RecommendDAO dao3 = new RecommendDAO();
+        List<RecommendDTO> favorList = dao3.selectList(dto.getCategory());
+        dao3.close();
+        //top3 갯수 구하기
+        int favorListNum = 0;
+        if(favorList != null){
+            if(favorList.size()<3){
+                favorListNum = favorList.size() -1;
+            } else {
+                favorListNum = 2;
+            }
+        }
+
+        //top3 저장
+        req.setAttribute("favorList",favorList);
+        req.setAttribute("favorListNum", favorListNum);
+
+        /*별점 recommend 끝*/
 
         req.setAttribute("dto",dto);
         req.setAttribute("wrappedText",wrappedText);

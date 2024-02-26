@@ -2,10 +2,15 @@ package com.comment;
 
 import com.common.DBConnPool;
 import com.membership.MemberDTO;
+import com.movieInfo.MovieInfoDTO;
+import com.navbar.CategoryDTO;
+import jakarta.servlet.http.HttpSession;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static javax.swing.UIManager.getInt;
 
 public class CommentDAO extends DBConnPool {
     public CommentDAO() { super(); }
@@ -14,18 +19,31 @@ public class CommentDAO extends DBConnPool {
     public int insertWrite(CommentDTO dto){
         int result = 0;
 
+
         try {
-            String query = "INSERT INTO scott.comment_teampro (idx, name, content, favor, pass, title, category) VALUES (scott.seq_teampro_num.nextval, ?, ?, ?, ?, ?, ?) ";
+            if(dto.getIdx()!=null){
+                String query = "INSERT INTO scott.comment_teampro (idx, name, content, favor, pass, title, category) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                psmt = con.prepareStatement(query);
+                psmt.setString(1, dto.getIdx());
+                psmt.setString(2, dto.getName());
+                psmt.setString(3, dto.getContent());
+                psmt.setString(4, dto.getFavor());
+                psmt.setString(5, dto.getPass());
+                psmt.setString(6, dto.getTitle());
+                psmt.setString(7, dto.getCategory());
+                result = psmt.executeUpdate();
+            }else {
+                String query = "INSERT INTO scott.comment_teampro (idx, name, content, favor, pass, title, category) VALUES (scott.seq_teampro_num.nextval, ?, ?, ?, ?, ?, ?) ";
+                psmt = con.prepareStatement(query);
+                psmt.setString(1, dto.getName());
+                psmt.setString(2, dto.getContent());
+                psmt.setString(3, dto.getFavor());
+                psmt.setString(4, dto.getPass());
+                psmt.setString(5, dto.getTitle());
+                psmt.setString(6, dto.getCategory());
+                result = psmt.executeUpdate();
+            }
 
-            psmt = con.prepareStatement(query);
-            psmt.setString(1, dto.getName());
-            psmt.setString(2, dto.getContent());
-            psmt.setString(3, dto.getFavor());
-            psmt.setString(4, dto.getPass());
-            psmt.setString(5, dto.getTitle());
-            psmt.setString(6, dto.getCategory());
-
-            result = psmt.executeUpdate();
 
         }catch (Exception e){
             e.printStackTrace();
@@ -106,6 +124,56 @@ public class CommentDAO extends DBConnPool {
         return bbs;
     }
 
+    //코멘트뷰 목록 반환
+    public List<CommentDTO> selectMyListPage(Map<String, Object>map){
+        //쿼리 결과를 담을 변수
+        List<CommentDTO> bbs = new ArrayList<CommentDTO>();
+
+        // 쿼리문 작성
+        String query = "SELECT * FROM ("
+                + " SELECT Tb.*, ROWNUM rNUM FROM ("
+                + " SELECT * FROM scott.comment_teampro";
+
+        if(map.get("searchWord") != null){
+            query += " WHERE " + map.get("searchField") + " "
+                    + " = '" + map.get("searchWord") + "'" ;
+        }
+
+        query += " ORDER BY idx DESC"
+                + " ) Tb"
+                + " )"
+                + " WHERE rNUM BETWEEN ? AND ?";
+
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, map.get("start").toString());
+            psmt.setString(2, map.get("end").toString());
+
+            rs = psmt.executeQuery();
+
+            while (rs.next()){
+                //한 row의 내용을 DTO에 저장
+                CommentDTO dto = new CommentDTO();
+                dto.setIdx(rs.getString("idx"));
+                dto.setName(rs.getString("name"));
+                dto.setContent(rs.getString("content"));
+                dto.setPostdate(rs.getString("postdate"));
+                dto.setFavor(rs.getString("favor"));
+                dto.setPass(rs.getString("pass"));
+                dto.setTitle(rs.getString("title"));
+                dto.setCategory(rs.getString("category"));
+
+                bbs.add(dto);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("comment selectList 오류 발생");
+        }
+
+        return bbs;
+    }
+
     //코멘트뷰에 코멘트 불러오기
     public CommentDTO selectView(String title){
         CommentDTO dto = new CommentDTO();
@@ -131,6 +199,35 @@ public class CommentDAO extends DBConnPool {
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("comment selectView 오류 발생");
+        }
+        return dto;
+    }
+
+    //마이코멘트뷰에 코멘트 불러오기
+    public CommentDTO selectMyView(String idx){
+        CommentDTO dto = new CommentDTO();
+
+        String query = "SELECT idx, name, content, postdate, favor, pass, title, category FROM scott.comment_teampro WHERE idx = ?";
+
+        try{
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, idx);
+            rs = psmt.executeQuery();
+
+            if(rs.next()){
+                dto.setIdx(rs.getString("idx"));
+                dto.setName(rs.getString("name"));
+                dto.setContent(rs.getString("content"));
+                dto.setPostdate(rs.getString("postdate"));
+                dto.setFavor(rs.getString("favor"));
+                dto.setPass(rs.getString("pass"));
+                dto.setTitle(rs.getString("title"));
+                dto.setCategory(rs.getString("category"));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("comment selectMyView 오류 발생");
         }
         return dto;
     }

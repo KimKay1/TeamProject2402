@@ -38,6 +38,8 @@
             <div class="page-breadcrumbs">
                 <a class="content-link" href="../index.jsp">Home</a>
                 <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
+                <span>User pages</span>
+                <span class="text-theme mx-2"><i class="fas fa-chevron-right"></i></span>
                 <span>My page</span>
             </div>
         </div>

@@ -1,5 +1,7 @@
-package com.navbar;
+package com.membership;
 
+import com.comment.CommentDAO;
+import com.comment.CommentDTO;
 import com.comment.CommentPage;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -7,27 +9,36 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/category/view.do")
-public class CategoryViewController extends HttpServlet {
+@WebServlet("/member/MyComment.do")
+public class MyCommentController extends HttpServlet {
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        CategoryDAO dao = new CategoryDAO();
-        String category = req.getParameter("category");
-        CategoryDTO dto = dao.selectCategory(category);
+        // 게시물 불러오기
+        CommentDAO dao = new CommentDAO();
+
+        HttpSession session = req.getSession();
+        String idx = (String) session.getAttribute("UserId");
+
+        CommentDTO dto2 = dao.selectMyView(idx);
+
+        //별점 int값으로 받아오기
+        String favorNum = dto2.getFavor();
 
         //뷰에 전달할 매개변수 저장용 맵 생성
         Map<String, Object> map = new HashMap<>();
 
-        String searchField = "category";
-        String searchWord = category;
+        String searchField = "idx";
+        String searchWord = idx;
 
         if(searchWord != null){
             //쿼리스트링으로 받은 매개변수에서 검색어 있으면 map에 저장
@@ -42,8 +53,8 @@ public class CategoryViewController extends HttpServlet {
         ServletContext application = getServletContext();
 
         //전체 페이지 수 계산
-        int pageSize = Integer.parseInt(application.getInitParameter("CATEGORY_PER_PAGE"));
-        int blockPage = Integer.parseInt(application.getInitParameter("CATEGORY_PER_BLOCK"));
+        int pageSize = Integer.parseInt(application.getInitParameter("MYCOMMENTS_PER_PAGE"));
+        int blockPage = Integer.parseInt(application.getInitParameter("MYCOMMENTS_PER_BLOCK"));
         int totalPage = (int)Math.ceil((double) totalCount/pageSize);
 
         // 현재 페이지 확인
@@ -59,13 +70,12 @@ public class CategoryViewController extends HttpServlet {
         map.put("end", end);
 
         //게시물 목록 가져오기
-        List<CategoryDTO> boardList = dao.selectListPage(map, category);
-
+        List<CommentDTO> boardList = dao.selectMyListPage(map);
 
         dao.close();
 
         //뷰에 전달할 매개변수 추가
-        String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../category/view.do?category="+category);
+        String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "../member/MyComment.do");
         //바로가기 영역 HTML
         map.put("totalCount", totalCount);
         map.put("pageSize", pageSize);
@@ -73,13 +83,15 @@ public class CategoryViewController extends HttpServlet {
         map.put("pageNum", pageNum);
 
 //        /*줄바꿈 처리*/
-//        dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
+        if(dto2.getContent() != null) {
+            dto2.setContent(dto2.getContent().replaceAll("\r\n", "<br/>"));
+        }
 
-        //전달할 데이터를 req 영역에 저장하고 포워드
+        req.setAttribute("favorNum", favorNum);
         req.setAttribute("boardList", boardList);
         req.setAttribute("map", map);
-        req.setAttribute("dto", dto);
-        req.getRequestDispatcher("../temp/CategoryList.jsp").forward(req, resp);
-
+        req.setAttribute("dto", dto2);
+        req.getRequestDispatcher("../temp/MyComment.jsp").forward(req, resp);
     }
+
 }

@@ -112,7 +112,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../R/R_List.do">Review</a>
+                        <a class="nav-link" href="../R/Review_Main.do">Review</a>
                     </li>
                     <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
                         <a class="nav-link" >MYPAGE</a>
@@ -142,6 +142,21 @@
                                     %>
                                 </ul>
                             </li>
+                            <%
+                                if(session.getAttribute("UserId") != null){
+                            %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../member/MyComment.do">My comment</a>
+                            </li>
+                            <%
+                            } else {
+                            %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../temp/LoginPlz.jsp">My comment</a>
+                            </li>
+                            <%
+                                }
+                            %>
                         </ul>
                     </li>
                 </ul>
