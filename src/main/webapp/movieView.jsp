@@ -30,11 +30,11 @@
     <link href="./template/css/dot-icons.css" rel="stylesheet" type="text/css">
     <link href="./template/css/theme.css" rel="stylesheet" type="text/css">
     <link href="template/css/header.css" rel="stylesheet" type="text/css">
-    <style>
-        .entity-content {
-            height:106px;
-        }
-    </style>
+<%--    <style>--%>
+<%--        .entity-content {--%>
+<%--            height:106px;--%>
+<%--        }--%>
+<%--    </style>--%>
 </head>
 <body>
 <jsp:include page="./temp/Header.jsp"></jsp:include>

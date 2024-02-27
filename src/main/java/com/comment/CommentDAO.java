@@ -89,7 +89,7 @@ public class CommentDAO extends DBConnPool {
                     + " LIKE '%" + map.get("searchWord") + "%'";
         }
 
-        query += " ORDER BY idx DESC"
+        query += " ORDER BY postdate DESC"
                 + " ) Tb"
                 + " )"
                 + " WHERE rNUM BETWEEN ? AND ?";
@@ -139,7 +139,7 @@ public class CommentDAO extends DBConnPool {
                     + " = '" + map.get("searchWord") + "'" ;
         }
 
-        query += " ORDER BY idx DESC"
+        query += " ORDER BY postdate DESC"
                 + " ) Tb"
                 + " )"
                 + " WHERE rNUM BETWEEN ? AND ?";
@@ -178,7 +178,7 @@ public class CommentDAO extends DBConnPool {
     public CommentDTO selectView(String title){
         CommentDTO dto = new CommentDTO();
 
-        String query = "SELECT idx, name, content, postdate, favor, pass, title, category FROM scott.comment_teampro WHERE title = ?";
+        String query = "SELECT idx, name, content, postdate, favor, pass, title, category FROM scott.comment_teampro WHERE title = ? ORDER BY postdate DESC";
 
         try{
             psmt = con.prepareStatement(query);
@@ -207,7 +207,7 @@ public class CommentDAO extends DBConnPool {
     public CommentDTO selectMyView(String idx){
         CommentDTO dto = new CommentDTO();
 
-        String query = "SELECT idx, name, content, postdate, favor, pass, title, category FROM scott.comment_teampro WHERE idx = ?";
+        String query = "SELECT idx, name, content, postdate, favor, pass, title, category FROM scott.comment_teampro WHERE idx = ? ORDER BY postdate DESC";
 
         try{
             psmt = con.prepareStatement(query);
