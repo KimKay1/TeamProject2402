@@ -30,14 +30,24 @@ public class AllMoviesDAO extends DBConnPool {
     }
 
     // 모든 영화 목록을 반환합니다.
-    public List<MovieInfoDTO> AllMoviesCount() {
+    public List<MovieInfoDTO> AllMoviesCount(Map<String,Object> map) {
         List<MovieInfoDTO> movies = new ArrayList<>();
 
-        String query = "SELECT mt.num, mt.title, mt.img FROM scott.movieinfo_teampro";
+        String query = "SELECT num, title, img FROM ("
+                + " SELECT Tb.*, ROWNUM rNUM FROM ("
+                + " SELECT * FROM scott.movieinfo_teampro";;
+
+        query += " ORDER BY releasedate DESC"
+                + " ) Tb"
+                + " )"
+                + " WHERE rNUM BETWEEN ? AND ?";
 
         try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(query);
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, map.get("start").toString());
+            psmt.setString(2, map.get("end").toString());
+
+            rs = psmt.executeQuery();
 
             while(rs.next()) {
                 MovieInfoDTO dto = new MovieInfoDTO();

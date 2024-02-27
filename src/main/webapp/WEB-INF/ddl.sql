@@ -84,7 +84,7 @@ CREATE TABLE movieinfo_teampro (
 
 insert into MOVIEINFO_TEAMPRO (NUM,TITLE,DIRECTOR, ACTOR,CATEGORY, RUNNINGTIME, RELEASEDATE,production, summary, visitcount, img,img2, youtube) values
     (seq_board_num.nextval,'스즈메의 문단속','신카이 마코토', '', '애니메이션','122','2023-03-08','코믹스 웨이브 필름','규슈의 한적한 마을에 살고 있는 스즈메는 문을 찾아 여행 중인 청년 소타를 만난다. 그의 뒤를 쫓아 산속 폐허에서 발견한 낡은 문. 스즈메가 무언가에 이끌리듯 문을 열자 마을에 재난의 위기가 닥쳐오고 수수께끼의 고양이 다이진이 나타나
-소타를 의자로 바꿔버리고 일본 각지의 폐허에 재난을 부르는 문이 열리기 시작하자 스즈메는 의자가 된 소타와 함께 여정에 나선다.', 1500,'/img/movieposter/img1.webp','/img/movieposter/img1-1.webp', 'https://www.youtube.com/watch?v=vpe62i_LDps');
+소타를 의자로 바꿔버리고 일본 각지의 폐허에 재난을 부르는 문이 열리기 시작하자 스즈메는 의자가 된 소타와 함께 여정에 나선다.', 1500,'/img/movieposter/img1.webp','/img/movieposter/img1-1.png', 'https://www.youtube.com/watch?v=vpe62i_LDps');
 insert into MOVIEINFO_TEAMPRO (num, TITLE,DIRECTOR, ACTOR,CATEGORY, RUNNINGTIME, RELEASEDATE,production, summary, visitcount, img,img2, youtube)
 values (seq_board_num.nextval,'서울의 봄','김성수', '황정민, 정우성','드라마', '141','2023.11.22','하이브미디어코프','1979년 12월 12일, 수도 서울 군사반란 발생 그날, 대한민국의 운명이 바뀌었다. 대한민국을 뒤흔든 10월 26일 이후, 서울에 새로운 바람이 불어온 것도 잠시 12월 12일 보안 사령관 전두광이 반란을 일으키고 군 내
 사조직을 총동원하여 최전선의 전방부대까지 서울로 불러들인다. 권력에 눈 먼 전두광의 반란군과 이에 맞선 수도경비사령관 이태신 두 세력의 팽팽한 대립! 대한민국 수도에서 가장 치열한 전쟁이 펼쳐진다!',2000,'/img/movieposter/img2.webp','/img/movieposter/img2-1.jpeg',
