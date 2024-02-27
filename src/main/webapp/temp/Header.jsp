@@ -86,6 +86,9 @@
                         <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
                         <ul class="collapse nav">
                             <li class="nav-item">
+                                <a class="nav-link" href="/AllMovies.do">All Movies</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="/category/view.do?category=액션">Action</a>
                             </li>
                             <li class="nav-item">

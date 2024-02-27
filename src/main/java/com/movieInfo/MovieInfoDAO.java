@@ -60,7 +60,7 @@ public class MovieInfoDAO extends DBConnPool {
                         + " SELECT Tb.*, ROWNUM rNUM FROM ("
                         + " SELECT mt.num , mt.title, mt.category, mt.runningtime, mt.summary, mt.img, mt.youtube, mt.visitcount FROM SCOTT.MOVIEINFO_TEAMPRO mt";
 
-        query += " ORDER BY mt.num DESC"
+        query += " ORDER BY mt.releasedate DESC"
                 + " ) Tb"
                 + " )"
                 + " WHERE rNUM <= 5";
