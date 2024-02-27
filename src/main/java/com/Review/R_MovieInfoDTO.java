@@ -2,7 +2,7 @@ package com.Review;
 
 import java.sql.Date;
 
-public class MovieInfoDTO2 {
+public class R_MovieInfoDTO {
 
     private int num;
     private String title;

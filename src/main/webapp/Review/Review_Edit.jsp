@@ -51,31 +51,38 @@
         <div class="content">
             <section class="section-long section-spaced">
                 <div class="section-line">
-                    <form action="../R/Review_Edit.do" method="post" enctype="application/x-www-form-urlencoded">
-                        <div class="mb-3">
-                            <input type="hidden" name="idx" value="${dto.idx}"/>
-                                <label class="form-label">영화</label>
-                                    <select name="movieNum" class="form-control">
-                                        <c:forEach items="${listMovieInfo}" var="row" varStatus="loop">
-                                            <option value="${row.num}">${row.title}</option>
-                                        </c:forEach>
-                                    </select>
-                        </div>
+                    <form action="../Review_Edit.do" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="idx" value="${dto.idx}">
+                        <input type="hidden" name="prevOfile" value="${dto.ofile}">
+                        <input type="hidden" name="prevSfile" value="${dto.sfile}">
+                            <div class="mb-3">
+                                <input type="hidden" name="idx" value="${dto.idx}"/>
+                                    <label class="form-label">영화</label>
+                                        <select name="movieNum" class="form-control">
+                                            <c:forEach items="${listMovieInfo}" var="row" varStatus="loop">
+                                                <option value="${row.num}">${row.title}</option>
+                                            </c:forEach>
+                                        </select>
+                            </div>
 
-                        <div class="mb-3">
-                            <label class="form-label" style="">제목</label>
-                            <input type="text" class="form-control" name="title" value="${dto.title}" />
-                        </div>
+                            <div class="mb-3">
+                                <label class="form-label" style="">제목</label>
+                                <input type="text" class="form-control" name="title" value="${dto.title}" />
+                            </div>
 
-                        <div class="mb-3">
-                            <label  class="form-label">리뷰 수정</label>
-                            <textarea class="form-control" name="content" style="height: 30rem">${dto.content}</textarea>
-                        </div>
+                            <div class="mb-3">
+                                <label  class="form-label">리뷰 수정</label>
+                                <textarea class="form-control" name="content" style="height: 30rem">${dto.content}</textarea>
+                            </div>
+                            <div>
+                                <label class="form-label">첨부 파일</label>
+                                <input type="file" class="form-control" name="ofile" />
+                            </div>
 
-                        <div class="section-bottom">
-                            <button class="btn btn-theme" type="reset">다시 입력</button>
-                            <button class="btn btn-theme" type="submit">작성 완료</button>
-                        </div>
+                            <div class="section-bottom">
+                                <button class="btn btn-theme" type="reset">다시 입력</button>
+                                <button class="btn btn-theme" type="submit">작성 완료</button>
+                            </div>
                     </form>
                 </div>
             </section>

@@ -13,8 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/Review_Main.do")
-public class Review_Main_Con extends HttpServlet {
+//@WebServlet("/Review_Index.do")
+public class Review_Index_Con extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,28 +24,28 @@ public class Review_Main_Con extends HttpServlet {
         // 뷰에 전달할 매개변수 저장용 맵 생성
         Map<String, Object> map = new HashMap<String, Object>();
 
-                //게시물 수 확인
-                int totalCount = dao.selectCount(map);
+        //게시물 수 확인
+        int totalCount = dao.selectCount(map);
 
-                /* 페이징 처리 start web.xml에서 끌어옴*/
-                ServletContext application = getServletContext();
+        /* 페이징 처리 start web.xml에서 끌어옴*/
+        ServletContext application = getServletContext();
 
-                //전체 페이지 수 계산
-                int pageSize = 9;
-                int blockPage = Integer.parseInt(application.getInitParameter("PAGES_PER_BLOCK"));
-                int totalPage = (int) Math.ceil((double) totalCount / pageSize);
+        //전체 페이지 수 계산
+        int pageSize = 9;
+        int blockPage = Integer.parseInt(application.getInitParameter("PAGES_PER_BLOCK"));
+        int totalPage = (int) Math.ceil((double) totalCount / pageSize);
 
 
-                //현제 페이지 확인
-                int pageNum = 1;
-                String pageTemp = req.getParameter("pageNum");
-                if (pageTemp != null && !pageTemp.equals("")) {
-                    pageNum = Integer.parseInt(pageTemp); // 페이지 요청 받은 값
-                }
+        //현제 페이지 확인
+        int pageNum = 1;
+        String pageTemp = req.getParameter("pageNum");
+        if (pageTemp != null && !pageTemp.equals("")) {
+            pageNum = Integer.parseInt(pageTemp); // 페이지 요청 받은 값
+        }
 
-                //목록에 출력할 게시물 범위 계산
-                int start = (pageNum - 1) * pageSize + 1; // 첫 게시물 번호
-                int end = pageNum * pageSize;              // 마지막 게시물 번호
+        //목록에 출력할 게시물 범위 계산
+        int start = (pageNum - 1) * pageSize + 1; // 첫 게시물 번호
+        int end = pageNum * pageSize;              // 마지막 게시물 번호
 
         map.put("start", start);
         map.put("end", end);
@@ -70,6 +70,6 @@ public class Review_Main_Con extends HttpServlet {
         req.setAttribute("boardList", boardList);
         req.setAttribute("map", map);
 
-        req.getRequestDispatcher("/Review/Review_Main.jsp").forward(req, resp);
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 }

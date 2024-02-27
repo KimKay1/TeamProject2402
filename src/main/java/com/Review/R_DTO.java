@@ -76,5 +76,53 @@ public class R_DTO {
 
     private String movieNum;
 
+    public String getOfile() {
+        return Ofile;
+    }
 
+    public void setOfile(String ofile) {
+        Ofile = ofile;
+    }
+
+    public String getSfile() {
+        return Sfile;
+    }
+
+    public void setSfile(String sfile) {
+        Sfile = sfile;
+    }
+
+    private String Ofile;
+
+    private String Sfile;
+
+    private String category;
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String mtTitle;
+
+    public String getMtTitle() {
+        return mtTitle;
+    }
+
+    public void setMtTitle(String mtTitle) {
+        this.mtTitle = mtTitle;
+    }
+
+    public String img;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 }

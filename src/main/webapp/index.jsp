@@ -442,38 +442,34 @@
         </div>
         <div class="grid row">
             <div class="col-md-6">
-                <article class="article-tape-entity">
-                    <a class="entity-preview" href="article-sidebar-right.jsp" data-role="hover-wrap">
-                                <span class="embed-responsive embed-responsive-16by9">
-                                    <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
-                                </span>
-                        <span class="entity-date">
-                                    <span class="tape-block tape-horizontal tape-single bg-theme text-white">
-                                        <span class="tape-dots"></span>
-                                        <span class="tape-content m-auto">20 jul 2019</span>
-                                        <span class="tape-dots"></span>
-                                    </span>
-                                </span>
-                        <span class="d-over bg-black-80 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
-                                    <span class="m-auto"><i class="fas fa-search"></i></span>
-                                </span>
-                    </a>
-                    <div class="entity-content">
-                        <h4 class="entity-title">
-                            <a class="content-link" href="article-sidebar-right.jsp">Creative life</a>
-                        </h4>
-                        <div class="entity-category">
-                            <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">comedy</a>,
-                            <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">detective</a>,
-                            <a class="content-link" href="templateEx/news-blocks-sidebar-right.jsp">sci-fi</a>
+                <c:forEach items="${boardList}" var="row" varStatus="loop">
+                    <article class="article-tape-entity" style="width: 305px; height: 398px; float: left;  margin: 31px 20px; ">
+                        <a class="entity-preview" href="*" data-role="hover-wrap">
+                                            <span class="embed-responsive embed-responsive-16by9">
+                                                <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
+                                            </span>
+                            <span class="entity-date">
+                                                <span class="tape-block tape-horizontal tape-single bg-theme text-white">
+                                                    <span class="tape-dots"></span>
+                                                    <span class="tape-content m-auto">${row.postdate}</span>
+                                                    <span class="tape-dots"></span>
+                                                </span>
+                                            </span>
+                            <span class="d-over bg-black-80 collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                                <span class="m-auto"><i class="fas fa-search"></i></span>
+                                            </span>
+                        </a>
+                        <div class="entity-content">
+                            <h4 class="entity-title">
+                                <a class="content-link">${row.title}</a>
+                            </h4>
+                            <p class="text-short entity-text">${row.content}</p>
+                            <div class="entity-actions">
+                                <a class="text-uppercase" href="/Review_View.do?idx=${row.idx}">더 읽기</a>
+                            </div>
                         </div>
-                        <p class="text-short entity-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur ultrices justo a pellentesque. Praesent venenatis dolor nec tempus lacinia. Donec ac condimentum dolor. Nullam sit amet nisl hendrerit, pharetra nulla convallis, malesuada diam. Donec ornare nisl eu lectus rhoncus, at malesuada metus rutrum. Aliquam a nisl vulputate, sodales ipsum aliquam, tempus purus. Suspendisse convallis, lectus nec vehicula sollicitudin, lorem sapien rhoncus dolor, vel lacinia urna velit ullamcorper nisi. Phasellus pellentesque, magna nec gravida feugiat, est magna suscipit ligula, vel porttitor nunc enim at nibh. Sed varius sit amet leo vitae consequat.
-                        </p>
-                        <div class="entity-actions">
-                            <a class="text-uppercase" href="article-sidebar-right.jsp">Read More</a>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                </c:forEach>
             </div>
             <div class="col-md-6">
                 <article class="article-tape-entity">
@@ -577,7 +573,7 @@
             </div>
         </div>
         <div class="section-bottom">
-            <a class="btn btn-theme" href="/R/Review_Main.do">View All Reviews</a>
+            <a class="btn btn-theme" href="/Review_Main.do">View All Reviews</a>
         </div>
     </div>
 </section>

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ include file="Review_Login.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +52,7 @@
         <div class="content">
             <section class="section-long section-spaced">
                 <div class="section-line">
-                    <form action="../R/Review_Write.do" method="post">
+                    <form action="../Review_Write.do" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label class="form-label">영화</label>
                                 <select name="movieNum" class="form-control">
@@ -69,6 +70,10 @@
                         <div class="mb-3">
                             <label  class="form-label">리뷰 작성</label>
                             <textarea class="form-control" name="content" style="height: 30rem"></textarea>
+                        </div>
+                        <div>
+                            <label class="form-label">첨부 파일</label>
+                            <input type="file" class="form-control" name="ofile" />
                         </div>
 
                         <div class="section-bottom">
