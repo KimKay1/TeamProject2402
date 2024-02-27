@@ -57,12 +57,12 @@
                         <input type="hidden" name="prevSfile" value="${dto.sfile}">
                             <div class="mb-3">
                                 <input type="hidden" name="idx" value="${dto.idx}"/>
-                                    <label class="form-label">영화</label>
+                                    <%--<label class="form-label">영화</label>
                                         <select name="movieNum" class="form-control">
                                             <c:forEach items="${listMovieInfo}" var="row" varStatus="loop">
                                                 <option value="${row.num}">${row.title}</option>
                                             </c:forEach>
-                                        </select>
+                                        </select>--%>
                             </div>
 
                             <div class="mb-3">

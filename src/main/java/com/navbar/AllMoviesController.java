@@ -27,7 +27,7 @@ public class AllMoviesController extends HttpServlet {
         // 페이징 처리
         ServletContext application = getServletContext();
         // 전체 페이지 수 계산
-        int pageSize = Integer.parseInt(application.getInitParameter("POST_PER_PAGE"));
+        int pageSize = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
         int blockPage = Integer.parseInt(application.getInitParameter("PAGES_PER_BLOCK"));
 
         // 현재 페이지 확인
@@ -43,10 +43,10 @@ public class AllMoviesController extends HttpServlet {
         map.put("start",start);
         map.put("end",end);
 
-        List<MovieInfoDTO> lists = dao.AllMoviesCount();
+        List<MovieInfoDTO> lists = dao.AllMoviesCount(map);
         dao.close();
 
-        String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "/AllMovies.do");
+        String pagingImg = CommentPage.pagingStr(totalCount, pageSize, blockPage, pageNum, "/AllMovies.do?");
 
         map.put("pagingImg",pagingImg);
         map.put("totalCount",totalCount);
@@ -55,6 +55,6 @@ public class AllMoviesController extends HttpServlet {
 
         req.setAttribute("lists",lists);
         req.setAttribute("map",map);
-        req.getRequestDispatcher("/AllMovies.jsp").forward(req,resp);
+        req.getRequestDispatcher("./temp/AllMovies.jsp").forward(req,resp);
     }
 }
