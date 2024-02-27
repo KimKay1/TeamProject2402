@@ -1,6 +1,8 @@
 package com.membership;
 
 import com.util.CookieManager;
+import com.util.JSFunction;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -55,6 +57,7 @@ public class LoginController extends HttpServlet {
         MemberDTO memberDTO = dao.getMemberDTO(userId, userPwd);
         dao.close();
 
+
         // 로그인 성공 여부에 따른 처리
 
         if(memberDTO.getId() != null){ // 로그인 성공
@@ -74,9 +77,16 @@ public class LoginController extends HttpServlet {
 
             response.sendRedirect("../index.jsp");
         } else {
-            //로그인 실패
-            request.setAttribute("LoginErrMsg", "아이디/패스워드를 확인하세요");
-            request.getRequestDispatcher("../temp/Login.jsp").forward(request,response);
+            //관리자일때
+            if (userId.equals("admin_id") && userPwd.equals("admin_pass")) {
+                JSFunction.alertLocation(response,"관리자 페이지로 이동합니다","/temp/AdminPage.jsp");
+//                request.getRequestDispatcher("/temp/AdminPage.jsp").forward(request, response);
+
+            } else {
+                //로그인 실패
+                request.setAttribute("LoginErrMsg", "아이디/패스워드를 확인하세요");
+                request.getRequestDispatcher("../temp/Login.jsp").forward(request, response);
+            }
         }
 
     }
