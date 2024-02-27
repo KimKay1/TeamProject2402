@@ -15,8 +15,8 @@ import java.util.List;
 
 @WebServlet("/Review_Edit.do")
 @MultipartConfig(
-        maxFileSize = 1024 * 1024 * 1,
-        maxRequestSize = 1024 * 1024 * 10
+        maxFileSize = 1024 * 1024 * 20,
+        maxRequestSize = 1024 * 1024 * 20
 )
 public class Review_Edit_Con extends HttpServlet {
     private static final long seiralVersionUID = 1L;

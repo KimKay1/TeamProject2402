@@ -15,8 +15,8 @@ import java.util.List;
 
 @WebServlet("/Review_Write.do")
 @MultipartConfig(
-        maxFileSize = 1024 * 1024 * 1,
-        maxRequestSize = 1024 * 1024 * 10
+        maxFileSize = 1024 * 1024 * 20,
+        maxRequestSize = 1024 * 1024 * 20
 )
 public class Review_Write_Con extends HttpServlet {
 

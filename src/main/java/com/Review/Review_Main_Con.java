@@ -52,7 +52,7 @@ public class Review_Main_Con extends HttpServlet {
 
         /* 페이징 처리 end */
         List<R_DTO> boardList = dao.selectListPage(map);
-
+        System.out.println("게시물 갯수 확인 :" + boardList.size());
         // DB 연결 닫기
         dao.close();
 

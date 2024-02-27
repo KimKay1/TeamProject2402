@@ -68,7 +68,7 @@
                         <article class="article-tape-entity" style="width: 305px; height: 398px; float: left;  margin: 31px 20px; ">
                             <a class="entity-preview" href="*" data-role="hover-wrap">
                                         <span class="embed-responsive embed-responsive-16by9">
-                                            <img class="embed-responsive-item" src="http://via.placeholder.com/720x405" alt="" />
+                                            <img class="embed-responsive-item" src="${row.img2}" alt="" />
                                         </span>
                                 <span class="entity-date">
                                             <span class="tape-block tape-horizontal tape-single bg-theme text-white">

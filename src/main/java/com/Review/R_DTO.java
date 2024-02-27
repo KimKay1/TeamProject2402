@@ -125,4 +125,14 @@ public class R_DTO {
     public void setImg(String img) {
         this.img = img;
     }
+
+    public String img2;
+
+    public String getImg2() {
+        return img2;
+    }
+
+    public void setImg2(String img2) {
+        this.img2 = img2;
+    }
 }

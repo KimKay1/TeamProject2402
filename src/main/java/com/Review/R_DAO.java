@@ -35,8 +35,31 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
         String query = "SELECT * FROM ("
                 + " SELECT Tb.*, ROWNUM rNum FROM ("
                 + " SELECT * FROM scott.review_BOARD"
-                + " JOIN SCOTT.MEMBER_TEAMPRO ON SCOTT.REVIEW_BOARD.ID = SCOTT.MEMBER_TEAMPRO.ID";
+                + " JOIN SCOTT.MEMBER_TEAMPRO ON SCOTT.REVIEW_BOARD.ID = SCOTT.MEMBER_TEAMPRO.ID"
+                + " JOIN SCOTT.MOVIEINFO_TEAMPRO ON SCOTT.REVIEW_BOARD.MOVIE_NUM = SCOTT.MOVIEINFO_TEAMPRO.NUM";
 
+        /*String query = "SELECT RE.IDX, RE.TITLE, RE.CONTENT, RE.ID, RE.POSTDATE, RE.VISITCOUNT, RE.MOVIE_NUM, RE.OFILE, RE.SFILE, "
+                + " MEM.ID, MEM.PASS, MEM.NAME, MEM.REGIDATE, "
+                + " MI.NUM, MI.TITLE MT_TITLE, MI.DIRECTOR, MI.ACTOR, MI.CATEGORY, MI.IMG, MI.IMG2 FROM ("
+                + " SELECT Tb.RE.IDX, RE.TITLE, RE.CONTENT, RE.ID, RE.POSTDATE, RE.VISITCOUNT, RE.MOVIE_NUM, RE.OFILE, RE.SFILE, "
+                + " MEM.ID, MEM.PASS, MEM.NAME, MEM.REGIDATE, "
+                + " MI.NUM, MI.TITLE MT_TITLE, MI.DIRECTOR, MI.ACTOR, MI.CATEGORY, MI.IMG, MI.IMG2, ROWNUM rNum FROM ("
+                + " SELECT * FROM scott.review_BOARD RE"
+                + " JOIN SCOTT.MEMBER_TEAMPRO MEM ON RE.ID = MEM.ID"
+                + " JOIN SCOTT.MOVIEINFO_TEAMPRO MI ON RE.MOVIE_NUM = MI.NUM"
+                + " WHERE RE.idx = ?";*/
+
+
+        /*String query = "SELECT RE.IDX, RE.TITLE, RE.CONTENT, RE.ID, RE.POSTDATE, RE.VISITCOUNT, RE.MOVIE_NUM, RE.OFILE, RE.SFILE, " +
+                "            MEM.ID, MEM.PASS, MEM.NAME, MEM.REGIDATE, " +
+                "            MI.NUM, MI.TITLE MT_TITLE, MI.DIRECTOR, MI.ACTOR, MI.CATEGORY, MI.IMG, MI.IMG2 " +
+                " FROM scott.review_BOARD RE" +
+                "        JOIN SCOTT.MEMBER_TEAMPRO MEM" +
+                "            ON RE.ID = MEM.ID " +
+                "        JOIN SCOTT.MOVIEINFO_TEAMPRO MI" +
+                "            ON RE.MOVIE_NUM = MI.NUM " +
+                "    WHERE RE.idx=?";
+*/
         query += " ORDER BY TO_NUMBER(idx) DESC"
                 + " ) Tb"
                 + " )"
@@ -60,6 +83,7 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
                 dto.setPostdate(rs.getDate("postdate"));
                 dto.setVisitcount(rs.getInt("visitcount"));
                 dto.setName(rs.getString("name"));
+                dto.setImg2(rs.getString("img2"));
 
                 board.add(dto);
             }
@@ -105,7 +129,7 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
 
         String query = "SELECT RE.IDX, RE.TITLE, RE.CONTENT, RE.ID, RE.POSTDATE, RE.VISITCOUNT, RE.MOVIE_NUM, RE.OFILE, RE.SFILE, " +
                 "            MEM.ID, MEM.PASS, MEM.NAME, MEM.REGIDATE, " +
-                "            MI.NUM, MI.TITLE MT_TITLE, MI.DIRECTOR, MI.ACTOR, MI.CATEGORY, MI.IMG " +
+                "            MI.NUM, MI.TITLE MT_TITLE, MI.DIRECTOR, MI.ACTOR, MI.CATEGORY, MI.IMG, MI.IMG2 " +
                 " FROM scott.review_BOARD RE" +
                 "        JOIN SCOTT.MEMBER_TEAMPRO MEM" +
                 "            ON RE.ID = MEM.ID " +
@@ -131,6 +155,7 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
                 dto.setOfile(rs.getString("ofile"));
                 dto.setSfile(rs.getString("sfile"));
                 dto.setImg(rs.getString("img"));
+                dto.setImg2(rs.getString("img2"));
 
                 System.out.println("rs.getString(\"title\") ::: "+rs.getString("title"));
                 System.out.println("rs.getString(\"mt_title\") ::: "+rs.getString("mt_title"));

@@ -42,7 +42,6 @@ public class R_MovieInfoDAO extends DBConnPool {
     }
 
     public R_MovieInfoDTO selectMovieInfo(int num) {
-        System.out.println("selectMovieInfo IN!!!");
 
         String query = "  SELECT MT.NUM, MT.TITLE AS MT_TITLE, mt.director, mt.category, RB.MOVIE_NUM, RB.TITLE AS RB_TITLE, rb.content, RB.ID " +
                 " FROM scott.MOVIEINFO_TEAMPRO MT, scott.review_board RB " +
