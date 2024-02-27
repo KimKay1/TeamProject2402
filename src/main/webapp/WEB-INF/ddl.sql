@@ -161,7 +161,7 @@ values (seq_board_num.nextval,'보스 베이비2','톰 맥그라스', '','애니
 수 있을 것인가?',500,'/img/movieposter/img25.webp','/img/movieposter/img25-1.jpg','https://www.youtube.com/watch?v=y1eCGd6byVQ');
 insert into MOVIEINFO_TEAMPRO (num, TITLE,DIRECTOR, ACTOR,CATEGORY, RUNNINGTIME, RELEASEDATE,production, summary, visitcount, img,img2, youtube)
 values (seq_board_num.nextval,'리바운드','장항준', '안재홍, 이신영','드라마', '122','2023.04.05','비에이엔터테인먼트, 워크하우스컴퍼니','농구선수 출신 공익근무요원 "양현"은 해체 위기에 놓인 부산중앙고 농구부의 신임 코치로 발탁된다. 하지만 전국대회에서의 첫 경기 상대는 고교농구 최강자 용산고. 팀워크가 무너진 중앙고는 몰수패라는 치욕적인 결과를 낳고 학교는 농구부 해체까지 논하지만 양현은 MVP까지 올랐던 고교 시절
-을 떠올리며 다시 선수들을 모은다. 아무도 주목하지 않은 최약체 팀이었지만 신임 코치와 6명의 선수가 2012년 전국고교농구대회에서 써내려간 8일간의 기적',200,'/img/movieposter/img26.webp','/img/movieposter/img26-1.jpg''https://www.youtube.com/watch?v=_SCwPaNSua8');
+을 떠올리며 다시 선수들을 모은다. 아무도 주목하지 않은 최약체 팀이었지만 신임 코치와 6명의 선수가 2012년 전국고교농구대회에서 써내려간 8일간의 기적',200,'/img/movieposter/img26.webp','/img/movieposter/img26-1.jpg','https://www.youtube.com/watch?v=_SCwPaNSua8');
 
 
 -- 비회원 코멘트(회원 코멘트 기능 추가)
@@ -230,3 +230,6 @@ CREATE SEQUENCE seq_review_num
     nomaxvalue -- 최대값 무한대
     nocycle -- 순환 안함
     nocache; -- 캐시 안함
+
+/* 데이터 업로드용 열 추가*/
+ALTER TABLE SCOTT.REVIEW_BOARD ADD (SFILE VARCHAR2(200), OFILE VARCHAR2(200));
