@@ -29,6 +29,8 @@ public class R_EditCon extends HttpServlet {
         dto.setIdx(idx);
         dto.setTitle(req.getParameter("title"));
         dto.setContent(req.getParameter("content"));
+        dto.setOfile(req.getParameter("ofile"));
+        dto.setSfile(req.getParameter("sfile"));
 
         // DB에 수정 내용 반영
         R_DAO dao = new R_DAO();

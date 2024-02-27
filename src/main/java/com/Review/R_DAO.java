@@ -177,20 +177,17 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
 
     public int updatePost(R_DTO dto) {
         int result = 0;
+        String query = "UPDATE scott.review_board "
+                + " SET title=?, content=?, id=?, ofile=?, sfile=? "
+                + " WHERE IDX=? ";
         try {
-            String query = "UPDATE scott.review_board "
-                    + " SET title=?, content=?, id=? "
-                    + " WHERE IDX=? ";
             psmt = con.prepareStatement(query);
             psmt.setString(1, dto.getTitle());
             psmt.setString(2, dto.getContent());
             psmt.setString(3, dto.getId());
-            psmt.setString(4, dto.getIdx());
-
-            System.out.println("dto.getTitle() :::" + dto.getTitle());
-            System.out.println("dto.getContent() :::" + dto.getContent());
-            System.out.println("dto.getId() :::" + dto.getId());
-            System.out.println("dto.getIdx() :::" + dto.getIdx());
+            psmt.setString(4, dto.getOfile());
+            psmt.setString(5, dto.getSfile());
+            psmt.setString(6, dto.getIdx());
 
             // 쿼리문 실행
             result = psmt.executeUpdate();
@@ -199,7 +196,11 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
             System.out.println("게시물 수정 중 오류 발생");
             e.printStackTrace();
         }
+        System.out.println("result 값 ::: " + result);
+
         return result;
+
+
     }
 
 }
