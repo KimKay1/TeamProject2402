@@ -86,7 +86,10 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
                 dto.setImg2(rs.getString("img2"));
 
                 board.add(dto);
+            System.out.println(rs.getString("img2"));
             }
+
+
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("selectList 오류발생");
@@ -157,8 +160,6 @@ public class R_DAO extends DBConnPool { //커넥션 풀 상속
                 dto.setImg(rs.getString("img"));
                 dto.setImg2(rs.getString("img2"));
 
-                System.out.println("rs.getString(\"title\") ::: "+rs.getString("title"));
-                System.out.println("rs.getString(\"mt_title\") ::: "+rs.getString("mt_title"));
             }
 
         } catch (Exception e) {
