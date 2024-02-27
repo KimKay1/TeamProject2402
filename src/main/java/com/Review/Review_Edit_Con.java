@@ -87,10 +87,14 @@ public class Review_Edit_Con extends HttpServlet {
 
         // 원본 파일명과 저장된 파일 이름 설정
         if (oFileName != "" && oFileName != null) { // 신규로 파일 등록한 경우
+            System.out.println("파일 업데이트 if문 진입");
             String sFileName = FileUtil.renameFile(sDir, oFileName);
 
             dto.setOfile(oFileName);
             dto.setSfile(sFileName);
+
+            System.out.println("oFileName ::: " + oFileName);
+            System.out.println("sFileName ::: " + sFileName);
 
             //기존 파일 삭제
             FileUtil.deleteFile(req, "/Uploads", prevSfile);
@@ -98,8 +102,6 @@ public class Review_Edit_Con extends HttpServlet {
             dto.setOfile(prevOfile);
             dto.setSfile(prevSfile);
         }
-
-        System.out.println();
 
         // DAO를 통해 DB에 수정 내용 저장
         R_DAO dao = new R_DAO();
