@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<>
+
+<%--파일 업로드 추가하기?--%>
+
+<body>
 
 관리자 페이지 입니다
 
