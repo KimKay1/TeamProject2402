@@ -137,7 +137,7 @@ public class ViewController extends HttpServlet {
 
         req.setAttribute("dto",dto);
         req.setAttribute("wrappedText",wrappedText);
-        req.getRequestDispatcher("/movieView.jsp").forward(req,resp);
+        req.getRequestDispatcher("/temp/movieView.jsp").forward(req,resp);
     }
 
 }

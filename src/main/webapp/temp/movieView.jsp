@@ -14,22 +14,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Memico - Cinema Bootstrap HTML5 Template</title>
     <!-- Bootstrap -->
-    <link href="./template/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../template/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Animate.css -->
-    <link href="./template/animate.css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="../template/animate.css/animate.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome iconic font -->
-    <link href="./template/fontawesome/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
+    <link href="../template/fontawesome/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
     <!-- Magnific Popup -->
-    <link href="./template/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+    <link href="../template/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
     <!-- Slick carousel -->
-    <link href="./template/slick/slick.css" rel="stylesheet" type="text/css" />
+    <link href="../template/slick/slick.css" rel="stylesheet" type="text/css" />
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Oswald:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
     <!-- Theme styles -->
-    <link href="./template/css/dot-icons.css" rel="stylesheet" type="text/css">
-    <link href="./template/css/theme.css" rel="stylesheet" type="text/css">
-    <link href="template/css/header.css" rel="stylesheet" type="text/css">
+    <link href="../template/css/dot-icons.css" rel="stylesheet" type="text/css">
+    <link href="../template/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="../template/css/header.css" rel="stylesheet" type="text/css">
 <%--    <style>--%>
 <%--        .entity-content {--%>
 <%--            height:106px;--%>
@@ -37,7 +37,7 @@
 <%--    </style>--%>
 </head>
 <body>
-<jsp:include page="./temp/Header.jsp"></jsp:include>
+<jsp:include page="Header.jsp"></jsp:include>
 <section class="after-head d-flex section-text-white position-relative">
     <div class="d-background" data-image-src="" data-parallax="scroll"></div>
     <div class="d-background bg-black-80"></div>
@@ -142,7 +142,7 @@
                 </div>
 
 
-                    <jsp:include page="./temp/CommentForm.jsp"></jsp:include>
+                    <jsp:include page="CommentForm.jsp"></jsp:include>
 
                 <div class="section-line">
                     <div class="section-head">
@@ -283,7 +283,7 @@
     </div>
 </div>
 <a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
-<jsp:include page="temp/Footer.jsp"></jsp:include>
+<jsp:include page="Footer.jsp"></jsp:include>
 <%--<script src="/js/movieView.js"></script>--%>
 <script>
     let movieView = {};
