@@ -57,6 +57,8 @@ public class LoginController extends HttpServlet {
         MemberDTO memberDTO = dao.getMemberDTO(userId, userPwd);
         dao.close();
 
+        HttpSession session = request.getSession();
+
 
         // 로그인 성공 여부에 따른 처리
 
@@ -70,17 +72,16 @@ public class LoginController extends HttpServlet {
             }
 
             //로그인 세션
-            HttpSession session = request.getSession();
             session.setAttribute("UserId", memberDTO.getId());
             session.setAttribute("UserName", memberDTO.getName());
             session.setAttribute("UserPass", memberDTO.getPass());
-
             response.sendRedirect("../index.jsp");
         } else {
             //관리자일때
             if (userId.equals("admin_id") && userPwd.equals("admin_pass")) {
-                JSFunction.alertLocation(response,"관리자 페이지로 이동합니다","/temp/AdminPage.jsp");
-//                request.getRequestDispatcher("/temp/AdminPage.jsp").forward(request, response);
+                session.setAttribute("AdminId", "admin_id");
+                request.getRequestDispatcher("/temp/AdminPage.jsp").forward(request, response);
+//                JSFunction.alertLocation(response,"관리자 페이지로 이동합니다","/temp/AdminPage.jsp");
 
             } else {
                 //로그인 실패

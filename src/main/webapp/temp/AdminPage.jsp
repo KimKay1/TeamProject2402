@@ -5,9 +5,26 @@
     <title>Title</title>
 </head>
 
-<%--파일 업로드 추가하기?--%>
+<script>
+    //세션 확인해서
+    // 관리자 role 아니면 alert 띄우고 index
 
+        var uid = '<%=(String)session.getAttribute("AdminId")%>';
+
+        if(uid != null){
+            if(uid === "admin_id"){
+                location.replace("../temp/AdminPage.jsp");
+            } else {
+                alert("권한이 없습니다.")
+                location.replace("../index.jsp")
+            }
+        } else{
+            location.replace("../index.jsp");
+        }
+
+</script>
 <body>
+
 
 관리자 페이지 입니다
 
