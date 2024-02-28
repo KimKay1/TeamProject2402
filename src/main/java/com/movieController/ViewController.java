@@ -39,6 +39,47 @@ public class ViewController extends HttpServlet {
 
         String wrappedText = result.toString();
 
+        //쿠키 생성
+        String cookiecName = String.valueOf(dto.getNum());
+        String cookieStr = String.valueOf(dto.getNum());
+        CookieManager.makeCookie(resp, cookiecName, cookieStr, 60*60);
+
+        CookieManager.readCookie(req,cookiecName);
+        Cookie[] cookies = req.getCookies();
+        Map<String, String> cookieMap =new HashMap<>();
+        int cookielength = cookies.length;
+        if (cookies != null ) {
+            for (Cookie c : cookies) {
+
+                String cName = c.getName();
+                String cValue = c.getValue();
+                if(!cName.equals("JSESSIONID")){
+                    if(cookielength == 2 ) {
+                        cookieMap.put("cookie1", cookies[cookielength-1].getName());
+                    } else if (cookielength == 3 ){
+                        cookieMap.put("cookie1", cookies[cookielength-1].getName());
+                        cookieMap.put("cookie2", cookies[cookielength-2].getName());
+                    } else if (cookielength >= 4){
+                        cookieMap.put("cookie1", cookies[cookielength-1].getName());
+                        cookieMap.put("cookie2", cookies[cookielength-2].getName());
+                        cookieMap.put("cookie3", cookies[cookielength-3].getName());
+                    } else {}
+                }else {
+                    System.out.println("세션아이디임");
+                }
+            }
+        }
+
+        MovieInfoDTO viewed1 = dao.selectView(cookieMap.get("cookie1"));
+        MovieInfoDTO viewed2 = dao.selectView(cookieMap.get("cookie2"));
+        MovieInfoDTO viewed3 = dao.selectView(cookieMap.get("cookie3"));
+
+
+        req.setAttribute("viewed1", viewed1);
+        req.setAttribute("viewed2", viewed2);
+        req.setAttribute("viewed3", viewed3);
+
+
         /*코멘트 뷰 시작*/
         // 게시물 불러오기
         String title = dto.getTitle(); /*코멘트 뷰를 위한 파라미터*/

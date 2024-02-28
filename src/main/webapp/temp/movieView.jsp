@@ -241,14 +241,42 @@
                         <h2 class="section-title text-uppercase">Recently viewed movies</h2>
                     </div>
                     <div class="movie-short-line-entity">
-                        <a class="entity-preview" href="movie-info-sidebar-right.html">
+                        <a class="entity-preview" href="/movieView.do?num=${viewed1.num}">
                                     <span class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item viewedimg" src="" alt="" />
+                                        <img class="embed-responsive-item viewedimg" src="${viewed1.img}" alt="" />
                                     </span>
                         </a>
                         <div class="entity-content">
                             <h4 class="entity-title">
-                                <a class="content-link viewedtitle" href="movie-info-sidebar-right.html"></a>
+                                <a class="content-link viewedtitle" href="/movieView.do?num=${viewed1.num}">${viewed1.title}</a>
+                            </h4>
+                            <span class="entity-subtext viewedrunningtime"></span>
+                            <span class="entity-subtext viewedrunningtime"> min</span>
+                        </div>
+                    </div>
+                    <div class="movie-short-line-entity">
+                        <a class="entity-preview" href="/movieView.do?num=${viewed2.num}">
+                                    <span class="embed-responsive embed-responsive-16by9">
+                                        <img class="embed-responsive-item viewedimg" src="${viewed2.img}" alt="" />
+                                    </span>
+                        </a>
+                        <div class="entity-content">
+                            <h4 class="entity-title">
+                                <a class="content-link viewedtitle" href="/movieView.do?num=${viewed2.num}">${viewed2.title}</a>
+                            </h4>
+                            <span class="entity-subtext viewedrunningtime"></span>
+                            <span class="entity-subtext viewedrunningtime"> min</span>
+                        </div>
+                    </div>
+                    <div class="movie-short-line-entity">
+                        <a class="entity-preview" href="/movieView.do?num=${viewed3.num}">
+                                <span class="embed-responsive embed-responsive-16by9">
+                                    <img class="embed-responsive-item viewedimg" src="${viewed3.img}" alt="" />
+                                </span>
+                        </a>
+                        <div class="entity-content">
+                            <h4 class="entity-title">
+                                <a class="content-link viewedtitle" href="/movieView.do?num=${viewed3.num}">${viewed3.title}</a>
                             </h4>
                             <span class="entity-subtext viewedrunningtime"></span>
                             <span class="entity-subtext viewedrunningtime"> min</span>
@@ -285,61 +313,61 @@
 <a class="scroll-top disabled" href="#"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
 <jsp:include page="Footer.jsp"></jsp:include>
 <%--<script src="/js/movieView.js"></script>--%>
-<script>
-    let movieView = {};
+<%--<script>--%>
+<%--    let movieView = {};--%>
 
-    $(document).ready(function() {
-        movieView.init();
-    });
+<%--    $(document).ready(function() {--%>
+<%--        movieView.init();--%>
+<%--    });--%>
 
-    movieView.init = function() {
-        var contents = "";
+<%--    movieView.init = function() {--%>
+<%--        var contents = "";--%>
 
-        $.get("/viewedMovie.do?num=<%=request.getParameter("num") %>")
-            .done(function (viewed) {
-                console.log("성공");
-                console.log(viewed);
-                var jsonData = JSON.parse(viewed);
+<%--        $.get("/viewedMovie.do?num=<%=request.getParameter("num") %>")--%>
+<%--            .done(function (viewed) {--%>
+<%--                console.log("성공");--%>
+<%--                console.log(viewed);--%>
+<%--                var jsonData = JSON.parse(viewed);--%>
 
-                console.log("==============");
-                console.log(jsonData);
-                console.log("==============");
-                if(jsonData != null) {
+<%--                console.log("==============");--%>
+<%--                console.log(jsonData);--%>
+<%--                console.log("==============");--%>
+<%--                if(jsonData != null) {--%>
 
-                    // $('.viewedimg').eq(0).attr("src", jsonData.img);
-                    // $('.viewedtitle').eq(0).text(jsonData.title);
-                    // $('.viewedrunningtime').eq(0).text(jsonData.runningtime);
+<%--                    // $('.viewedimg').eq(0).attr("src", jsonData.img);--%>
+<%--                    // $('.viewedtitle').eq(0).text(jsonData.title);--%>
+<%--                    // $('.viewedrunningtime').eq(0).text(jsonData.runningtime);--%>
 
-                    jsonData.forEach(function (item, index) {
-                        contents +=
-                        `<div className="movie-short-line-entity">
-                            <a className="entity-preview" href="movie-info-sidebar-right.html">
-                                    <span className="embed-responsive embed-responsive-16by9">
-                                        <img className="embed-responsive-item viewedimg" src="${item.img}" alt=""/>
-                                    </span>
-                            </a>
-                            <div className="entity-content">
-                                <h4 className="entity-title">
-                                    <a className="content-link viewedtitle" href="movie-info-sidebar-right.html">${item.title}</a>
-                                </h4>
-                                <span className="entity-subtext viewedrunningtime">${item.runningtime}</span>
-                                <span className="entity-subtext viewedrunningtime"> min</span>
-                            </div>
-                        </div>`;
+<%--                    jsonData.forEach(function (item, index) {--%>
+<%--                        contents +=--%>
+<%--                        `<div className="movie-short-line-entity">--%>
+<%--                            <a className="entity-preview" href="movie-info-sidebar-right.html">--%>
+<%--                                    <span className="embed-responsive embed-responsive-16by9">--%>
+<%--                                        <img className="embed-responsive-item viewedimg" src="${item.img}" alt=""/>--%>
+<%--                                    </span>--%>
+<%--                            </a>--%>
+<%--                            <div className="entity-content">--%>
+<%--                                <h4 className="entity-title">--%>
+<%--                                    <a className="content-link viewedtitle" href="movie-info-sidebar-right.html">${item.title}</a>--%>
+<%--                                </h4>--%>
+<%--                                <span className="entity-subtext viewedrunningtime">${item.runningtime}</span>--%>
+<%--                                <span className="entity-subtext viewedrunningtime"> min</span>--%>
+<%--                            </div>--%>
+<%--                        </div>`;--%>
 
-                        console.log("***" + item);
-                        console.log("***" + index);
-                        $('.viewedimg').eq(index).attr("src", item.img);
-                        $('.viewedtitle').eq(index).text(item.title);
-                        $('.viewedrunningtime').eq(index).text(item.runningtime);
-                    });
+<%--                        console.log("***" + item);--%>
+<%--                        console.log("***" + index);--%>
+<%--                        $('.viewedimg').eq(index).attr("src", item.img);--%>
+<%--                        $('.viewedtitle').eq(index).text(item.title);--%>
+<%--                        $('.viewedrunningtime').eq(index).text(item.runningtime);--%>
+<%--                    });--%>
 
-                    console.log(contents);
-                }
-            }).fail(function () {
-            console.log("실패");
-        })
-    }
-</script>
+<%--                    console.log(contents);--%>
+<%--                }--%>
+<%--            }).fail(function () {--%>
+<%--            console.log("실패");--%>
+<%--        })--%>
+<%--    }--%>
+<%--</script>--%>
 </body>
 </html>
