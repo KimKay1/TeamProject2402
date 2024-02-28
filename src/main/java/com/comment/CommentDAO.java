@@ -58,8 +58,7 @@ public class CommentDAO extends DBConnPool {
 
         String query = "SELECT COUNT(*) FROM scott.comment_teampro";
         if(map.get("searchWord") != null){
-            query += " WHERE " + map.get("searchField") + " "
-                    + " LIKE '%" + map.get("searchWord") + "%'";
+            query += " WHERE " + map.get("searchField") + " = '" + map.get("searchWord") + "'";
         }
         try {
             stmt = con.createStatement();
@@ -85,8 +84,7 @@ public class CommentDAO extends DBConnPool {
                 + " SELECT * FROM scott.comment_teampro";
 
         if(map.get("searchWord") != null){
-            query += " WHERE " + map.get("searchField") + " "
-                    + " LIKE '%" + map.get("searchWord") + "%'";
+            query += " WHERE " + map.get("searchField") + " = '" + map.get("searchWord") + "'" ;
         }
 
         query += " ORDER BY postdate DESC"
