@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -58,7 +59,8 @@ public class AdminController extends HttpServlet {
                 JSFunction.alertBack(resp,"삭제 실패");
             }
         }
-
+        HttpSession session = req.getSession();
+        session.removeAttribute("AdminId");
 
     }
 
