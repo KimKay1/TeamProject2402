@@ -82,11 +82,6 @@ public class MyCommentController extends HttpServlet {
         map.put("pagingImg", pagingImg);
         map.put("pageNum", pageNum);
 
-//        /*줄바꿈 처리*/
-        if(dto2.getContent() != null) {
-            dto2.setContent(dto2.getContent().replaceAll("\r\n", "<br/>"));
-        }
-
         req.setAttribute("favorNum", favorNum);
         req.setAttribute("boardList", boardList);
         req.setAttribute("map", map);

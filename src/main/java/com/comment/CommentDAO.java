@@ -113,6 +113,11 @@ public class CommentDAO extends DBConnPool {
                 dto.setTitle(rs.getString("title"));
                 dto.setCategory(rs.getString("category"));
 
+                //        /*줄바꿈 처리*/
+                if (dto.getContent() != null) {
+                    dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
+                }
+
                 bbs.add(dto);
             }
 
@@ -162,6 +167,11 @@ public class CommentDAO extends DBConnPool {
                 dto.setPass(rs.getString("pass"));
                 dto.setTitle(rs.getString("title"));
                 dto.setCategory(rs.getString("category"));
+
+                //        /*줄바꿈 처리*/
+                if (dto.getContent() != null) {
+                    dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
+                }
 
                 bbs.add(dto);
             }
