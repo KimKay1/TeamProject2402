@@ -39,7 +39,7 @@ public class ViewController extends HttpServlet {
 
         String wrappedText = result.toString();
 
-        //쿠키 생성
+        // 최근에 본 영화 쿠키 생성
         String cookiecName = String.valueOf(dto.getNum());
         String cookieStr = String.valueOf(dto.getNum());
         CookieManager.makeCookie(resp, cookiecName, cookieStr, 60*60);
@@ -48,25 +48,51 @@ public class ViewController extends HttpServlet {
         Cookie[] cookies = req.getCookies();
         Map<String, String> cookieMap =new HashMap<>();
         int cookielength = cookies.length;
+        int i = 1;
+        String cValue_1 = null;
+        String cValue_2 = null;
+        String cValue_3 = null;
+
         if (cookies != null ) {
             for (Cookie c : cookies) {
 
                 String cName = c.getName();
                 String cValue = c.getValue();
-                if(!cName.equals("JSESSIONID")){
-                    if(cookielength == 2 ) {
-                        cookieMap.put("cookie1", cookies[cookielength-1].getName());
-                    } else if (cookielength == 3 ){
-                        cookieMap.put("cookie1", cookies[cookielength-1].getName());
-                        cookieMap.put("cookie2", cookies[cookielength-2].getName());
-                    } else if (cookielength >= 4){
-                        cookieMap.put("cookie1", cookies[cookielength-1].getName());
-                        cookieMap.put("cookie2", cookies[cookielength-2].getName());
-                        cookieMap.put("cookie3", cookies[cookielength-3].getName());
-                    } else {}
-                }else {
+
+                if (!cName.equals("JSESSIONID")) {
+                    if (i % 3 == 1) {
+                        cValue_1 = cValue;
+                        i++;
+                    } else if (i % 3 == 2) {
+                        cValue_2 = cValue;
+                        i++;
+                    } else if (i % 3 == 0) {
+                        cValue_3 = cValue;
+                        i++;
+                    }
+                } else {
                     System.out.println("세션아이디임");
                 }
+            }
+            if (i == 2) {
+                cookieMap.put("cookie1", cValue_1);
+            } else if (i == 3) {
+                cookieMap.put("cookie1", cValue_2);
+                cookieMap.put("cookie2", cValue_1);
+            } else if (i >= 4) {
+//                if (i % 3 == 1) {
+                    cookieMap.put("cookie1", cValue_3);
+                    cookieMap.put("cookie2", cValue_2);
+                    cookieMap.put("cookie3", cValue_1);
+//                } else if (i % 3 == 2) {
+//                    cookieMap.put("cookie1", cValue_1);
+//                    cookieMap.put("cookie2", cValue_3);
+//                    cookieMap.put("cookie3", cValue_2);
+//                } else {
+//                    cookieMap.put("cookie1", cValue_2);
+//                    cookieMap.put("cookie2", cValue_1);
+//                    cookieMap.put("cookie3", cValue_3);
+//                }
             }
         }
 
@@ -78,6 +104,7 @@ public class ViewController extends HttpServlet {
         req.setAttribute("viewed1", viewed1);
         req.setAttribute("viewed2", viewed2);
         req.setAttribute("viewed3", viewed3);
+        // 최근에 본 영화 쿠키 생성 끝
 
 
         /*코멘트 뷰 시작*/
