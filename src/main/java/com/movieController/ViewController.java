@@ -39,19 +39,33 @@ public class ViewController extends HttpServlet {
 
         String wrappedText = result.toString();
 
-        // 최근에 본 영화 쿠키 생성
-        String cookiecName = String.valueOf(dto.getNum());
+        // 최근에 본 영화 쿠키 생성 (로그인에서 아이디 저장을 안했을때)
+
+        Cookie[] cookies = req.getCookies();
+        int cookielength = cookies.length;
+
+        String cValue_1 = null;
+        String cValue_2 = null;
+        String cValue_3 = null;
+
+        if(cookielength > 10){
+            CookieManager.deleteCookie(resp,"1");
+            CookieManager.deleteCookie(resp,"2");
+            CookieManager.deleteCookie(resp,"3");
+            CookieManager.deleteCookie(resp,"4");
+            CookieManager.deleteCookie(resp,"5");
+            CookieManager.deleteCookie(resp,"6");
+            CookieManager.deleteCookie(resp,"7");
+        }
+        String cookiecName = String.valueOf(cookielength);
         String cookieStr = String.valueOf(dto.getNum());
         CookieManager.makeCookie(resp, cookiecName, cookieStr, 60*60);
 
         CookieManager.readCookie(req,cookiecName);
-        Cookie[] cookies = req.getCookies();
+
         Map<String, String> cookieMap =new HashMap<>();
-        int cookielength = cookies.length;
+
         int i = 1;
-        String cValue_1 = null;
-        String cValue_2 = null;
-        String cValue_3 = null;
 
         if (cookies != null ) {
             for (Cookie c : cookies) {
