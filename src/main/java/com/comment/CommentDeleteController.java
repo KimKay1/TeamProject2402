@@ -21,6 +21,11 @@ public class CommentDeleteController extends HttpServlet {
 
         dao.close();
 
+        /*줄바꿈 처리*/
+        if (dto.getContent() != null) {
+            dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
+        }
+
         req.setAttribute("num", num);
         req.setAttribute("dto", dto);
         req.getRequestDispatcher("../temp/CommentDelete.jsp").forward(req, resp);

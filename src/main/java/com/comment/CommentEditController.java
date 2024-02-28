@@ -24,6 +24,10 @@ public class CommentEditController extends HttpServlet {
         //별점 int값으로 받아오기
 //        int favorNum = Integer.parseInt(dto.getFavor()) - 1;
 
+        /*줄바꿈 처리*/
+        if (dto.getContent() != null) {
+            dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
+        }
 
 //        req.setAttribute("favorNum", favorNum);
         req.setAttribute("num", num);
