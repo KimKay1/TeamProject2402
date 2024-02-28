@@ -95,12 +95,15 @@ public class ViewController extends HttpServlet {
 //                }
             }
         }
+        if(i>=4){
+            i = 4;
+        }
 
         MovieInfoDTO viewed1 = dao.selectView(cookieMap.get("cookie1"));
         MovieInfoDTO viewed2 = dao.selectView(cookieMap.get("cookie2"));
         MovieInfoDTO viewed3 = dao.selectView(cookieMap.get("cookie3"));
 
-
+        req.setAttribute("viewedI", i);
         req.setAttribute("viewed1", viewed1);
         req.setAttribute("viewed2", viewed2);
         req.setAttribute("viewed3", viewed3);

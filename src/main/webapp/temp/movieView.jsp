@@ -240,48 +240,105 @@
                     <div class="section-head">
                         <h2 class="section-title text-uppercase">Recently viewed movies</h2>
                     </div>
-                    <div class="movie-short-line-entity">
-                        <a class="entity-preview" href="/movieView.do?num=${viewed1.num}">
-                                    <span class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item viewedimg" src="${viewed1.img}" alt="" />
-                                    </span>
-                        </a>
-                        <div class="entity-content">
-                            <h4 class="entity-title">
-                                <a class="content-link viewedtitle" href="/movieView.do?num=${viewed1.num}">${viewed1.title}</a>
-                            </h4>
-                            <span class="entity-subtext viewedrunningtime"></span>
-                            <span class="entity-subtext viewedrunningtime"> min</span>
-                        </div>
-                    </div>
-                    <div class="movie-short-line-entity">
-                        <a class="entity-preview" href="/movieView.do?num=${viewed2.num}">
-                                    <span class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item viewedimg" src="${viewed2.img}" alt="" />
-                                    </span>
-                        </a>
-                        <div class="entity-content">
-                            <h4 class="entity-title">
-                                <a class="content-link viewedtitle" href="/movieView.do?num=${viewed2.num}">${viewed2.title}</a>
-                            </h4>
-                            <span class="entity-subtext viewedrunningtime"></span>
-                            <span class="entity-subtext viewedrunningtime"> min</span>
-                        </div>
-                    </div>
-                    <div class="movie-short-line-entity">
-                        <a class="entity-preview" href="/movieView.do?num=${viewed3.num}">
-                                <span class="embed-responsive embed-responsive-16by9">
-                                    <img class="embed-responsive-item viewedimg" src="${viewed3.img}" alt="" />
-                                </span>
-                        </a>
-                        <div class="entity-content">
-                            <h4 class="entity-title">
-                                <a class="content-link viewedtitle" href="/movieView.do?num=${viewed3.num}">${viewed3.title}</a>
-                            </h4>
-                            <span class="entity-subtext viewedrunningtime"></span>
-                            <span class="entity-subtext viewedrunningtime"> min</span>
-                        </div>
-                    </div>
+                    <c:choose>
+                        <c:when test="${viewedI eq 1}">
+                            <tr>
+                                <td colspan="6" align="center">
+                                    최근에 본 영화가 없습니다.
+                                </td>
+                            </tr>
+                        </c:when>
+                        <c:when test="${viewedI eq 4}">
+                            <div class="movie-short-line-entity">
+                                <a class="entity-preview" href="/movieView.do?num=${viewed1.num}">
+                                            <span class="embed-responsive embed-responsive-16by9">
+                                                <img class="embed-responsive-item viewedimg" src="${viewed1.img}" alt="" />
+                                            </span>
+                                </a>
+                                <div class="entity-content">
+                                    <h4 class="entity-title">
+                                        <a class="content-link viewedtitle" href="/movieView.do?num=${viewed1.num}">${viewed1.title}</a>
+                                    </h4>
+                                    <span class="entity-subtext viewedrunningtime"></span>
+                                    <span class="entity-subtext viewedrunningtime"> min</span>
+                                </div>
+                            </div>
+                            <div class="movie-short-line-entity">
+                                <a class="entity-preview" href="/movieView.do?num=${viewed2.num}">
+                                            <span class="embed-responsive embed-responsive-16by9">
+                                                <img class="embed-responsive-item viewedimg" src="${viewed2.img}" alt="" />
+                                            </span>
+                                </a>
+                                <div class="entity-content">
+                                    <h4 class="entity-title">
+                                        <a class="content-link viewedtitle" href="/movieView.do?num=${viewed2.num}">${viewed2.title}</a>
+                                    </h4>
+                                    <span class="entity-subtext viewedrunningtime"></span>
+                                    <span class="entity-subtext viewedrunningtime"> min</span>
+                                </div>
+                            </div>
+                            <div class="movie-short-line-entity">
+                                <a class="entity-preview" href="/movieView.do?num=${viewed3.num}">
+                                        <span class="embed-responsive embed-responsive-16by9">
+                                            <img class="embed-responsive-item viewedimg" src="${viewed3.img}" alt="" />
+                                        </span>
+                                </a>
+                                <div class="entity-content">
+                                    <h4 class="entity-title">
+                                        <a class="content-link viewedtitle" href="/movieView.do?num=${viewed3.num}">${viewed3.title}</a>
+                                    </h4>
+                                    <span class="entity-subtext viewedrunningtime"></span>
+                                    <span class="entity-subtext viewedrunningtime"> min</span>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:when test="${viewedI eq 3}">
+                            <div class="movie-short-line-entity">
+                                <a class="entity-preview" href="/movieView.do?num=${viewed1.num}">
+                                            <span class="embed-responsive embed-responsive-16by9">
+                                                <img class="embed-responsive-item viewedimg" src="${viewed1.img}" alt="" />
+                                            </span>
+                                </a>
+                                <div class="entity-content">
+                                    <h4 class="entity-title">
+                                        <a class="content-link viewedtitle" href="/movieView.do?num=${viewed1.num}">${viewed1.title}</a>
+                                    </h4>
+                                    <span class="entity-subtext viewedrunningtime"></span>
+                                    <span class="entity-subtext viewedrunningtime"> min</span>
+                                </div>
+                            </div>
+                            <div class="movie-short-line-entity">
+                                <a class="entity-preview" href="/movieView.do?num=${viewed2.num}">
+                                            <span class="embed-responsive embed-responsive-16by9">
+                                                <img class="embed-responsive-item viewedimg" src="${viewed2.img}" alt="" />
+                                            </span>
+                                </a>
+                                <div class="entity-content">
+                                    <h4 class="entity-title">
+                                        <a class="content-link viewedtitle" href="/movieView.do?num=${viewed2.num}">${viewed2.title}</a>
+                                    </h4>
+                                    <span class="entity-subtext viewedrunningtime"></span>
+                                    <span class="entity-subtext viewedrunningtime"> min</span>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:when test="${viewedI eq 2}">
+                            <div class="movie-short-line-entity">
+                                <a class="entity-preview" href="/movieView.do?num=${viewed1.num}">
+                                            <span class="embed-responsive embed-responsive-16by9">
+                                                <img class="embed-responsive-item viewedimg" src="${viewed1.img}" alt="" />
+                                            </span>
+                                </a>
+                                <div class="entity-content">
+                                    <h4 class="entity-title">
+                                        <a class="content-link viewedtitle" href="/movieView.do?num=${viewed1.num}">${viewed1.title}</a>
+                                    </h4>
+                                    <span class="entity-subtext viewedrunningtime"></span>
+                                    <span class="entity-subtext viewedrunningtime"> min</span>
+                                </div>
+                            </div>
+                        </c:when>
+                    </c:choose>
             </section>
 <%--            <section class="section-sidebar">--%>
 <%--                <div class="section-head">--%>
