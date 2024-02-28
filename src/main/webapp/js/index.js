@@ -11,7 +11,7 @@ index.init = function (){
             console.log("성공");
             //console.log(data);
             var jsonData = JSON.parse(data);
-            console.log(jsonData)
+            // console.log(jsonData)
             jsonData.forEach(function (item,index){
                 $('.movietitle').eq(index).text(item.title);
                 $('.movietitle').eq(index).attr("href", "/movieView.do?num=" + item.num);
@@ -47,7 +47,7 @@ index.init = function (){
     $.get("/index3.do")
         .done(function (data3){
             console.log("성공");
-            console.log(data3);
+            // console.log(data3);
             var jsonData = JSON.parse(data3);
             jsonData.forEach(function (item,index){
                 $('.randomTi').eq(index).text(item.title);
