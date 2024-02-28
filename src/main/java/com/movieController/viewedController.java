@@ -22,6 +22,7 @@ public class viewedController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 최근 본 영화 리스트 출력
+        // 구현 실패 ... 입니다 ...
         MovieInfoDAO dao = new MovieInfoDAO();
         String num = req.getParameter("num");
 
@@ -52,7 +53,7 @@ public class viewedController extends HttpServlet {
             // 생성한 쿠키를 쿠키 배열에 저장
 //            viewedArray.add(cookie0);
             viewedArray.add(cookie.getValue());
-            System.out.println(cookie.getValue());
+//            System.out.println(cookie.getValue());
             index++;
         }
 

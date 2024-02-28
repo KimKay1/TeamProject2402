@@ -13,26 +13,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Memico - Cinema Bootstrap HTML5 Template</title>
     <!-- Bootstrap -->
-    <link href="./template/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="template/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Animate.css -->
-    <link href="./template/animate.css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="template/animate.css/animate.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome iconic font -->
-    <link href="./template/fontawesome/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
+    <link href="template/fontawesome/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
     <!-- Magnific Popup -->
-    <link href="./template/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+    <link href="template/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
     <!-- Slick carousel -->
-    <link href="./template/slick/slick.css" rel="stylesheet" type="text/css" />
+    <link href="template/slick/slick.css" rel="stylesheet" type="text/css" />
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Oswald:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
     <!-- Theme styles -->
-    <link href="./template/css/dot-icons.css" rel="stylesheet" type="text/css">
-    <link href="./template/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="template/css/dot-icons.css" rel="stylesheet" type="text/css">
+    <link href="template/css/theme.css" rel="stylesheet" type="text/css">
     <link href="template/css/header.css" rel="stylesheet" type="text/css">
 </head>
 <body class="body">
 <%--헤더--%>
-<jsp:include page="./temp/Header.jsp"></jsp:include>
+<jsp:include page="temp/Header.jsp"></jsp:include>
 
 <section class="section-text-white position-relative">
     <div class="d-background" data-image-src="http://via.placeholder.com/1920x1080" data-parallax="scroll"></div>
@@ -61,7 +61,7 @@
                                         </a>
                                     </div>
                                     <h4 class="entity-title">
-                                        <a class="content-link movietitle" href="movieView.jsp"></a>
+                                        <a class="content-link movietitle" href="/temp/movieView.jsp"></a>
                                     </h4>
                                     <div class="entity-category">
                                         <a class="content-link moviecategory" href="movies-blocks.html"></a>
@@ -129,7 +129,7 @@
                                         </a>
                                     </div>
                                     <h4 class="entity-title">
-                                        <a class="content-link movietitle" href="movieView.jsp"></a>
+                                        <a class="content-link movietitle" href="/temp/movieView.jsp"></a>
                                     </h4>
                                     <div class="entity-category">
                                         <a class="content-link moviecategory" href="movies-blocks.html"></a>
@@ -163,7 +163,7 @@
                                         </a>
                                     </div>
                                     <h4 class="entity-title">
-                                        <a class="content-link movietitle" href="movieView.jsp"></a>
+                                        <a class="content-link movietitle" href="/temp/movieView.jsp"></a>
                                     </h4>
                                     <div class="entity-category">
                                         <a class="content-link moviecategory" href="movies-blocks.html"></a>
@@ -209,7 +209,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link recentTi" href="movieView.jsp">Outsider</a>
+                    <a class="content-link recentTi" href="/temp/movieView.jsp">Outsider</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link recentCa" href="movies-blocks.html">crime</a>
@@ -246,7 +246,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link recentTi" href="movieView.jsp">Moonlight night</a>
+                    <a class="content-link recentTi" href="/temp/movieView.jsp">Moonlight night</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link recentCa" href="movies-blocks.html">comedy</a>
@@ -283,7 +283,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link recentTi" href="movieView.jsp">Say no</a>
+                    <a class="content-link recentTi" href="/temp/movieView.jsp">Say no</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link recentCa" href="movies-blocks.html">sport</a>
@@ -320,7 +320,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link recentTi" href="movieView.jsp">Lonely rock</a>
+                    <a class="content-link recentTi" href="/temp/movieView.jsp">Lonely rock</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link recentCa" href="movies-blocks.html">drama</a>
@@ -358,7 +358,7 @@
             </div>
             <div class="entity-content">
                 <h4 class="entity-title">
-                    <a class="content-link recentTi" href="movieView.jsp">New world</a>
+                    <a class="content-link recentTi" href="/temp/movieView.jsp">New world</a>
                 </h4>
                 <div class="entity-category">
                     <a class="content-link recentCa" href="movies-blocks.html">thriller</a>
@@ -407,7 +407,7 @@
                         </div>
                         <div class="entity-content">
                             <h4 class="entity-title">
-                                <a class="content-link randomTi" href="movieView.jsp">One way road</a>
+                                <a class="content-link randomTi" href="/temp/movieView.jsp">One way road</a>
                             </h4>
                             <div class="entity-category">
                                 <a class="content-link randomCa" href="movies-blocks.html">sport</a>
