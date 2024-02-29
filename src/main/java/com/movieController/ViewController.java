@@ -46,12 +46,10 @@ public class ViewController extends HttpServlet {
 
         if(cookies != null) {
             cookielength = cookies.length;
-            if (cookies != null ) {
-                for (Cookie c : cookies) {
-                    String cName = c.getName();
-                    if(cName.equals("loginId")){ //로그인 쿠키 처리
-                        cookielength = cookielength-1;
-                    }
+            for (Cookie c : cookies) {
+                String cName = c.getName();
+                if(cName.equals("loginId")){ //로그인 쿠키 처리
+                    cookielength = cookielength-1;
                 }
             }
         }
@@ -63,13 +61,12 @@ public class ViewController extends HttpServlet {
         String cValue_2 = null;
         String cValue_3 = null;
 
-        Map<String, String> cookieMap =new HashMap<>();
+        Map<String, String> cookieMap = new HashMap<>();
 
         int i = 1;
 
-        if (cookies != null ) {
+        if (cookies != null) {
             for (Cookie c : cookies) {
-
                 String cName = c.getName();
                 String cValue = c.getValue();
 
