@@ -42,37 +42,30 @@ public class ViewController extends HttpServlet {
         // 최근에 본 영화 쿠키 생성 시작
 
         Cookie[] cookies = req.getCookies();
-        int cookielength = cookies.length;
-        if(CookieManager.readCookie(req, "loginId") != null) {
-            cookielength = cookielength-1;
+        int cookielength = 1;
+
+        if(cookies != null) {
+            cookielength = cookies.length;
+            if (cookies != null ) {
+                for (Cookie c : cookies) {
+                    String cName = c.getName();
+                    if(cName.equals("loginId")){ //로그인 쿠키 처리
+                        cookielength = cookielength-1;
+                    }
+                }
+            }
         }
+
+        String cookiecName = String.valueOf(cookielength);
+        String cookieStr = String.valueOf(dto.getNum());
+        CookieManager.makeCookie(resp, cookiecName, cookieStr, 60*60);
 
         String cValue_1 = null;
         String cValue_2 = null;
         String cValue_3 = null;
 
-        if(cookielength > 7){
-            cValue_1 = CookieManager.readCookie(req, "7");
-            cValue_2 = CookieManager.readCookie(req, "6");
-            cValue_3 = CookieManager.readCookie(req, "5");
 
-            CookieManager.deleteCookie(resp,"1");
-            CookieManager.deleteCookie(resp,"2");
-            CookieManager.deleteCookie(resp,"3");
-            CookieManager.deleteCookie(resp,"4");
-            CookieManager.deleteCookie(resp,"5");
-            CookieManager.deleteCookie(resp,"6");
-            CookieManager.deleteCookie(resp,"7");
-
-            CookieManager.makeCookie(resp,"1", cValue_1, 60*60);
-            CookieManager.makeCookie(resp,"2", cValue_2, 60*60);
-            CookieManager.makeCookie(resp,"3", cValue_3, 60*60);
-        }
-        String cookiecName = String.valueOf(cookielength);
-        String cookieStr = String.valueOf(dto.getNum());
-        CookieManager.makeCookie(resp, cookiecName, cookieStr, 60*60);
-
-        CookieManager.readCookie(req,cookiecName);
+//        CookieManager.readCookie(req,cookiecName);
 
         Map<String, String> cookieMap =new HashMap<>();
 
@@ -122,6 +115,23 @@ public class ViewController extends HttpServlet {
         }
         if(i>=4){
             i = 4;
+        }
+        if(cookielength > 6){
+            cValue_1 = CookieManager.readCookie(req, "6");
+            cValue_2 = CookieManager.readCookie(req, "5");
+            cValue_3 = CookieManager.readCookie(req, "4");
+
+            CookieManager.deleteCookie(resp,"1");
+            CookieManager.deleteCookie(resp,"2");
+            CookieManager.deleteCookie(resp,"3");
+            CookieManager.deleteCookie(resp,"4");
+            CookieManager.deleteCookie(resp,"5");
+            CookieManager.deleteCookie(resp,"6");
+            CookieManager.deleteCookie(resp,"7");
+
+            CookieManager.makeCookie(resp,"1", cValue_1, 60*60);
+            CookieManager.makeCookie(resp,"2", cValue_2, 60*60);
+            CookieManager.makeCookie(resp,"3", cValue_3, 60*60);
         }
 
         MovieInfoDTO viewed1 = dao.selectView(cookieMap.get("cookie1"));
