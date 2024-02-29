@@ -39,7 +39,7 @@ public class ViewController extends HttpServlet {
 
         String wrappedText = result.toString();
 
-        // 최근에 본 영화 쿠키 생성
+        // 최근에 본 영화 쿠키 생성 시작
 
         Cookie[] cookies = req.getCookies();
         int cookielength = cookies.length;
