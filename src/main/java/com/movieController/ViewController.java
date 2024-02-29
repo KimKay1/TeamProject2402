@@ -39,16 +39,23 @@ public class ViewController extends HttpServlet {
 
         String wrappedText = result.toString();
 
-        // 최근에 본 영화 쿠키 생성 (로그인에서 아이디 저장을 안했을때)
+        // 최근에 본 영화 쿠키 생성
 
         Cookie[] cookies = req.getCookies();
         int cookielength = cookies.length;
+        if(CookieManager.readCookie(req, "loginId") != null) {
+            cookielength = cookielength-1;
+        }
 
         String cValue_1 = null;
         String cValue_2 = null;
         String cValue_3 = null;
 
-        if(cookielength > 10){
+        if(cookielength > 7){
+            cValue_1 = CookieManager.readCookie(req, "7");
+            cValue_2 = CookieManager.readCookie(req, "6");
+            cValue_3 = CookieManager.readCookie(req, "5");
+
             CookieManager.deleteCookie(resp,"1");
             CookieManager.deleteCookie(resp,"2");
             CookieManager.deleteCookie(resp,"3");
@@ -56,6 +63,10 @@ public class ViewController extends HttpServlet {
             CookieManager.deleteCookie(resp,"5");
             CookieManager.deleteCookie(resp,"6");
             CookieManager.deleteCookie(resp,"7");
+
+            CookieManager.makeCookie(resp,"1", cValue_1, 60*60);
+            CookieManager.makeCookie(resp,"2", cValue_2, 60*60);
+            CookieManager.makeCookie(resp,"3", cValue_3, 60*60);
         }
         String cookiecName = String.valueOf(cookielength);
         String cookieStr = String.valueOf(dto.getNum());
@@ -73,7 +84,7 @@ public class ViewController extends HttpServlet {
                 String cName = c.getName();
                 String cValue = c.getValue();
 
-                if (!cName.equals("JSESSIONID")) {
+                if (!cName.equals("JSESSIONID") && !cName.equals("loginId")) {
                     if (i % 3 == 1) {
                         cValue_1 = cValue;
                         i++;
@@ -85,7 +96,7 @@ public class ViewController extends HttpServlet {
                         i++;
                     }
                 } else {
-                    System.out.println("세션아이디임");
+                    System.out.println("세션아이디거나 로그인자동완성 쿠키임");
                 }
             }
             if (i == 2) {
@@ -94,19 +105,19 @@ public class ViewController extends HttpServlet {
                 cookieMap.put("cookie1", cValue_2);
                 cookieMap.put("cookie2", cValue_1);
             } else if (i >= 4) {
-//                if (i % 3 == 1) {
+                if (i % 3 == 1) {
                     cookieMap.put("cookie1", cValue_3);
                     cookieMap.put("cookie2", cValue_2);
                     cookieMap.put("cookie3", cValue_1);
-//                } else if (i % 3 == 2) {
-//                    cookieMap.put("cookie1", cValue_1);
-//                    cookieMap.put("cookie2", cValue_3);
-//                    cookieMap.put("cookie3", cValue_2);
-//                } else {
-//                    cookieMap.put("cookie1", cValue_2);
-//                    cookieMap.put("cookie2", cValue_1);
-//                    cookieMap.put("cookie3", cValue_3);
-//                }
+                } else if (i % 3 == 2) {
+                    cookieMap.put("cookie1", cValue_1);
+                    cookieMap.put("cookie2", cValue_3);
+                    cookieMap.put("cookie3", cValue_2);
+                } else {
+                    cookieMap.put("cookie1", cValue_2);
+                    cookieMap.put("cookie2", cValue_1);
+                    cookieMap.put("cookie3", cValue_3);
+                }
             }
         }
         if(i>=4){
