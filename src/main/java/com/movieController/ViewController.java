@@ -59,13 +59,9 @@ public class ViewController extends HttpServlet {
         String cookiecName = String.valueOf(cookielength);
         String cookieStr = String.valueOf(dto.getNum());
         CookieManager.makeCookie(resp, cookiecName, cookieStr, 60*60);
-
         String cValue_1 = null;
         String cValue_2 = null;
         String cValue_3 = null;
-
-
-//        CookieManager.readCookie(req,cookiecName);
 
         Map<String, String> cookieMap =new HashMap<>();
 
