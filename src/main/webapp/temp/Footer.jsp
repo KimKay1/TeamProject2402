@@ -118,6 +118,7 @@
     </div>
     <div class="footer-copy">
         <div class="container">Copyright 2019 &copy; AmigosThemes. All rights reserved.</div>
+        <div class="container">[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)</div>
     </div>
 </footer>
 <!-- jQuery library -->
